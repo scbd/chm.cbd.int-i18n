@@ -1,0 +1,88 @@
+﻿<div class="viewForm">
+	<h2>{{document.title | lstring:locale}} <i ng-show="document.acronym">({{document.acronym | lstring:locale}})</i></h2>
+
+	<div ng-show="document.government">
+		<label>Pays</label>
+		<div class="km-value">
+			{{document.government | term:locale}}
+		</div>
+	</div>
+
+	<div ng-show="document.description">
+		<label>Fondement de cet objectif national</label>
+		<div class="km-value km-pre" ng-bind="document.description | lstring:locale"></div>
+	</div>
+
+
+	<div ng-show="document.jurisdiction||document.jurisdictionInfo">
+
+		<legend>Niveau d&rsquo;application</legend>
+
+		<div ng-show="document.jurisdiction">
+			<div class="km-value">
+				{{document.jurisdiction | term:locale}}
+			</div>
+		</div>
+
+		<div ng-show="document.jurisdictionInfo">
+			<label>D&eacute;tails sur le niveau d'application</label>
+			<div class="km-value km-pre" ng-bind="document.jurisdictionInfo | lstring:locale"></div>
+		</div>
+	</div>
+
+
+	<div ng-show="document.aichiTargets || document.otherAichiTargets">
+
+		<legend>Pertinence des objectifs nationaux pour les Objectifs d&rsquo;Aichi pour la biodiversit&eacute;</legend>
+
+		<div ng-show="document.aichiTargets">
+			<label>Objectifs d'Aichi pour la biodiversit&eacute;</label>
+			<div class="km-value" ng-repeat="item in document.aichiTargets">{{item | term:locale}}</div>
+		</div>
+
+		<div ng-show="document.otherAichiTargets">
+			<label>Sub-Aichi Targets</label>
+			<div class="km-value" ng-repeat="item in document.otherAichiTargets">{{item | term:locale}}</div>
+		</div>
+		<div ng-show="document.noOtherAichiTargetsDescription">
+			<label>Explication sur l&rsquo;objectif national n&rsquo;a pas d&rsquo;Objectif d&rsquo;Aichi pour la biodiversit&eacute; correspondant ou a trait &agrave; d&rsquo;autres parties du Plan strat&eacute;gique pour la diversit&eacute; biologique</label>
+			<div class="km-value km-pre" ng-bind="document.noOtherAichiTargetsDescription | lstring:locale"></div>
+		</div>
+		
+	</div>
+
+	<div ng-show="document.documentText||document.documentLinks">
+
+		<legend>Fichiers et informations pertinentes</legend>
+
+		<div ng-show="document.documentText">
+			<label>Tout autres renseignements pertinents</label>
+			<div class="km-value km-pre">{{document.documentText|lstring:locale}}</div>
+		</div>
+
+		<div ng-show="document.documentLinks">
+			<label>Sites Internet, liens Internet et fichiers pertinents</label>
+			<div class="km-value" ng-repeat="item in document.documentLinks">
+				<a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a>
+			</div>
+		</div>
+	</div>
+
+
+	<div ng-show="document.relevantInformation||document.relevantDocuments">
+
+		<legend>Additional Information</legend>
+
+		<div ng-show="document.relevantInformation">
+			<div class="km-value" ng-bind-html="document.relevantInformation | lstring:locale | markdown"></div>
+		</div>
+
+		<div ng-show="document.relevantDocuments">
+			<label>Autres sites Internet ou fichiers pertinents</label>
+			<div class="km-value" ng-repeat="item in document.relevantDocuments">
+				<a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a>
+			</div>
+		</div>
+
+	</div>
+</div>
