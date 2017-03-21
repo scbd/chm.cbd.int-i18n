@@ -1,0 +1,32 @@
+﻿<div>
+
+	<div ng-hide="report" class="alert alert-info">
+		<i class="fa fa-cog fa-spin"></i> 正在分析您的文档...
+	</div>
+
+	<div ng-show="report">
+		<div ng-show="isValid()" class="alert alert-success">
+			<h2>Your document is valid and can now be published</h2>
+			<h4 class="color-darkgrey"> Please review your document before publishing.All published document are made publicly available.</h4>
+		</div>
+
+
+		<div ng-show="hasErrors()" class="alert alert-warning">
+			<h2 class="color-red">您的文档包含错误。</h2>
+			<h4 class="color-darkgrey"> All errors must be corrected before this document can be published.</h4>
+			<ul>
+				<li ng-repeat="error in report.errors" title="{{error.parameters}}">
+					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>
+				</li>
+			</ul>
+		</div>
+
+		<div ng-show="hasWarnings()" class="alert alert-info">
+			<h2 class="color-red">Your document contains warnings.</h2>
+			<ul>
+				<li ng-repeat="error in report.warnings" title="{{error.parameters}}">
+					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>
+				</li>
+			</ul>
+		</div>
+</div>

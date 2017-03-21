@@ -1,0 +1,93 @@
+﻿<div style="margin-bottom:20px">
+	<div>
+			<button type="button" class="btn btn-default" ng-click="addLink()" ng-show="isAllowLink()"><i class="fa fa-globe"></i> 添加链接</button>
+		<button type="button" class="btn btn-default" ng-click="addFile()" ng-show="isAllowFile()" ng-disabled="!identifier"><i class="fa fa-file-o"></i> 添加文件</button>
+
+		<ul class="list-group" ng-if="links||links.length">
+			<li class="list-group-item" ng-repeat="link in links">
+				<table style="width:100%">
+					<tr>
+						<td>
+							<a translation-url target="_blank" ng-href="{{link.url}}">{{link.name||link.url}}</a> <span ng-show="link.tag">({{link.tag}})</span>
+						</td>
+						<td style="white-space:nowrap;text-align:right;vertical-align:top">
+							<button type="button" class="btn btn-default" ng-click="remove(link)"><i class="fa fa-trash-o"></i></button>
+						</td>
+					</tr>
+				</table>
+			</li>
+		</ul>
+
+	</div>
+
+    <!--Link Editor-->
+	<div id="editLink" class="modal fade" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>正在编辑链接</h3>
+				</div>
+				<div class="modal-body"  style="max-height:400px;overflow-y:auto">
+					<div class="alert alert-info">请提供网站网址（如：<a translation-url target="_blank" href="http://www.cbd.int">http://bch.cbd.int</a>）和网站名称（如&ldquo;生物安全信息交换所&rdquo;）。</div>
+					<form name="linkForm">
+						<fieldset>
+							<div class="alert alert-warning" ng-show="linkForm.$error.url">
+								<strong>警告！</strong>Specified value is not a valid URL.
+								<ul><li> make sure the URL starts with http:// or https://</li></ul>
+							</div>
+							<div class="control-group" ng-class="{error: linkForm.editor.url.$invalid}">
+								<label class="control-label" ng-required="editor.visible" for="url">网址</label>
+								<input class="form-control" type="url" style="width:98%" ng-model="editor.url" ng-required="editor.visible" placeholder="example: http://www.cbd.int">
+							</div>
+
+							<div class="control-group" ng-class="{error: linkForm.name.$invalid}">
+								<label>名称</label>
+								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="example: SCBD website">
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" ng-click="editor.close()">取消</button>
+					<button type="button" class="btn btn-primary" ng-click="linkForm.$invalid || editor.save()" ng-disabled="linkForm.$invalid" >保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <!--File Upload Editor-->
+	<div id="editFile" class="modal fade" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>正在上传文件</h3>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-danger" ng-show="editor.error!=null">
+						<h4>An error has occurred</h4>
+						{{editor.error}}
+					</div>
+					<div ng-show="editor.progress">
+						<label>Uploading {{editor.name}} ({{editor.progress.size/1024 | number:1}} kB)</label>
+						<div class="progress progress-striped {{editor.progress.style}}">
+							<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"  style="width:{{editor.progress.percent}}%;"></div>
+						</div>
+					</div>
+					<div id="uploadPlaceholder" style="display:none"></div>
+					<div class="control-group" >
+						<label>File name</label>
+						<input class="form-control" type="text" style="width:98%" ng-model="editor.name" ng-disabled="true">
+					</div><br/>
+					<div class="control-group" >
+						<label>Tags</label>
+						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="example: Biodiversity, Aichi target">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" ng-click="editor.close()">取消</button>
+					<button type="button" class="btn btn-primary" ng-click="editor.save()" ng-disabled="editor.progress">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

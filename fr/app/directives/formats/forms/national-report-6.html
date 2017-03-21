@@ -346,7 +346,7 @@
 						</div>
 						<div class="panel panel-default progressAssessment" ng-repeat="progressAssessment in document.progressAssessments">
 							<div class="panel-header clearfix">
-								<h3>
+								<h3>Progress assessment for <span ng-if="progressAssessment.nationalTarget">national target {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span> <span ng-if="progressAssessment.aichiTarget">AICHI Biodiversity Target {{progressAssessment.aichiTarget|term:locale}}</span>
 							<div class="pull-right" style="padding-right:10px">
 								<a translation-url ng-href="#" data-toggle="collapse"  class="collapse-icon" data-target="#progressAssessment{{$index}}"></a>
 							</div>
@@ -362,7 +362,7 @@
 													<strong>Derni&egrave;re &eacute;valuation</strong>
 													<div>
 														<h3>{{getAssessmentInfo(progressAssessment.assessment, 'title_EN_t')}}</h3></div>
-													<div></div>
+													<div>{{getAssessmentInfo(progressAssessment.assessment, 'description_s')}}</div>
 												</div>
 												<span class="label label-warning pull-right bg-draft" ng-if="getAssessmentInfo(progressAssessment.assessment, '_state_s')=='draft'">Brouillon</span> <span class="label label-warning pull-right bg-request" ng-if="getAssessmentInfo(progressAssessment.assessment, '_state_s')=='workflow'">En attente d'approbation</span>
 											</div>
@@ -980,7 +980,7 @@
 						<div class="col-md-12" ng-if="getResourceMobilisationDetails('title_t')">
 							<label for="">Votre pays a soumis le Cadre d'information financièr</label><br/>
 							<div style="background-color:#eee; padding:5px;">
-								<a translation-url target="_new" ng-href="{{getResourceMobilisationDetails('url_ss')}}"></a>
+								<a translation-url target="_new" ng-href="{{getResourceMobilisationDetails('url_ss')}}">{{getResourceMobilisationDetails('url_ss')}} <span class="color-black" style="font-weight:normal;">{{getResourceMobilisationDetails('title_t')}}</span></a>
 							</div>
 						</div>
 						<div class="col-md-12">
