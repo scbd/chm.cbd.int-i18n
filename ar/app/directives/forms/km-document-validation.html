@@ -1,0 +1,32 @@
+﻿<div>
+
+	<div ng-hide="report" class="alert alert-info">
+		<i class="fa fa-cog fa-spin"></i> تحليل المستند...
+	</div>
+
+	<div ng-show="report">
+		<div ng-show="isValid()" class="alert alert-success">
+			<h2>المستند صالح ويمكن الآن نشره</h2>
+			<h4 class="color-darkgrey"> يرجى مراجعة المستند الخاص بكم قبل النشر. كل مستند تمّ نشره سيكون متوفراً للجميع</h4>
+		</div>
+
+
+		<div ng-show="hasErrors()" class="alert alert-warning">
+			<h2 class="color-red">مستندكم يحتوي على أخطاء</h2>
+			<h4 class="color-darkgrey"> يجب تصحيح جميع الأخطاء قبل أن يتم نشر هذا المستند.</h4>
+			<ul>
+				<li ng-repeat="error in report.errors" title="{{error.parameters}}">
+					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>
+				</li>
+			</ul>
+		</div>
+
+		<div ng-show="hasWarnings()" class="alert alert-info">
+			<h2 class="color-red">مستندكم يحتوي على أخطاء</h2>
+			<ul>
+				<li ng-repeat="error in report.warnings" title="{{error.parameters}}">
+					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>
+				</li>
+			</ul>
+		</div>
+</div>

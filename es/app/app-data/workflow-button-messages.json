@@ -1,0 +1,6 @@
+﻿{
+    "title":"¿Cerrar el formulario?",
+    "content":"Haga clic en  \"CANCELAR\" para permanecer en este registro o\"CERRAR\"para cerrar el formulario Los cambios se perderán si no se guardan previamente",
+    "ok" : "CERRAR REGISTRO",
+    "cancel" : "cancelar"    
+}

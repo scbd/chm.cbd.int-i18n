@@ -1,7 +1,7 @@
 ﻿<div style="margin-bottom:20px">
 	<div>
-			<button type="button" class="btn btn-default" ng-click="addLink()" ng-show="isAllowLink()"><i class="fa fa-globe"></i> Add link</button>
-		<button type="button" class="btn btn-default" ng-click="addFile()" ng-show="isAllowFile()" ng-disabled="!identifier"><i class="fa fa-file-o"></i> Add file</button>
+			<button type="button" class="btn btn-default" ng-click="addLink()" ng-show="isAllowLink()"><i class="fa fa-globe"></i> Добавить ссылку</button>
+		<button type="button" class="btn btn-default" ng-click="addFile()" ng-show="isAllowFile()" ng-disabled="!identifier"><i class="fa fa-file-o"></i> Добавить файл</button>
 
 		<ul class="list-group" ng-if="links||links.length">
 			<li class="list-group-item" ng-repeat="link in links">
@@ -25,15 +25,15 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3>Editing link</h3>
+					<h3>Редактирование</h3>
 				</div>
 				<div class="modal-body"  style="max-height:400px;overflow-y:auto">
-					<div class="alert alert-info">Please provide the URL of the website (e.g. <a translation-url target="_blank" href="http://www.cbd.int">http://www.cbd.int</a>) and the name of the website (e.g. &quot;The Convention on Biological Diversity&quot;).</div>
+					<div class="alert alert-info">Укажите URL-адрес веб-сайта (например<a translation-url target="_blank" href="http://www.cbd.int">http://www.cbd.int</a>) и название веб-сайта (например, «Конвенция о биологическом разнообразии»).</div>
 					<form name="linkForm">
 						<fieldset>
 							<div class="alert alert-warning" ng-show="linkForm.$error.url">
-								<strong>Warning!</strong> Specified value is not a valid URL.
-								<ul><li> make sure the URL starts with http:// or https://</li></ul>
+								<strong>Внимание!</strong> Указанное значение не является допустимым URL
+								<ul><li> Убедитесь, что URL начинается с http: // или https: //</li></ul>
 							</div>
 							<div class="control-group" ng-class="{error: linkForm.editor.url.$invalid}">
 								<label class="control-label" ng-required="editor.visible" for="url">URL-адрес</label>
@@ -42,7 +42,7 @@
 
 							<div class="control-group" ng-class="{error: linkForm.name.$invalid}">
 								<label>Название</label>
-								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="Пример: SCBD website">
+								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="Пример: Веб-сайт Секретариата Конвенции о биологическом разнообразии">
 							</div>
 						</fieldset>
 					</form>
@@ -64,7 +64,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="alert alert-danger" ng-show="editor.error!=null">
-						<h4>An error has occurred</h4>
+						<h4>произошла ошибка</h4>
 						{{editor.error}}
 					</div>
 					<div ng-show="editor.progress">
@@ -75,12 +75,12 @@
 					</div>
 					<div id="uploadPlaceholder" style="display:none"></div>
 					<div class="control-group" >
-						<label>File name</label>
+						<label>Имя файла</label>
 						<input class="form-control" type="text" style="width:98%" ng-model="editor.name" ng-disabled="true">
 					</div><br/>
 					<div class="control-group" >
-						<label>Tags</label>
-						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="Пример: Biodiversity, Aichi target">
+						<label>Теги</label>
+						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="Пример: биологическое разнообразие, целевая задача по сохранению и устойчивому использованию биоразнообразия, принятая в Айти">
 					</div>
 				</div>
 				<div class="modal-footer">

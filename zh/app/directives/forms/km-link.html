@@ -32,17 +32,17 @@
 					<form name="linkForm">
 						<fieldset>
 							<div class="alert alert-warning" ng-show="linkForm.$error.url">
-								<strong>警告！</strong>Specified value is not a valid URL.
-								<ul><li> make sure the URL starts with http:// or https://</li></ul>
+								<strong>警告！</strong>指定的值并非有效的网址
+								<ul><li> 确保网址要以 http:// 或者https:// 开始</li></ul>
 							</div>
 							<div class="control-group" ng-class="{error: linkForm.editor.url.$invalid}">
 								<label class="control-label" ng-required="editor.visible" for="url">网址</label>
-								<input class="form-control" type="url" style="width:98%" ng-model="editor.url" ng-required="editor.visible" placeholder="example: http://www.cbd.int">
+								<input class="form-control" type="url" style="width:98%" ng-model="editor.url" ng-required="editor.visible" placeholder="例如：http://www.cbd.int">
 							</div>
 
 							<div class="control-group" ng-class="{error: linkForm.name.$invalid}">
 								<label>名称</label>
-								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="example: SCBD website">
+								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="例如： 公约秘书处网址">
 							</div>
 						</fieldset>
 					</form>
@@ -64,23 +64,23 @@
 				</div>
 				<div class="modal-body">
 					<div class="alert alert-danger" ng-show="editor.error!=null">
-						<h4>An error has occurred</h4>
+						<h4>出现了一个错误</h4>
 						{{editor.error}}
 					</div>
 					<div ng-show="editor.progress">
-						<label>Uploading {{editor.name}} ({{editor.progress.size/1024 | number:1}} kB)</label>
+						<label>{{editor.name}} ({{editor.progress.size/1024 | number:1}} kB)</label>
 						<div class="progress progress-striped {{editor.progress.style}}">
 							<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"  style="width:{{editor.progress.percent}}%;"></div>
 						</div>
 					</div>
 					<div id="uploadPlaceholder" style="display:none"></div>
 					<div class="control-group" >
-						<label>File name</label>
+						<label>文件名</label>
 						<input class="form-control" type="text" style="width:98%" ng-model="editor.name" ng-disabled="true">
 					</div><br/>
 					<div class="control-group" >
-						<label>Tags</label>
-						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="example: Biodiversity, Aichi target">
+						<label>标记</label>
+						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="例如： 生物多样性，爱知目标">
 					</div>
 				</div>
 				<div class="modal-footer">

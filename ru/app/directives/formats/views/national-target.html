@@ -25,7 +25,7 @@
 		</div>
 
 		<div ng-show="document.jurisdictionInfo">
-			<label>Details on the level of application</label>
+			<label>Сведения об уровне заявления</label>
 			<div class="km-value km-pre" ng-bind="document.jurisdictionInfo | lstring:locale"></div>
 		</div>
 	</div>
@@ -41,11 +41,11 @@
 		</div>
 
 		<div ng-show="document.otherAichiTargets">
-			<label>Sub-Aichi Targets</label>
+			<label>Подцели по сохранению и устойчивому использованию биоразнообразия, принятые в Айти</label>
 			<div class="km-value" ng-repeat="item in document.otherAichiTargets">{{item | term:locale}}</div>
 		</div>
 		<div ng-show="document.noOtherAichiTargetsDescription">
-			<label>Explanation on national target has no corresponding Aichi Biodiversity Target or relates to other parts of the Strategic Plan for Biodiversity</label>
+			<label>Объяснение целевой задачи не связано с соответствующей целевой задачей по сохранению и устойчивому использованию биоразнообразия, принятой в Айти, и не относится к другим частям Стратегического плана в области биоразнообразия</label>
 			<div class="km-value km-pre" ng-bind="document.noOtherAichiTargetsDescription | lstring:locale"></div>
 		</div>
 		

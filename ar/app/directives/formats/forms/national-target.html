@@ -1,0 +1,273 @@
+﻿<div >
+	<style>
+		.panel-header,
+		.section .section-header {
+			border-bottom: 1px solid #ddd;
+			padding-left: 10px;
+		}
+		
+		.help-block {
+			text-align: justify;
+		}
+		
+		.panelMain .panel-body {
+			padding: 0px
+		}
+		
+		.mainHeading,
+		.section .section-body,
+		.panel-body {
+			padding: 15px!important;
+		}
+	</style>
+	<div class="panel panel-default bg-litegrey">
+		<div class="panel-header bg-darkgrey">
+			<h2 style="margin-top:0px;color:#fff">الإبلاغ إلكترونيا الهدف الوطني<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
+		</div>
+		<div class="panel-body">
+			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey nationalTargetForm">		
+			<div >
+				<div class="alert alert-danger" ng-show="hasError()">
+					<strong>حدث خطأ...</strong>
+					<div>{{error}}</div>
+				</div>
+
+				<div class="row" style="padding:15px;" ng-show="status=='loading'">التحميل</div>
+
+				<div ng-hide="status=='hidden'||status=='loading'">
+
+					<div class="row">
+						<div class="col-xs-6">
+							<span km-form-languages ng-model="document.header.languages"></span>
+						</div>
+						<div class="col-xs-6 text-right">
+							<span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" 
+							on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)" on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"  data-container="{{container}}"></span>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<ul class="pagination">
+								<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
+								<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">عام</a></li>
+								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">مراجعة:</a></li>
+								<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<form name="editForm">
+
+						<div km-tab="general">
+							<div class="panel panel-default panelMain">
+								<div class="panel-header">
+									<h3>معلومات عامة</h3>
+								</div>
+								<div class="panel-body">
+									<div class="row bottom-spacing">
+										<div class="col-md-12">
+											<div class="km-control-group" required name="government" caption="الدولة">
+												<div km-select ng-disabled="!!defaultGovernment()" required name="government" ng-model="document.government" placeholder="يرجى اختيار البلد..." watch-items items="options.countries"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default panelMain">
+								<div class="panel-header">
+									<h3>معلومات عن الأهداف الجاري السعي وراء تحقيقها على المستوى الوطني</h3>
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="km-control-group" required name="isAichiTarget" caption="انواع الهدف">
+
+												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/>
+															<span ng-class="{'color-litegrey': document.isAichiTarget}"> إنشاء هدف وطني جديد</span></h4>
+
+												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/>
+															<span ng-class="{'color-litegrey': !document.isAichiTarget}">استخدام <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >الهدف أيشي للتنوع البيولوجي</a> يكون الهدف الوطني الخاص بك</span></h4>
+
+											</div>
+										</div>
+									</div>
+									<div ng-show="document.isAichiTarget">
+										<legend>أهداف أيشي للتنوع البيولوجي</legend>
+
+										<div class="row bottom-spacing">
+											<div class="col-md-12">
+												<div class="km-control-group" required name="aichiTargets" caption="أهداف أيشي للتنوع البيولوجي">
+													<div km-select required name="aichiTargets" ng-model="selectedAichi.target" placeholder="الرجاء اختيار هدف أيشي للتنوع البيولوجي" watch-items items="options.aichiTargetsFiltered"></div>
+												</div>
+											</div>
+
+											<div class="col-md-12">
+												<div class="km-control-group" name="otherAichiTargets" caption="هدف أيشي الفرعي للتنوع البيولوجي">
+													<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="الرجاء اختيار هداف أيشي الفرعي للتنوع البيولوجي" watch-items items="options.aichiSubTargets"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div ng-show="!document.isAichiTarget">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="km-control-group" required name="title" caption="الهدف الوطني" data-container=".nationalTargetForm" data-content="
+														الرجاء إدخال صيغة للهدف الوطني لبلدك بإحدى اللغات الرسمية الست للأمم المتحدة. ويرجى إدراج الصيغة الكاملة للهدف الوطني، بما في ذلك رقمه إن وجد: وفي هذا الحقل، والحقول الباقية في هذا القسم، ينبغي أن تُملأ لكل هدف من الأهداف الوطنية لبلدك">
+													<div km-textbox-ml required name="title" ng-model="document.title" locales="document.header.languages"></div>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-12">
+												<div class="km-control-group" required name="description" caption="عرض أسباب ألهدف الوطني" data-container=".nationalTargetForm" data-content="المبرر المنطقي للهدف الوطني يمكن أن يشمل هذا على التحديات الوطنية والسعي إلى معالجتها، وكيفية ارتباط الهدف بأهداف أيشي للتنوع البيولوجي أو الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 أو أسباب الاختلافات بين هدف (أهداف) التنوع البيولوجي ذات الصلة بأهداف أيشي والهدف الوطني. وقد ترغب الأطراف أيضا إلى الإشارة إلى ما إذا كان هذا الهدف يرتبط أو يتصل بعمليات دولية أو إقليمية أخرى، مثل الاتفاقيات المتصلة بالتنوع البيولوجي، أو اتفاقيات ريو، أو الاتفاقات البيئية المتعددة الأطراف الأخرى. وقد ترغب الأطراف أيضا في التعليق على أية آليات امتثال وطنية مرتبطة بالهدف. وتهدف المعلومات التي تم إدخالها هنا إلى تقديم إطار وطني لهذا الهدف. وقد تحتوي استراتيجية التنوع البيولوجي وخطط العمل الوطنية الخاصة ببلدك على جزء من هذه المعلومات">
+													<div km-textbox-ml required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
+												</div>
+											</div>
+										</div>
+
+										<div class="row bottom-spacing">
+											<div class="col-md-11 ">
+												<div class="help-block"></div>
+												<div class="km-control-group" required name="jurisdiction" caption="مستوى التطبيق" data-container=".nationalTargetForm" data-content="يرجى الإشارة إلى المستوى الإداري الذي ينطبق على هدف بلدك. وفي معظم الحالات، ستحدد البلدان أهدافا على المستوى الوطني ومع ذلك، في بعض البلدان، قد تكون الأهداف دون وطنية (مثل الولاية، أو الإقليم، أو المدينة) وبالإضافة إلى ذلك، قد اعتمدت بعض البلدان أهدافا على المستوى الإقليمي (مثل بلدان متعددة) وأهدافها الوطنية. وينبغي للأطراف التي هي أيضا عضو في منظمة للتكامل الإقليمي والتي هي أيضا طرفا في الاتفاقية ألا تقدم تقريرا عن الأهداف الإقليمية المتفق عليها في هذا السياق ما لم تكن الأهداف الوطنية المتفق عليها هي نفسها.">
+													<div km-select name="jurisdiction" ng-model="document.jurisdiction" placeholder="اختر مستوى التطبيق" watch-items items="options.jurisdictions"></div>
+												</div>
+											</div>
+											<div class="col-md-12" ng-show="isJurisdictionSubNational()">
+												<div class="help-block"></div>
+												<div class="km-control-group" required name="jurisdictionInfo" caption="يرجى الإشارة الى المنطقة المعنية بالمستوى المختار من تنفيذ">
+													<div km-textbox-ml name="jurisdictionInfo" ng-model="document.jurisdictionInfo" locales="document.header.languages" placeholder=""></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default panelMain">
+								<div class="panel-header" name="">
+									<label for="relevantNationalTarget" style="width:0px;height:0px;display:inline">
+										<span style="display:none">يرجى الإجابة على سؤال واحد على الأقل في القسم حول أهمية الأهداف الوطنية بالنسبة لأهداف أيشي للتنوع البيولوجي</span>
+									</label>
+									<h3>صلة الأهداف الوطنية بأهداف أيشي</h3>
+								</div>
+								<div class="panel-body">
+
+									<div class="row bottom-spacing">
+										<div class="col-md-12">
+
+											<div class="help-block">الروابط بين الأهداف الوطنية وأهداف أيشي للتنوع البيولوجي (ملاحظة: ليست هناك حاجة لإدخال هذه المعلومات إذا كان بلدك عالج تقارير أهداف أيشي للتنوع البيولوجي).</div>
+
+											<div class="km-control-group" name="aichiTargets" caption="أهداف أيشي للتنوع البيولوجي الرئيسية ذات الصلة (يرجى اختيار هدف واحد أو أكثر من أهداف أيشي للتنوع البيولوجي يتعلق به الهدف الوطني كليا أو جزئيا. ويمكن أن تختار الأطراف هدفا كاملا أو أحد مكونات الهدف" data-container=".nationalTargetForm" data-content="حسب الاقتضاء، يرجى الإشارة إلى هدف (أهداف) أيشي للتنوع البيولوجي التي يرتبط بها الهدف الوطني في بلدك بشكل مباشر. وبالنظر إلى صياغة الهدف الوطني في بلدكم، فأنها قد تكون ذات صلة مباشرة بأهداف أيشي للتنوع البيولوجي المتعددة أو بأجزاء منها. وقد يكون بعض الأطراف قد اضطلع بهذا النوع من التحديد في التقارير الوطنية الخامسة و/أو في استراتيجياتها وخطط عملها الوطنية للتنوع البيولوجي.">
+												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="الرجاء اختيار أهداف أيشي للتنوع البيولوجي" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()" list="false"></div>
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											<div class="km-control-group" name="otherAichiTargets" caption="أهداف أيشي للتنوع البيولوجي الأخرى ذات الصلة (يرجى اختيار هدف واحد أو أكثر من أهداف أيشي للتنوع البيولوجي يتعلق به الهدف الوطني بشكل غير مباشر)." data-container=".nationalTargetForm" data-content="
+													حسب الاقتضاء، يرجى الإشارة إلى هدف (أهداف) أيشي للتنوع البيولوجي التي يرتبط بها الهدف الوطني في بلدك بشكل غير مباشر أو جزئي. ونظرا لاتساع نطاق أهداف أيشي للتنوع البيولوجي والقضايا التي تعالجها، قد يرتبط الهدف الوطني في بلدك بصورة غير مباشرة بهدف او اكثر من أهداف أيشي للتنوع البيولوجي. وقد يكون بعض الأطراف قد اضطلع بهذا النوع من التحديد في التقارير الوطنية الخامسة و/أو في استراتيجياتها وخطط عملها الوطنية للتنوع البيولوجي.">
+												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="الرجاء اختيار أهداف أيشي للتنوع البيولوجي" watch-items items="options.aichiTargets"></div>
+											</div>
+										</div>							
+										
+										<div class="col-md-12" ng-hide="document.aichiTargets && document.aichiTargets.length>0 || document.otherAichiTargets && document.otherAichiTargets.length>0">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox"  ng-model="document.noOtherAichiTargets"/> لا يتضمن تفسير الهدف الوطني أي هدف من أهداف أيشي للتنوع البيولوجي أو يتصل بأجزاء أخرى من الخطة الاستراتيجية للتنوع البيولوجي <span info-bar data-container=".nationalTargetForm" data-content="إذا لم يرتبط الهدف الوطني بهدف من أهداف أيشي للتنوع البيولوجي، وتقديم المعلومات التي تشير إلى كيفية ارتباط الهدف بالخطة الاستراتيجية للتنوع البيولوجي 2011-2020 أو بقضايا أخرى تم معالجتها في إطار اتفاقية التنوع البيولوجي. على سبيل المثال، قد يكون الهدف الوطني ذا صلة برؤية أو مهمة الخطة الاستراتيجية للتنوع البيولوجي أو بهدف واحد من أهدافها الاستراتيجية. وبدلا من ذلك، قد يكون الهدف الوطني ذي صلة بأهداف الاتفاقية أو بأحد برامج عملها."></span>
+												</label>
+											</div>
+											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="يرجى التوضيح">
+											
+												<div km-textbox-ml name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default panelMain">
+								<div class="panel-header">
+									<h3>الوثائق والمعلومات ذات الصلة</h3>
+								</div>
+								<div class="panel-body">
+									<div class="help-block">إذا كان ذلك ممكنا، يرجى إرفاق الوثائق ذات الصلة حيث يتم تضمين هذا الهدف ويمكن العثور عليه.</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="km-control-group" name="relevantInformation" caption="المعلومات الأخرى ذات الصلة (يرجى استخدام هذا الحقل لتقديم أي معلومات أخرى ذات صلة، مثل عملية وضع واعتماد الأهداف الوطنية، وأصحاب المصلحة المشاركين في العملية، أو الاستراتيجيات والخطط التي أدرج فيها هذا الهدف الوطني)." data-container=".nationalTargetForm" data-content="يرجى تقديم أي معلومات أخرى ذات صلة بالهدف الوطني الذي لم يتم تغطيته في الحقول من النموذج.">
+												<div km-textbox-ml name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="km-control-group" name="relevantDocuments" caption="المواقع الشبكية ووصلات الويب والملفات ذات الصلة (يرجى استخدام هذا الحقل للإشارة إلى المواقع الشبكية أو وصلات الويب أو الوثائق ذات الصلة التي يمكن الحصول فيها على معلومات إضافية تتعلق بهذا الهدف الوطني)." data-container=".nationalTargetForm" data-content="حسب الاقتضاء، يرجى إدراج أي وثائق أو وصلات (بأي لغة) لمعلومات إضافية عن الهدف الوطني ذي الصلة. ">
+												<div km-link name="relevantDocuments" ng-model="document.relevantDocuments" identifier="document.header.identifier"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default panelMain">
+								<div class="panel-header">
+									<h3>ملاحظات</h3>
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="km-control-group" name="notes">
+												<span class="help-block">الحقل &quot;ملاحظات&quot; للاستخدام الشخصي ويمكن رؤيته فقط أثناء تحرير السجل.</span>
+												<div km-notes name="notes" ng-model="document.notes"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+						</div>
+						<!--end addtional info tab-->
+					</form>
+					<div km-tab="review">
+
+						<div km-document-validation ng-model="validationReport" data-container="{{container}}"></div>
+
+						<div class="btn-group" ng-show="document.header.languages.length>1">
+							<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
+						</div>
+
+						<view-national-target ng-model="document" locale="review.locale"></view-national-target>
+					</div>
+
+
+
+
+					<div class="row" style="padding-bottom:30px;">
+						<div class="col-sm-9 col-xs-12">
+							<ul class="pagination">
+								<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
+								<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">عام</a></li>
+								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">مراجعة:</a></li>
+								<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
+							</ul>
+						</div>
+
+
+						<div class="col-xs-12 text-right">
+							<div class="">
+								<span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
+												on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"  data-container="{{container}}"></span>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+			</md-content>
+		</div>
+	</div>
+</div>

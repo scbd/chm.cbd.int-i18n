@@ -1,19 +1,19 @@
 ﻿<div>
 
 	<div ng-hide="report" class="alert alert-info">
-		<i class="fa fa-cog fa-spin"></i> Analyzing your document...
+		<i class="fa fa-cog fa-spin"></i> Analizando su documento...
 	</div>
 
 	<div ng-show="report">
 		<div ng-show="isValid()" class="alert alert-success">
-			<h2>Your document is valid and can now be published</h2>
-			<h4 class="color-darkgrey"> Please review your document before publishing. All published document are made publicly available.</h4>
+			<h2>Su documento es v&aacute;lido y puede ahora ser publicado</h2>
+			<h4 class="color-darkgrey"> Por favor revise su document antes de publicarlo Todos los documentos publicados se ponen a disposici&oacute;n del p&uacute;blico</h4>
 		</div>
 
 
 		<div ng-show="hasErrors()" class="alert alert-warning">
-			<h2 class="color-red">Your document contains errors.</h2>
-			<h4 class="color-darkgrey"> All errors must be corrected before this document can be published.</h4>
+			<h2 class="color-red">Sus documentos contienen errores.</h2>
+			<h4 class="color-darkgrey"> Todos los errores debn ser corregidos antes de que este document pueda ser publicado.</h4>
 			<ul>
 				<li ng-repeat="error in report.errors" title="{{error.parameters}}">
 					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>
@@ -22,7 +22,7 @@
 		</div>
 
 		<div ng-show="hasWarnings()" class="alert alert-info">
-			<h2 class="color-red">Your document contains warnings.</h2>
+			<h2 class="color-red">Su documento contiene advertencias</h2>
 			<ul>
 				<li ng-repeat="error in report.warnings" title="{{error.parameters}}">
 					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>

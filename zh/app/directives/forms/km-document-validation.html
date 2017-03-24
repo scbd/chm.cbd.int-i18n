@@ -6,14 +6,14 @@
 
 	<div ng-show="report">
 		<div ng-show="isValid()" class="alert alert-success">
-			<h2>Your document is valid and can now be published</h2>
-			<h4 class="color-darkgrey"> Please review your document before publishing.All published document are made publicly available.</h4>
+			<h2>你的文件有效，现在可以对外发布</h2>
+			<h4 class="color-darkgrey"> 在发布之前，请审核你的文件。所有发布的文件现已公开。</h4>
 		</div>
 
 
 		<div ng-show="hasErrors()" class="alert alert-warning">
 			<h2 class="color-red">您的文档包含错误。</h2>
-			<h4 class="color-darkgrey"> All errors must be corrected before this document can be published.</h4>
+			<h4 class="color-darkgrey"> 在这份文件发布之前，所有的错误都必须改过来。</h4>
 			<ul>
 				<li ng-repeat="error in report.errors" title="{{error.parameters}}">
 					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>
@@ -22,7 +22,7 @@
 		</div>
 
 		<div ng-show="hasWarnings()" class="alert alert-info">
-			<h2 class="color-red">Your document contains warnings.</h2>
+			<h2 class="color-red">您的文档包含错误。</h2>
 			<ul>
 				<li ng-repeat="error in report.warnings" title="{{error.parameters}}">
 					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>

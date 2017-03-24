@@ -24,6 +24,9 @@
 			border-top: 1px solid #ddd;
 			background-color: #ddd;
 		}
+		.ngdialog-open{
+			height: auto !important;
+		}
 	</style>
 
 	<div class="section">
@@ -69,7 +72,7 @@
 			<div class="row " ng-repeat="implementationMeasure in document.implementationMeasures">
 				<div class="col-md-12 panel panel-default1">
 					<div class="panel-header clearfix">
-						<h3>Implementation measure {{$index+1}} <span ng-if="implementationMeasure.nationalTarget">for national target {{getNationalTargetTitle(implementationMeasure.nationalTarget.identifier)|lstring:locale}}</span>
+						<h3>Меры по осуществлению  {{$index+1}} <span ng-if="implementationMeasure.nationalTarget">национальной целевой задачи{{getNationalTargetTitle(implementationMeasure.nationalTarget.identifier)|lstring:locale}}</span>
 						</h3>
 					</div>
 					<div class="panel-body">
@@ -134,7 +137,7 @@
 				<div class="row " ng-repeat="progressAssessment in document.progressAssessments">
 					<div class="col-md-12 panel panel-default1">
 						<div class="panel-header clearfix">
-							<h3>Progress Assessment for AICHI target {{progressAssessment.aichiTarget | term:locale}} <span ng-if="progressAssessment.nationalTarget">of national target {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span>
+							<h3>Оценка прогресса для цели AICHI {{progressAssessment.aichiTarget | term:locale}} <span ng-if="progressAssessment.nationalTarget">Национальной целевой задачи {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span>
 							</h3>
 						</div>
 						<div class="panel-body">
@@ -147,7 +150,7 @@
 								<div class="km-value km-pre">{{progressAssessment.date | formatDate}}</div>
 							</div>
 							<div ng-show="progressAssessment.summary">
-								<label>Summary of evidence used</label>
+								<label>Сводка использованных доказательств</label>
 								<div class="km-value km-pre">{{progressAssessment.summary | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.indicatorNotUsed==false && progressAssessment.indicator">
@@ -155,7 +158,7 @@
 								<div class="km-value km-pre">{{progressAssessment.indicator | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.indicatorNotUsed">
-								<label>No indicators were used to assess progress towards this national target</label>
+								<label>для оценки прогресса в достижении этой национальной цели показатели не использовались</label>
 								<div class="km-value km-pre">{{progressAssessment.indicator | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.otherTools">
@@ -179,7 +182,7 @@
 								<div class="km-value km-pre">{{progressAssessment.adequacy | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.adequacyDescription">
-								<label>Monitoring system for the target</label>
+								<label>Система мониторинга целевой задачи</label>
 								<div class="km-value km-pre">{{progressAssessment.adequacyDescription | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.otherRelevantDocuments">
@@ -211,17 +214,17 @@
 								<label for="">Промежуточный национальный доклад об осуществлении Нагойского протокола</label><br/> <a translation-url target="_new" ng-href="{{absNationalReport.url_ss[0]}}">{{absNationalReport.uniqueIdentifier_s|uppercase}}</a> {{absNationalReport.title_t}}
 							</div>
 							<div ng-show="aichiTarget.nationalReportDescription">
-								<label for="">Additional relevant information that has not been included in the interim national report</label>
+								<label for="">Дополнительная имеющая отношение информация, которая не была включена в промежуточный национальный отчет</label>
 								<div class="km-value km-pre">{{aichiTarget.nationalReportDescription | lstring:locale}}</div>
 							</div>							
 						</div>
 						<div ng-if="absLinkedRecords">
 
 							<div ng-show="aichiTarget.linkedRecordsDescription">
-								<label for="">Description of how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target</label>
+								<label for="">Описание того, как и в какой степени ваша страна внесла свой вклад в достижение этой целевой задачи по сохранению и устойчивому использованию биоразнообразия, принятой в Айти</label>
 								<div class="km-value km-pre">{{aichiTarget.linkedRecordsDescription | lstring:locale}}</div>
 							</div>
-							<label for="">ABS Clearing-House records</label>
+							<label for="">документация в контексте Механизма посредничества для регулирования доступа к генетическим ресурсам и совместного использования выгодМеханизм посредничества для регулирования ДГРСИВ</label>
 							<table class="table table-hover">
 								<tbody>
 									<tr ng-repeat="item in absLinkedRecords">
@@ -235,13 +238,13 @@
 						</div>
 					</div>
 					<div ng-if="aichiTarget.identifier=='AICHI-TARGET-20' && resourceMobilisationReport">
-						<label for="">Financial Reporting Framework</label><br/> <a translation-url target="_new" ng-href="{{resourceMobilisationReport.url_ss[0]}}">{{resourceMobilisationReport.url_ss[0]}}</a> {{resourceMobilisationReport.title_t}}
+						<label for="">Система финансовой отчетности</label><br/> <a translation-url target="_new" ng-href="{{resourceMobilisationReport.url_ss[0]}}">{{resourceMobilisationReport.url_ss[0]}}</a> {{resourceMobilisationReport.title_t}}
 					</div>
 					<div ng-show="aichiTarget.description">
 						<div class="km-value km-pre">{{aichiTarget.description | lstring:locale}}</div>
 					</div>
 					<div ng-show="aichiTarget.achievementActivities">
-						<label for="">Other activities contributing to the achievement of the Aichi Biodiversity Target at the global level</label>
+						<label for="">других мероприятий, содействующих выполнению целевой задачи по сохранению и устойчивому использованию биоразнообразия, принятой в Айти, на глобальном уровне</label>
 						<div class="km-value km-pre">{{aichiTarget.achievementActivities | lstring:locale}}</div>
 					</div>
 					
@@ -268,18 +271,18 @@
 								<div class="panel-body">
 									<div ng-show="document.gspcNationalContribution.hasGSPCTargets">
 										<label></label>
-										<div class="km-value km-pre">Country has national targets related to the GSPC Targets</div>
+										<div class="km-value km-pre">У страны есть национальные целевые задачи в контексте Глобальной стратегии сохранения растений</div>
 									</div>
 									<div ng-show="!document.gspcNationalContribution.hasGSPCTargets">
 										<label></label>
-										<div class="km-value km-pre">Country does not have national targets related to the GSPC Targets</div>
+										<div class="km-value km-pre">У страны нет национальных целевых задач в контексте Глобальной стратегии сохранения растений</div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.gspcTargetDescription">
-										<label>Details on the specific targets</label>
+										<label>Подробная информация о конкретных целевых задачах</label>
 										<div class="km-value km-pre">{{document.gspcNationalContribution.gspcTargetDescription | lstring:locale}}</div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.plantConservationNetwork">
-										<label>Information on any active networks for plant conservation</label>
+										<label>Информация о любых активных сообществах по сохранению растений</label>
 										<div class="km-value km-pre">{{document.gspcNationalContribution.plantConservationNetwork | lstring:locale}}</div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.implementationMeasures">
@@ -291,7 +294,7 @@
 							<div class="panel panel-default" ng-repeat="gspcTarget in document.gspcNationalContribution" ng-if="gspcTarget.identifier">
 								<div class="panel-header clearfix">
 									<h3>
-										GSPC Biodiversity Target {{gspcTarget | term:locale}}
+										целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти{{aichiTarget | term:locale}}
 									</h3>
 								</div>
 								<div class="panel-body" collapse="">

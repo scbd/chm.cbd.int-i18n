@@ -24,6 +24,9 @@
 			border-top: 1px solid #ddd;
 			background-color: #ddd;
 		}
+		.ngdialog-open{
+			height: auto !important;
+		}
 	</style>
 
 	<div class="section">
@@ -126,7 +129,7 @@
 	</div>
 	<div class="section">
 		<div class="section-header">
-			<h3>Partie III. &Eacute;valuation des progr&egrave;s accomplis dans la r&eacute;alisation de chaque objectif nationalt</h3>
+			<h3>Partie III. &Eacute;valuation des progr&egrave;s accomplis dans la r&eacute;alisation de chaque objectif national</h3>
 		</div>
 		<div class="section-body">
 
@@ -134,7 +137,7 @@
 				<div class="row " ng-repeat="progressAssessment in document.progressAssessments">
 					<div class="col-md-12 panel panel-default1">
 						<div class="panel-header clearfix">
-							<h3>Progress Assessment for AICHI target {{progressAssessment.aichiTarget | term:locale}} <span ng-if="progressAssessment.nationalTarget">of national target {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span>
+							<h3>&Eacute;valuation du progr&egrave;s pour l'objectif de la biodiversit&eacute; AICHI {{progressAssessment.aichiTarget | term:locale}} <span ng-if="progressAssessment.nationalTarget">de l'objectif national{{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span>
 							</h3>
 						</div>
 						<div class="panel-body">
@@ -147,7 +150,7 @@
 								<div class="km-value km-pre">{{progressAssessment.date | formatDate}}</div>
 							</div>
 							<div ng-show="progressAssessment.summary">
-								<label>Summary of evidence used</label>
+								<label>R&eacute;sum&eacute; des preuves utilis&eacute;es</label>
 								<div class="km-value km-pre">{{progressAssessment.summary | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.indicatorNotUsed==false && progressAssessment.indicator">
@@ -159,7 +162,7 @@
 								<div class="km-value km-pre">{{progressAssessment.indicator | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.otherTools">
-								<label>Veuillez d&eacute;crire tout autre outil ou moyen employ&eacute; pour &eacute;valuer les progr&egrave;s accomplis</label>
+								<label>Autres outils ou moyens utilis&eacute;s pour &eacute;valuer les progr&egrave;s</label>
 								<div class="km-value km-pre">{{progressAssessment.otherTools | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.confidenceLevel">
@@ -167,7 +170,7 @@
 								<div class="km-value km-pre">{{progressAssessment.confidenceLevel | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.confidenceLevelDescription">
-								<label>Veuillez fournir une explication du niveau de confiance indiqu&eacute; ci-dessus.</label>
+								<label>Explanation for the level of confidence indicated</label>
 								<div class="km-value km-pre">{{progressAssessment.confidenceLevelDescription | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.relevantDocuments">
@@ -218,10 +221,10 @@
 						<div ng-if="absLinkedRecords">
 
 							<div ng-show="aichiTarget.linkedRecordsDescription">
-								<label for="">Description of how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target</label>
+								<label for="">Description de la fa&ccedil;on dont votre pays a contribu&eacute; &agrave; la r&eacute;alisation de cet objectif de biodiversit&eacute; d'Aichi et dans quelle mesure</label>
 								<div class="km-value km-pre">{{aichiTarget.linkedRecordsDescription | lstring:locale}}</div>
 							</div>
-							<label for="">Le Centre d&rsquo;&eacute;change d'informations APA</label>
+							<label for="">Enregistrements du Centre d&rsquo;&eacute;change d'informations APA</label>
 							<table class="table table-hover">
 								<tbody>
 									<tr ng-repeat="item in absLinkedRecords">
@@ -235,7 +238,7 @@
 						</div>
 					</div>
 					<div ng-if="aichiTarget.identifier=='AICHI-TARGET-20' && resourceMobilisationReport">
-						<label for="">Cadre pr&eacute;liminaire d'&eacute;laboration des rapports</label><br/> <a translation-url target="_new" ng-href="{{resourceMobilisationReport.url_ss[0]}}">{{resourceMobilisationReport.url_ss[0]}}</a> {{resourceMobilisationReport.title_t}}
+						<label for="">cadre de pr&eacute;sentation des rapports financiers</label><br/> <a translation-url target="_new" ng-href="{{resourceMobilisationReport.url_ss[0]}}">{{resourceMobilisationReport.url_ss[0]}}</a> {{resourceMobilisationReport.title_t}}
 					</div>
 					<div ng-show="aichiTarget.description">
 						<div class="km-value km-pre">{{aichiTarget.description | lstring:locale}}</div>
@@ -275,7 +278,7 @@
 										<div class="km-value km-pre">Le pays n'a pas d'objectifs nationaux relatifs aux objectifs de la Strat&eacute;gie mondiale pour la conservation des plantes</div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.gspcTargetDescription">
-										<label>Veuillez donner des pr&eacute;cisions ci-dessous sur des objectifs sp&eacute;cifiques .</label>
+										<label>D&eacute;tails sur les objectifs sp&eacute;cifiques</label>
 										<div class="km-value km-pre">{{document.gspcNationalContribution.gspcTargetDescription | lstring:locale}}</div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.plantConservationNetwork">
@@ -301,7 +304,7 @@
 										<div class="km-value km-pre">{{gspcTarget.categoryProgress | term:locale}}</div>
 									</div>
 									<div ng-show="gspcTarget.progressDescription">
-										Cat&eacute;gorie de progr&egrave;s accomplis dans la r&eacute;alisation de cet objectif de la Strat&eacute;gie mondiale pour la conservation des plantes au niveau national.
+										Explication sur la cat&eacute;gorie de progr&egrave;s accomplis dans la r&eacute;alisation de cet objectif de la Strat&eacute;gie mondiale pour la conservation des plantes au niveau national.
 										<div class="km-value km-pre">{{gspcTarget.progressDescription | lstring:locale}}</div>
 									</div>
 									<div ng-show="gspcTarget.progressDescription">
@@ -349,8 +352,7 @@
 						<div class="km-value km-pre">{{document.biodiversityCountryProfile.strategicPlanActions | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.supportMechanisms">
-						<label>M&eacute;canismes de soutien &agrave; la mise en &oelig;uvre au niveau national (l&eacute;gislation, financement, renforcement des capacit&eacute;s,
-										 coordination, int&eacute;gration, etc.)</label>
+						<label>M&eacute;canismes de soutien &agrave; la mise en &oelig;uvre au niveau national (l&eacute;gislation, financement, renforcement des capacit&eacute;s, coordination, int&eacute;gration, etc.)</label>
 						<div class="km-value km-pre">{{document.biodiversityCountryProfile.supportMechanisms | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.monitoringReviewingMechanisms">

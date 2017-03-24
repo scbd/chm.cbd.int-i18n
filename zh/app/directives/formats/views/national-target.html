@@ -1,31 +1,31 @@
 ﻿<div class="viewForm">
-	<h2>{{document.title | lstring:locale}} <i ng-show="document.acronym">({{document.acronym | lstring:locale}})</i></h2>
+	<h2>{{document.organization | lstring:locale}} <i ng-show="document.acronym">({{document.organizationAcronym | lstring:locale}})</i></h2>
 
 	<div ng-show="document.government">
 		<label>国家</label>
 		<div class="km-value">
-			{{document.government | term:locale}}
+			{{document.government | term}}
 		</div>
 	</div>
 
 	<div ng-show="document.description">
-		<label>Rationale for the National Target</label>
+		<label>国家目标的建立依据</label>
 		<div class="km-value km-pre" ng-bind="document.description | lstring:locale"></div>
 	</div>
 
 
 	<div ng-show="document.jurisdiction||document.jurisdictionInfo">
 
-		<legend>Level of application</legend>
+		<legend>置信水平</legend>
 
 		<div ng-show="document.jurisdiction">
 			<div class="km-value">
-				{{document.jurisdiction | term:locale}}
+				{{document.government | term}}
 			</div>
 		</div>
 
 		<div ng-show="document.jurisdictionInfo">
-			<label>Details on the level of application</label>
+			<label>适用级别的细节</label>
 			<div class="km-value km-pre" ng-bind="document.jurisdictionInfo | lstring:locale"></div>
 		</div>
 	</div>
@@ -33,19 +33,19 @@
 
 	<div ng-show="document.aichiTargets || document.otherAichiTargets">
 
-		<legend>Relevance of National Targets to Aichi Targets</legend>
+		<legend>国家目标与爱知目标的相关性</legend>
 
 		<div ng-show="document.aichiTargets">
-			<label>Aichi Targets</label>
-			<div class="km-value" ng-repeat="item in document.aichiTargets">{{item | term:locale}}</div>
+			<label>爱知目标</label>
+			<div class="km-value" ng-repeat="item in document.aichiTargets">{{document.government | term}}</div>
 		</div>
 
 		<div ng-show="document.otherAichiTargets">
-			<label>Sub-Aichi Targets</label>
-			<div class="km-value" ng-repeat="item in document.otherAichiTargets">{{item | term:locale}}</div>
+			<label>爱知次目标</label>
+			<div class="km-value" ng-repeat="item in document.otherAichiTargets">{{document.government | term}}</div>
 		</div>
 		<div ng-show="document.noOtherAichiTargetsDescription">
-			<label>Explanation on national target has no corresponding Aichi Biodiversity Target or relates to other parts of the Strategic Plan for Biodiversity</label>
+			<label>国家目标没有对应的爱知生物多样性目标或者与《生物多样性战略计划》的其他部分相关</label>
 			<div class="km-value km-pre" ng-bind="document.noOtherAichiTargetsDescription | lstring:locale"></div>
 		</div>
 		
@@ -53,15 +53,15 @@
 
 	<div ng-show="document.documentText||document.documentLinks">
 
-		<legend>Relevant documents and information</legend>
+		<legend>相关文件和信息</legend>
 
 		<div ng-show="document.documentText">
 			<label>其它相关信息</label>
-			<div class="km-value km-pre">{{document.documentText|lstring:locale}}</div>
+			<div class="km-value km-pre">{{document.designation| lstring:locale}}</div>
 		</div>
 
 		<div ng-show="document.documentLinks">
-			<label>Relevant websites, links, and files</label>
+			<label>相关网站、链接和文件</label>
 			<div class="km-value" ng-repeat="item in document.documentLinks">
 				<a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a>
 			</div>

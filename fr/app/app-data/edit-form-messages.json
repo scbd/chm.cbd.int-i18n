@@ -1,0 +1,12 @@
+﻿{
+    "unAuthorizedError"     :   "Vous n'êtes pas autorisé à modifier cet enregistrement. Veuillez contacter votre point focal national ou utiliser le bouton du centre d'assistance pour contacter CDB.",
+    "recordNotFoundError"   :   "Enregistrement non trouvé",
+    "badSchema"             :   "Le type d'enregistrement n'est pas valide.",
+
+    "onPostSaveDraft"       :   "Projet d'enregistrement enregistrée.",
+    "onPostClose"           :   "Enregistrement fermé.",
+    "onPostPublish"         :   "L'enregistrement est en cours de publication, veuillez noter que le processus de publication peut prendre jusqu'à 1 minute avant l'apparition de votre dossier.",
+    "onPostWorkflow"        :   "Demande de publication envoyée avec succès."
+    
+
+}

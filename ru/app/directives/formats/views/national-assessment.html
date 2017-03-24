@@ -41,7 +41,7 @@
 			</div>
 		</div>
 		<div ng-show="document.progress">
-			<label>Summary of the assessment of progresses toward the implementation of the selected target</label>
+			<label>Сводка оценивания прогресса в реализации выбранной целевой задачи</label>
 			<span class="km-value">{{document.progress | term:locale}} </span>
 		</div>
 
@@ -49,16 +49,16 @@
 
 
 	<div ng-show="document.nationalIndicatorsuserd || document.nationalIndicators || document.strategicPlanIndicators || document.implementationActivities">
-		<legend>Indicators and Activities</legend>
+		<legend>Показатели и виды деятельности</legend>
 		
 		<div ng-show="document.nationalIndicatorsuserd===false">
 			<label></label>
 			<div class="km-value">
-				The country has not used indicators to assess progress towards this national target.
+				Страна не использовала индикаторы для оценивания прогресса в достижении этой национальной цели.
 			</div>
 		</div>
 		<div ng-show="document.nationalIndicators">
-			<label>Indicator(s)used in this assessment</label>
+			<label>Показатели, используемые для оценивания</label>
 			<div class="km-value">
 				{{item.nationalIndicators | lstring:locale}}
 			</div>			
@@ -66,14 +66,14 @@
 		
 
 		<div ng-show="document.strategicPlanIndicators">
-			<label>Link to Indicator(s) used in this assessment</label>
+			<label>ссылка к Показатели, используемые для оценивания</label>
 			<ul class="km-value">
 			    <li ng-repeat="item in strategicPlanIndicators">{{item.title | lstring:locale}} </li>
 			</ul>
 		</div>
 
 		<div ng-show="document.implementationActivities">
-			<label>Link to National Activity(ies) related to this assessment</label>
+			<label>Ссылка на виды национальной деятельности, относящиеся к оцениванию</label>
 			<ul class="km-value">
 			    <li ng-repeat="item in document.implementationActivities">{{item.title | lstring:locale}} </li>
 			</ul>
@@ -118,7 +118,7 @@
 		<div class="km-value km-pre">{{document.adequacy | term:locale}}</div>
 	</div>
 	<div ng-show="document.adequacyDescription">
-		<label>Monitoring system for the target</label>
+		<label>Система мониторинга целевой задачи</label>
 		<div class="km-value km-pre">{{document.adequacyDescription | lstring:locale}}</div>
 	</div>
 	<div ng-show="document.otherRelevantDocuments">

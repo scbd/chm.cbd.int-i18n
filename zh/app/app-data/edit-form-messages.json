@@ -1,0 +1,12 @@
+﻿{
+    "unAuthorizedError"     :   "你无授权修改此记录。请联系你们的国家联络点或者使用求助台联系公约秘书处。 ",
+    "recordNotFoundError"   :   "记录未找到。",
+    "badSchema"             :   "记录类型无效。",
+
+    "onPostSaveDraft"       :   "记录草稿已保存。 ",
+    "onPostClose"           :   "记录已关闭。 ",
+    "onPostPublish"         :   "记录正在发布，请注意发布过程需要1分钟，然后记录才能出现。 ",
+    "onPostWorkflow"        :   "发布请求已成功发送。 "
+    
+
+}

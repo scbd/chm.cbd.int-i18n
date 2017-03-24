@@ -1,0 +1,12 @@
+﻿{
+    "unAuthorizedError"     :   "No está autorizado a modificar este registro Póngase en contacto con su Punto Focal Nacional o utilice el botón del soporte técnico para ponerse en contacto con CBD",
+    "recordNotFoundError"   :   "Registro no encontrado",
+    "badSchema"             :   "El tipo de registro no es válido",
+
+    "onPostSaveDraft"       :   "Registro borrador guardado",
+    "onPostClose"           :   "Registro cerrado",
+    "onPostPublish"         :   "Se está publicando el registro, tenga en cuenta que el proceso de publicación podría tardar hasta 1 minuto antes de que su registro aparezca",
+    "onPostWorkflow"        :   "Solicitud de publicación enviada correctamente"
+    
+
+}
