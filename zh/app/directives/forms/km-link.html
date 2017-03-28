@@ -1,6 +1,6 @@
 ﻿<div style="margin-bottom:20px">
 	<div>
-			<button type="button" class="btn btn-default" ng-click="addLink()" ng-show="isAllowLink()"><i class="fa fa-globe"></i> 添加链接</button>
+			<button type="button" class="btn btn-default" ng-click="addLink()" ng-show="isAllowLink()"><i class="fa fa-globe"></i> Add link</button>
 		<button type="button" class="btn btn-default" ng-click="addFile()" ng-show="isAllowFile()" ng-disabled="!identifier"><i class="fa fa-file-o"></i> 添加文件</button>
 
 		<ul class="list-group" ng-if="links||links.length">
@@ -68,7 +68,7 @@
 						{{editor.error}}
 					</div>
 					<div ng-show="editor.progress">
-						<label>{{editor.name}} ({{editor.progress.size/1024 | number:1}} kB)</label>
+						<label>Uploading {{editor.name}} ({{editor.progress.size/1024 | number:1}} kB)</label>
 						<div class="progress progress-striped {{editor.progress.style}}">
 							<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"  style="width:{{editor.progress.percent}}%;"></div>
 						</div>

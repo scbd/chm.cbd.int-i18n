@@ -4,7 +4,7 @@
 	<div ng-show="document.government">
 		<label>国家</label>
 		<div class="km-value">
-			<span>{{document.government | term}} </span>
+			<span>{{document.government | term:locale}} </span>
 		</div>
 	</div>
 
@@ -19,7 +19,7 @@
 		<div ng-show="document.nationalTarget">
 			<label>目标</label>
 			<ul class="km-value">
-			    <li ng-repeat="item in nationalTarget">{{document.designation| lstring:locale}} </li>
+			    <li ng-repeat="item in nationalTarget">{{item.title | lstring:locale}} </li>
 			</ul>
 		</div>
 	</div>
@@ -32,17 +32,17 @@
 
 		<div ng-show="document.assessmentText">
 			<label>评估</label>
-			<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+			<div class="km-value km-pre">{{document.assessmentText | lstring:locale}}</div>
 		</div>
 		<div ng-show="document.date">
 			<label>评估完成日期</label>
 			<div class="span4">
-				<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+				<div class="km-value km-pre">{{document.date | lstring:locale}}</div>
 			</div>
 		</div>
 		<div ng-show="document.progress">
 			<label>实施所选目标取得的进展情况评估总结</label>
-			<span class="km-value">{{document.government | term}} </span>
+			<span class="km-value">{{document.progress | term:locale}} </span>
 		</div>
 
 	</div>
@@ -60,7 +60,7 @@
 		<div ng-show="document.nationalIndicators">
 			<label>本评估采用的指标</label>
 			<div class="km-value">
-				{{document.address | lstring:locale}}
+				{{item.nationalIndicators | lstring:locale}}
 			</div>			
 		</div>
 		
@@ -68,14 +68,14 @@
 		<div ng-show="document.strategicPlanIndicators">
 			<label>本评估采用的指标链接</label>
 			<ul class="km-value">
-			    <li ng-repeat="item in strategicPlanIndicators">{{document.designation| lstring:locale}} </li>
+			    <li ng-repeat="item in strategicPlanIndicators">{{item.title | lstring:locale}} </li>
 			</ul>
 		</div>
 
 		<div ng-show="document.implementationActivities">
 			<label>与该评估相关的国家层次活动的链接</label>
 			<ul class="km-value">
-			    <li ng-repeat="item in document.implementationActivities">{{document.designation| lstring:locale}} </li>
+			    <li ng-repeat="item in document.implementationActivities">{{item.title | lstring:locale}} </li>
 			</ul>
 		</div>
 	</div>
@@ -87,7 +87,7 @@
 
 		<div ng-show="document.documentText">
 			<label>相关信息</label>
-			<div class="km-value km-pre">{{document.designation| lstring:locale}}</div>
+			<div class="km-value km-pre">{{document.documentText|lstring:locale}}</div>
 		</div>
 
 		<div ng-show="document.documentLinks">
@@ -104,22 +104,22 @@
 
 		<div ng-show="document.confidence">
 			<label>上述评估的置信水平</label>
-			<span class="km-value">{{document.government | term}} </span>
+			<span class="km-value">{{document.confidence | term:locale}} </span>
 		</div>
 
 		<div ng-show="document.confidenceInfo">
 			<label>上述评估的置信水平</label>
-			<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+			<div class="km-value km-pre">{{document.confidenceInfo | lstring:locale}}</div>
 		</div>
 
 	</div>
 	<div ng-show="document.adequacy">
 		<label>支持评估监测信息的适足性</label>
-		<div class="km-value km-pre">{{document.government | term}}</div>
+		<div class="km-value km-pre">{{document.adequacy | term:locale}}</div>
 	</div>
 	<div ng-show="document.adequacyDescription">
 		<label>该目标的监测系统</label>
-		<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+		<div class="km-value km-pre">{{document.adequacyDescription | lstring:locale}}</div>
 	</div>
 	<div ng-show="document.otherRelevantDocuments">
 		<label>其他相关网址或附加文档</label>

@@ -1,5 +1,5 @@
 ﻿<div class="viewForm">
-	<h2>{{document.organization | lstring:locale}} <i ng-show="document.acronym">({{document.organizationAcronym | lstring:locale}})</i></h2>
+	<h2>{{document.title | lstring:locale}} <i ng-show="document.acronym">({{document.acronym | lstring:locale}})</i></h2>
 	<style>
 		.panel-header,
 		.section .section-header {
@@ -37,7 +37,7 @@
 			<div ng-show="document.government">
 				<label>国家</label>
 				<div class="km-value">
-					{{document.government | term}}
+					{{document.government | term:locale}}
 				</div>
 			</div>
 			<div class="row" ng-show="document.nationalTargets">
@@ -47,12 +47,12 @@
 							<table style="width:100%">
 								<tbody>
 									<tr>
-										<td class="ng-binding">{{document.designation| lstring:locale}}</td>
+										<td class="ng-binding">{{item.title|lstring:locale}}</td>
 									</tr>
 									<tr>
 										<td>
 											<ul>
-												<li ng-repeat="target in item.aichiTargets">{{document.government | term}}</li>
+												<li ng-repeat="target in item.aichiTargets">{{target|term:locale}}</li>
 											</ul>
 											<td>
 									</tr>
@@ -78,19 +78,19 @@
 					<div class="panel-body">
 						<div ng-show="implementationMeasure.description">
 							<label>描述为实施贵国生物多样性战略和行动计划作出贡献所采取的措施。</label>
-							<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+							<div class="km-value km-pre">{{implementationMeasure.description | lstring:locale}}</div>
 						</div>
 						<div ng-show="implementationMeasure.aichiTarget">
 							<label>爱知生物多样性目标</label>
-							<div class="km-value km-pre">{{document.government | term}}</div>
+							<div class="km-value km-pre">{{implementationMeasure.aichiTarget | term:locale}}</div>
 						</div>
 						<div ng-show="implementationMeasure.assessment">
 							<label>请评估本项措施在带来预期改变方面的成效</label>
-							<div class="km-value km-pre">{{document.government | term}}</div>
+							<div class="km-value km-pre">{{implementationMeasure.assessment | term:locale}}</div>
 						</div>
 						<div ng-show="implementationMeasure.assessmentDescription">
 							<label>上述有效性评估所采用的手段或方法</label>
-							<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+							<div class="km-value km-pre">{{implementationMeasure.assessmentDescription | lstring:locale}}</div>
 						</div>
 						<div ng-show="implementationMeasure.relevantDocuments">
 							<label>相关网站、链接和文件</label>
@@ -100,7 +100,7 @@
 						</div>
 						<div ng-show="implementationMeasure.otherRelevantInformation">
 							<label>其它相关信息</label>
-							<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+							<div class="km-value km-pre">{{implementationMeasure.otherRelevantInformation | lstring:locale}}</div>
 						</div>
 						<div ng-show="implementationMeasure.otherRelevantDocuments">
 							<label>其他相关网址或附加文档</label>
@@ -113,7 +113,7 @@
 						</div>
 						<div ng-show="implementationMeasure.obstacles">
 							<label>与所采取措施相关的障碍以及科学和技术需求</label>
-							<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+							<div class="km-value km-pre">{{implementationMeasure.obstacles | lstring:locale}}</div>
 						</div>
 						<div ng-show="document.obstaclesRelevantDocuments">
 							<label>相关网站、链接和文件</label>
@@ -137,13 +137,13 @@
 				<div class="row " ng-repeat="progressAssessment in document.progressAssessments">
 					<div class="col-md-12 panel panel-default1">
 						<div class="panel-header clearfix">
-							<h3>爱知目标进展评估 {{progressAssessment.aichiTarget | term:locale}} <span ng-if="progressAssessment.nationalTarget">of national target {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span>
+							<h3>爱知目标进展评估 {{progressAssessment.aichiTarget | term:locale}} <span ng-if="progressAssessment.nationalTarget">国家目标 {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span>
 							</h3>
 						</div>
 						<div class="panel-body">
 							<div ng-show="progressAssessment.category">
 								<label>实施所选目标取得的进展情况分类</label>
-								<div class="km-value km-pre">{{document.government | term}}</div>
+								<div class="km-value km-pre">{{progressAssessment.category | term:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.date">
 								<label>评估完成日期</label>
@@ -151,43 +151,43 @@
 							</div>
 							<div ng-show="progressAssessment.summary">
 								<label>所用的证据总结</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{progressAssessment.summary | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.indicatorNotUsed==false && progressAssessment.indicator">
 								<label>本评估采用的指标</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{progressAssessment.indicator | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.indicatorNotUsed">
 								<label>没有使用指标评估该国家目标的进展</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{progressAssessment.indicator | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.otherTools">
 								<label>请说明评估进展情况所用的任何其他工具或手段。</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{progressAssessment.otherTools | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.confidenceLevel">
 								<label>上述评估的置信水平</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{progressAssessment.confidenceLevel | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.confidenceLevelDescription">
 								<label>请说明贵国对前面所进行评估的置信水平。</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{progressAssessment.confidenceLevelDescription | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.relevantDocuments">
 								<label>相关网站、链接和文件</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{progressAssessment.relevantDocuments | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.adequacy">
 								<label>支持评估监测信息的适足性</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{progressAssessment.adequacy | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.adequacyDescription">
 								<label>该目标的监测系统</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{progressAssessment.adequacyDescription | lstring:locale}}</div>
 							</div>
 							<div ng-show="progressAssessment.otherRelevantDocuments">
 								<label>其他相关网址或附加文档</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{progressAssessment.otherRelevantDocuments | lstring:locale}}</div>
 							</div>
 						</div>
 						<br/>
@@ -211,18 +211,18 @@
 					<div ng-if="aichiTarget.identifier=='AICHI-TARGET-16' && (absNationalReport||absLinkedRecords)">
 						<div ng-if="absNationalReport">
 							<div>
-								<label for="">《名古屋议定书（N批）》执行情况临时国家报告</label><br/> <a translation-url target="_new" ng-href="{{absNationalReport.url_ss[0]}}">{{absNationalReport.uniqueIdentifier_s|uppercase}}</a> {{absNationalReport.title_t}}
+								<label for="">《名古屋议定书》执行情况临时国家报告</label><br/> <a translation-url target="_new" ng-href="{{absNationalReport.url_ss[0]}}">{{absNationalReport.uniqueIdentifier_s|uppercase}}</a> {{absNationalReport.title_t}}
 							</div>
 							<div ng-show="aichiTarget.nationalReportDescription">
 								<label for="">没有包括在临时国家报告中的额外相关信息</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{aichiTarget.nationalReportDescription | lstring:locale}}</div>
 							</div>							
 						</div>
 						<div ng-if="absLinkedRecords">
 
 							<div ng-show="aichiTarget.linkedRecordsDescription">
 								<label for="">请描述贵国如何和何种程度为实现爱知生物多样性目标作出了贡献。</label>
-								<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+								<div class="km-value km-pre">{{aichiTarget.linkedRecordsDescription | lstring:locale}}</div>
 							</div>
 							<label for="">获取和惠益共享信息交换所记录</label>
 							<table class="table table-hover">
@@ -241,11 +241,11 @@
 						<label for="">财政报告框架</label><br/> <a translation-url target="_new" ng-href="{{resourceMobilisationReport.url_ss[0]}}">{{resourceMobilisationReport.url_ss[0]}}</a> {{resourceMobilisationReport.title_t}}
 					</div>
 					<div ng-show="aichiTarget.description">
-						<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+						<div class="km-value km-pre">{{aichiTarget.description | lstring:locale}}</div>
 					</div>
 					<div ng-show="aichiTarget.achievementActivities">
 						<label for="">请说明为在全球一级实现该全球爱知生物多样性目标作出贡献的其他活动</label>
-						<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+						<div class="km-value km-pre">{{aichiTarget.achievementActivities | lstring:locale}}</div>
 					</div>
 					
 				</div>
@@ -255,7 +255,7 @@
 						<label for="">
 							根据关于贵国对实现爱知生物多样性目标所做贡献的说明，请说明这些贡献如何以及在何种程度上为执行《2030年可持续发展议程》和可持续发展目标提供了支持：
 						</label>
-						<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+						<div class="km-value km-pre">{{document.nationalContribution.nationalContributionSDGs | lstring:locale}}</div>
 				</div>
 			</div>
 		</div>
@@ -279,15 +279,15 @@
 									</div>
 									<div ng-show="document.gspcNationalContribution.gspcTargetDescription">
 										<label>请提供关于具体目标的详细信息。</label>
-										<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+										<div class="km-value km-pre">{{document.gspcNationalContribution.gspcTargetDescription | lstring:locale}}</div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.plantConservationNetwork">
 										<label>参与植物保护的任何活跃的网络的信息</label>
-										<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+										<div class="km-value km-pre">{{document.gspcNationalContribution.plantConservationNetwork | lstring:locale}}</div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.implementationMeasures">
 										<label>贵国为执行《全球植物保护战略》所采取的重大举措。</label>
-										<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+										<div class="km-value km-pre">{{document.gspcNationalContribution.implementationMeasures | lstring:locale}}</div>
 									</div>
 								</div>
 							</div>
@@ -301,15 +301,15 @@
 
 									<div ng-show="gspcTarget.categoryProgress">
 										该全球植物保护战略目标国家层次上的进展类别
-										<div class="km-value km-pre">{{document.government | term}}</div>
+										<div class="km-value km-pre">{{gspcTarget.categoryProgress | term:locale}}</div>
 									</div>
 									<div ng-show="gspcTarget.progressDescription">
 										请解释该全球植物保护战略目标国家层次上的进展类别
-										<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+										<div class="km-value km-pre">{{gspcTarget.progressDescription | lstring:locale}}</div>
 									</div>
 									<div ng-show="gspcTarget.progressDescription">
 										请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。
-										<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+										<div class="km-value km-pre">{{gspcTarget.description | lstring:locale}}</div>
 									</div>
 								</div>
 							</div>
@@ -320,11 +320,11 @@
 	</div>
 	<div class="section">
 		<div class="section-header">
-			<h3>第六部分Description of the national contribution to the achievement of the targets of indigenous peoples and local communities</h3>
+			<h3>第六部分描述土著人民和地方社区对实现目标的贡献</h3>
 		</div>
 		<div class="section-body">
 			<div ng-show="document.iplcContribution">
-				<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+				<div class="km-value km-pre">{{document.iplcContribution | lstring:locale}}</div>
 			</div>
 		</div>
 	</div>
@@ -337,27 +337,27 @@
 				<div class="panel-body" collapse="">
 					<div ng-show="document.biodiversityCountryProfile.statusAndTrends">
 						<label>生物多样性概况生物多样性现状及趋势，包括生物多样性和生态系统服务及功能所带来的惠益：</label>
-						<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+						<div class="km-value km-pre">{{document.biodiversityCountryProfile.statusAndTrends | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.mainDriversofChange">
 						<label>生物多样性所面临的主要压力和导致其变化的驱动因素（直接和间接）</label>
-						<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+						<div class="km-value km-pre">{{document.biodiversityCountryProfile.mainDriversofChange | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.nbsapImplementation">
 						<label>国家生物多样性战略和行动计划的执行情况</label>
-						<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+						<div class="km-value km-pre">{{document.biodiversityCountryProfile.nbsapImplementation | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.strategicPlanActions">
 						<label>为推动执行2011-2020年生物多样性战略计划而采取的整体行动</label>
-						<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+						<div class="km-value km-pre">{{document.biodiversityCountryProfile.strategicPlanActions | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.supportMechanisms">
 						<label>国家履约的支持体制（立法、资金、能力建设、协调、主流化等等）</label>
-						<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+						<div class="km-value km-pre">{{document.biodiversityCountryProfile.supportMechanisms | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.monitoringReviewingMechanisms">
 						<label>执行情况监测和审查机制</label>
-						<div class="km-value km-pre">{{document.address | lstring:locale}}</div>
+						<div class="km-value km-pre">{{document.biodiversityCountryProfile.monitoringReviewingMechanisms | lstring:locale}}</div>
 					</div>
 				</div>
 			</div>

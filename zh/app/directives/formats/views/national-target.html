@@ -1,10 +1,10 @@
 ﻿<div class="viewForm">
-	<h2>{{document.organization | lstring:locale}} <i ng-show="document.acronym">({{document.organizationAcronym | lstring:locale}})</i></h2>
+	<h2>{{document.title | lstring:locale}} <i ng-show="document.acronym">({{document.acronym | lstring:locale}})</i></h2>
 
 	<div ng-show="document.government">
 		<label>国家</label>
 		<div class="km-value">
-			{{document.government | term}}
+			{{document.government | term:locale}}
 		</div>
 	</div>
 
@@ -20,7 +20,7 @@
 
 		<div ng-show="document.jurisdiction">
 			<div class="km-value">
-				{{document.government | term}}
+				{{document.jurisdiction | term:locale}}
 			</div>
 		</div>
 
@@ -37,12 +37,12 @@
 
 		<div ng-show="document.aichiTargets">
 			<label>爱知目标</label>
-			<div class="km-value" ng-repeat="item in document.aichiTargets">{{document.government | term}}</div>
+			<div class="km-value" ng-repeat="item in document.aichiTargets">{{item | term:locale}}</div>
 		</div>
 
 		<div ng-show="document.otherAichiTargets">
 			<label>爱知次目标</label>
-			<div class="km-value" ng-repeat="item in document.otherAichiTargets">{{document.government | term}}</div>
+			<div class="km-value" ng-repeat="item in document.otherAichiTargets">{{item | term:locale}}</div>
 		</div>
 		<div ng-show="document.noOtherAichiTargetsDescription">
 			<label>国家目标没有对应的爱知生物多样性目标或者与《生物多样性战略计划》的其他部分相关</label>
@@ -57,7 +57,7 @@
 
 		<div ng-show="document.documentText">
 			<label>其它相关信息</label>
-			<div class="km-value km-pre">{{document.designation| lstring:locale}}</div>
+			<div class="km-value km-pre">{{document.documentText|lstring:locale}}</div>
 		</div>
 
 		<div ng-show="document.documentLinks">
