@@ -127,6 +127,8 @@
 					
 					.ngdialog-content {
 						width: 70% !important;
+					}
+					.ngdialog-custom .ngdialog-content {
 						background: transparent!important;
 					}
 					/*html.ngdialog-open, body.ngdialog-open { overflow: visible!important; }*/
@@ -261,7 +263,7 @@
 							
 						<!-- Wrap all page content here -->
 						<div id="wrap">
-
+							<div style="display:none;visibility:hidden;heigth:123px"></div>
 
 							<!-- Fixed navbar -->
 							<div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
@@ -957,7 +959,7 @@
 								</div>
 							</div>
 							<div ng-switch-when="AICHI-TARGET-13" class="row">
-								<div class="col-md-12 help-block">到2020年，保持栽培植物、养殖和驯养动物及野生近缘物种，包括其他社会经济以及文化上宝贵的物种的遗传多样性，同时制定并执行减少遗传侵蚀和保护其遗传多样性的战略。
+								<div class="col-md-12 help-block" ng-hide="true">到2020年，保持栽培植物、养殖和驯养动物及野生近缘物种，包括其他社会经济以及文化上宝贵的物种的遗传多样性，同时制定并执行减少遗传侵蚀和保护其遗传多样性的战略。
 								</div>
 								<div class="col-md-12">
 									<div class="km-control-group" name="nationalContributions-AICHI-TARGET-13" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项爱知生物多样性目标作出了贡献，并概述可佐证此说法的证据。"
@@ -1007,7 +1009,7 @@
 								</div>
 							</div>
 							<div ng-switch-when="AICHI-TARGET-16" class="row">
-								<div class="col-md-12 help-block">
+								<div class="col-md-12 help-block" ng-hide="true">
 									到2015年，《关于获取遗传资源以及公正和公平地分享其利用所产生惠益的名古屋议定书》已经根据国家立法生效并实施。
 								</div>
 								<div class="col-md-12">
@@ -1043,8 +1045,8 @@
 												<div class="col-md-12">
 													<div class="alert alert-danger" ng-if="!target.nationalReport">
 														<label>
-										贵国没有提交名古屋议定书实施情况临时国家报告，你也许要考虑提交这份报告。 						
-									</label>
+															贵国没有提交名古屋议定书实施情况临时国家报告，你也许要考虑提交这份报告。 						
+														</label>
 														<span info-bar data-content="第NP-1/3号决定第4段请《名古屋议定书》缔约方在作为缔约方会议的缔约方大会第三次会议之前12个月提交一份临时国家报告，说明其根据《名古屋议定书》下所承担义务的履行情况。
 													（2017年11月）。 作为缔约方会议的缔约方大会在同项决定中还欢迎非缔约方提交相关信息。 在第六次国家报告中，没有必要重复名古屋议定书实施情况临时国家报告已经包括的内容。"></span> <a translation-url href="https://www.cbd.int/doc/notifications/2017/ntf-2017-017-absch-en.pdf" target="new_">单击此处，以获取更多信息</a>
 													</div>
@@ -1078,7 +1080,7 @@
 								</div>
 							</div>
 							<div ng-switch-when="AICHI-TARGET-17" class="row">
-								<div class="col-md-12 help-block">截至2015年，每个缔约方均已制定、作为政策文书通过并已开始实施有效的、参与性的、经过更新的国家生物多样性战略和行动计划。
+								<div class="col-md-12 help-block" ng-hide="true">截至2015年，每个缔约方均已制定、作为政策文书通过并已开始实施有效的、参与性的、经过更新的国家生物多样性战略和行动计划。
 								</div>
 								<div class="col-md-12">
 									<div class="km-control-group" name="nationalContributions-AICHI-TARGET-17" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项爱知生物多样性目标作出了贡献，并概述可佐证此说法的证据。"
@@ -1093,7 +1095,7 @@
 								</div>
 							</div>
 							<div ng-switch-when="AICHI-TARGET-18" class="row">
-								<div class="col-md-12 help-block">到2020年，与生物多样性保护和可持续利用有关的土著和地方社区的传统知识、创新和做法以及他们对生物资源的习惯性利用得到尊重，并纳入和反映到《公约》的执行中，这些应与国家立法和国际义务相一致，并有土著和地方社区在各级层次的充分和有效参与。
+								<div class="col-md-12 help-block" ng-hide="true">到2020年，与生物多样性保护和可持续利用有关的土著和地方社区的传统知识、创新和做法以及他们对生物资源的习惯性利用得到尊重，并纳入和反映到《公约》的执行中，这些应与国家立法和国际义务相一致，并有土著和地方社区在各级层次的充分和有效参与。
 								</div>
 								<div class="col-md-12">
 									<div class="km-control-group" name="nationalContributions-AICHI-TARGET-18" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项爱知生物多样性目标作出了贡献，并概述可佐证此说法的证据。"
@@ -1117,7 +1119,7 @@
 								</div>
 							</div>
 							<div ng-switch-when="AICHI-TARGET-19" class="row">
-								<div class="col-md-12 help-block">到2020年，已经提高、广泛分享和转让并应用与生物多样性及其价值、功能、状况和变化趋势，以及与生物多样性丧失可能带来的后果有关的知识、科学基础和技术。
+								<div class="col-md-12 help-block" ng-hide="true">到2020年，已经提高、广泛分享和转让并应用与生物多样性及其价值、功能、状况和变化趋势，以及与生物多样性丧失可能带来的后果有关的知识、科学基础和技术。
 								</div>
 								<div class="col-md-12">
 									<div class="km-control-group" name="nationalContributions-AICHI-TARGET-19" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项爱知生物多样性目标作出了贡献，并概述可佐证此说法的证据。"
@@ -1241,10 +1243,11 @@
 											<div km-textbox-ml name="nationalContributions-GSPC-TARGET-08" ng-model="target.description" locales="document.header.languages" rows="3"></div>
 										</div>
 									</div>
+								</div>
 									<div ng-switch-when="GSPC-TARGET-09" class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" name="nationalContributions-GSPC-TARGET-09" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
-															data-content="谨建议各国在报告《战略》目标9的落实进度时，交叉参考在国家报告第四部分就爱知生物多样性目标13（保护基因多样性）作出的回复。  如果《战略》目标9所涵盖的问题已在第四部分中充分阐明，则此处无需再度重复。</p>
+											data-content="谨建议各国在报告《战略》目标9的落实进度时，交叉参考在国家报告第四部分就爱知生物多样性目标13（保护基因多样性）作出的回复。  如果《战略》目标9所涵盖的问题已在第四部分中充分阐明，则此处无需再度重复。</p>
 								<p>谨建议贵国考虑作出回复的问题如下： <ul><li>贵国有无关于作物野生亲缘种以及其他具有社会经济价值的植物（药用植物、饲料作物、有益树种等等）的国家清单？</li><li> 贵国有无关于作物野生亲缘种/药用植物保护的国家战略？</li><li> 有无关于粮食和农业植物遗传资源的国家方案？</li><li>在种子库或者植物园活植物收集和其他植物收集中进行移地保护的作物野生亲缘种以及其他具有社会经济价值的物种占多大比重？</li><li>在保护区内或通过农场保护进行保护的作物野生亲缘种以及其他具有社会经济价值的物种占多大比重？</li></ul>  谨建议各国在报告本项目标的落实进度时，使用各自通过国家报告向粮农组织第二份<a translation-url target='_blank' href='http://www.fao.org/agriculture/crops/core-themes/theme/seeds-pgr/sow/sow2/country-reports/en/'>《世界粮食和农业植物遗传资源状况报告》</a>。</p>">
 												<div km-textbox-ml name="nationalContributions-GSPC-TARGET-09" ng-model="target.description" locales="document.header.languages" rows="3"></div>
 											</div>
