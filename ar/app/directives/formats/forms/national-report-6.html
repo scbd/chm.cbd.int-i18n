@@ -131,33 +131,18 @@
 					.ngdialog-custom .ngdialog-content {
 						background: transparent!important;
 					}
-					/*html.ngdialog-open, body.ngdialog-open { overflow: visible!important; }*/
 					
-					/*html,
-					body {
-						height: 100%;
-						-webkit-font-smoothing: antialiased;
-					}*/
 					
 					#wrap {
 						min-height: 100%;
 						height: auto !important;
 						height: 100%;
-						margin: 0 auto -60px;
-						padding: 0 0 60px;
-					}
-					
-					
-					#wrap> .container {
-						padding: 60px 15px 0;
-					}
-					
+					}										
 					.container .credit {
 						margin: 20px 0;
 					}
 					
 					#nav {
-						/*width: 100%;*/
 						position: static;
 						top: -32px;
 					}
@@ -167,6 +152,12 @@
 						top: 0;
 						z-index: 10;
 						-webkit-transition: all .6s ease-in-out;
+						left:0;
+						width:100%;
+						padding-left:50px;
+						-webkit-box-shadow:0px 1px 10px #666;
+						-moz-box-shadow:0px 1px 10px #666;
+						box-shadow:0px 1px 10px #666;
 					}
 					
 					@media (min-width: 767px) {
@@ -202,14 +193,6 @@
     					padding: 0px!important;
 						max-width: 100%!important;
 					}
-
-					/*.affix-top{
-						width:100%;
-					}*/
-
-					/*.affix{
-						width:89%!important;
-					}*/
 					.affix .text-right{
 						padding-right: 55px;
     					padding-bottom: 10px;
@@ -217,34 +200,7 @@
 					.small-screen{
 						display: block!important;
 					}
-					.grow{
-						transition: all 0.3s ease;
-					}
-					.grow:hover
-					{
-							-webkit-transform: scale(1.1);
-							-ms-transform: scale(1.1);
-							transform: scale(1.1);
-					}
-
-
-					.grow.col-xs-6 {
-						padding: 1.5%;
-						margin: 0;;
-					}
-
-					.grow.col-sm-6 {
-						padding: 1.5%;
-						margin: 0;
-					}
-
-					.grow.col-md-6 {
-						padding: 1.5%;
-						margin: 0;
-					}
-					.grow-parent{
-						 display: inline-block;
-					}
+					
 				</style>
 
 				<div class="col-md-12" style="padding:0px">
@@ -264,7 +220,6 @@
 						<!-- Wrap all page content here -->
 						<div id="wrap">
 							<div style="display:none;visibility:hidden;heigth:123px"></div>
-
 							<!-- Fixed navbar -->
 							<div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
 								<div class="container container-custom">
@@ -306,8 +261,7 @@
 								</div>
 								<!--/.container -->
 							</div>
-							<!--/.navbar -->
-
+							<!--/.navbar --> <span class="clearfix"></span>
 
 						</div>
 						<!--/wrap-->
@@ -317,7 +271,7 @@
 
 							<div km-tab="general">
 
-								<div class="panel panel-default panelMain">
+								<div class="panel panel-default panelMain" style="min-height:500px">
 									<div class="panel-header">
 										<h3>القسم الأول. معلومات عن الأهداف الجاري السعي وراء تحقيقها على المستوى الوطني</h3>
 									</div>
@@ -333,6 +287,7 @@
 											</div>
 											<div class="section-body">
 												<div class="row">
+													
 													<div class="col-md-12">
 														<div class="km-control-group" name="government" required caption="الدولة">
 															<div km-select ng-disabled="!!defaultGovernment()" required name="government" single ng-model="document.government" placeholder="يرجى اختيار البلد..." watch-items items="options.countries"></div>
@@ -581,7 +536,7 @@
 								<div class="panel panel-default aichiTarget" ng-repeat="aichiTarget in document.nationalContribution" ng-if="aichiTarget.identifier">
 									<div class="panel-header clearfix">
 										<h3>
-							هداف أيشي للتنوع البيولوجي {{aichiTarget | term:locale}}
+							هدف أيشي للتنوع البيولوجي {{aichiTarget | term:locale}}
 							<div class="pull-right" style="padding-right:10px">
 								<a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#{{aichiTarget.identifier}}"></a>
 							</div>
@@ -661,7 +616,7 @@
 								<div class="panel panel-default gspcTarget" ng-repeat="gspcTarget in document.gspcNationalContribution" ng-if="gspcTarget.identifier">
 									<div class="panel-header clearfix">
 										<h3>
-									هدف التنوع البيولوجي للاستراتيجية العالمية لحفظ النباتات {{aichiTarget | term:locale}}
+									هدف التنوع البيولوجي للاستراتيجية العالمية لحفظ النباتات {{gspcTarget | term:locale}}
 									<div class="pull-right" style="padding-right:10px">
 										<a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#{{gspcTarget.identifier}}"></a>
 									</div>
@@ -785,7 +740,7 @@
 							<div ng-switch-when="AICHI-TARGET-01" class="row">
 								<div class="col-md-12">
 									<div class="km-control-group" name="nationalContributions-AICHI-TARGET-01" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف."
-													data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هو المستوى الحالي للتوعية بالتنوع البيولوجي؟ ما هي المجموعات التي لديها فهم أفضل/أقل بالتنوع البيولوجي (على سبيل المثال، قد يرغب بلدك في دراسة المعلومات المصنفة حسب نوع الجنس أو العمر أو مستوى التعليم؟ ما هي الأنشطة التوعية التي أجريت)؟ ما مدى فعالية هذه الأنشطة؟ في وصف التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة </li></ul><p>I <a translation-url target='_blank' href='http://ethicalbiotrade.org/biodiversity-barometer/' >Biodiversity على الموقع الشبكي لمقياس التنوع البيولوجي  </a> و <a translation-url target='_blank' href='https://www.google.ca/trends/' > وعلى موقع اتجاهات غوغل </a>.</p>">
+													data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هو المستوى الحالي للتوعية بالتنوع البيولوجي؟ ما هي المجموعات التي لديها فهم أفضل/أقل بالتنوع البيولوجي (على سبيل المثال، قد يرغب بلدك في دراسة المعلومات المصنفة حسب نوع الجنس أو العمر أو مستوى التعليم؟ ما هي الأنشطة التوعية التي أجريت)؟ ما مدى فعالية هذه الأنشطة؟ في وصف التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة </li></ul><p><a translation-url target='_blank' href='http://ethicalbiotrade.org/biodiversity-barometer/' >Biodiversity على الموقع الشبكي لمقياس التنوع البيولوجي  </a> و <a translation-url target='_blank' href='https://www.google.ca/trends/' > وعلى موقع اتجاهات غوغل </a>.</p>">
 										<div km-textbox-ml name="nationalContributions-AICHI-TARGET-01" ng-model="target.description" locales="document.header.languages" rows="3"></div>
 									</div>
 								</div>
@@ -799,7 +754,7 @@
 							<div ng-switch-when="AICHI-TARGET-02" class="row">
 								<div class="col-md-12">
 									<div class="km-control-group" name="nationalContributions-AICHI-TARGET-02" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف."
-													data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: : ما هي دراسات التقييم التي تم الاضطلاع بها وما هي النظم الإيكولوجية التي غطت هذه الدراسات؟ إلى أي مدى تم استخدام دراسات التقييم هذه في الاسترشاد بها في عمليات صنع القرار؟ إلى أي مدى تم إدماج اعتبارات التنوع البيولوجي في عمليات التخطيط واستراتيجيات التنمية والحد من الفقر على المستويين الوطني والمحلي؟ إلى أي مدى تم إدماج التنوع البيولوجي في الإبلاغ الوطني ونظم والمحاسبة ؟ إلى أي مدى يقوم بلدك بتنفيذ حسابات الموارد الطبيعية في إطار نظام المحاسبة البيئية والاقتصادية (نظام المحاسبة)؟ في وصف التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب في النظر في ردود بلدك على السؤالين 2 و3 من إطار الإبلاغ المالي. وقد ترغب الأطراف أيضا في الاستفادة من المعلومات المتاحة  <a translation-url target='_blank' href='http://unstats.un.org/unsd/envaccounting/default.asp'>  على الموقع الشبكي لشعبة إحصاءات الأمم المتحدة بشأن الحسابات البيئية والاقتصادية </a>) والدليل الأولي المتعلق بوضع المفاهيم المتنوعة لقيم الطبيعة المتعددة وفوائدها والذي أعده ا في مجال التنوع البيولوجي وخدمات النظم الإيكولوجية   <a translation-url target='_blank' href='http://www.ipbes.net/sites/default/files/downloads/IPBES-4-INF-13_EN.pdf'>لمنبر الحكومي الدولي للعلوم والسياسات Services</a>.</p>">
+													data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: : ما هي دراسات التقييم التي تم الاضطلاع بها وما هي النظم الإيكولوجية التي غطت هذه الدراسات؟ إلى أي مدى تم استخدام دراسات التقييم هذه في الاسترشاد بها في عمليات صنع القرار؟ إلى أي مدى تم إدماج اعتبارات التنوع البيولوجي في عمليات التخطيط واستراتيجيات التنمية والحد من الفقر على المستويين الوطني والمحلي؟ إلى أي مدى تم إدماج التنوع البيولوجي في الإبلاغ الوطني ونظم والمحاسبة ؟ إلى أي مدى يقوم بلدك بتنفيذ حسابات الموارد الطبيعية في إطار نظام المحاسبة البيئية والاقتصادية (نظام المحاسبة)؟ في وصف التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب في النظر في ردود بلدك على السؤالين 2 و3 من إطار الإبلاغ المالي. وقد ترغب الأطراف أيضا في الاستفادة من المعلومات المتاحة  <a translation-url target='_blank' href='http://unstats.un.org/unsd/envaccounting/default.asp'>  على الموقع الشبكي لشعبة إحصاءات الأمم المتحدة بشأن الحسابات البيئية والاقتصادية </a>) والدليل الأولي المتعلق بوضع المفاهيم المتنوعة لقيم الطبيعة المتعددة وفوائدها والذي أعده ا في مجال التنوع البيولوجي وخدمات النظم الإيكولوجية   <a translation-url target='_blank' href='http://www.ipbes.net/sites/default/files/downloads/IPBES-4-INF-13_EN.pdf'>لمنبر الحكومي الدولي للعلوم والسياسات </a>.</p>">
 										<div km-textbox-ml name="nationalContributions-AICHI-TARGET-02" ng-model="target.description" locales="document.header.languages" rows="3"></div>
 									</div>
 								</div>
@@ -832,7 +787,7 @@
 المقرر 13/8</a> (الاستخدام المستدام للتنوع البيولوجي: لحوم الطرائد والإدارة المستدامة للأحياء البرية)،   الفقرة 3:  إن مؤتمر الأطراف، يدعو الأطراف إلى إدراج معلومات في تقاريرها الوطنية السادسة إلى اتفاقية التنوع البيولوجي، عن استخدام نظم الإدارة المعتمدة على الحقوق وتحويل هذه الحقوق وما يرتبط بها من إدارة إلى الشعوب الأصلية والمجتمعات المحلية فيما يتعلق بالإدارة المستدامة للأحياء البرية.
 وقد يرغب بلدك أيضا في التعليق على القضايا المتصلة بالسياحة المستدامة فيما يتعلق  <a translation-url target='_blank' href='https://www.cbd.int/doc/decisions/cop-13/cop-13-dec-03-en.pdf'>  بالمقرر 13/3 </a> (  (الإجراءات الاستراتيجية لتعزيز تنفيذ الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 وتحقيق أهداف أيشي للتنوع البيولوجي، بما في ذلك ما يتعلق بتعميم التنوع البيولوجي ودمجه داخل القطاعات وعبرها) ,  الفقرة  111 (a).  ). وتطلب هذه الفقرة إلى الأمين التنفيذي، رهنا بتوفر الموارد، تحليل المعلومات التي يقدمها الأطراف في تقاريرهم الوطنية السادسة عن أنشطة السياحة، والتي يجرى تكميلها بالمعلومات المقدمة من المنظمات والمبادرات الدولية ذات الصلة.
 وتتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هي الإجراءات التي اتخذت للحد من تأثير القطاعات الإنتاجية على التنوع البيولوجي؟ كيف تغير الطلب على الموارد الطبيعية في البلاد وهل هو مستدام حاليا؟ ما هي الإجراءات التي تم اتخاذها للحد من استهلاك الموارد و/أو لجعلها أكثر استدامة؟ ما هي خطط الاستهلاك والإنتاج المستدامين التي تم وضعها؟ كيف تراعي هذه الخطط احتياجات المجموعات المختلفة؟ 
-في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة من  <a translation-url target='_blank' href='https://cites.org/eng'> اتفاقية التجارة الدولية بأنواع الحيوانات والنباتات البرية المهددة بالانقراض</a>, <a translation-url target='_blank' href='www.unwto.org'>) ومنظمة الأمم المتحدة للسياحة العالمية  </a>,   <a translation-url target='_blank' href='http://www.iucnredlist.org'> والقائمة الحمراء للأنواع المهددة بالانقراض للاتحاد الدولي لحماية الطبيعة والموارد الطبيعية </a>,  <a translation-url target='_blank' href='http://www.footprintnetwork.org/en/index.php/GFN/page/footprint_for_nations/'>والشبكة العالمية للبصمة البيئية </a>, the <a translation-url target='_blank' href='http://waterfootprint.org/en/water-footprint/national-water-footprint/'> وشبكة البصمة المائية  </a> and  <a translation-url target='_blank' href='http://www.traffic.org/'>وبرنامج تحليل السجلات التجارية للاتجار بالحيوانات والنباتات </a></p>.
+في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة من  <a translation-url target='_blank' href='https://cites.org/eng'> اتفاقية التجارة الدولية بأنواع الحيوانات والنباتات البرية المهددة بالانقراض</a>, <a translation-url target='_blank' href='www.unwto.org'>) ومنظمة الأمم المتحدة للسياحة العالمية  </a>,   <a translation-url target='_blank' href='http://www.iucnredlist.org'> والقائمة الحمراء للأنواع المهددة بالانقراض للاتحاد الدولي لحماية الطبيعة والموارد الطبيعية </a>,  <a translation-url target='_blank' href='http://www.footprintnetwork.org/en/index.php/GFN/page/footprint_for_nations/'>والشبكة العالمية للبصمة البيئية </a>,  <a translation-url target='_blank' href='http://waterfootprint.org/en/water-footprint/national-water-footprint/'> وشبكة البصمة المائية  </a>  <a translation-url target='_blank' href='http://www.traffic.org/'>وبرنامج تحليل السجلات التجارية للاتجار بالحيوانات والنباتات </a></p>.
 								">
 										<div km-textbox-ml name="nationalContributions-AICHI-TARGET-04" ng-model="target.description" locales="document.header.languages" rows="3"></div>
 									</div>
@@ -846,7 +801,7 @@
 							<div ng-switch-when="AICHI-TARGET-05" class="row">
 								<div class="col-md-12">
 									<div class="km-control-group" name="nationalContributions-AICHI-TARGET-05" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف."
-													data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كيف تغير معدل فقدان الموائل الرئيسية في البلاد ؟ كيف كان معدل تدهور الموائل وتجزئتها؟ هل كان هناك تغير؟ ما الذي أدى إلى هذا التغير؟ ما هي الإجراءات التي اتخذت لمعالجة الأسباب الكامنة وراء فقدان التنوع البيولوجي؟ ولمساعدة الأطراف في جمع وتقاسم البيانات بشأن حالة الهدف 5 من أهداف التنوع البيولوجي، أعدت أمانة الاتفاقية ملفات بيانات باستخدام معلومات مستمدة من مصادر متنوعة. ويمكن الحصول على هذه الملفات من الموقع الإلكتروني <a translation-url target='_blank' href='https://www.cbd.int/forest/'>https://www.cbd.int/forest/</a>. وفي وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف أيضا في الاستفادة من المعلومات المتاحة في  <a translation-url target='_blank' href='http://www.fao.org/forest-resources-assessment/en/'> التقييم العالمي للموارد الحرجية لمنظمة الأغذية والزراعة </a>, <a translation-url target='_blank' href='http://www.wri.org/our-work/project/global-forest-watch/maps_data'> والرصد العالمي للغابات </a>, <a translation-url target='_blank' href='http://www.gmba.unibe.ch/'>والتقييم العالمي للتنوع البيولوجي للجبال  Assessment</a>. كما يمكن الاطلاع على المعلومات ذات الصلة على الموقع الإلكتروني  <a translation-url target='_blank' href='http://www.unccd.int/en/Pages/default.aspx'>لاتفاقية الأمم المتحدة لمكافحة التصحر  </a> و <a translation-url target='_blank' href='http://www.ramsar.org/'>وموقع اتفاقية رامسار</a> websites.">
+													data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كيف تغير معدل فقدان الموائل الرئيسية في البلاد ؟ كيف كان معدل تدهور الموائل وتجزئتها؟ هل كان هناك تغير؟ ما الذي أدى إلى هذا التغير؟ ما هي الإجراءات التي اتخذت لمعالجة الأسباب الكامنة وراء فقدان التنوع البيولوجي؟ ولمساعدة الأطراف في جمع وتقاسم البيانات بشأن حالة الهدف 5 من أهداف التنوع البيولوجي، أعدت أمانة الاتفاقية ملفات بيانات باستخدام معلومات مستمدة من مصادر متنوعة. ويمكن الحصول على هذه الملفات من الموقع الإلكتروني <a translation-url target='_blank' href='https://www.cbd.int/forest/'>https://www.cbd.int/forest/</a>. وفي وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف أيضا في الاستفادة من المعلومات المتاحة في  <a translation-url target='_blank' href='http://www.fao.org/forest-resources-assessment/en/'> التقييم العالمي للموارد الحرجية لمنظمة الأغذية والزراعة </a>, <a translation-url target='_blank' href='http://www.wri.org/our-work/project/global-forest-watch/maps_data'> والرصد العالمي للغابات </a>, <a translation-url target='_blank' href='http://www.gmba.unibe.ch/'>والتقييم العالمي للتنوع البيولوجي للجبال  Assessment</a>. كما يمكن الاطلاع على المعلومات ذات الصلة على الموقع الإلكتروني  <a translation-url target='_blank' href='http://www.unccd.int/en/Pages/default.aspx'>لاتفاقية الأمم المتحدة لمكافحة التصحر  </a> و <a translation-url target='_blank' href='http://www.ramsar.org/'>وموقع اتفاقية رامسار</a> .">
 										<div km-textbox-ml name="nationalContributions-AICHI-TARGET-05" ng-model="target.description" locales="document.header.languages" rows="3"></div>
 									</div>
 								</div>
@@ -859,7 +814,7 @@
 							<div ng-switch-when="AICHI-TARGET-06" class="row">
 								<div class="col-md-12">
 									<div class="km-control-group" name="nationalContributions-AICHI-TARGET-06" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف."
-													data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كيف تغيرت حالة الأرصدة السمكية واللافقاريات والنباتات المائية في البلاد؟ ما الذي أدى إلى هذه التغيرات؟ ما مدى استدامة تقنيات الصيد المستخدمة في البلاد? ما هي الخطط الإدارية التي تم وضعها للأرصدة السمكية المنضبة؟ ما هي اللوائح أو السياسات المتعلقة بانتعاش الأنواع المنضبة الموجودة في البلاد؟ ما هي الأحكام الموجودة للحد من آثار مصائد الأسماك على الأنواع المهددة بالانقراض؟ ما هي الأحكام الموجودة لحساب الآثار السلبية غير المباشرة الكبيرة على الأنواع غير المستهدفة؟ ما هي الأحكام الموجودة المتعلقة بحماية الموائل البحرية المعرضة للخطر وتهدد هيكل ومهام النظام الإيكولوجي ؟ ما هي التدابير الإدارية التي وضعت للحد من الصيد العرضي والمرتجع؟ في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة في منشور منظمة الأغذية والزراعة بشأن حالة  <a translation-url target='_blank' href='http://www.fao.org/fishery/sofia/en'> حالة مصايد الأسماك وتربية الأحياء المائية في العالم</a>,  <a translation-url target='_blank' href='http://www.fao.org/fishery/statistics/en'>، إحصائيات مصايد الأسماك لمنظمة الأغذية والزراعة </a>), the  <a translation-url target='_blank' href='https://www.msc.org'>على الموقع الإلكتروني لمجلس التوجيه البحري </a>, the  <a translation-url target='_blank' href='http://www.seaaroundus.org'> والموقع الشبكي للبحر من حولنا الموقع</a>,  <a translation-url target='_blank' href='http://www.iucnredlist.org'> والقائمة الحمراء للأنواع المهددة بالانقراض للاتحاد الدولي لحماية الطبيعة والموارد الطبيعية</a> و  <a translation-url target='_blank' href='http://www.fishbase.ca/'>)، وموقع قاعدة الأسماك </a>.">
+													data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كيف تغيرت حالة الأرصدة السمكية واللافقاريات والنباتات المائية في البلاد؟ ما الذي أدى إلى هذه التغيرات؟ ما مدى استدامة تقنيات الصيد المستخدمة في البلاد? ما هي الخطط الإدارية التي تم وضعها للأرصدة السمكية المنضبة؟ ما هي اللوائح أو السياسات المتعلقة بانتعاش الأنواع المنضبة الموجودة في البلاد؟ ما هي الأحكام الموجودة للحد من آثار مصائد الأسماك على الأنواع المهددة بالانقراض؟ ما هي الأحكام الموجودة لحساب الآثار السلبية غير المباشرة الكبيرة على الأنواع غير المستهدفة؟ ما هي الأحكام الموجودة المتعلقة بحماية الموائل البحرية المعرضة للخطر وتهدد هيكل ومهام النظام الإيكولوجي ؟ ما هي التدابير الإدارية التي وضعت للحد من الصيد العرضي والمرتجع؟ في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة في منشور منظمة الأغذية والزراعة بشأن حالة  <a translation-url target='_blank' href='http://www.fao.org/fishery/sofia/en'> حالة مصايد الأسماك وتربية الأحياء المائية في العالم</a>,  <a translation-url target='_blank' href='http://www.fao.org/fishery/statistics/en'>، إحصائيات مصايد الأسماك لمنظمة الأغذية والزراعة </a>),  <a translation-url target='_blank' href='https://www.msc.org'>على الموقع الإلكتروني لمجلس التوجيه البحري </a>,   <a translation-url target='_blank' href='http://www.seaaroundus.org'> والموقع الشبكي للبحر من حولنا الموقع</a>,  <a translation-url target='_blank' href='http://www.iucnredlist.org'> والقائمة الحمراء للأنواع المهددة بالانقراض للاتحاد الدولي لحماية الطبيعة والموارد الطبيعية</a> و  <a translation-url target='_blank' href='http://www.fishbase.ca/'>)، وموقع قاعدة الأسماك </a>.">
 										<div km-textbox-ml name="nationalContributions-AICHI-TARGET-06" ng-model="target.description" locales="document.header.languages" rows="3"></div>
 									</div>
 								</div>
@@ -929,10 +884,11 @@
 							<div ng-switch-when="AICHI-TARGET-11" class="row">
 								<div class="col-md-12">
 									<div class="km-control-group" name="nationalContributions-AICHI-TARGET-11" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف."
-													data-content="عند الإبلاغ عن التقدم المحرز في سبيل تحقيق هذا الهدف، ينبغي للأطراف النظر في التوجيهات التالية:</p>
-								<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13185'>المقرر 11/24 (المناطق المحمية) – الفقرة 1 يدعو الأطراف إلى : : (ي) الإبلاغ عن تنفيذ خطط العمل الوطنية لبرنامج عمل المناطق المحمية، بما في ذلك إدراج نتائج تنفيذ المشروعات الممولة من مرفق البيئة العالمية والجهات المانحة الأخرى، من خلال إطار الإبلاغ عن برنامج العمل، المدرج في التقارير الوطنية الخامسة والسادسة، على النحو المطلوب في الفقرتين 33(أ) و(ﻫ) من المقرر 10/31، لتتبع التقدم المحرز نحو تحقيق الهدف 11 من أهداف أيشي للتنوع البيولوجي وتنفيذ برنامج العمل؛;</p>
+													data-content="<p>الإبلاغ عن التقدم المحرز في سبيل تحقيق هذا الهدف، ينبغي للأطراف النظر في التوجيهات التالية:</p>
+								<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13185'>المقرر 11/2</a> (المناطق المحمية) – الفقرة 1.:</p>
+								<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13185'> يدعو الأطراف إلى : : (ي) الإبلاغ عن تنفيذ خطط العمل الوطنية لبرنامج عمل المناطق المحمية، بما في ذلك إدراج نتائج تنفيذ المشروعات الممولة من مرفق البيئة العالمية والجهات المانحة الأخرى، من خلال إطار الإبلاغ عن برنامج العمل، المدرج في التقارير الوطنية الخامسة والسادسة، على النحو المطلوب في الفقرتين 33(أ) و(ﻫ) من المقرر 10/31، لتتبع التقدم المحرز نحو تحقيق الهدف 11 من أهداف أيشي للتنوع البيولوجي وتنفيذ برنامج العمل؛;</p>
 								<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13192'>
-المقرر 10/31 </(المناطق المحمية) – الفقرة 33  تدعو الأطراف إلى: : (أ) النظر كجزء من عملية الإبلاغ الوطني في وضع عملية بسيطة وفعالة للإبلاغ الوطني من شأنها تتبع الحالة العامة لحفظ التنوع البيولوجي داخل المناطق المحمية، بالإضافة إلى تدابير ونتائج برنامج العمل بشأن المناطق المحمية؛ (ه) التأكد من إدماج الإبلاغ عن برنامج العمل بشأن المناطق المحمية بوضوح مع الإبلاغ عن التقدم المحرز صوب تحقيق أهداف أيشي للتنوع البيولوجي والمؤشرات المرتبطة بها؛</p>
+المقرر 10/31 </a>(المناطق المحمية) – الفقرة 33  تدعو الأطراف إلى: : (أ) النظر كجزء من عملية الإبلاغ الوطني في وضع عملية بسيطة وفعالة للإبلاغ الوطني من شأنها تتبع الحالة العامة لحفظ التنوع البيولوجي داخل المناطق المحمية، بالإضافة إلى تدابير ونتائج برنامج العمل بشأن المناطق المحمية؛ (ه) التأكد من إدماج الإبلاغ عن برنامج العمل بشأن المناطق المحمية بوضوح مع الإبلاغ عن التقدم المحرز صوب تحقيق أهداف أيشي للتنوع البيولوجي والمؤشرات المرتبطة بها؛</p>
 								<p>
 وتتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هو المدى الحالي للمناطق المحمية على اليابسة وفي المناطق البحرية (بشكل عام، من خلال المناطق الإيكولوجية، حسب نوع الموئل، وما إلى ذلك)؟ هل تشمل هذه الأرقام المناطق الخاضعة لأنشطة الحفظ الفعالة التي يضطلع بها المجتمع المحلي والسكان الأصليين؟ ما هي المناطق ذات الأهمية للتنوع البيولوجي وخدمات النظام الإيكولوجي التي تعد غير محمية حاليا؟ ما هي المناطق الممثلة تمثيلا ناقصا؟ ما مدى فعالية المناطق المحمية القائمة؟ كيف تغيرت فعالية إدارتها؟ وما هي الإجراءات المتخذة لتعزيز الإدارة المنصفة للمناطق المحمية؟ هل شاركت الشعوب الأصلية والمجتمعات المحلية المعنية في إدارة المناطق المحمية؟ ما هو الدعم أو العمليات التي تم تأسيسها لدعم المجتمعات الأصلية والمحلية في توثيق ورسم الخرائط، أو تسجيل المناطق المحمية التابعة للمجتمع المحلي و/أو وضع أو تنفيذ أو رصد خطط حفظ المجتمعات المحلية؟ وما هي المجموعات أو الأطراف المعنية الأخرى المشاركة في إدارة المناطق المحمية؟ وما هي الإجراءات المتخذة لإدماج المناطق المحمية في المشهد الطبيعي والبحري؟</li></ul></p>
 								<p>
@@ -1201,7 +1157,7 @@
 								</div>
 								<div ng-switch-when="GSPC-TARGET-02" class="row">
 									<div class="col-md-12">
-										<div class="km-control-group" name="nationalContributions-GSPC-TARGET-02" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف."
+										<div class="km-control-group" name="nationalContributions-GSPC-TARGET-02" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
 														data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كم عدد أنواع النباتات التي تم تقييم حالة حفظها باستخدام إما فئات ومعايير الاتحاد الدولي لحماية الطبيعة والموارد الطبيعية 3.1 أو نظام وطني؟ ما هي نسبة النباتات التي تم تقييمها في بلدك؟ كيف استخدمت بيانات تقييمات الحفاظ لتوجيه جهود الحماية؟ في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان في الاستفادة من المعلومات المتاحة من: <a translation-url target='_blank' href='http://www.iucnredlist.org'> : القائمة الحمراء للأنواع للاتحاد الدولي لحماية الطبيعة والموارد الطبيعية </a>, و <a translation-url target='_blank' href='http://www.bgci.org/threat_search.php'>وقاعدة بيانات البحث عن الأنواع المهددة التابعة للمنظمة الدولية لحفظ حدائق النباتات </a> و <a translation-url target='_blank' href='http://www.bgci.org/plant_search.php'>h</a> وقاعدة بيانات البحث عن النباتات .">
 											<div km-textbox-ml name="nationalContributions-GSPC-TARGET-02" ng-model="target.description" locales="document.header.languages" rows="3"></div>
 										</div>
@@ -1335,7 +1291,7 @@
 											<div class="km-control-group" name="nationalContributions-GSPC-TARGET-16" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
 															data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: هل هناك شبكة وطنية للحدائق النباتية في بلدك؟ هناك شبكة وطنية لحفظ النباتات أو مجتمع نباتية وطني يتناول بنشاط أهداف الاستراتيجية العالمية لحفظ النبات؟
 </li></ul>  
-في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان أيضا في الاستفادة من قائمة  شبكات الحدائق النباتية التابعة  <a translation-url target='_blank' href='www.bgci.org/about-us/networks/'> للحفظ الدولي للحدائق النباتي. networks</a>.">
+في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان أيضا في الاستفادة من قائمة  شبكات الحدائق النباتية التابعة  <a translation-url target='_blank' href='www.bgci.org/about-us/networks/'> للحفظ الدولي للحدائق النباتي. </a>.">
 												<div km-textbox-ml name="nationalContributions-GSPC-TARGET-16" ng-model="target.description" locales="document.header.languages" rows="3"></div>
 											</div>
 										</div>
