@@ -233,8 +233,8 @@
 													<li ng-class="{ active  : tab=='implementation' }"> <a translation-url href="" ng-click="tab='implementation'">Осуществление</a></li>
 													<li ng-class="{ active  : tab=='progress' }"> <a translation-url href="" ng-click="tab='progress'">Оценивание прогресса</a></li>
 													<li ng-class="{ active  : tab=='nationalContribution' }"> <a translation-url href="" ng-click="tab='nationalContribution'">Национальный вклад</a></li>
-													<li ng-class="{ active  : tab=='gspcContribution' }"> <a translation-url href="" ng-click="tab='gspcContribution'">Bзнос в контексте ГССР</a></li>
-													<li ng-class="{ active  : tab=='iplcContribution' }"> <a translation-url href="" ng-click="tab='iplcContribution'">Bзнос в контексте программы kоренные народы и местные общины</a></li>
+													<li ng-class="{ active  : tab=='gspcContribution' }"> <a translation-url href="" ng-click="tab='gspcContribution'">Bклад в контексте ГССР</a></li>
+													<li ng-class="{ active  : tab=='iplcContribution' }"> <a translation-url href="" ng-click="tab='iplcContribution'">Bклад в контексте программы коренные народы и местные общины</a></li>
 													<li ng-class="{ active  : tab=='countryProfile' }"> <a translation-url href="" ng-click="tab='countryProfile'">Профиль страны</a></li>
 													<li ng-class="{ active  : tab=='review'  }"> <a translation-url href="" ng-click="tab='review'">Обзор</a></li>
 													<li ng-class="{ disabled: tab=='review'  }"> <a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
@@ -620,7 +620,7 @@
 								<div class="panel panel-default gspcTarget" ng-repeat="gspcTarget in document.gspcNationalContribution" ng-if="gspcTarget.identifier">
 									<div class="panel-header clearfix">
 										<h3>
-									целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти {{gspcTarget | term:locale}}
+									Целевая задачa ГССР  {{gspcTarget | term:locale}}
 									<div class="pull-right" style="padding-right:10px">
 										<a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#{{gspcTarget.identifier}}"></a>
 									</div>

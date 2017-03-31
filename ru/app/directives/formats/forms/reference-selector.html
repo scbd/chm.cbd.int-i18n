@@ -104,7 +104,7 @@
     <div class="row">
         <div class="col-xs-12">
 
-            <button style="margin-right:20px;" class="btn btn-default" ng-click="openAddDialog();" ng-disabled="disabled"><i class="fa fa-plus"></i> {{caption || 'Добавить запись'}}{{type!=='radio' ? &quot;(С)&quot; : &quot;&quot;}}</button>
+            <button style="margin-right:20px;" class="btn btn-default" ng-click="openAddDialog();" ng-disabled="disabled"><i class="fa fa-plus"></i> {{caption || 'Добавить запись'}}{{type!=='radio' ? &quot;(и)&quot; : &quot;&quot;}}</button>
 
             <span ng-show="model.length==0 || !model"> <i class="color-blue"> Связанных записей нет. </i> </span>
 
@@ -129,12 +129,12 @@
         </div>
     </div>
 
-    <script type="text/ng-template" id="documentSelectionModal">
+    <script type="text/ng-template" id="documentSelectionModal" trados-translation="true">
         <div class="rounded" id="{{question}}">
             <div class="modal-header bg-grey">
-                <h3>Please select from the list of published record(s) below:</h3>
+                <h3>Пожалуйста, выберите из опубликованных записей ниже:</h3>
                 <div ng-show="filter">
-                    <input type="textbox" ng-model="keyword" placeholder="filter records by keywords or unique identifier" class="form-control">
+                    <input type="textbox" ng-model="keyword" placeholder="Проведите фильтрацию записей, используя ключевые слова или уникальные идентификаторы" class="form-control">
                 </div>
             </div>
 
@@ -153,9 +153,7 @@
                                         <div class="title bold">{{doc.rec_title}}
                                         </div>
 
-                                        <span class="description hidden-xs descriptionSpan" ng-if="doc.rec_summary">{{doc.rec_summary|limitTo:250}}
-                                        <span ng-if="doc.rec_summary.length > 250">...</span>
-                                        </span>
+                                        <span class="description hidden-xs descriptionSpan" ng-if="doc.rec_summary">{{doc.rec_summary|limitTo:250}} <span ng-if="doc.rec_summary.length > 250">...</span></span>
                                         <ul class="metadata bold">
                                             <li>
                                                 <span class="schema bold">{{doc.schema_EN_t}}</span>
@@ -168,12 +166,10 @@
                                                 <span>{{doc.uniqueIdentifier_s|uppercase}}</span>
                                             </li>
                                             <li class="hidden-xs" ng-if="doc.rec_meta1 && doc.schema_s !=='database'" id="meta1">
-                                                <span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">CP:</span>
-                                                <span ng-repeat="meta in doc.rec_meta1">{{meta}}{{$last ? '':', '}}</span>
+                                                <span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">CP:</span> <span ng-repeat="meta in doc.rec_meta1">{{meta}}{{$last ? '':', '}}</span>
                                             </li>
                                             <li class="hidden-xs" ng-if="doc.rec_meta2 && doc.schema_s !=='absPermit'" id="meta2">
-                                                <span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">SOURCE:</span>
-                                                <span ng-repeat="meta in doc.rec_meta2">{{meta}}{{$last ? '':', '}}</span>
+                                                <span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">ИСТОЧНИК:</span> <span ng-repeat="meta in doc.rec_meta2">{{meta}}{{$last ? '':', '}}</span>
                                             </li>
                                             <li class="hidden-xs" ng-if="doc.rec_meta3" id="meta3">
                                                 <span ng-repeat="meta in doc.rec_meta3" ng-class="{'color-red':meta==='Revoked'}">{{meta}}{{$last ? '':', '}}</span>
@@ -185,15 +181,14 @@
                         </a>
                     </div>
                 </div>
-                <div ng-if="isLoading"> <i class="fa fa-spinner fa-spin"></i> Loading...</div>
-                <div ng-if="rawDocuments.numFound===0"> no records found.</div>
+                <div ng-if="isLoading"> <i class="fa fa-spinner fa-spin"></i> Загрузка ....</div>
+                <div ng-if="rawDocuments.numFound===0"> Записей не найдено.</div>
             </div>
 
             <div class="modal-footer bg-grey">
                 <div class="row">
                     <div class="col-xs-12">
-                        <a translation-url type="button" class="btn btn-primary bold pull-left" style="color:white;" ng-click="saveDocuments()">Save</a>
-                        <a translation-url type="button" class="btn btn-warning bold" data-dismiss="modal" ng-click="closeDialog()">Close</a>
+                        <a translation-url type="button" class="btn btn-primary bold pull-left" style="color:white;" ng-click="saveDocuments()">Сохранить</a> <a translation-url type="button" class="btn btn-warning bold" data-dismiss="modal" ng-click="closeDialog()">Закрыть</a>
                     </div>
                 </div>
             </div>
