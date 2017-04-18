@@ -129,7 +129,7 @@
         </div>
     </div>
 
-    <script type="text/ng-template" id="documentSelectionModal">
+    <script type="text/ng-template" id="documentSelectionModal" trados-translation="true">
         <div class="rounded" id="{{question}}">
             <div class="modal-header bg-grey">
                 <h3>Please select from the list of published record(s) below:</h3>
@@ -153,9 +153,7 @@
                                         <div class="title bold">{{doc.rec_title}}
                                         </div>
 
-                                        <span class="description hidden-xs descriptionSpan" ng-if="doc.rec_summary">{{doc.rec_summary|limitTo:250}}
-                                        <span ng-if="doc.rec_summary.length > 250">...</span>
-                                        </span>
+                                        <span class="description hidden-xs descriptionSpan" ng-if="doc.rec_summary">{{doc.rec_summary|limitTo:250}} <span ng-if="doc.rec_summary.length > 250">...</span></span>
                                         <ul class="metadata bold">
                                             <li>
                                                 <span class="schema bold">{{doc.schema_EN_t}}</span>
@@ -168,12 +166,10 @@
                                                 <span>{{doc.uniqueIdentifier_s|uppercase}}</span>
                                             </li>
                                             <li class="hidden-xs" ng-if="doc.rec_meta1 && doc.schema_s !=='database'" id="meta1">
-                                                <span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">CP:</span>
-                                                <span ng-repeat="meta in doc.rec_meta1">{{meta}}{{$last ? '':', '}}</span>
+                                                <span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">CP:</span> <span ng-repeat="meta in doc.rec_meta1">{{meta}}{{$last ? '':', '}}</span>
                                             </li>
                                             <li class="hidden-xs" ng-if="doc.rec_meta2 && doc.schema_s !=='absPermit'" id="meta2">
-                                                <span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">SOURCE:</span>
-                                                <span ng-repeat="meta in doc.rec_meta2">{{meta}}{{$last ? '':', '}}</span>
+                                                <span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">SOURCE:</span> <span ng-repeat="meta in doc.rec_meta2">{{meta}}{{$last ? '':', '}}</span>
                                             </li>
                                             <li class="hidden-xs" ng-if="doc.rec_meta3" id="meta3">
                                                 <span ng-repeat="meta in doc.rec_meta3" ng-class="{'color-red':meta==='Revoked'}">{{meta}}{{$last ? '':', '}}</span>
@@ -185,15 +181,14 @@
                         </a>
                     </div>
                 </div>
-                <div ng-if="isLoading"> <i class="fa fa-spinner fa-spin"></i> Loading...</div>
+                <div ng-if="isLoading"> <i class="fa fa-spinner fa-spin"></i> Cargando...</div>
                 <div ng-if="rawDocuments.numFound===0"> no records found.</div>
             </div>
 
             <div class="modal-footer bg-grey">
                 <div class="row">
                     <div class="col-xs-12">
-                        <a translation-url type="button" class="btn btn-primary bold pull-left" style="color:white;" ng-click="saveDocuments()">Save</a>
-                        <a translation-url type="button" class="btn btn-warning bold" data-dismiss="modal" ng-click="closeDialog()">Close</a>
+                        <a translation-url type="button" class="btn btn-primary bold pull-left" style="color:white;" ng-click="saveDocuments()">Grabar</a> <a translation-url type="button" class="btn btn-warning bold" data-dismiss="modal" ng-click="closeDialog()">Cerrar</a>
                     </div>
                 </div>
             </div>

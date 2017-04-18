@@ -1,5 +1,5 @@
 ﻿<div class="viewForm">
-	<h2>{{(document.name||document.organization) | lstring:locale}} <i ng-show="document.acronym">({{(document.acronym||document.organizationAcronym) | lstring:locale}})</i></h2>
+	<h2>{{document.title | lstring:locale}} <i ng-show="document.acronym">({{document.acronym | lstring:locale}})</i></h2>
 	<style>
 		.panel-header,
 		.section .section-header {
