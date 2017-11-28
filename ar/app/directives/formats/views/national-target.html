@@ -19,6 +19,7 @@
 		<legend>مستوى التطبيق</legend>
 
 		<div ng-show="document.jurisdiction">
+			<label>الاختصاص القضائي:</label>
 			<div class="km-value">
 				{{document.jurisdiction | term:locale}}
 			</div>
@@ -37,12 +38,12 @@
 
 		<div ng-show="document.aichiTargets">
 			<label>أهداف أيتشي للتنوع البيولوجي</label>
-			<div class="km-value" ng-repeat="item in document.aichiTargets">{{item | term:locale}}</div>
+			<div class="km-value"  ><span ng-repeat="item in document.aichiTargets">{{item | term:locale}}</span></div>
 		</div>
 
 		<div ng-show="document.otherAichiTargets">
 			<label>أهداف أيتشي للتنوع البيولوجي الفرعية</label>
-			<div class="km-value" ng-repeat="item in document.otherAichiTargets">{{item | term:locale}}</div>
+			<div class="km-value" ><span ng-repeat="item in document.otherAichiTargets">{{item | term:locale}}</span></div>
 		</div>
 		<div ng-show="document.noOtherAichiTargetsDescription">
 			<label>لا يتضمن تفسير الهدف الوطني أي هدف من أهداف أيشي للتنوع البيولوجي أو يتصل بأجزاء أخرى من الخطة الاستراتيجية للتنوع البيولوجي</label>
@@ -62,8 +63,7 @@
 
 		<div ng-show="document.documentLinks">
 			<label>المواقع والروابط والملفات ذات الصلة</label>
-			<div class="km-value" ng-repeat="item in document.documentLinks">
-				<a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a>
+			<div class="km-value"><span ng-repeat="item in document.documentLinks"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></span>
 			</div>
 		</div>
 	</div>
@@ -79,8 +79,8 @@
 
 		<div ng-show="document.relevantDocuments">
 			<label>مواقع الانترنت أو مستندات مرفقة أخرى ذات صلة</label>
-			<div class="km-value" ng-repeat="item in document.relevantDocuments">
-				<a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a>
+			<div class="km-value">
+				<span ng-repeat="item in document.relevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></span>
 			</div>
 		</div>
 

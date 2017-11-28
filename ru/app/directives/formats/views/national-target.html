@@ -19,6 +19,7 @@
 		<legend>Уровень приложения</legend>
 
 		<div ng-show="document.jurisdiction">
+			<label>Jurisdiction</label>
 			<div class="km-value">
 				{{document.jurisdiction | term:locale}}
 			</div>
@@ -37,12 +38,12 @@
 
 		<div ng-show="document.aichiTargets">
 			<label>Айтинские целевые задачи по биоразнообразию</label>
-			<div class="km-value" ng-repeat="item in document.aichiTargets">{{item | term:locale}}</div>
+			<div class="km-value"  ><span ng-repeat="item in document.aichiTargets">{{item | term:locale}}</span></div>
 		</div>
 
 		<div ng-show="document.otherAichiTargets">
 			<label>Подцели по сохранению и устойчивому использованию биоразнообразия, принятые в Айти</label>
-			<div class="km-value" ng-repeat="item in document.otherAichiTargets">{{item | term:locale}}</div>
+			<div class="km-value" ><span ng-repeat="item in document.otherAichiTargets">{{item | term:locale}}</span></div>
 		</div>
 		<div ng-show="document.noOtherAichiTargetsDescription">
 			<label>Объяснение целевой задачи не связано с соответствующей целевой задачей по сохранению и устойчивому использованию биоразнообразия, принятой в Айти, и не относится к другим частям Стратегического плана в области биоразнообразия</label>
@@ -62,8 +63,7 @@
 
 		<div ng-show="document.documentLinks">
 			<label>Соответствующие веб-сайты, веб-ссылки и файлы</label>
-			<div class="km-value" ng-repeat="item in document.documentLinks">
-				<a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a>
+			<div class="km-value"><span ng-repeat="item in document.documentLinks"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></span>
 			</div>
 		</div>
 	</div>
@@ -79,8 +79,8 @@
 
 		<div ng-show="document.relevantDocuments">
 			<label>Другие релевантные адреса веб-сайтов или прилагающиеся документы</label>
-			<div class="km-value" ng-repeat="item in document.relevantDocuments">
-				<a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a>
+			<div class="km-value">
+				<span ng-repeat="item in document.relevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></span>
 			</div>
 		</div>
 
