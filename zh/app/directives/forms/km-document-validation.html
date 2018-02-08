@@ -1,32 +1,26 @@
 ﻿<div>
 
-	<div ng-hide="report || onLoad" class="alert alert-info">
-		<i class="fa fa-cog fa-spin"></i> 正在分析您的文档...
-	</div>
+	<div ng-hide="report || onLoad" class="alert alert-info"><i class="fa fa-cog fa-spin"></i> 正在分析您的文档...</div>
 
 	<div ng-show="report">
 		<div ng-show="isValid()" class="alert alert-success">
 			<h2>你的文件有效，现在可以对外发布</h2>
-			<h4 class="color-darkgrey"> 在发布之前，请审核你的文件。所有发布的文件现已公开。</h4>
+			<h4 class="color-darkgrey">在发布之前，请审核你的文件。所有发布的文件现已公开。</h4>
 		</div>
 
 
 		<div ng-show="hasErrors()" class="alert alert-warning">
 			<h2 class="color-red">您的文档包含错误。</h2>
-			<h4 class="color-darkgrey"> 在这份文件发布之前，所有的错误都必须改过来。</h4>
+			<h4 class="color-darkgrey">在这份文件发布之前，所有的错误都必须改过来。</h4>
 			<ul>
-				<li ng-repeat="error in report.errors" title="{{error.parameters}}">
-					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>
-				</li>
+				<li ng-repeat="error in report.errors" title="{{error.parameters}}">{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a></li>
 			</ul>
 		</div>
 
 		<div ng-show="hasWarnings()" class="alert alert-info">
 			<h2 class="color-red">您的文档包含错误。</h2>
 			<ul>
-				<li ng-repeat="error in report.warnings" title="{{error.parameters}}">
-					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>
-				</li>
+				<li ng-repeat="error in report.warnings" title="{{error.parameters}}">{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a></li>
 			</ul>
 		</div>
 </div>

@@ -30,21 +30,15 @@
 		</div>
 		<div class="panel-body">
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey assessmentform">
-				<div class="alert alert-danger" ng-show="hasError()">
-					<strong>Произошла ошибка...</strong>
-					<div>{{error}}</div>
+				<div class="alert alert-danger" ng-show="hasError()"><strong>Произошла ошибка...</strong><div>{{error}}</div>
 				</div>
 
 				<div ng-show="status!='hidden'">
 
 					<div class="row">
-						<div class="col-xs-6">
-							<span km-form-languages ng-model="document.header.languages"></span>
-						</div>
-						<div class="col-xs-6 text-right" ng-if="status!='hidden'">
-							<span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
-											on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span>
-						</div>
+						<div class="col-xs-6"><span km-form-languages ng-model="document.header.languages"></span></div>
+						<div class="col-xs-6 text-right" ng-if="status!='hidden'"><span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
+											on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span></div>
 					</div>
 
 					<div class="row">
@@ -136,7 +130,7 @@
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="nationalIndicatorsUsed" caption="Используются ли в вашей стране показатели для оценивания прогресса в достижении этой национальной целевой задачи?" data-container=".assessmentform" data-content="Просьба сообщить обо всех индикаторах, использовавшихся для оценки результатов выполнения данной целевой задачи. Такие индикаторы могут включать те, что приведены в национальных стратегиях и планах действий по сохранению биоразнообразия вашей страны, или те, что были разработаны для других процессов. В решении XIII/28 Конференция Сторон Конвенции о биологическом разнообразии приветствовала список общих и конкретных индикаторов для Стратегического плана в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы. Изучая результаты достижения национальных целевых задач вашей страны, вы, возможно, пожелаете использовать этот список индикаторов, если это уместно. Более подробную информацию об индикаторах, включая инструменты для разработки национальных индикаторов, можно получить в  
-										&lt;a translation-url href='http://www.bipindicators.net/' target='_new '&gt;Партнерстве по индикаторам биоразнообразия &lt;/a&gt; и в &lt;a translation-url href='http://geobon.org/ ' target='_new '&gt;Группе по наблюдению Земли Сети наблюдения за биоразнообразием &lt;/a&gt;.">
+										<a translation-url href='http://www.bipindicators.net/' target='_new '>Партнерстве по индикаторам биоразнообразия </a> и в <a translation-url href='http://geobon.org/ ' target='_new '>Группе по наблюдению Земли Сети наблюдения за биоразнообразием </a>.">
 
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed, 'btn-default': document.nationalIndicatorsUsed==false}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=true">Да</button>
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed==false, 'btn-default': document.nationalIndicatorsUsed}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=false">Нет</button>
@@ -223,9 +217,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes">
-												<span class="help-block">Поле «Примечания» предназначено для личной информации и может быть просмотрено только при редактировании записи.</span>
-												<div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">Поле «Примечания» включено для индивидуального пользования и становится видимым только при редактировании записи.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>
@@ -234,16 +226,10 @@
 
 
 
-						</div>
-						<!--end addtional info tab-->
-					</form>
+						</div><!--end addtional info tab--></form>
 
 
-					<div km-tab="review">
-						<!--<div ng-if="status!='hidden'">-->
-						<div km-document-validation ng-model="validationReport" data-container="{{container}}"></div>
-						<!--</div>-->
-						<div class="btn-group" ng-show="document.header.languages.length>1">
+					<div km-tab="review"><!--<div ng-if="status!='hidden'">--><div km-document-validation ng-model="validationReport" data-container="{{container}}"></div><!--</div>--><div class="btn-group" ng-show="document.header.languages.length>1">
 							<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
 						</div>
 
@@ -261,10 +247,8 @@
 						</div>
 
 						<div class="col-xs-12 text-right">
-							<div class="">
-								<span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
-												on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span>
-							</div>
+							<div class=""><span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
+												on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span></div>
 						</div>
 					</div>
 

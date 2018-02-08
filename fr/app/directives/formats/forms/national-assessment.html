@@ -30,21 +30,15 @@
 		</div>
 		<div class="panel-body">
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey assessmentform">
-				<div class="alert alert-danger" ng-show="hasError()">
-					<strong>Une erreur est survenue...</strong>
-					<div>{{error}}</div>
+				<div class="alert alert-danger" ng-show="hasError()"><strong>Une erreur est survenue...</strong><div>{{error}}</div>
 				</div>
 
 				<div ng-show="status!='hidden'">
 
 					<div class="row">
-						<div class="col-xs-6">
-							<span km-form-languages ng-model="document.header.languages"></span>
-						</div>
-						<div class="col-xs-6 text-right" ng-if="status!='hidden'">
-							<span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
-											on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span>
-						</div>
+						<div class="col-xs-6"><span km-form-languages ng-model="document.header.languages"></span></div>
+						<div class="col-xs-6 text-right" ng-if="status!='hidden'"><span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
+											on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span></div>
 					</div>
 
 					<div class="row">
@@ -77,17 +71,17 @@
 							</div>
 							<div class="panel panel-default panelMain">
 								<div class="panel-header">
-									<h3>Objet de l'&eacute;valuation</h3>
+									<h3>Objet de l&apos;&eacute;valuation</h3>
 								</div>
 								<div class="panel-body">
 
 									<div class="row bottom-spacing">
 
 										<div class="col-md-12">
-											<div class="km-control-group" required name="nationalTarget" caption="Objectif" ng-show="document.nationalTarget" data-container=".assessmentform" data-content="Veuillez s&eacute;lectionner l&rsquo;objectif national ou l&rsquo;Objectif d&rsquo;Aichi pour la biodiversit&eacute; faisant l&rsquo;objet de l&rsquo;&eacute;valuation">
+											<div class="km-control-group" required name="nationalTarget" caption="Objectif" ng-show="document.nationalTarget" data-container=".assessmentform" data-content="Veuillez sélectionner l’objectif national ou l’Objectif d’Aichi pour la biodiversité faisant l’objet de l’évaluation">
 												<div km-select required displaycount="1" name="nationalTarget" ng-model="document.nationalTarget" placeholder="Veuillez choisir un objectif" watch-items items="options.nationalTargets"></div>
 											</div>
-											<div class="km-control-group" required name="aichiTarget" caption="Objectif" ng-show="document.aichiTarget" data-container=".assessmentform" data-content="Veuillez s&eacute;lectionner l&rsquo;objectif national ou l&rsquo;Objectif d&rsquo;Aichi pour la biodiversit&eacute; faisant l&rsquo;objet de l&rsquo;&eacute;valuation">
+											<div class="km-control-group" required name="aichiTarget" caption="Objectif" ng-show="document.aichiTarget" data-container=".assessmentform" data-content="Veuillez sélectionner l’objectif national ou l’Objectif d’Aichi pour la biodiversité faisant l’objet de l’évaluation">
 												<div km-select required displaycount="1" name="aichiTarget" ng-model="document.aichiTarget" placeholder="Veuillez choisir un objectif" items="options.aichiTargets()"></div>
 											</div>
 										</div>
@@ -103,13 +97,13 @@
 									<div class="row bottom-spacing">
 
 										<div class="col-md-12" ng-if="status =='ready'">
-											<div class="km-control-group" required name="progress" caption="Taux de progr&egrave;s vers la mise en &oelig;uvre de l'objectif  s&eacute;lectionn&eacute;" data-container=".assessmentform" data-content="Veuillez indiquer le niveau actuel de progr&egrave;s accomplis dans la r&eacute;alisation de l&rsquo;objectif national choisi en utilisant les cat&eacute;gories ci-dessous. Les cat&eacute;gories ci-dessous sont les m&ecirc;mes que dans la quatri&egrave;me &eacute;dition des Perspectives mondiales de la diversit&eacute; biologique L&rsquo;&eacute;valuation doit tenir compte de l&rsquo;&eacute;ch&eacute;ance pr&eacute;vue pour r&eacute;aliser l&rsquo;objectif national.">
+											<div class="km-control-group" required name="progress" caption="Taux de progrès vers la mise en œuvre de l'objectif  sélectionné" data-container=".assessmentform" data-content="Veuillez indiquer le niveau actuel de progrès accomplis dans la réalisation de l’objectif national choisi en utilisant les catégories ci-dessous. Les catégories ci-dessous sont les mêmes que dans la quatrième édition des Perspectives mondiales de la diversité biologique L’évaluation doit tenir compte de l’échéance prévue pour réaliser l’objectif national.">
 												<div km-term-radio name="progress" required ng-model="document.progress" terms="options.progresses()" description="true" binding-type="term" data-container=".assessmentform"></div>
 											</div>
 										</div>
 
 										<div class="col-md-12">
-											<div class="km-control-group" required name="date" caption="Date &agrave; laquelle l&rsquo;&eacute;valuation a &eacute;t&eacute; effectu&eacute;e" data-container=".assessmentform" data-content="Veuillez pr&eacute;ciser la date &agrave; laquelle cette &eacute;valuation des progr&egrave;s accomplis a &eacute;t&eacute; effectu&eacute;e">
+											<div class="km-control-group" required name="date" caption="Date à laquelle l’évaluation a été effectuée" data-container=".assessmentform" data-content="Veuillez préciser la date à laquelle cette évaluation des progrès accomplis a été effectuée">
 												<div km-date name="date" required ng-model="document.date"></div>
 											</div>
 										</div>
@@ -117,11 +111,8 @@
 
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" name="assessmentText" caption="Informations suppl&eacute;mentaires (Veuillez fournir des renseignements sur les donn&eacute;es factuelles utilis&eacute;es dans l&rsquo;&eacute;valuation de cet objectif, en vous appuyant sur les informations pertinentes fournies dans la partie II, y compris sur les obstacles dans la r&eacute;alisation de l&rsquo;&eacute;valuation)."
-															data-container=".assessmentform" data-content="Veuillez fournir des renseignements justifiant le choix ci-dessus. Ceci pourrait inclure des informations sur les cons&eacute;quences g&eacute;n&eacute;rales des mesures prises, les changements dans l&rsquo;&eacute;tat et les tendances en mati&egrave;re de diversit&eacute; biologique, les changements dans la pression exerc&eacute;e sur la diversit&eacute; biologique 
-											ou les facteurs de son appauvrissement, les changements dans les conditions socio&eacute;conomiques telles que la sensibilisation &agrave; la diversit&eacute; biologique, les changements dans la disponibilit&eacute; des ressources, les changements aux politiques gouvernementales ou les changements dans le comportement des principaux secteurs d&rsquo;activit&eacute;s au pays. En ce qui concerne les objectifs quantitatifs,
-											les Parties pourraient envisager de faire rapport sur l&rsquo;&eacute;tendue de la r&eacute;alisation par rapport &agrave; la valeur de l&rsquo;objectif. &Agrave; titre d&rsquo;exemple, cette &eacute;valuation pourrait &ecirc;tre pr&eacute;sent&eacute;e sous forme de pourcentages pour certains types d&rsquo;objectifs. Les Parties 
-											souhaiteront peut-&ecirc;tre &eacute;galement  d&eacute;crire le processus qu&rsquo;elles ont utilis&eacute; pour &eacute;valuer les progr&egrave;s accomplis dans la r&eacute;alisation de l&rsquo;objectif, ainsi que faire rapport sur tout obstacle li&eacute; au processus d&rsquo;&eacute;valuation de l&rsquo;objectif.">
+											<div class="km-control-group" name="assessmentText" caption="Informations supplémentaires (Veuillez fournir des renseignements sur les données factuelles utilisées dans l’évaluation de cet objectif, en vous appuyant sur les informations pertinentes fournies dans la partie II, y compris sur les obstacles dans la réalisation de l’évaluation)."
+															data-container=".assessmentform" data-content="Veuillez fournir des renseignements justifiant le choix ci-dessus. This could include information related to the overall impact of the measure taken, changes to the status and trends of biodiversity, changes to pressures on biodiversity or the drivers of its loss, changes to socioeconomic conditions, such as awareness of biodiversity, changes in resource availability, changes to government policies, or changes in the behaviour of major sectors in the country. For national targets which are quantitative in nature, Parties may also wish to consider reporting on the extent of achievement in relation to the target value. À titre d’exemple, cette évaluation pourrait être présentée sous forme de pourcentages pour certains types d’objectifs. Parties may also wish to describe the process they have used to assess progress towards the target, as well as report on any obstacles related to the assessment process for the target.">
 												<div km-textbox-ml required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
 											</div>
 										</div>
@@ -138,15 +129,14 @@
 
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" name="nationalIndicatorsUsed" caption="Votre pays at-il utilis&eacute; des indicateurs pour &eacute;valuer les progr&egrave;s accomplis dans la r&eacute;alisation de cet objectif national?" data-container=".assessmentform" data-content="Veuillez indiquer tous les indicateurs utilis&eacute;s pour &eacute;valuer les progr&egrave;s accomplis dans la r&eacute;alisation de cet objectif. Ces indicateurs pourraient comprendre les indicateurs contenus dans la strat&eacute;gie et plan d&rsquo;action nationaux pour la biodiversit&eacute; de votre pays ou les indicateurs d&eacute;velopp&eacute;s pour d&rsquo;autres processus. Dans sa d&eacute;cision XIII/28, la Conf&eacute;rence des Parties &agrave; la Convention sur la diversit&eacute; biologique a accueilli avec satisfaction une liste d&rsquo;indicateurs g&eacute;n&eacute;raux et sp&eacute;cifiques pour le Plan strat&eacute;gique 2011-2020 pour la diversit&eacute; biologique. Vous pourrez utiliser cette liste d&rsquo;indicateurs, selon qu&rsquo;il convient, pour &eacute;valuer les progr&egrave;s accomplis dans la r&eacute;alisation des objectifs nationaux de votre pays. De plus amples renseignements sur les indicateurs, y compris les outils de d&eacute;veloppement des indicateurs nationaux, sont mis &agrave; disposition par le   
-										&lt;a href='http://www.bipindicators.net/' target='_new '&gt;Partenariat relatif aux indicateurs de biodiversit&eacute;&lt;/a&gt; et par le &lt;a href='http://geobon.org/ ' target='_new '&gt;R&eacute;seau d&rsquo;observation de la biodiversit&eacute; au sein du Groupe d&rsquo;observations de la Terre&lt;/a&gt;.">
+											<div class="km-control-group" name="nationalIndicatorsUsed" caption="Votre pays at-il utilisé des indicateurs pour évaluer les progrès accomplis dans la réalisation de cet objectif national?" data-container=".assessmentform" data-content="Veuillez indiquer tous les indicateurs utilisés pour évaluer les progrès accomplis dans la réalisation de cet objectif. Ces indicateurs pourraient comprendre les indicateurs contenus dans la stratégie et plan d’action nationaux pour la biodiversité de votre pays ou les indicateurs développés pour d’autres processus. Dans sa décision XIII/28, la Conférence des Parties à la Convention sur la diversité biologique a accueilli avec satisfaction une liste d’indicateurs généraux et spécifiques pour le Plan stratégique 2011-2020 pour la diversité biologique. Vous pourrez utiliser cette liste d’indicateurs, selon qu’il convient, pour évaluer les progrès accomplis dans la réalisation des objectifs nationaux de votre pays. Further information on indicators, including tools for national indicator development, is available from the <a translation-url href='http://www.bipindicators.net/' target='_new '>Biodiversity Indicators Partnership</a> and the <a translation-url href='http://geobon.org/ ' target='_new '>Group on Earth Observations Biodiversity Observation Network</a>.">
 
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed, 'btn-default': document.nationalIndicatorsUsed==false}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=true">Oui</button>
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed==false, 'btn-default': document.nationalIndicatorsUsed}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=false">Non</button>
 											</div>
 											<div class="row" ng-show="document.nationalIndicatorsUsed">
 												<div class="col-md-12">
-													<div class="km-control-group" name="nationalIndicators" caption="Veuillez fournir une liste des indicateurs utilis&eacute;s pour l&rsquo;&eacute;valuation de cet objectif.">
+													<div class="km-control-group" name="nationalIndicators" caption="Veuillez fournir une liste des indicateurs utilisés pour l’évaluation de cet objectif.">
 														<div km-textbox-ml name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
 													</div>
 												</div>
@@ -157,15 +147,15 @@
 
 									<div class="row  bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" name="documentText" caption="Veuillez d&eacute;crire tout autre outil ou moyen employ&eacute; pour &eacute;valuer les progr&egrave;s accomplis" data-container=".assessmentform" data-content="Veuillez d&eacute;crire les outils et les m&eacute;thodes que votre pays a utilis&eacute;s pour &eacute;valuer les progr&egrave;s accomplis dans la r&eacute;alisation de cet objectif national , par exemple des &eacute;tudes de cas, des &eacute;tudes th&eacute;oriques, des opinions d&rsquo;experts et des consultations des parties prenantes et autres.">
+											<div class="km-control-group" name="documentText" caption="Veuillez décrire tout autre outil ou moyen employé pour évaluer les progrès accomplis" data-container=".assessmentform" data-content="Veuillez décrire les outils et les méthodes que votre pays a utilisés pour évaluer les progrès accomplis dans la réalisation de cet objectif national , par exemple des études de cas, des études théoriques, des opinions d’experts et des consultations des parties prenantes et autres.">
 												<div km-textbox-ml name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
 									<div class="row  bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" name="documentLinks" caption="Sites Internet, liens Internet et fichiers pertinents. (Veuillez utiliser ce champ pour indiquer des sites et liens Internet ou documents qui permettent d&rsquo;acc&eacute;der &agrave; de plus amples informations sur cette &eacute;valuation)."
-															data-container=".assessmentform" data-content="Veuillez indiquer tout site Internet, lien Internet ou document pertinent menant &agrave; des informations suppl&eacute;mentaires concernant l&rsquo;&eacute;valuation des progr&egrave;s dans la r&eacute;alisation de cet objectif national. Ceci pourrait inclure des informations sur les m&eacute;thodes et les donn&eacute;es qui sous-tendent les indicateurs et les outils indiqu&eacute;s ci-dessus.">
+											<div class="km-control-group" name="documentLinks" caption="Sites Internet, liens Internet et fichiers pertinents. (Veuillez utiliser ce champ pour indiquer des sites et liens Internet ou documents qui permettent d’accéder à de plus amples informations sur cette évaluation)."
+															data-container=".assessmentform" data-content="Veuillez indiquer tout site Internet, lien Internet ou document pertinent menant à des informations supplémentaires concernant l’évaluation des progrès dans la réalisation de cet objectif national. Ceci pourrait inclure des informations sur les méthodes et les données qui sous-tendent les indicateurs et les outils indiqués ci-dessus.">
 												<div km-link name="documents" ng-model="document.documentLinks" identifier="document.header.identifier"></div>
 											</div>
 										</div>
@@ -180,7 +170,7 @@
 
 									<div class="row bottom-spacing">
 										<div class="col-md-12" ng-if="status =='ready'">
-											<div class="km-control-group" required name="confidence" caption="Niveau de confiance de l&rsquo;&eacute;valuation ci-dessus" data-container=".assessmentform" data-content="Veuillez indiquer le niveau de confiance de votre pays &agrave; l&rsquo;&eacute;gard de l&rsquo;&eacute;valuation men&eacute;e ci-dessus.">
+											<div class="km-control-group" required name="confidence" caption="Niveau de confiance de l’évaluation ci-dessus" data-container=".assessmentform" data-content="Veuillez indiquer le niveau de confiance de votre pays à l’égard de l’évaluation menée ci-dessus.">
 												<div km-term-radio name="implementationMeasureAssessment" ng-model="document.confidence" terms="options.confidences()" description="true" binding-type="term" data-container=".assessmentform"></div>
 											</div>
 										</div>
@@ -188,29 +178,29 @@
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" required name="confidenceInfo" caption="Veuillez fournir une explication du niveau de confiance indiqu&eacute; ci-dessus." data-container=".assessmentform" data-content="Veuillez expliquer pourquoi l&rsquo;&eacute;valuation a re&ccedil;u la cote de confiance indiqu&eacute;e ci-dessus. Les Parties peuvent offrir des commentaires sur les types d&rsquo;information ou d&rsquo;indicateurs utilis&eacute;s, leur repr&eacute;sentativit&eacute;, leur couverture et leurs limites &eacute;ventuelles.">
+											<div class="km-control-group" required name="confidenceInfo" caption="Veuillez fournir une explication du niveau de confiance indiqué ci-dessus." data-container=".assessmentform" data-content="Veuillez expliquer pourquoi l’évaluation a reçu la cote de confiance indiquée ci-dessus. Les Parties peuvent offrir des commentaires sur les types d’information ou d’indicateurs utilisés, leur représentativité, leur couverture et leurs limites éventuelles.">
 												<div km-textbox-ml required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12" ng-if="status =='ready'">
-											<div class="km-control-group" name="adequacy" caption="Caract&egrave;re ad&eacute;quat des donn&eacute;es de suivi qui appuient l&rsquo;&eacute;valuation" data-container=".assessmentform" data-content="Veuillez pr&eacute;ciser le caract&egrave;re ad&eacute;quat du suivi en place pour cet objectif national.">
+											<div class="km-control-group" name="adequacy" caption="Caractère adéquat des données de suivi qui appuient l’évaluation" data-container=".assessmentform" data-content="Veuillez préciser le caractère adéquat du suivi en place pour cet objectif national.">
 												<div km-term-radio name="adequacy" ng-model="document.adequacy" terms="options.adequacyMonitoring()" description="true" binding-type="term" data-container=".assessmentform"></div>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12" ng-if="isMonitoringNotRequired()">
-											<div class="km-control-group" name="adequacyDescription" caption="Veuillez d&eacute;crire comment le suivi de l&rsquo;objectif est assur&eacute; et indiquer si un syst&egrave;me de suivi est en place" data-container=".assessmentform" data-content="Si vous avez coch&eacute; une des deux premi&egrave;res cases ci-dessus (c.-&agrave;-d., le suivi de cet objectif est ad&eacute;quat ou le suivi de cet objectif est partiel), veuillez d&eacute;crire comment le suivi de l&rsquo;objectif est assur&eacute;, y compris des informations sur tout syst&egrave;me de suivi pertinent. Votre r&eacute;ponse doit pr&eacute;ciser les caract&eacute;ristiques du syst&egrave;me de suivi, les organisations qui en sont responsables, le mode de collecte des informations ou des donn&eacute;es, le type de donn&eacute;es recueillies et la fr&eacute;quence de l&rsquo;actualisation des donn&eacute;es.">
+											<div class="km-control-group" name="adequacyDescription" caption="Veuillez décrire comment le suivi de l’objectif est assuré et indiquer si un système de suivi est en place" data-container=".assessmentform" data-content="Si vous avez coché une des deux premières cases ci-dessus (c.-à-d., le suivi de cet objectif est adéquat ou le suivi de cet objectif est partiel), veuillez décrire comment le suivi de l’objectif est assuré, y compris des informations sur tout système de suivi pertinent. Votre réponse doit préciser les caractéristiques du système de suivi, les organisations qui en sont responsables, le mode de collecte des informations ou des données, le type de données recueillies et la fréquence de l’actualisation des données.">
 												<div km-textbox-ml name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="otherRelevantDocuments" caption="Sites Internet, liens Internet et fichiers pertinents. (Veuillez utiliser ce champ pour indiquer des sites et liens Internet ou documents qui permettent d&rsquo;acc&eacute;der &agrave; de plus amples informations sur le syst&egrave;me de suivi)"
-															data-container=".assessmentform" data-content="Veuillez fournir tout fichier pertinent et/ou lien vers des sites Web d&rsquo;autres sources contenant des informations sur le suivi, notamment en joignant des rapports ou articles scientifiques, en indiquant des liens Internet et/ou en fournissant des citations tir&eacute;es de publications.">
+											<div class="km-control-group" name="otherRelevantDocuments" caption="Sites Internet, liens Internet et fichiers pertinents. (Veuillez utiliser ce champ pour indiquer des sites et liens Internet ou documents qui permettent d’accéder à de plus amples informations sur le système de suivi)"
+															data-container=".assessmentform" data-content="Veuillez fournir tout fichier pertinent et/ou lien vers des sites Web d’autres sources contenant des informations sur le suivi, notamment en joignant des rapports ou articles scientifiques, en indiquant des liens Internet et/ou en fournissant des citations tirées de publications.">
 												<div km-link name="otherRelevantDocuments" ng-model="document.otherRelevantDocuments" identifier="document.header.identifier"></div>
 											</div>
 										</div>
@@ -226,9 +216,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes">
-												<span class="help-block">Le champ «&nbsp;Notes&nbsp;» est r&eacute;serv&eacute; &agrave; votre usage personnel. Il ne peut &ecirc;tre vu que pendant la modification de l'enregistrement.</span>
-												<div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">Le champ «&nbsp;Notes&nbsp;» est r&eacute;serv&eacute; &agrave; votre usage personnel. Il ne peut &ecirc;tre vu que pendant la modification de l&apos;enregistrement.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>
@@ -237,16 +225,10 @@
 
 
 
-						</div>
-						<!--end addtional info tab-->
-					</form>
+						</div><!--end addtional info tab--></form>
 
 
-					<div km-tab="review">
-						<!--<div ng-if="status!='hidden'">-->
-						<div km-document-validation ng-model="validationReport" data-container="{{container}}"></div>
-						<!--</div>-->
-						<div class="btn-group" ng-show="document.header.languages.length>1">
+					<div km-tab="review"><!--<div ng-if="status!='hidden'">--><div km-document-validation ng-model="validationReport" data-container="{{container}}"></div><!--</div>--><div class="btn-group" ng-show="document.header.languages.length>1">
 							<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
 						</div>
 
@@ -264,10 +246,8 @@
 						</div>
 
 						<div class="col-xs-12 text-right">
-							<div class="">
-								<span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
-												on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span>
-							</div>
+							<div class=""><span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
+												on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span></div>
 						</div>
 					</div>
 

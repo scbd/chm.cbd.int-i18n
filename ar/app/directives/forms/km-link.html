@@ -1,15 +1,13 @@
-﻿<div style="margin-bottom:20px">
+﻿<div style="margin-bottom:20px" dir="rtl">
 	<div>
-			<button type="button" class="btn btn-default" ng-click="addLink()" ng-show="isAllowLink()"><i class="fa fa-globe"></i> إضافة رابط</button>
+			<button type="button" class="btn btn-default" ng-click="addLink()" ng-show="isAllowLink()"><i class="fa fa-globe" dir="rtl"></i> إضافة رابط</button>
 		<button type="button" class="btn btn-default" ng-click="addFile()" ng-show="isAllowFile()" ng-disabled="!identifier"><i class="fa fa-file-o"></i> إضافة ملف</button>
 
 		<ul class="list-group" ng-if="links||links.length">
 			<li class="list-group-item" ng-repeat="link in links">
 				<table style="width:100%">
 					<tr>
-						<td>
-							<a translation-url target="_blank" ng-href="{{link.url}}">{{link.name||link.url}}</a> <span ng-show="link.tag">({{link.tag}})</span>
-						</td>
+						<td><a translation-url target="_blank" ng-href="{{link.url}}">{{link.name||link.url}}</a> <span ng-show="link.tag">({{link.tag}})</span></td>
 						<td style="white-space:nowrap;text-align:right;vertical-align:top">
 							<button type="button" class="btn btn-default" ng-click="remove(link)"><i class="fa fa-trash-o"></i></button>
 						</td>
@@ -18,10 +16,7 @@
 			</li>
 		</ul>
 
-	</div>
-
-    <!--Link Editor-->
-	<div id="editLink" class="modal fade" data-backdrop="static">
+	</div><!--Link Editor--><div id="editLink" class="modal fade" data-backdrop="static">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -31,18 +26,16 @@
 					<div class="alert alert-info">يرجى ذكر رابط موقع الويب (على سبيل المثال <a translation-url target="_blank" href="http://www.cbd.int">http://www.cbd.int</a>واسم موقع الويب (على سبيل المثال: &quot;اتفاقية التنوع البيولوجي&quot;).</div>
 					<form name="linkForm">
 						<fieldset>
-							<div class="alert alert-warning" ng-show="linkForm.$error.url">
-								<strong>تحذير!</strong> القيمة المحددة ليست رابط موقع ويب صالح
-								<ul><li> تأكد بأن رابط موقع الويب يبداء ب  //:https  او //:http</li></ul>
+							<div class="alert alert-warning" ng-show="linkForm.$error.url"><strong>تحذير!</strong> القيمة المحددة ليست رابط موقع ويب صالح<ul><li>تأكد بأن رابط موقع الويب يبداء ب  //:https  او //:http</li></ul>
 							</div>
 							<div class="control-group" ng-class="{error: linkForm.editor.url.$invalid}">
 								<label class="control-label" ng-required="editor.visible" for="url">الرابط</label>
-								<input class="form-control" type="url" style="width:98%" ng-model="editor.url" ng-required="editor.visible" placeholder="مثلاً :  http://www.cbd.int">
+								<input class="form-control" type="url" style="width:98%" ng-model="editor.url" ng-required="editor.visible" placeholder="مثال: http://www.cbd.int">
 							</div>
 
 							<div class="control-group" ng-class="{error: linkForm.name.$invalid}">
 								<label>الاسم</label>
-								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="مثال: موقع &quot;اتفاقية التنوع البيولوجي&quot;">
+								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="example: موقع "اتفاقية التنوع البيولوجي"">
 							</div>
 						</fieldset>
 					</form>
@@ -53,10 +46,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-    <!--File Upload Editor-->
-	<div id="editFile" class="modal fade" data-backdrop="static">
+	</div><!--File Upload Editor--><div id="editFile" class="modal fade" data-backdrop="static">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -64,9 +54,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="alert alert-danger" ng-show="editor.error!=null">
-						<h4>حدث خطأ...</h4>
-						{{editor.error}}
-					</div>
+						<h4>حدث خطأ...</h4>{{editor.error}}</div>
 					<div ng-show="editor.progress">
 						<label>تحميل {{editor.name}} ({{editor.progress.size/1024 | number:1}} kB)</label>
 						<div class="progress progress-striped {{editor.progress.style}}">
@@ -77,10 +65,9 @@
 					<div class="control-group" >
 						<label>اسم الملف</label>
 						<input class="form-control" type="text" style="width:98%" ng-model="editor.name" ng-disabled="true">
-					</div><br/>
-					<div class="control-group" >
+					</div><br/><div class="control-group" >
 						<label>علامات</label>
-						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="مثال: التنوع البيولوجي ، هدف ايشي">
+						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="example: التنوع البيولوجي ، هدف ايشي">
 					</div>
 				</div>
 				<div class="modal-footer">

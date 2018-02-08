@@ -1,4 +1,4 @@
-﻿<div>
+﻿<div dir="rtl">
     <style>
         .ngdialog-content {
             width: 65%!important;
@@ -99,18 +99,10 @@
             font-size: 10px;
             margin: 0;
         }
-    </style>
-    <!-- existing documents display -->
-    <div class="row">
+    </style><!-- existing documents display --><div class="row">
         <div class="col-xs-12">
 
-            <button style="margin-right:20px;" class="btn btn-default" ng-click="openAddDialog();" ng-disabled="disabled"><i class="fa fa-plus"></i> {{caption || 'إضافة سجل'}}{{type!=='radio' ? &quot;(s)&quot; : &quot;&quot;}}</button>
-
-            <span ng-show="model.length==0 || !model"> <i class="color-blue"> لم يتّم ربط أية سجلات </i> </span>
-
-            <a translation-url class="bold" href="#" ng-click="areVisible = true" ng-show="!areVisible && model.length>0" name="showRecords"><i class="fa fa-chevron-circle-right"></i> {{model.length}}سجلات الربط.</a> <a translation-url class="bold" href="#" name="hideRecords" ng-click="areVisible=false" ng-show="areVisible && model.length>0 "><i class="fa fa-chevron-circle-down"></i> {{model.length}} سجلات الربط.</a>
-
-        </div>
+            <button style="margin-right:20px;" class="btn btn-default" ng-click="openAddDialog();" ng-disabled="disabled"><i class="fa fa-plus"></i> {{caption || &apos;إضافة سجل&apos;}}{{type!==&apos;radio&apos; ? &quot;(s)&quot; : &quot;&quot;}}</button><span ng-show="model.length==0 || !model"><i class="color-blue">لم يتّم ربط أية سجلات</i></span> <a translation-url class="bold" href="#" ng-click="areVisible = true" ng-show="!areVisible && model.length>0" name="showRecords"><i class="fa fa-chevron-circle-right"></i> {{model.length}} linked records.</a> <a translation-url class="bold" href="#" name="hideRecords" ng-click="areVisible=false" ng-show="areVisible && model.length>0 "><i class="fa fa-chevron-circle-down"></i> {{model.length}} سجلات مرتبطة.</a></div>
     </div>
     <div class="row" ng-show="areVisible && !disabled">
         <div class="col-xs-12">
@@ -130,11 +122,11 @@
     </div>
 
     <script type="text/ng-template" id="documentSelectionModal" trados-translation="true">
-        <div class="rounded" id="{{question}}">
+        <div class="rounded" id="{{question}}" dir="rtl">
             <div class="modal-header bg-grey">
-                <h3>يرجى تحديد من السجلات المنشورة أدناه:</h3>
+                <h3>يرجى التحديد من السجل (السجلات) المنشورة أدناه:</h3>
                 <div ng-show="filter">
-                    <input type="textbox" ng-model="keyword" placeholder="تصفية السجلات حسب الكلمات الرئيسية أو المعرف الفريد" class="form-control">
+                    <input type="textbox" ng-model="keyword" placeholder="فلترة السجلات بالكلمات الرئيسية أو المعرف الفريد" class="form-control">
                 </div>
             </div>
 
@@ -144,52 +136,30 @@
                             <input ng-if="type==='checkbox'" type="checkbox" ng-model="doc.__checked" style="width: 16px; height: 16px;" />
                             <input ng-if="type==='radio'" type="radio" name="{{question}}_selected" ng-model="doc.__checked" ng-value="true" style="width: 16px; height: 16px;" />                   
                     </div>  
-                    <div style="max-height:400px;overflow-y:auto;margin:0;padding:0;" id="search-new" class="col-md-11">
-                        <a translation-url ng-href="{{doc.url_ss[0]}}" target="_new">
-                            <div class="recordDefault card card-1" style="padding:0!important;margin:0!important;">   
+                    <div style="max-height:400px;overflow-y:auto;margin:0;padding:0;" id="search-new" class="col-md-11"><a translation-url ng-href="{{doc.url_ss[0]}}" target="_new"><div class="recordDefault card card-1" style="padding:0!important;margin:0!important;">   
                                 <div style="padding:0!important;margin:0!important;">                               
                                     <div class="nationalRecords" >
 
-                                        <div class="title bold">{{doc.rec_title}}
-                                        </div>
+                                        <div class="title bold">{{doc.rec_title}}</div><span class="description hidden-xs descriptionSpan" ng-if="doc.rec_summary">{{doc.rec_summary|limitTo:250}} <span ng-if="doc.rec_summary.length > 250">...</span></span><ul class="metadata bold">
+                                            <li><span class="schema bold">{{doc.schema_EN_t}}</span></li>
 
-                                        <span class="description hidden-xs descriptionSpan" ng-if="doc.rec_summary">{{doc.rec_summary|limitTo:250}} <span ng-if="doc.rec_summary.length > 250">...</span></span>
-                                        <ul class="metadata bold">
-                                            <li>
-                                                <span class="schema bold">{{doc.schema_EN_t}}</span>
-                                            </li>
-
-                                            <li ng-if="doc.rec_countryName" class="hidden-xs">
-                                                <span>{{doc.rec_countryName}}</span>
-                                            </li>
-                                            <li ng-if="doc.uniqueIdentifier_s">
-                                                <span>{{doc.uniqueIdentifier_s|uppercase}}</span>
-                                            </li>
-                                            <li class="hidden-xs" ng-if="doc.rec_meta1 && doc.schema_s !=='database'" id="meta1">
-                                                <span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">CP:</span> <span ng-repeat="meta in doc.rec_meta1">{{meta}}{{$last ? '':', '}}</span>
-                                            </li>
-                                            <li class="hidden-xs" ng-if="doc.rec_meta2 && doc.schema_s !=='absPermit'" id="meta2">
-                                                <span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">مصدر:</span> <span ng-repeat="meta in doc.rec_meta2">{{meta}}{{$last ? '':', '}}</span>
-                                            </li>
-                                            <li class="hidden-xs" ng-if="doc.rec_meta3" id="meta3">
-                                                <span ng-repeat="meta in doc.rec_meta3" ng-class="{'color-red':meta==='Revoked'}">{{meta}}{{$last ? '':', '}}</span>
-                                            </li>
+                                            <li ng-if="doc.rec_countryName" class="hidden-xs"><span>{{doc.rec_countryName}}</span></li>
+                                            <li ng-if="doc.uniqueIdentifier_s"><span>{{doc.uniqueIdentifier_s|uppercase}}</span></li>
+                                            <li class="hidden-xs" ng-if="doc.rec_meta1 && doc.schema_s !=='database'" id="meta1"><span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">نقطة الاتصال:</span> <span ng-repeat="meta in doc.rec_meta1">{{meta}}{{$last ? &apos;&apos;:&apos;, &apos;}}</span></li>
+                                            <li class="hidden-xs" ng-if="doc.rec_meta2 && doc.schema_s !=='absPermit'" id="meta2"><span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">SOURCE:</span> <span ng-repeat="meta in doc.rec_meta2">{{meta}}{{$last ? &apos;&apos;:&apos;, &apos;}}</span></li>
+                                            <li class="hidden-xs" ng-if="doc.rec_meta3" id="meta3"><span ng-repeat="meta in doc.rec_meta3" ng-class="{'color-red':meta==='Revoked'}">{{meta}}{{$last ? &apos;&apos;:&apos;, &apos;}}</span></li>
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </div></a></div>
                 </div>
-                <div ng-if="isLoading"> <i class="fa fa-spinner fa-spin"></i> التحميل</div>
-                <div ng-if="rawDocuments.numFound===0"> لا توجد أي سجلات</div>
+                <div ng-if="isLoading"><i class="fa fa-spinner fa-spin"></i> التحميل</div>
+                <div ng-if="rawDocuments.numFound===0">لا توجد أي سجلات</div>
             </div>
 
             <div class="modal-footer bg-grey">
                 <div class="row">
-                    <div class="col-xs-12">
-                        <a translation-url type="button" class="btn btn-primary bold pull-left" style="color:white;" ng-click="saveDocuments()">حفظ</a> <a translation-url type="button" class="btn btn-warning bold" data-dismiss="modal" ng-click="closeDialog()">أغلق</a>
-                    </div>
+                    <div class="col-xs-12"><a translation-url type="button" class="btn btn-primary bold pull-left" style="color:white;" ng-click="saveDocuments()">Save</a> <a translation-url type="button" class="btn btn-warning bold" data-dismiss="modal" ng-click="closeDialog()">Close</a></div>
                 </div>
             </div>
         </div>

@@ -27,9 +27,7 @@
 		<div class="panel-body">
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey nationalTargetForm">		
 			<div >
-				<div class="alert alert-danger" ng-show="hasError()">
-					<strong>Произошла ошибка...</strong>
-					<div>{{error}}</div>
+				<div class="alert alert-danger" ng-show="hasError()"><strong>Произошла ошибка...</strong><div>{{error}}</div>
 				</div>
 
 				<div class="row" style="padding:15px;" ng-show="status=='loading'">Загрузка ....</div>
@@ -37,13 +35,9 @@
 				<div ng-hide="status=='hidden'||status=='loading'">
 
 					<div class="row">
-						<div class="col-xs-6">
-							<span km-form-languages ng-model="document.header.languages"></span>
-						</div>
-						<div class="col-xs-6 text-right">
-							<span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" 
-							on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)" on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"  data-container="{{container}}"></span>
-						</div>
+						<div class="col-xs-6"><span km-form-languages ng-model="document.header.languages"></span></div>
+						<div class="col-xs-6 text-right"><span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" 
+							on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)" on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"  data-container="{{container}}"></span></div>
 					</div>
 
 					<div class="row">
@@ -83,11 +77,9 @@
 										<div class="col-md-12">
 											<div class="km-control-group" required name="isAichiTarget" caption="Тип целевой задачи">
 
-												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/>
-															<span ng-class="{'color-litegrey': document.isAichiTarget}"> Создать новую национальную целевую задачу</span></h4>
+												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/><span ng-class="{'color-litegrey': document.isAichiTarget}">Создать новую национальную целевую задачу</span></h4>
 
-												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/>
-															<span ng-class="{'color-litegrey': !document.isAichiTarget}">Используйте <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >целевую задачу по сохранению и устойчивому использованию биоразнообразия, принятую в Айти, </a> в качестве вашей национальной целевой задачи</span></h4>
+												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Используйте <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >целевую задачу по сохранению и устойчивому использованию биоразнообразия, принятую в Айти, </a> в качестве вашей национальной целевой задачи</span></h4>
 
 											</div>
 										</div>
@@ -103,7 +95,7 @@
 											</div>
 
 											<div class="col-md-12">
-												<div class="km-control-group" name="otherAichiTargets" caption="Подцели по сохранению и устойчивому использованию биоразнообразия, принятые в Айти">
+												<div class="km-control-group" name="otherAichiTargets" caption="Aichi Biodiversity Sub-targets">
 													<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Пожалуйста, выберите подцели по сохранению и устойчивому использованию биоразнообразия, принятые в Айти" watch-items items="options.aichiSubTargets"></div>
 												</div>
 											</div>
@@ -113,8 +105,7 @@
 									<div ng-show="!document.isAichiTarget">
 										<div class="row">
 											<div class="col-md-12">
-												<div class="km-control-group" required name="title" caption="Национальные целевые задачи" data-container=".nationalTargetForm" data-content="
-														Просьба привести формулировку национальной целевой задачи вашей страны на одном из шести официальных языков Организации Объединенных Наций. Просьба привести полное название национальной целевой задачи, включая ее номер в случае существования такового. Это поле и остающиеся поля настоящего раздела следует заполнять для каждой из национальных целевых задач вашей страны.">
+												<div class="km-control-group" required name="title" caption="Национальные целевые задачи" data-container=".nationalTargetForm" data-content="Просьба привести формулировку национальной целевой задачи вашей страны на одном из шести официальных языков Организации Объединенных Наций. Просьба привести полное название национальной целевой задачи, включая ее номер в случае существования такового. Это поле и остающиеся поля настоящего раздела следует заполнять для каждой из национальных целевых задач вашей страны.">
 													<div km-textbox-ml required name="title" ng-model="document.title" locales="document.header.languages"></div>
 												</div>
 											</div>
@@ -147,9 +138,7 @@
 							</div>
 							<div class="panel panel-default panelMain">
 								<div class="panel-header" name="">
-									<label for="relevantNationalTarget" style="width:0px;height:0px;display:inline">
-										<span style="display:none">Ответьте хотя бы на один вопрос об актуальности национальных целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти</span>
-									</label>
+									<label for="relevantNationalTarget" style="width:0px;height:0px;display:inline"><span style="display:none">Ответьте хотя бы на один вопрос об актуальности национальных целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти</span></label>
 									<h3>Актуальность национальных целевых задач для целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти</h3>
 								</div>
 								<div class="panel-body">
@@ -165,8 +154,7 @@
 										</div>
 
 										<div class="col-md-12">
-											<div class="km-control-group" name="otherAichiTargets" caption="Другие соответствующие целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти (Выберите одну или более целевых задач, принятых в Айти, с которыми ваша национальная целевая задача связана косвенно)." data-container=".nationalTargetForm" data-content="
-													В случае применимости просьба указать целевые задачи (задачу) по сохранению и устойчивому использованию биоразнообразия, принятые в Айти, с которыми национальная целевая задача вашей страны связана косвенно или отчасти. Учитывая широту целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, и вопросов, которые они призваны решать, национальная целевая задача вашей страны может быть косвенно связана с одной или несколькими целевыми задачами (задачей) по сохранению и устойчивому использованию биоразнообразия, принятыми в Айти. Некоторые Стороны, возможно, проводили такое сопоставление в своих пятых национальных докладах и/или в своих национальных стратегиях и планах действий по сохранению биоразнообразия.">
+											<div class="km-control-group" name="otherAichiTargets" caption="Другие соответствующие целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти (Выберите одну или более целевых задач, принятых в Айти, с которыми ваша национальная целевая задача связана косвенно)." data-container=".nationalTargetForm" data-content="В случае применимости просьба указать целевые задачи (задачу) по сохранению и устойчивому использованию биоразнообразия, принятые в Айти, с которыми национальная целевая задача вашей страны связана косвенно или отчасти. Учитывая широту целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, и вопросов, которые они призваны решать, национальная целевая задача вашей страны может быть косвенно связана с одной или несколькими целевыми задачами (задачей) по сохранению и устойчивому использованию биоразнообразия, принятыми в Айти. Некоторые Стороны, возможно, проводили такое сопоставление в своих пятых национальных докладах и/или в своих национальных стратегиях и планах действий по сохранению биоразнообразия.">
 												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Выберите другие, связанные с ними, целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятых в Айти" watch-items items="options.aichiTargets"></div>
 											</div>
 										</div>							
@@ -174,8 +162,7 @@
 										<div class="col-md-12" ng-hide="document.aichiTargets && document.aichiTargets.length>0 || document.otherAichiTargets && document.otherAichiTargets.length>0">
 											<div class="checkbox">
 												<label>
-													<input type="checkbox"  ng-model="document.noOtherAichiTargets"/> Национальная целевая задача не соответствует никакой целевой задаче по сохранению и устойчивому использованию биоразнообразия, принятой в Айти, или соответствует другим частям Стратегического плана в области сохранения и устойчивого использования биоразнообразия. <span info-bar data-container=".nationalTargetForm" data-content="Просьба отметить &ldquo;галочкой&rdquo; это окно, если национальная целевая задача не связана с одной из целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, и представить информацию с указанием, как целевая задача связана со Стратегическим планом в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы или с другими вопросами, решаемыми в рамках Конвенции о биологическом разнообразии. Например, национальная целевая задача может быть связана с концепцией или миссией Стратегического плана в области сохранения и устойчивого использования биоразнообразия или с одной из его стратегических целей. Или же национальная целевая задача может быть связана с одной из целей Конвенции или с одной из программ работы в ее рамках."></span>
-												</label>
+													<input type="checkbox"  ng-model="document.noOtherAichiTargets"/>Национальная целевая задача не соответствует никакой целевой задаче по сохранению и устойчивому использованию биоразнообразия, принятой в Айти, или соответствует другим частям Стратегического плана в области сохранения и устойчивого использования биоразнообразия. <span info-bar data-container=".nationalTargetForm" data-content="Просьба отметить &ldquo;галочкой&rdquo; это окно, если национальная целевая задача не связана с одной из целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, и представить информацию с указанием, как целевая задача связана со Стратегическим планом в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы или с другими вопросами, решаемыми в рамках Конвенции о биологическом разнообразии. Например, национальная целевая задача может быть связана с концепцией или миссией Стратегического плана в области сохранения и устойчивого использования биоразнообразия или с одной из его стратегических целей. Или же национальная целевая задача может быть связана с одной из целей Конвенции или с одной из программ работы в ее рамках."></span></label>
 											</div>
 											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="просьба пояснить">
 											
@@ -202,7 +189,7 @@
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="relevantDocuments" caption="Соответствующие веб-сайты, веб-ссылки и файлы (Просьба привести ниже веб-сайты или веб-ссылки для доступа к информации, связанной с настоящей целевой задачей, или для ее нахождения либо приложите документы, связанные с настоящей целевой задачей)." data-container=".nationalTargetForm" data-content="Просьба включить сообразно обстоятельствам любые соответствующие документы или ссылки (на любом языке) на дополнительную информацию о национальной целевой задаче. ">
+											<div class="km-control-group" name="relevantDocuments" caption="Соответствующие веб-сайты, веб-ссылки и файлы (Просьба привести ниже веб-сайты или веб-ссылки для доступа к информации, связанной с настоящей целевой задачей, или для ее нахождения либо приложите документы, связанные с настоящей целевой задачей)." data-container=".nationalTargetForm" data-content="Просьба включить сообразно обстоятельствам любые соответствующие документы или ссылки (на любом языке) на дополнительную информацию о национальной целевой задаче.">
 												<div km-link name="relevantDocuments" ng-model="document.relevantDocuments" identifier="document.header.identifier"></div>
 											</div>
 										</div>
@@ -216,9 +203,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes">
-												<span class="help-block">Поле «Примечания» предназначено для личной информации и может быть просмотрено только при редактировании записи.</span>
-												<div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>
@@ -227,9 +212,7 @@
 
 
 
-						</div>
-						<!--end addtional info tab-->
-					</form>
+						</div><!--end addtional info tab--></form>
 					<div km-tab="review">
 
 						<div km-document-validation ng-model="validationReport" data-container="{{container}}"></div>
@@ -256,10 +239,8 @@
 
 
 						<div class="col-xs-12 text-right">
-							<div class="">
-								<span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
-												on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"  data-container="{{container}}"></span>
-							</div>
+							<div class=""><span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
+												on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"  data-container="{{container}}"></span></div>
 						</div>
 					</div>
 

@@ -7,9 +7,7 @@
 			<li class="list-group-item" ng-repeat="link in links">
 				<table style="width:100%">
 					<tr>
-						<td>
-							<a translation-url target="_blank" ng-href="{{link.url}}">{{link.name||link.url}}</a> <span ng-show="link.tag">({{link.tag}})</span>
-						</td>
+						<td><a translation-url target="_blank" ng-href="{{link.url}}">{{link.name||link.url}}</a> <span ng-show="link.tag">({{link.tag}})</span></td>
 						<td style="white-space:nowrap;text-align:right;vertical-align:top">
 							<button type="button" class="btn btn-default" ng-click="remove(link)"><i class="fa fa-trash-o"></i></button>
 						</td>
@@ -18,10 +16,7 @@
 			</li>
 		</ul>
 
-	</div>
-
-    <!--Link Editor-->
-	<div id="editLink" class="modal fade" data-backdrop="static">
+	</div><!--Link Editor--><div id="editLink" class="modal fade" data-backdrop="static">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -31,9 +26,7 @@
 					<div class="alert alert-info">Укажите URL-адрес веб-сайта (например<a translation-url target="_blank" href="http://www.cbd.int">http://www.cbd.int</a>) и название веб-сайта (например, «Конвенция о биологическом разнообразии»).</div>
 					<form name="linkForm">
 						<fieldset>
-							<div class="alert alert-warning" ng-show="linkForm.$error.url">
-								<strong>Внимание!</strong> Указанное значение не является допустимым URL
-								<ul><li> Убедитесь, что URL начинается с http: // или https: //</li></ul>
+							<div class="alert alert-warning" ng-show="linkForm.$error.url"><strong>Внимание!</strong> Указанное значение не является допустимым URL<ul><li>Убедитесь, что URL начинается с http: // или https: //</li></ul>
 							</div>
 							<div class="control-group" ng-class="{error: linkForm.editor.url.$invalid}">
 								<label class="control-label" ng-required="editor.visible" for="url">URL-адрес</label>
@@ -42,7 +35,7 @@
 
 							<div class="control-group" ng-class="{error: linkForm.name.$invalid}">
 								<label>Название</label>
-								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="Пример: Веб-сайт Секретариата Конвенции о биологическом разнообразии">
+								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="example: Веб-сайт Секретариата Конвенции о биологическом разнообразии">
 							</div>
 						</fieldset>
 					</form>
@@ -53,10 +46,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-    <!--File Upload Editor-->
-	<div id="editFile" class="modal fade" data-backdrop="static">
+	</div><!--File Upload Editor--><div id="editFile" class="modal fade" data-backdrop="static">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -64,9 +54,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="alert alert-danger" ng-show="editor.error!=null">
-						<h4>произошла ошибка</h4>
-						{{editor.error}}
-					</div>
+						<h4>произошла ошибка</h4>{{editor.error}}</div>
 					<div ng-show="editor.progress">
 						<label>Загрузка {{editor.name}} ({{editor.progress.size/1024 | number:1}} kB)</label>
 						<div class="progress progress-striped {{editor.progress.style}}">
@@ -77,10 +65,9 @@
 					<div class="control-group" >
 						<label>Имя файла</label>
 						<input class="form-control" type="text" style="width:98%" ng-model="editor.name" ng-disabled="true">
-					</div><br/>
-					<div class="control-group" >
+					</div><br/><div class="control-group" >
 						<label>Теги</label>
-						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="Пример: биологическое разнообразие, целевая задача по сохранению и устойчивому использованию биоразнообразия, принятая в Айти">
+						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="example: биологическое разнообразие, целевая задача по сохранению и устойчивому использованию биоразнообразия, принятая в Айти">
 					</div>
 				</div>
 				<div class="modal-footer">

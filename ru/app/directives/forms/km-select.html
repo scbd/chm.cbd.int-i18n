@@ -1,5 +1,4 @@
-﻿<span>
-	<style>
+﻿<span><style>
 		.fa-check {
 			position:absolute;top:5px;left:3px;
 		}
@@ -8,32 +7,19 @@
 		}
 	</style>
 	<script type="text/ng-template"  id="select-tree-renderer.html">
-		<a translation-url ng-click="clicked(item)" href="">{{item.title||item.name | lstring:locale | truncate:120:'...'}}</a>
-		<i class="fa fa-check" ng-show="item.selected"></i>
-		<ul class="dropdown-inline-submenu">
+		<a translation-url ng-click="clicked(item)" href="">{{item.title||item.name | lstring:locale | truncate:120:&apos;...&apos;}}</a> <i class="fa fa-check" ng-show="item.selected"></i><ul class="dropdown-inline-submenu">
 			<li ng:repeat="item in item.children" ng-include="'select-tree-renderer.html'" style="position:relative" class="li-fa-check">
 		</ul>
 	</script>
 
 
 	<div ng-show="error">
-		<div class="alert alert-warning">
-			{{error}}
-		</div>
-	</div>
-
-	<span>
-		<div class="btn-group" >
-			<button tyle="button" class="btn btn-default dropdown-toggle" ng-click="autoInit()" ng-class="{disabled:ngDisabledFn(), 'btn-info' : selectedItems.length }" data-toggle="dropdown">
-				{{getTitle(displayCount, true)}} <span class="caret"></span>
-			</button>
+		<div class="alert alert-warning">{{error}}</div>
+	</div><span><div class="btn-group" >
+			<button tyle="button" class="btn btn-default dropdown-toggle" ng-click="autoInit()" ng-class="{disabled:ngDisabledFn(), 'btn-info' : selectedItems.length }" data-toggle="dropdown">{{getTitle(displayCount, true)}} <span class="caret"></span></button>
 			<ul class="dropdown-menu" style="max-height:400px;overflow-y:auto;">
-				<li ng-hide="!!rootItems">
-					<a translation-url href><em>Загрузка ....</em></a>
-				</li>
-				<li ng-show="rootItems.length==0">
-					<a translation-url href><em>Ничего не выбрано ...</em></a>
-				</li>
+				<li ng-hide="!!rootItems"><a translation-url href><em>Загрузка ....</em></a></li>
+				<li ng-show="rootItems.length==0"><a translation-url href><em>Ничего не выбрано ...</em></a></li>
 				<li ng-show="!!rootItems && (getMinimum()==0 || allowOther == 'true')" style="padding:2px 20px">
 					<button class="btn btn-xs btn-default" ng-show="getMinimum()==0 && (selectedItems.length || rootItems.length!=0)"      type ="button" ng-click="clearSelection()" ng-disabled="!selectedItems.length">Очистить выбор</button>
 					<button class="btn btn-xs btn-default" ng-show="allowOther == 'true'" type="button" ng-click="chooseOther()"    ng-show="allowOther">Укажите другое значение</button>
@@ -41,21 +27,15 @@
 				<li ng:repeat="item in rootItems" ng-class="{disabled:!itemEnabled(item)}" ng-include="'select-tree-renderer.html'" style="position:relative">
 				</li>
 			</ul>
-		</div>
-
-	</span>
-
-	<ul class="list-group" ng-if="selectedItems.length && list" style="margin-top:10px">
+		</div></span><ul class="list-group" ng-if="selectedItems.length && list" style="margin-top:10px">
 		<li class="list-group-item" ng-repeat="item in selectedItems">
 			<table style="width:100%">
 				<tr>
-					<td>{{item.title | lstring}}</td>
+					<td>{{item.title | lstring:locale}}</td>
 					<td style="white-space:nowrap;text-align:right;vertical-align:top">
 						<button type="button" class="btn btn-default" ng-click="clicked(item)"><i class="fa fa-trash-o"></i></button>
 					</td>
 				</tr>
 			</table>
 		</li>
-	</ul>
-
-</span>
+	</ul></span>

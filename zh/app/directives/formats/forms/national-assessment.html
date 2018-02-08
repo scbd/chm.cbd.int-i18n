@@ -30,21 +30,15 @@
 		</div>
 		<div class="panel-body">
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey assessmentform">
-				<div class="alert alert-danger" ng-show="hasError()">
-					<strong>出现了一个错误</strong>
-					<div>{{error}}</div>
+				<div class="alert alert-danger" ng-show="hasError()"><strong>出现了一个错误</strong><div>{{error}}</div>
 				</div>
 
 				<div ng-show="status!='hidden'">
 
 					<div class="row">
-						<div class="col-xs-6">
-							<span km-form-languages ng-model="document.header.languages"></span>
-						</div>
-						<div class="col-xs-6 text-right" ng-if="status!='hidden'">
-							<span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
-											on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span>
-						</div>
+						<div class="col-xs-6"><span km-form-languages ng-model="document.header.languages"></span></div>
+						<div class="col-xs-6 text-right" ng-if="status!='hidden'"><span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
+											on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span></div>
 					</div>
 
 					<div class="row">
@@ -52,7 +46,7 @@
 							<ul class="pagination">
 								<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
 								<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">一般信息</a></li>
-								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">审查</a></li>
+								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">审核</a></li>
 								<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
 							</ul>
 						</div>
@@ -103,7 +97,7 @@
 									<div class="row bottom-spacing">
 
 										<div class="col-md-12" ng-if="status =='ready'">
-											<div class="km-control-group" required name="progress" caption="实施所选目标取得的进展情况分类" data-container=".assessmentform" data-content="关于选定的国家目标，请用下列类别来标明该目标实施当前的进展水平。 下列类别与《全球生物多样性展望》（第四版）所使用的类别相同。 评估应考虑到该项国家目标实现的最后期限">
+											<div class="km-control-group" required name="progress" caption="实施所选目标取得的进展情况分类" data-container=".assessmentform" data-content="关于选定的国家目标，请用下列类别来标明该目标实施当前的进展水平。下列类别与《全球生物多样性展望》（第四版）所使用的类别相同。评估应考虑到该项国家目标实现的最后期限">
 												<div km-term-radio name="progress" required ng-model="document.progress" terms="options.progresses()" description="true" binding-type="term" data-container=".assessmentform"></div>
 											</div>
 										</div>
@@ -118,9 +112,9 @@
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="assessmentText" caption="补充信息（请根据第二部分中提供的相关信息，提供用以评估该目标的证据信息，包括进行评估时遇到的障碍）。"
-															data-container=".assessmentform" data-content="请提供佐证信息说明为何作出如上选择。 这可以包括以下几个方面的信息：所采取措施的整体影响；生物多样性现状及发展趋势的改变
-											生物多样性所承受的压力或生物多样性丧失的驱动因素的变化；生物多样性意识等社会经济条件的改变；资源可用性的改变；政府政策变更；或者，国家各主要部门行为的改变。 关于
-											定量的国家目标，缔约方不妨考虑报告相对于目标价值的落实水平。 对于某些类型的目标，可使用百分比来表示。 缔约方
+															data-container=".assessmentform" data-content="请提供佐证信息说明为何作出如上选择。这可以包括以下几个方面的信息：所采取措施的整体影响；生物多样性现状及发展趋势的改变
+											生物多样性所承受的压力或生物多样性丧失的驱动因素的变化；生物多样性意识等社会经济条件的改变；资源可用性的改变；政府政策变更；或者，国家各主要部门行为的改变。关于
+											定量的国家目标，缔约方不妨考虑报告相对于目标价值的落实水平。对于某些类型的目标，可使用百分比来表示。缔约方
 											不妨说明在评估目标落实进展方面所使用的进程，并报告任何目标评估进程中所遇到的障碍。">
 												<div km-textbox-ml required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
 											</div>
@@ -138,8 +132,8 @@
 
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" name="nationalIndicatorsUsed" caption="贵国使用指标评估该国家目标的进展吗？" data-container=".assessmentform" data-content="请注明为评估本目标落实进展所使用的指标。 这些指标可以包括贵国国家生物多样性战略和行动计划所含指标或为其他进程制定的指标。 生物多样性公约缔约方大会在第XIII/28号决定中对2011-2020年生物多样性战略计划一般和具体指标清单表示欢迎。 贵国在评估本国目标的落实进展时，可以酌情使用这份指标清单。 欲进一步了解这些指标，包括国家指标制定工具，可查阅
-										&lt;a translation-url href='http://www.bipindicators.net/' target='_new '&gt;生物多样性指标伙伴关系&lt;/a&gt; 和 &lt;a translation-url href='http://geobon.org/ ' target='_new '&gt;地球观测组织生物多样性观测网络&lt;/a&gt;.。">
+											<div class="km-control-group" name="nationalIndicatorsUsed" caption="贵国使用指标评估该国家目标的进展吗？" data-container=".assessmentform" data-content="请注明为评估本目标落实进展所使用的指标。这些指标可以包括贵国国家生物多样性战略和行动计划所含指标或为其他进程制定的指标。生物多样性公约缔约方大会在第XIII/28号决定中对2011-2020年生物多样性战略计划一般和具体指标清单表示欢迎。贵国在评估本国目标的落实进展时，可以酌情使用这份指标清单。欲进一步了解这些指标，包括国家指标制定工具，可查阅
+										<a translation-url href='http://www.bipindicators.net/' target='_new '>生物多样性指标伙伴关系</a> 和 <a translation-url href='http://geobon.org/ ' target='_new '>地球观测组织生物多样性观测网络</a>.。">
 
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed, 'btn-default': document.nationalIndicatorsUsed==false}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=true">是</button>
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed==false, 'btn-default': document.nationalIndicatorsUsed}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=false">否</button>
@@ -157,7 +151,7 @@
 
 									<div class="row  bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" name="documentText" caption="请说明评估进展情况所用的任何其他工具或手段。" data-container=".assessmentform" data-content="请说明贵国在评估本项国家目标的落实进展时所用的任何工具或方式。 其中可以包括案例研究、案头研究、专家意见和利益攸关方磋商等等。">
+											<div class="km-control-group" name="documentText" caption="请说明评估进展情况所用的任何其他工具或手段。" data-container=".assessmentform" data-content="请说明贵国在评估本项国家目标的落实进展时所用的任何工具或方式。其中可以包括案例研究、案头研究、专家意见和利益攸关方磋商等等。">
 												<div km-textbox-ml name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
@@ -165,7 +159,7 @@
 									<div class="row  bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="documentLinks" caption="相关网站、网页链接和文件（请在本栏中注明可供进一步了解本次评估相关信息的任何相关网站、网页链接或文件）。"
-															data-container=".assessmentform" data-content="请说明可供进一步了解本次国家目标落实进度评估情况的任何相关网站、网页链接或文件。 其中可以包括关于支持上述指标和工具的方法和数据的信息。">
+															data-container=".assessmentform" data-content="请说明可供进一步了解本次国家目标落实进度评估情况的任何相关网站、网页链接或文件。其中可以包括关于支持上述指标和工具的方法和数据的信息。">
 												<div km-link name="documents" ng-model="document.documentLinks" identifier="document.header.identifier"></div>
 											</div>
 										</div>
@@ -188,7 +182,7 @@
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" required name="confidenceInfo" caption="请解释贵国对前面所进行评估的置信水平。" data-container=".assessmentform" data-content="请说明以上的评估被给予上述置信水平的原因 缔约方不妨就所用信息或指标的类型、代表性、覆盖面和可能存在的任何局限性发表评论。">
+											<div class="km-control-group" required name="confidenceInfo" caption="请解释贵国对前面所进行评估的置信水平。" data-container=".assessmentform" data-content="请说明以上的评估被给予上述置信水平的原因缔约方不妨就所用信息或指标的类型、代表性、覆盖面和可能存在的任何局限性发表评论。">
 												<div km-textbox-ml required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
 											</div>
 										</div>
@@ -202,7 +196,7 @@
 									</div>
 									<div class="row">
 										<div class="col-md-12" ng-if="isMonitoringNotRequired()">
-											<div class="km-control-group" name="adequacyDescription" caption="请说明该目标是如何被监测的，并注明是否有一个监测系统。" data-container=".assessmentform" data-content="如果在上面的问题中已经选择前两项答案中的任意一项（即与本目标有关的监测适足或与本目标有关的监测部分适足），请说明如何对目标进行监测，包括任何相关监测系统的信息。 谨建议贵国作出回复的问题包括：监测系统的特点、该系统的主管组织、信息或数据的收集方式、所收集数据的类型和数据的更新频率。">
+											<div class="km-control-group" name="adequacyDescription" caption="请说明该目标是如何被监测的，并注明是否有一个监测系统。" data-container=".assessmentform" data-content="如果在上面的问题中已经选择前两项答案中的任意一项（即与本目标有关的监测适足或与本目标有关的监测部分适足），请说明如何对目标进行监测，包括任何相关监测系统的信息。谨建议贵国作出回复的问题包括：监测系统的特点、该系统的主管组织、信息或数据的收集方式、所收集数据的类型和数据的更新频率。">
 												<div km-textbox-ml name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
 											</div>
 										</div>
@@ -210,7 +204,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" name="otherRelevantDocuments" caption="相关网站、网页链接和文件（请在本栏中注明可供进一步了解该监测系统相关信息的任何相关网站、网页链接或文件）。"
-															data-container=".assessmentform" data-content="如果监测系统内的信息已经在其他来源发布，请包括相关文件和（或）网页链接。 这其中可以包括直接附上报告或科学论文、提供网页链接和（或）出版物引文。">
+															data-container=".assessmentform" data-content="如果监测系统内的信息已经在其他来源发布，请包括相关文件和（或）网页链接。这其中可以包括直接附上报告或科学论文、提供网页链接和（或）出版物引文。">
 												<div km-link name="otherRelevantDocuments" ng-model="document.otherRelevantDocuments" identifier="document.header.identifier"></div>
 											</div>
 										</div>
@@ -226,9 +220,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes">
-												<span class="help-block">&ldquo;备注&rdquo;字段供个人参考之用，并仅在编辑记录时方可看到。</span>
-												<div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">&ldquo;备注&rdquo;字段供个人参考之用，并仅在编辑记录时方可看到。</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>
@@ -237,16 +229,10 @@
 
 
 
-						</div>
-						<!--end addtional info tab-->
-					</form>
+						</div><!--end addtional info tab--></form>
 
 
-					<div km-tab="review">
-						<!--<div ng-if="status!='hidden'">-->
-						<div km-document-validation ng-model="validationReport" data-container="{{container}}"></div>
-						<!--</div>-->
-						<div class="btn-group" ng-show="document.header.languages.length>1">
+					<div km-tab="review"><!--<div ng-if="status!='hidden'">--><div km-document-validation ng-model="validationReport" data-container="{{container}}"></div><!--</div>--><div class="btn-group" ng-show="document.header.languages.length>1">
 							<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
 						</div>
 
@@ -258,16 +244,14 @@
 							<ul class="pagination">
 								<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
 								<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">一般信息</a></li>
-								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">审查</a></li>
+								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">审核</a></li>
 								<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
 							</ul>
 						</div>
 
 						<div class="col-xs-12 text-right">
-							<div class="">
-								<span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
-												on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span>
-							</div>
+							<div class=""><span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
+												on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()" data-container="{{container}}"></span></div>
 						</div>
 					</div>
 

@@ -1,32 +1,26 @@
 ﻿<div>
 
-	<div ng-hide="report || onLoad" class="alert alert-info">
-		<i class="fa fa-cog fa-spin"></i> Analizando su documento...
-	</div>
+	<div ng-hide="report || onLoad" class="alert alert-info"><i class="fa fa-cog fa-spin"></i> Analizando su documento...</div>
 
 	<div ng-show="report">
 		<div ng-show="isValid()" class="alert alert-success">
 			<h2>Su documento es v&aacute;lido y puede ahora ser publicado</h2>
-			<h4 class="color-darkgrey"> Por favor revise su document antes de publicarlo Todos los documentos publicados se ponen a disposici&oacute;n del p&uacute;blico</h4>
+			<h4 class="color-darkgrey">Por favor revise su document antes de publicarlo Todos los documentos publicados se ponen a disposici&oacute;n del p&uacute;blico</h4>
 		</div>
 
 
 		<div ng-show="hasErrors()" class="alert alert-warning">
 			<h2 class="color-red">Sus documentos contienen errores.</h2>
-			<h4 class="color-darkgrey"> Todos los errores debn ser corregidos antes de que este document pueda ser publicado.</h4>
+			<h4 class="color-darkgrey">Todos los errores debn ser corregidos antes de que este document pueda ser publicado.</h4>
 			<ul>
-				<li ng-repeat="error in report.errors" title="{{error.parameters}}">
-					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>
-				</li>
+				<li ng-repeat="error in report.errors" title="{{error.parameters}}">{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a></li>
 			</ul>
 		</div>
 
 		<div ng-show="hasWarnings()" class="alert alert-info">
 			<h2 class="color-red">Su documento contiene advertencias</h2>
 			<ul>
-				<li ng-repeat="error in report.warnings" title="{{error.parameters}}">
-					{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a>
-				</li>
+				<li ng-repeat="error in report.warnings" title="{{error.parameters}}">{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a></li>
 			</ul>
 		</div>
 </div>
