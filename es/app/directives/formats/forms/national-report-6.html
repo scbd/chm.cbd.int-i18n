@@ -323,7 +323,7 @@
 																			<li ng-repeat="target in item.aichiTargets_EN_ss">{{target}}</li>
 																		</ul>
 																	</div>
-																	<div class="panel-footer"><!-- <button class="btn btn-primary" ng-click="openDialog(item,'directives/formats/forms/national-target-dialog','edit-national-target-dialog')" ng-if="item._state_s!='workflow'">Edit Target</button> --><div class="btn-group btn-group-xs"><a translation-url title="View" ng-if="item._state_s == 'public'" target="_blank" class="btn btn-primary" ng-href="{{item.url_ss[0]}}"><i class="fa fa-search"></i> view</a> <a translation-url ng-if="item._state_s=='workflow' " title="Cerrado para editar" target="_blank" class="btn btn-primary" ng-href="/management/requests/{{getWorkflowId(item)}}/publishRecord"><i class="fa fa-lock"></i> view status</a><button ng-click="openDialog(item,'directives/formats/forms/national-target-dialog','edit-national-target-dialog')" ng-if="item._state_s!='workflow'"
+																	<div class="panel-footer"><!-- <button class="btn btn-primary" ng-click="openDialog(item,'directives/formats/forms/national-target-dialog','edit-national-target-dialog')" ng-if="item._state_s!='workflow'">Edit Target</button> --><div class="btn-group btn-group-xs"><a translation-url title="View" ng-if="item._state_s == 'public'" target="_blank" class="btn btn-primary" ng-href="{{item.url}}"><i class="fa fa-search"></i> view</a> <a translation-url ng-if="item._state_s=='workflow' " title="Cerrado para editar" target="_blank" class="btn btn-primary" ng-href="/management/requests/{{getWorkflowId(item)}}/publishRecord"><i class="fa fa-lock"></i> view status</a><button ng-click="openDialog(item,'directives/formats/forms/national-target-dialog','edit-national-target-dialog')" ng-if="item._state_s!='workflow'"
 																			    title="Editar" type="button" class="btn btn-primary"><i class="fa fa-edit"></i> editar</button>
 																			<button ng-disabled="item._state_s != 'draft' && item.assessments.length > 0" ng-hide="item._state_s=='workflow'" title="Borrar"
 																			    type="button" class="btn btn-primary" ng-click="delete(item,'nationalTarget', $event)"><i class="fa fa-trash-o"></i> Borrar</button>
@@ -477,7 +477,7 @@
 													<div class="btn-group btn-group-xs">
 														<button ng-if="!progressAssessment.assessment" target="_blank" class="btn btn-primary" ng-click="openDialog(progressAssessment,'directives/formats/forms/national-assessment-dialog','edit-national-assessment-dialog')"
 															ng-disabled="isDialogOpen"><i class="fa fa-plus"></i> A&ntilde;adir</button><a translation-url title="View" ng-if="progressAssessment.assessment && getAssessmentInfo(progressAssessment.assessment, '_state_s') == 'public'"
-														    target="_blank" class="btn btn-primary" ng-href="{{progressAssessment.assessment && getAssessmentInfo(progressAssessment.assessment, 'url_ss')[0]}}"><i class="fa fa-search"></i> </a><button ng-click="openDialog(progressAssessment,'directives/formats/forms/national-assessment-dialog','edit-national-assessment-dialog')"
+														    target="_blank" class="btn btn-primary" ng-href="{{progressAssessment.assessment && getAssessmentInfo(progressAssessment.assessment, 'url')}}"><i class="fa fa-search"></i> </a><button ng-click="openDialog(progressAssessment,'directives/formats/forms/national-assessment-dialog','edit-national-assessment-dialog')"
 														    ng-if="progressAssessment.assessment && getAssessmentInfo(progressAssessment.assessment, '_state_s')!='workflow'"
 														    title="Editar" type="button" class="btn btn-primary"><i class="fa fa-edit"></i> editar</button>
 														<button ng-if="progressAssessment.assessment && getAssessmentInfo(progressAssessment.assessment, '_state_s')!='workflow'"
@@ -1312,11 +1312,11 @@
 								<div style="font-size:11px;font-weight:bold;text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;margin-bottom:10px;">REGISTRO BORRADOR</div>
 								<div class="row">     
 									<div class="col-xs-2" class="color-litegrey">Denominaci&oacute;n:</div> 
-									<div class="col-xs-10" style="font-weight:bold">{{draftRecordToDelete.title|lstring}}</div>
+									<div class="col-xs-10" style="font-weight:bold">{{draftRecordToDelete.title|lstring:locale}}</div>
 								  </div>
 								<div class="row"> 
 									<div class="col-xs-2" class="color-litegrey">Resumen:</div> 
-									<div class="col-xs-10" style="font-weight:bold" ><span ng-bind-html="draftRecordToDelete.summary|lstring"></span></div>
+									<div class="col-xs-10" style="font-weight:bold" ><span ng-bind-html="draftRecordToDelete.summary|lstring:locale"></span></div>
 								 </div>
 								<div class="row" style="margin-top:10px;"> 
 									<div class="col-xs-12"> 
@@ -1329,11 +1329,11 @@
 								 
 								<div class="row">     
 									<div class="col-xs-2" class="color-litegrey">Denominaci&oacute;n:</div> 
-									<div class="col-xs-10" style="font-weight:bold">{{publicRecordToDelete.title|lstring}}</div>
+									<div class="col-xs-10" style="font-weight:bold">{{publicRecordToDelete.title|lstring:locale}}</div>
 								  </div>
 								<div class="row"> 
 									<div class="col-xs-2" class="color-litegrey">Resumen:</div> 
-									<div class="col-xs-10" style="font-weight:bold" ><span ng-bind-html="publicRecordToDelete.summary|lstring"></span></div>
+									<div class="col-xs-10" style="font-weight:bold" ><span ng-bind-html="publicRecordToDelete.summary|lstring:locale"></span></div>
 								 </div>
 	
 								<div class="row" style="margin-top:10px;"> 
