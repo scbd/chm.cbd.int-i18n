@@ -477,9 +477,9 @@
 															<div ng-if="waitForWorkflow.nationalAssessment && waitForWorkflow.nationalAssessment.identifier == progressAssessment.assessment.identifier"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > 正在处理...</span></div>
 														</div><img ng-src="/app/img/ratings/{{targetAssessments[progressAssessment.assessment.identifier].progress_s}}.png" class="pull-left"></img><div>
 															<div>
-																<h3>{{targetAssessments[progressAssessment.assessment.identifier].title_EN_t}}</h3>
+																<h3>{{targetAssessments[progressAssessment.assessment.identifier].title[locale]}}</h3>
 															</div>
-															<div>{{targetAssessments[progressAssessment.assessment.identifier].description_s}}</div>
+															<div>{{targetAssessments[progressAssessment.assessment.identifier].description[locale]}}</div>
 														</div>
 													</div>
 													<div ng-if="!progressAssessment.assessment" class="label label-info"><span ng-if="progressAssessment.nationalTarget">没有评估的国家目标</span><span ng-if="progressAssessment.aichiTarget">没有评估的爱知生物多样性目标</span></div>
