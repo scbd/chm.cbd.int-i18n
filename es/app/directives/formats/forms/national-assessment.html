@@ -31,9 +31,14 @@
 		<div class="panel-body">
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey assessmentform">
 				<div class="alert alert-danger" ng-show="hasError()"><strong>Se ha producido un error...</strong><div>{{error}}</div>
+
+					<div ng-if="container =='.ngdialog-theme-default'">
+							<button class="btn btn-warning" ng-click="onPostClose()">Cerrar</button>
+					</div>
+
 				</div>
 
-				<div ng-show="status!='hidden'">
+				<div ng-hide="status=='hidden'||status=='loading'">
 
 					<div class="row">
 						<div class="col-xs-6"><span km-form-languages ng-model="document.header.languages"></span></div>

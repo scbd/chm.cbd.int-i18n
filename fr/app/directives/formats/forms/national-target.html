@@ -28,9 +28,13 @@
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey nationalTargetForm">		
 			<div >
 				<div class="alert alert-danger" ng-show="hasError()"><strong>Une erreur est survenue...</strong><div>{{error}}</div>
+
+					<div ng-if="container =='.ngdialog-theme-default'">
+							<button class="btn btn-warning" ng-click="onPostClose()">Fermer</button>
+					</div>
 				</div>
 
-				<div class="row" style="padding:15px;" ng-show="status=='loading'">chargement en cours...</div>
+				<div class="row" style="padding:15px;" ng-show="status=='loading'">Chargement en cours...</div>
 
 				<div ng-hide="status=='hidden'||status=='loading'">
 
@@ -95,7 +99,7 @@
 											</div>
 
 											<div class="col-md-12">
-												<div class="km-control-group" name="otherAichiTargets" caption="Aichi Biodiversity Sub-targets">
+												<div class="km-control-group" name="otherAichiTargets" caption="Objectifs d'Aichi pour la biodiversité">
 													<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Veuillez sélectionner une sous-objectifs d’Aichi d’Aichi pour la biodiversité" watch-items items="options.aichiSubTargets"></div>
 												</div>
 											</div>

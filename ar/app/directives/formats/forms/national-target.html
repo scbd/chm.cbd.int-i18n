@@ -28,6 +28,10 @@
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey nationalTargetForm">		
 			<div >
 				<div class="alert alert-danger" ng-show="hasError()"><strong>حدث خطأ...</strong><div>{{error}}</div>
+
+					<div ng-if="container =='.ngdialog-theme-default'">
+							<button class="btn btn-warning" ng-click="onPostClose()">إغلاق</button>
+					</div>
 				</div>
 
 				<div class="row" style="padding:15px;" ng-show="status=='loading'">Loading...</div>
@@ -61,7 +65,7 @@
 								<div class="panel-body">
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" required name="government" caption="Country">
+											<div class="km-control-group" required name="government" caption="الدولة">
 												<div km-select ng-disabled="!!defaultGovernment()" required name="government" ng-model="document.government" placeholder="يرجى اختيار البلد..." watch-items items="options.countries"></div>
 											</div>
 										</div>
@@ -79,7 +83,7 @@
 
 												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/><span ng-class="{'color-litegrey': document.isAichiTarget}">إنشاء هدف وطني جديد</span></h4>
 
-												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">استخدام <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >الهدف أيشي للتنوع البيولوجي</a> يكون الهدف الوطني الخاص بك</span></h4>
+												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Use an <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >Aichi Biodiversity Target</a> as your National Target</span></h4>
 
 											</div>
 										</div>

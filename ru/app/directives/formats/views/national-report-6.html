@@ -103,7 +103,7 @@
 					
 					<div class="col-md-12 panel panel-default">
 						<div class="panel-header clearfix">
-							<h3>Progress Assessment for <span ng-if="progressAssessment.aichiTarget">AICHI target {{progressAssessment.aichiTarget | term:locale}}</span> <span ng-if="progressAssessment.nationalTarget">national target {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span></h3>
+							<h3>Оценка прогресса для цели AICHI {{progressAssessment.aichiTarget | term:locale}} <span ng-if="progressAssessment.nationalTarget">Национальной целевой задачи {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span></h3>
 						</div>
 						<div class="panel-body">
 							<view-national-assessment ng-model="progressAssessment" locale="locale" target="{{target}}"></view-national-assessment>								
@@ -118,7 +118,7 @@
 		<div class="section-body">
 			<div class="panel panel-default" ng-repeat="aichiTarget in document.nationalContribution" ng-if="aichiTarget.identifier">
 				<div class="panel-header clearfix">
-					<h3>Aichi Biodiversity Target {{aichiTarget | term:locale}}</h3>
+					<h3>целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти{{aichiTarget | term:locale}}</h3>
 				</div>
 				<div class="panel-body" collapse="">
 					<div ng-if="aichiTarget.identifier=='AICHI-TARGET-16' && (absNationalReport||absLinkedRecords)">
@@ -151,7 +151,7 @@
 					<div ng-if="aichiTarget.identifier=='AICHI-TARGET-20' && resourceMobilisationReport">
 						<label for="">Система финансовой отчетности</label><br/> <a translation-url target="_new" ng-href="{{resourceMobilisationReport.url_ss[0]}}">{{resourceMobilisationReport.url_ss[0]}}</a> {{resourceMobilisationReport.title_t}}</div>
 					<div ng-show="aichiTarget.description">
-						<label>Description how and to what extent the country has contributed to the achievement of this Aichi Biodiversity Target</label>
+						<label>Описание того, как и в какой степени ваша страна внесла свой вклад в достижение этой целевой задачи по сохранению и устойчивому использованию биоразнообразия, принятой в Айти</label>
 						<div class="km-value km-pre">{{aichiTarget.description | lstring:locale}}</div>
 					</div>
 					<div ng-show="aichiTarget.achievementActivities">
@@ -180,11 +180,11 @@
 								<div class="panel-body">
 									<div ng-show="document.gspcNationalContribution.hasGSPCTargets">
 										<label></label>
-										<div class="km-value km-pre"><strong>{{document.government | term:locale}} has national targets related to the GSPC Targets</strong></div>
+										<div class="km-value km-pre"><strong>{{document.government | term:locale}} У страны есть национальные целевые задачи в контексте Глобальной стратегии сохранения растений</strong></div>
 									</div>
 									<div ng-show="!document.gspcNationalContribution.hasGSPCTargets">
 										<label></label>
-										<div class="km-value km-pre"><strong>{{document.government | term:locale}} does not have national targets related to the GSPC Targets</strong></div>
+										<div class="km-value km-pre"><strong>{{document.government | term:locale}} нет национальных целей, связанных с Целями ГССР</strong></div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.gspcTargetDescription">
 										<label>Подробная информация о конкретных целевых задачах</label>
@@ -202,7 +202,7 @@
 							</div>
 							<div class="panel panel-default" ng-repeat="gspcTarget in document.gspcNationalContribution" ng-if="gspcTarget.identifier">
 								<div class="panel-header clearfix">
-									<h3>GSPC Biodiversity Target {{gspcTarget | term:locale}}</h3>
+									<h3>Целевая задачa ГССР  {{gspcTarget | term:locale}}</h3>
 								</div>
 								<div class="panel-body" collapse="">
 
@@ -232,7 +232,7 @@
 				<div class="km-value km-pre">{{document.iplcContribution | lstring:locale}}</div>
 			</div>
 			<div ng-if="!document.iplcContribution">
-				<div class="km-value km-pre">No information available</div>
+				<div class="km-value km-pre">нет доступного журнала</div>
 			</div>
 		</div>
 	</div>

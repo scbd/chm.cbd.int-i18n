@@ -28,6 +28,10 @@
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey nationalTargetForm">		
 			<div >
 				<div class="alert alert-danger" ng-show="hasError()"><strong>Произошла ошибка...</strong><div>{{error}}</div>
+
+					<div ng-if="container =='.ngdialog-theme-default'">
+							<button class="btn btn-warning" ng-click="onPostClose()">Закрыть</button>
+					</div>
 				</div>
 
 				<div class="row" style="padding:15px;" ng-show="status=='loading'">Загрузка ....</div>
@@ -95,7 +99,7 @@
 											</div>
 
 											<div class="col-md-12">
-												<div class="km-control-group" name="otherAichiTargets" caption="Aichi Biodiversity Sub-targets">
+												<div class="km-control-group" name="otherAichiTargets" caption="Айтинские целевые задачи по биоразнообразию">
 													<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Пожалуйста, выберите подцели по сохранению и устойчивому использованию биоразнообразия, принятые в Айти" watch-items items="options.aichiSubTargets"></div>
 												</div>
 											</div>
@@ -203,7 +207,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">Поле «Примечания» включено для индивидуального пользования и становится видимым только при редактировании записи.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>

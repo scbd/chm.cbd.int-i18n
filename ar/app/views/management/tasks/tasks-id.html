@@ -13,7 +13,7 @@
 				  <th colspan="2">Request information and status</th>
 			  </tr>
 			  <tr>
-			  	<td style="width:40%">Request ID</td>
+			  	<td style="width:40%">معرف الطلب</td>
 			  	<td style="text-transform:uppercase;white-space:nowrap;">{{formatWID(workflow._id)}}</td>
 			  </tr>
 			  <tr>
@@ -23,7 +23,7 @@
 				</td>
 			  </tr>
 			  <tr>
-			  	<td>Record ID</td>
+			  	<td>معرف السجل</td>
 			  	<td><a translation-url    ng-show="workflow.result.documentID||workflow.data.documentID" ng-href="/database/record?documentID={{workflow.result.documentID||workflow.data.documentID}}">{{workflow.result.documentID||workflow.data.documentID}}</a> <span ng-hide="workflow.result.documentID||workflow.data.documentID">[new] {{workflow._id}}</span> <span ng-show="workflow.result.revision">(rev. {{workflow.result.revision}})</span></td>
 			  </tr>
 			  <tr>

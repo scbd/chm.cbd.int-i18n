@@ -103,7 +103,7 @@
 					
 					<div class="col-md-12 panel panel-default">
 						<div class="panel-header clearfix">
-							<h3>Progress Assessment for <span ng-if="progressAssessment.aichiTarget">AICHI target {{progressAssessment.aichiTarget | term:locale}}</span> <span ng-if="progressAssessment.nationalTarget">national target {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span></h3>
+							<h3>爱知目标进展评估 {{progressAssessment.aichiTarget | term:locale}} <span ng-if="progressAssessment.nationalTarget">国家目标 {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span></h3>
 						</div>
 						<div class="panel-body">
 							<view-national-assessment ng-model="progressAssessment" locale="locale" target="{{target}}"></view-national-assessment>								
@@ -180,11 +180,11 @@
 								<div class="panel-body">
 									<div ng-show="document.gspcNationalContribution.hasGSPCTargets">
 										<label></label>
-										<div class="km-value km-pre"><strong>{{document.government | term:locale}} has national targets related to the GSPC Targets</strong></div>
+										<div class="km-value km-pre"><strong>{{document.government | term:locale}}贵国已制定与本项《战略》目标有关的国家目标</strong></div>
 									</div>
 									<div ng-show="!document.gspcNationalContribution.hasGSPCTargets">
 										<label></label>
-										<div class="km-value km-pre"><strong>{{document.government | term:locale}} does not have national targets related to the GSPC Targets</strong></div>
+										<div class="km-value km-pre"><strong>{{document.government | term:locale}} 没有与GSPC目标相关的国家目标</strong></div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.gspcTargetDescription">
 										<label>请提供关于具体目标的详细信息。</label>
@@ -232,7 +232,7 @@
 				<div class="km-value km-pre">{{document.iplcContribution | lstring:locale}}</div>
 			</div>
 			<div ng-if="!document.iplcContribution">
-				<div class="km-value km-pre">No information available</div>
+				<div class="km-value km-pre">没有可用历史版本</div>
 			</div>
 		</div>
 	</div>

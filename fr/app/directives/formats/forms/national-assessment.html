@@ -31,9 +31,14 @@
 		<div class="panel-body">
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey assessmentform">
 				<div class="alert alert-danger" ng-show="hasError()"><strong>Une erreur est survenue...</strong><div>{{error}}</div>
+
+					<div ng-if="container =='.ngdialog-theme-default'">
+							<button class="btn btn-warning" ng-click="onPostClose()">Fermer</button>
+					</div>
+
 				</div>
 
-				<div ng-show="status!='hidden'">
+				<div ng-hide="status=='hidden'||status=='loading'">
 
 					<div class="row">
 						<div class="col-xs-6"><span km-form-languages ng-model="document.header.languages"></span></div>
@@ -112,7 +117,10 @@
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="assessmentText" caption="Informations supplémentaires (Veuillez fournir des renseignements sur les données factuelles utilisées dans l’évaluation de cet objectif, en vous appuyant sur les informations pertinentes fournies dans la partie II, y compris sur les obstacles dans la réalisation de l’évaluation)."
-															data-container=".assessmentform" data-content="Veuillez fournir des renseignements justifiant le choix ci-dessus. This could include information related to the overall impact of the measure taken, changes to the status and trends of biodiversity, changes to pressures on biodiversity or the drivers of its loss, changes to socioeconomic conditions, such as awareness of biodiversity, changes in resource availability, changes to government policies, or changes in the behaviour of major sectors in the country. For national targets which are quantitative in nature, Parties may also wish to consider reporting on the extent of achievement in relation to the target value. À titre d’exemple, cette évaluation pourrait être présentée sous forme de pourcentages pour certains types d’objectifs. Parties may also wish to describe the process they have used to assess progress towards the target, as well as report on any obstacles related to the assessment process for the target.">
+															data-container=".assessmentform" data-content="Veuillez fournir des renseignements justifiant le choix ci-dessus. Ceci pourrait inclure des informations sur les conséquences générales des mesures prises, les changements dans l’état et les tendances en matière de diversité biologique, les changements dans la pression exercée sur la diversité biologique 
+											ou les facteurs de son appauvrissement, les changements dans les conditions socioéconomiques telles que la sensibilisation à la diversité biologique, les changements dans la disponibilité des ressources, les changements aux politiques gouvernementales ou les changements dans le comportement des principaux secteurs d’activités au pays. En ce qui concerne les objectifs quantitatifs,
+											les Parties pourraient envisager de faire rapport sur l’étendue de la réalisation par rapport à la valeur de l’objectif. À titre d’exemple, cette évaluation pourrait être présentée sous forme de pourcentages pour certains types d’objectifs. Les Parties 
+											souhaiteront peut-être également  décrire le processus qu’elles ont utilisé pour évaluer les progrès accomplis dans la réalisation de l’objectif, ainsi que faire rapport sur tout obstacle lié au processus d’évaluation de l’objectif.">
 												<div km-textbox-ml required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
 											</div>
 										</div>
@@ -129,7 +137,8 @@
 
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" name="nationalIndicatorsUsed" caption="Votre pays at-il utilisé des indicateurs pour évaluer les progrès accomplis dans la réalisation de cet objectif national?" data-container=".assessmentform" data-content="Veuillez indiquer tous les indicateurs utilisés pour évaluer les progrès accomplis dans la réalisation de cet objectif. Ces indicateurs pourraient comprendre les indicateurs contenus dans la stratégie et plan d’action nationaux pour la biodiversité de votre pays ou les indicateurs développés pour d’autres processus. Dans sa décision XIII/28, la Conférence des Parties à la Convention sur la diversité biologique a accueilli avec satisfaction une liste d’indicateurs généraux et spécifiques pour le Plan stratégique 2011-2020 pour la diversité biologique. Vous pourrez utiliser cette liste d’indicateurs, selon qu’il convient, pour évaluer les progrès accomplis dans la réalisation des objectifs nationaux de votre pays. Further information on indicators, including tools for national indicator development, is available from the <a translation-url href='http://www.bipindicators.net/' target='_new '>Biodiversity Indicators Partnership</a> and the <a translation-url href='http://geobon.org/ ' target='_new '>Group on Earth Observations Biodiversity Observation Network</a>.">
+											<div class="km-control-group" name="nationalIndicatorsUsed" caption="Votre pays at-il utilisé des indicateurs pour évaluer les progrès accomplis dans la réalisation de cet objectif national?" data-container=".assessmentform" data-content="Veuillez indiquer tous les indicateurs utilisés pour évaluer les progrès accomplis dans la réalisation de cet objectif. Ces indicateurs pourraient comprendre les indicateurs contenus dans la stratégie et plan d’action nationaux pour la biodiversité de votre pays ou les indicateurs développés pour d’autres processus. Dans sa décision XIII/28, la Conférence des Parties à la Convention sur la diversité biologique a accueilli avec satisfaction une liste d’indicateurs généraux et spécifiques pour le Plan stratégique 2011-2020 pour la diversité biologique. Vous pourrez utiliser cette liste d’indicateurs, selon qu’il convient, pour évaluer les progrès accomplis dans la réalisation des objectifs nationaux de votre pays. De plus amples renseignements sur les indicateurs, y compris les outils de développement des indicateurs nationaux, sont mis à disposition par le   
+										<a href='http://www.bipindicators.net/' target='_new '>Partenariat relatif aux indicateurs de biodiversité</a> et par le <a href='http://geobon.org/ ' target='_new '>Réseau d’observation de la biodiversité au sein du Groupe d’observations de la Terre</a>.">
 
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed, 'btn-default': document.nationalIndicatorsUsed==false}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=true">Oui</button>
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed==false, 'btn-default': document.nationalIndicatorsUsed}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=false">Non</button>

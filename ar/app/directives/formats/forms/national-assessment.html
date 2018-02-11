@@ -31,9 +31,14 @@
 		<div class="panel-body">
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey assessmentform">
 				<div class="alert alert-danger" ng-show="hasError()"><strong>حدث خطأ...</strong><div>{{error}}</div>
+
+					<div ng-if="container =='.ngdialog-theme-default'">
+							<button class="btn btn-warning" ng-click="onPostClose()">إغلاق</button>
+					</div>
+
 				</div>
 
-				<div ng-show="status!='hidden'">
+				<div ng-hide="status=='hidden'||status=='loading'">
 
 					<div class="row">
 						<div class="col-xs-6"><span km-form-languages ng-model="document.header.languages"></span></div>
@@ -62,7 +67,7 @@
 
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" required name="government" caption="Country">
+											<div class="km-control-group" required name="government" caption="الدولة">
 												<div km-select ng-disabled="!!defaultGovernment()" required name="government" ng-model="document.government" placeholder="يرجى اختيار البلد..." watch-items items="options.countries"></div>
 											</div>
 										</div>

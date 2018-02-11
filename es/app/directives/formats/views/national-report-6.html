@@ -103,7 +103,7 @@
 					
 					<div class="col-md-12 panel panel-default">
 						<div class="panel-header clearfix">
-							<h3>Progress Assessment for <span ng-if="progressAssessment.aichiTarget">AICHI target {{progressAssessment.aichiTarget | term:locale}}</span> <span ng-if="progressAssessment.nationalTarget">national target {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span></h3>
+							<h3>Evaluaci&oacute;n del progreso para la meta de AICHI{{progressAssessment.aichiTarget | term:locale}} <span ng-if="progressAssessment.nationalTarget">de la meta nacional {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span></h3>
 						</div>
 						<div class="panel-body">
 							<view-national-assessment ng-model="progressAssessment" locale="locale" target="{{target}}"></view-national-assessment>								
@@ -151,7 +151,7 @@
 					<div ng-if="aichiTarget.identifier=='AICHI-TARGET-20' && resourceMobilisationReport">
 						<label for="">Marco de informaci&oacute;n financiera</label><br/> <a translation-url target="_new" ng-href="{{resourceMobilisationReport.url_ss[0]}}">{{resourceMobilisationReport.url_ss[0]}}</a> {{resourceMobilisationReport.title_t}}</div>
 					<div ng-show="aichiTarget.description">
-						<label>Description how and to what extent the country has contributed to the achievement of this Aichi Biodiversity Target</label>
+						<label>Descripci&oacute;n de c&oacute;mo y en qu&eacute; medida su pa&iacute;s ha contribuido al logro de esta Meta de Aichi para la Diversidad Biol&oacute;gica</label>
 						<div class="km-value km-pre">{{aichiTarget.description | lstring:locale}}</div>
 					</div>
 					<div ng-show="aichiTarget.achievementActivities">
@@ -180,11 +180,11 @@
 								<div class="panel-body">
 									<div ng-show="document.gspcNationalContribution.hasGSPCTargets">
 										<label></label>
-										<div class="km-value km-pre"><strong>{{document.government | term:locale}} has national targets related to the GSPC Targets</strong></div>
+										<div class="km-value km-pre"><strong>{{document.government | term:locale}} El pa&iacute;s tiene metas nacionales relacionadas con las metas de la GSPC</strong></div>
 									</div>
 									<div ng-show="!document.gspcNationalContribution.hasGSPCTargets">
 										<label></label>
-										<div class="km-value km-pre"><strong>{{document.government | term:locale}} does not have national targets related to the GSPC Targets</strong></div>
+										<div class="km-value km-pre"><strong>{{document.government | term:locale}} no tiene objetivos nacionales relacionados con los Objetivos de GSPC</strong></div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.gspcTargetDescription">
 										<label>Detalles sobre las metas espec&iacute;ficas</label>
@@ -232,7 +232,7 @@
 				<div class="km-value km-pre">{{document.iplcContribution | lstring:locale}}</div>
 			</div>
 			<div ng-if="!document.iplcContribution">
-				<div class="km-value km-pre">No information available</div>
+				<div class="km-value km-pre">sin historia disponible</div>
 			</div>
 		</div>
 	</div>
