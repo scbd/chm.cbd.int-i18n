@@ -1,4 +1,4 @@
-﻿<div>
+﻿<div id="sixth-national-report-edit">
 
 	<div id="wrap1">
 		<div class="panel panel-default bg-litegrey">
@@ -11,202 +11,7 @@
 			<div class="panel-body">
 
 				<style>
-					.wrap .pagination {
-						display: inline-block;
-						padding-left: 0;
-						margin: 20px;
-						border-radius: 4px;
-					}
-
-					.wrap .pagination a {
-						padding: 6px 12px !important;
-						color: #337ab7 !important;
-					}
-
-					.panel-header,
-					.section .section-header {
-						border-bottom: 1px solid #ddd;
-						padding-left: 10px;
-						padding-right: 10px;
-					}
-
-					.help-block {
-						text-align: justify;
-					}
-
-					.panelMain .panel-body {
-						padding: 0px
-					}
-
-					.mainHeading,
-					.section .section-body {
-						padding: 15px !important;
-					}
-
-					.section .section-header {
-						border-top: 1px solid #ddd;
-						background-color: #ddd;
-					}
-
-					.panel-header a.collapse-icon,
-					.panel-header a.trash {
-						padding: 12px 35px 12px 15px;
-						display: inline-block;
-						width: 100%;
-						position: relative;
-						text-decoration: none;
-					}
-
-					.panel-header a.collapse-icon:after {
-						font-family: "FontAwesome";
-						content: "\f01b";
-						position: absolute;
-						right: 20px;
-						font-size: 20px;
-						font-weight: 400;
-						top: 50%;
-						line-height: 1;
-						margin-top: -10px;
-					}
-
-					.panel-header a.collapse-icon.collapsed:after {
-						content: "\f01a";
-					}
-
-					.panel-header a.trash,
-					.panel-header a.measure {
-						width: 0% !important;
-						padding-right: 0px;
-						padding-left: 0px;
-					}
-
-					.panel-header a.trash:after {
-						font-family: "FontAwesome";
-						content: "\f014";
-						position: absolute;
-						right: 40px;
-						font-size: 20px;
-						font-weight: 400;
-						top: 50%;
-						line-height: 1;
-						margin-top: -10px;
-					}
-
-					.greyout * {
-						background-color: #ddd !important;
-						color: #737373 !important;
-					}
-
-					.highlight,
-					textarea.form-control:focus,
-					.form-control:focus+span.input-group-addon,
-					/*.form-control:focus > .panel,*/
-
-					textarea:focus,
-					input[type="text"]:focus,
-					input[type="password"]:focus,
-					input[type="number"]:focus,
-					input[type="email"]:focus,
-					input[type="url"]:focus,
-					input[type="search"]:focus,
-					input[type="tel"]:focus {
-						border-color: #3498db;
-						outline: 0;
-						box-shadow: 0 0 0 1px #3498db;
-					}
-
-					.alert .glyphicon {
-						float: left;
-						margin-right: 9px;
-					}
-
-					.alert div {
-						overflow: hidden;
-					}
-
-					.ngdialog-open {
-						height: auto !important;
-					}
-
-					.ngdialog-content {
-						width: 70% !important;
-					}
-
-					.ngdialog-custom .ngdialog-content {
-						background: transparent !important;
-					}
-
-
-					#wrap {
-						min-height: 100%;
-						height: auto !important;
-						height: 100%;
-					}
-
-					.container .credit {
-						margin: 20px 0;
-					}
-
-					#nav {
-						position: static;
-						top: -32px;
-					}
-
-					#nav.affix {
-						position: fixed;
-						top: 0;
-						z-index: 10;
-						-webkit-transition: all .6s ease-in-out;
-						left: 0;
-						width: 100%;
-						padding-left: 50px;
-						-webkit-box-shadow: 0px 1px 10px #666;
-						-moz-box-shadow: 0px 1px 10px #666;
-						box-shadow: 0px 1px 10px #666;
-					}
-
-					@media (min-width: 767px) {
-						.navbar-nav.nav-justified>li {
-							float: none;
-						}
-					}
-
-					.navbar-custom {
-						background-color: #eeeeee;
-						border-width: 0;
-					}
-
-					.navbar-custom .dropdown-menu {
-						right: 0;
-					}
-
-					.navbar-custom .navbar-nav>.dropdown>a .caret {
-						border-top-color: #999;
-						border-bottom-color: #999;
-					}
-
-					.navbar-collapse.in {
-						overflow-y: visible;
-					}
-
-					.navbar-toggle {
-						outline: 0;
-					}
-
-					.container-custom {
-						margin: 0px !important;
-						padding: 0px !important;
-						max-width: 100% !important;
-					}
-
-					.affix .text-right {
-						padding-right: 55px;
-						padding-bottom: 10px;
-					}
-
-					.small-screen {
-						display: block !important;
-					}
+					
 				</style>
 
 				<div class="col-md-12" style="padding:0px" ><!-- Time since load {{timeTick}} --><div class="row" style="padding:15px;font-size: 3em" ng-show="status=='loading'"><i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i>Sixi&egrave;me Rapport National</div>
@@ -215,7 +20,7 @@
 					<div class="alert alert-danger" ng-show="hasError()"><strong>Une erreur est survenue...</strong><div>{{error}}</div>
 					</div><!-- ng-hide="status=='hidden'||status=='loading'"ng-if="status!='hidden' && status!='loading'" --><div  ng-show="status!='hidden' && status!='loading'">
 						<div class="row">
-							<div class="col-xs-12"><span class="pull-right"><strong>Sixth national report user manual</strong><a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-en.pdf" target="_blank">English</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-fr.pdf" target="_blank">French</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-es.pdf" target="_blank">Spanish</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ru.pdf" target="_blank">Russian</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-zh.pdf" target="_blank">Chinese</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ar.pdf" target="_blank">Arabic</a></span></div>
+							<div class="col-xs-12"><span class="pull-right"><strong>Sixi&egrave;me manuel d&apos;utilisation du rapport national</strong><a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-en.pdf" target="_blank">Anglais</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-fr.pdf" target="_blank">Fran&ccedil;ais</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-es.pdf" target="_blank">Espanol</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ru.pdf" target="_blank">Russe</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-zh.pdf" target="_blank">Chinois</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ar.pdf" target="_blank">Arabe</a></span></div>
 						</div>
 						<header >
 
@@ -306,7 +111,7 @@
 
 															<ul class="list-group ng-scope" style="margin-top: 10px;">
 																<li class="list-group-item ng-scope" style="min-height: 50px;">
-																	<div class="pull-right">
+																	<div class="pull-right btn-group">
 																		<button ng-disabled="loadingNationalTargets||isDialogOpen" class="btn btn-primary" ng-click="openDialog({},'directives/formats/forms/national-target-dialog','edit-national-target-dialog')">Ajouter un objectif</button><a translation-url ng-disabled="loadingNationalTargets" class="btn btn-primary" ng-hre="#" ng-click="refreshNationaTargets()"> <i class="fa fa-spin fa-spinner" ng-if="loadingNationalTargets" />Rafra&icirc;chir</a></div>
 																</li>
 															</ul>
@@ -317,15 +122,15 @@
 
 																<div class="panel panel-default">
 																	<div class="panel-header">
-																		<h3>{{item.title[locale]}}</h3>
+																		<h3>{{item.title|lstring:locale}}</h3>
 																	</div>
 																	<div class="panel-body">
-																		<div class="btn-group-xs" 
-																		ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier_s || !waitForWorkflow.nationalTarget"><span class="label label-primary pull-right  bg-published"  style="margin-left:5px;"
+																		<div class="btn-group-xs btn-status" 
+																			ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier_s || !waitForWorkflow.nationalTarget"><span class="label label-primary pull-right  bg-published"  style="margin-left:5px;"
 																				ng-if="item._state_s=='public' || item.publicRecord">Publique</span> <span class="label label-warning pull-right  bg-draft" ng-if="item._state_s=='draft'">Brouillon</span> <span class="label label-warning pull-right  bg-request" ng-if="item._state_s=='workflow'">en attente d&apos;approbation</span></div>
-																		<div ng-if="waitForWorkflow.nationalTarget && waitForWorkflow.nationalTarget.identifier == item.identifier_s"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > En cours...</span></div>
+																		<div class="btn-status" ng-if="waitForWorkflow.nationalTarget && waitForWorkflow.nationalTarget.identifier == item.identifier_s"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > En cours...</span></div>
 																		<ul>
-																			<li ng-repeat="target in item.aichiTargets_EN_ss track by $index">{{target}}</li>
+																			<li ng-repeat="target in item.aichiTargets track by $index">{{target}}</li>
 																		</ul>
 																	</div>
 																	<div class="panel-footer">
@@ -361,7 +166,7 @@
 								</div>
 								<div class="panel panel-default implementationMeasure" ng-repeat="implementationMeasure in document.implementationMeasures track by $index">
 									<div class="panel-header clearfix">
-										<h3>{{implementationMeasure.title[locale]}}<div class="pull-right" style="padding-right:10px"><a translation-url ng-href="#" class="trash" ng-click="removeImplementationMeasure(implementationMeasure)"></a> <a translation-url ng-href="#" data-toggle="collapse" class="measure collapse-icon" data-target="#implementationMeasure{{$index}}"></a></div>
+										<h3>{{implementationMeasure.title|lstring:locale}}<div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a translation-url ng-href="#" class="trash btn" ng-click="removeImplementationMeasure(implementationMeasure)"></a> <a translation-url ng-href="#" data-toggle="collapse" class="btn measure collapse-icon" data-target="#implementationMeasure{{$index}}"></a></div>
 										</h3>
 									</div>
 									<div class="panel-body collapse in" id="implementationMeasure{{$index}}">
@@ -461,7 +266,7 @@
 								</div>
 								<div class="panel panel-default progressAssessment" ng-repeat="progressAssessment in document.progressAssessments track by $index">
 									<div class="panel-header clearfix">
-										<h3>&Eacute;valuation de progr&egrave;s pour <span ng-if="progressAssessment.nationalTarget">cible nationale : {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier, locale)}}</span> <span ng-if="progressAssessment.aichiTarget">Cible de la biodiversit&eacute; d&apos;AICHI : {{: :getAichiTargetTitle(progressAssessment.aichiTarget, locale)}}</span><div class="pull-right" style="padding-right:10px"><a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#progressAssessment{{$index}}"></a></div>
+										<h3>&Eacute;valuation de progr&egrave;s pour <span ng-if="progressAssessment.nationalTarget">cible nationale : {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier, locale)}}</span> <span ng-if="progressAssessment.aichiTarget">Cible de la biodiversit&eacute; d&apos;AICHI : {{::getAichiTargetTitle(progressAssessment.aichiTarget, locale)}}</span><div class="pull-right" style="padding-right:10px"><a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#progressAssessment{{$index}}"></a></div>
 										</h3>
 									</div>
 									<div class="panel-body collapse in" id="progressAssessment{{$index}}">
@@ -469,15 +274,15 @@
 											<div class="col-md-12">
 												<div class="km-control-group" name="progressAssessmentAdequacy" caption="Évaluation actuelle de l'objectif national">
 													<div ng-if="progressAssessment.assessment">
-														<div class="row" style="margin-right:0.1%">
+														<div class="row btn-status" style="margin-right:0.1%">
 															<div ng-if="waitForWorkflow.nationalAssessment.identifier != progressAssessment.assessment.identifier || !waitForWorkflow.nationalAssessment"><span class="label label-primary pull-right  bg-published" style="margin-left:5px;"
 																	ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='public' || targetAssessments[progressAssessment.assessment.identifier].publicRecord">Publique</span> <span class="label label-warning pull-right bg-draft" ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='draft'">Brouillon</span> <span class="label label-warning pull-right bg-request" ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='workflow'">en attente d&apos;approbation</span></div>
 															<div ng-if="waitForWorkflow.nationalAssessment && waitForWorkflow.nationalAssessment.identifier == progressAssessment.assessment.identifier"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > En cours...</span></div>
 														</div><img ng-src="/app/img/ratings/{{targetAssessments[progressAssessment.assessment.identifier].progress_s}}.png" class="pull-left"></img><div>
 															<div>
-																<h3>{{targetAssessments[progressAssessment.assessment.identifier].title[locale]}}</h3>
+																<h3>{{targetAssessments[progressAssessment.assessment.identifier].title|lstring:locale}}</h3>
 															</div>
-															<div>{{targetAssessments[progressAssessment.assessment.identifier].description[locale]}}</div>
+															<div>{{targetAssessments[progressAssessment.assessment.identifier].description|lstring:locale}}</div>
 														</div>
 													</div>
 													<div ng-if="!progressAssessment.assessment" class="label label-info"><span ng-if="progressAssessment.nationalTarget">&Eacute;valuation manquante pour l&apos;objectif national.</span> <span ng-if="progressAssessment.aichiTarget">&Eacute;valuation manquante pour l&apos; Objectif d&rsquo;Aichi pour la biodiversit&eacute;</span></div>
@@ -966,7 +771,7 @@
 											<div class="panel-body">
 												<div class="col-md-12" ng-if="target.nationalReport">
 													<div>
-														<label>Votre pays a soumis le rapport national int&eacute;rimaire sur l&rsquo;ex&eacute;cution de leurs obligations en vertu du Protocole de Nagoya.</label><br><div style="background-color:#eee; padding:5px;">{{self.absNationalReport}} <a translation-url target="_new" class="bold" ng-href="{{absNationalReport.url}}">{{absNationalReport.uniqueIdentifier_s|uppercase}} <span class="color-black" style="font-weight:normal;">{{absNationalReport.title[locale]}}</span></a></div>
+														<label>Votre pays a soumis le rapport national int&eacute;rimaire sur l&rsquo;ex&eacute;cution de leurs obligations en vertu du Protocole de Nagoya.</label><br><div style="background-color:#eee; padding:5px;">{{self.absNationalReport}} <a translation-url target="_new" class="bold" ng-href="{{absNationalReport.url}}">{{absNationalReport.uniqueIdentifier_s|uppercase}} <span class="color-black" style="font-weight:normal;">{{absNationalReport.title|lstring:locale}}</span></a></div>
 													</div><br> <span info-bar data-content="There is no need to repeat information in the sixth national report that has already been included in the interim national report on the implementation of obligations under the Nagoya Protocol."></span><div class="km-control-group" name="nationalContributions-AICHI-TARGET-16-nationalReportDescription" caption="Veuillez fournir toute autre information pertinente qui n'a pas été incluse dans le rapport national intérimaire sur le respect des obligations au titre du Protocole de Nagoya.">
 														<div km-textbox-ml name="nationalContributions--AICHI-TARGET-16-nationalReportDescription" ng-model="target.nationalReportDescription"
 															locales="document.header.languages" rows="3"></div>
@@ -1089,7 +894,7 @@
 											<label>Votre pays n&apos;a pas rempli le cadre d&apos;information financi&egrave;re, vous pouvez envisager de le faire.</label></br> <a translation-url href="/submit/resourceMobilisation/new" target="_new">Cliquez ici pour remplir le cadre d&apos;information financi&egrave;re</a></div>
 									</div>
 									<div class="col-md-12" ng-if="resourceMobilisation">
-										<label for="">Votre pays a soumis le Cadre d&apos;information financi&egrave;r</label><br/><div style="background-color:#eee; padding:5px;"><a translation-url target="_new" ng-href="{{resourceMobilisation.url}}">{{resourceMobilisation.url}} <span class="color-black" style="font-weight:normal;">{{resourceMobilisation.title[locale]}}</span></a></div>
+										<label for="">Votre pays a soumis le Cadre d&apos;information financi&egrave;r</label><br/><div style="background-color:#eee; padding:5px;"><a translation-url target="_new" ng-href="{{resourceMobilisation.url}}">{{resourceMobilisation.url}} <span class="color-black" style="font-weight:normal;">{{resourceMobilisation.title|lstring:locale}}</span></a></div>
 									</div>
 									<div class="col-md-12">
 										<div class="km-control-group" name="nationalContributions-AICHI-TARGET-20" caption="Veuillez décrire comment votre pays a contribué à la réalisation de cet Objectif d’Aichi pour la biodiversité et les données factuelles utilisées à l’appui de cette description:"

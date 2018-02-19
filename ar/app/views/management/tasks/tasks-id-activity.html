@@ -12,7 +12,7 @@
 
 			<table class="table table-striped">
 			  <tr>
-				  <th colspan="2">طلب المعلومات والحالة</th>
+				  <th colspan="2">Request information and status</th>
 			  </tr>
 			  <tr>
 			  	<td style="width:40%">معرف الطلب</td>
@@ -33,7 +33,7 @@
 			  	<td><strong><span ng-show="workflow.schema==='bbiRequest'">Request for Assistance (BBI)</span> {{workflow.data.metadata.schema|schemaName}}</strong> - <span>{{workflow.data.title | lstring}}</span> <span ng-show="workflow.schema==='bbiRequest'">{{workflow.title | lstring}}</span></td>
 			  </tr>
 			  <tr>
-			  	<td>حالة</td>
+			  	<td>Status</td>
 			  	<td><span ng-switch="workflow.state" ng-show="workflow.schema!=='bbiRequest'"><span ng-switch-when="running"><i class="fa fa-cog"></i> Pending</span><span ng-switch-when="completed">Completed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-default>*{{workflow.state|uppercase}}</span></span> <span ng-switch="workflow.meta.status" ng-show="workflow.schema==='bbiRequest'"><span ng-switch-when="workflow"><i class="fa fa-cog"></i> Pending</span><span ng-switch-when="public">Completed on {{workflow.meta.modifiedOn|date:&apos;short&apos;}}</span><span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-default>*{{workflow.meta.status|uppercase}}</span></span></td>
 			  </tr>
 

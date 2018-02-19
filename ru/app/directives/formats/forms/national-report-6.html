@@ -1,4 +1,4 @@
-﻿<div>
+﻿<div id="sixth-national-report-edit">
 
 	<div id="wrap1">
 		<div class="panel panel-default bg-litegrey">
@@ -11,202 +11,7 @@
 			<div class="panel-body">
 
 				<style>
-					.wrap .pagination {
-						display: inline-block;
-						padding-left: 0;
-						margin: 20px;
-						border-radius: 4px;
-					}
-
-					.wrap .pagination a {
-						padding: 6px 12px !important;
-						color: #337ab7 !important;
-					}
-
-					.panel-header,
-					.section .section-header {
-						border-bottom: 1px solid #ddd;
-						padding-left: 10px;
-						padding-right: 10px;
-					}
-
-					.help-block {
-						text-align: justify;
-					}
-
-					.panelMain .panel-body {
-						padding: 0px
-					}
-
-					.mainHeading,
-					.section .section-body {
-						padding: 15px !important;
-					}
-
-					.section .section-header {
-						border-top: 1px solid #ddd;
-						background-color: #ddd;
-					}
-
-					.panel-header a.collapse-icon,
-					.panel-header a.trash {
-						padding: 12px 35px 12px 15px;
-						display: inline-block;
-						width: 100%;
-						position: relative;
-						text-decoration: none;
-					}
-
-					.panel-header a.collapse-icon:after {
-						font-family: "FontAwesome";
-						content: "\f01b";
-						position: absolute;
-						right: 20px;
-						font-size: 20px;
-						font-weight: 400;
-						top: 50%;
-						line-height: 1;
-						margin-top: -10px;
-					}
-
-					.panel-header a.collapse-icon.collapsed:after {
-						content: "\f01a";
-					}
-
-					.panel-header a.trash,
-					.panel-header a.measure {
-						width: 0% !important;
-						padding-right: 0px;
-						padding-left: 0px;
-					}
-
-					.panel-header a.trash:after {
-						font-family: "FontAwesome";
-						content: "\f014";
-						position: absolute;
-						right: 40px;
-						font-size: 20px;
-						font-weight: 400;
-						top: 50%;
-						line-height: 1;
-						margin-top: -10px;
-					}
-
-					.greyout * {
-						background-color: #ddd !important;
-						color: #737373 !important;
-					}
-
-					.highlight,
-					textarea.form-control:focus,
-					.form-control:focus+span.input-group-addon,
-					/*.form-control:focus > .panel,*/
-
-					textarea:focus,
-					input[type="text"]:focus,
-					input[type="password"]:focus,
-					input[type="number"]:focus,
-					input[type="email"]:focus,
-					input[type="url"]:focus,
-					input[type="search"]:focus,
-					input[type="tel"]:focus {
-						border-color: #3498db;
-						outline: 0;
-						box-shadow: 0 0 0 1px #3498db;
-					}
-
-					.alert .glyphicon {
-						float: left;
-						margin-right: 9px;
-					}
-
-					.alert div {
-						overflow: hidden;
-					}
-
-					.ngdialog-open {
-						height: auto !important;
-					}
-
-					.ngdialog-content {
-						width: 70% !important;
-					}
-
-					.ngdialog-custom .ngdialog-content {
-						background: transparent !important;
-					}
-
-
-					#wrap {
-						min-height: 100%;
-						height: auto !important;
-						height: 100%;
-					}
-
-					.container .credit {
-						margin: 20px 0;
-					}
-
-					#nav {
-						position: static;
-						top: -32px;
-					}
-
-					#nav.affix {
-						position: fixed;
-						top: 0;
-						z-index: 10;
-						-webkit-transition: all .6s ease-in-out;
-						left: 0;
-						width: 100%;
-						padding-left: 50px;
-						-webkit-box-shadow: 0px 1px 10px #666;
-						-moz-box-shadow: 0px 1px 10px #666;
-						box-shadow: 0px 1px 10px #666;
-					}
-
-					@media (min-width: 767px) {
-						.navbar-nav.nav-justified>li {
-							float: none;
-						}
-					}
-
-					.navbar-custom {
-						background-color: #eeeeee;
-						border-width: 0;
-					}
-
-					.navbar-custom .dropdown-menu {
-						right: 0;
-					}
-
-					.navbar-custom .navbar-nav>.dropdown>a .caret {
-						border-top-color: #999;
-						border-bottom-color: #999;
-					}
-
-					.navbar-collapse.in {
-						overflow-y: visible;
-					}
-
-					.navbar-toggle {
-						outline: 0;
-					}
-
-					.container-custom {
-						margin: 0px !important;
-						padding: 0px !important;
-						max-width: 100% !important;
-					}
-
-					.affix .text-right {
-						padding-right: 55px;
-						padding-bottom: 10px;
-					}
-
-					.small-screen {
-						display: block !important;
-					}
+					
 				</style>
 
 				<div class="col-md-12" style="padding:0px" ><!-- Time since load {{timeTick}} --><div class="row" style="padding:15px;font-size: 3em" ng-show="status=='loading'"><i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i>Шестой национальный доклад</div>
@@ -215,7 +20,7 @@
 					<div class="alert alert-danger" ng-show="hasError()"><strong>Произошла ошибка...</strong><div>{{error}}</div>
 					</div><!-- ng-hide="status=='hidden'||status=='loading'"ng-if="status!='hidden' && status!='loading'" --><div  ng-show="status!='hidden' && status!='loading'">
 						<div class="row">
-							<div class="col-xs-12"><span class="pull-right"><strong>Sixth national report user manual</strong><a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-en.pdf" target="_blank">English</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-fr.pdf" target="_blank">French</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-es.pdf" target="_blank">Spanish</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ru.pdf" target="_blank">Russian</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-zh.pdf" target="_blank">Chinese</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ar.pdf" target="_blank">Arabic</a></span></div>
+							<div class="col-xs-12"><span class="pull-right"><strong>Руководство пользователя шестого национального отчета</strong><a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-en.pdf" target="_blank">английский</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-fr.pdf" target="_blank">Французский</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-es.pdf" target="_blank">испанский</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ru.pdf" target="_blank">русский</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-zh.pdf" target="_blank">Китайский</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ar.pdf" target="_blank">арабский</a></span></div>
 						</div>
 						<header >
 
@@ -306,7 +111,7 @@
 
 															<ul class="list-group ng-scope" style="margin-top: 10px;">
 																<li class="list-group-item ng-scope" style="min-height: 50px;">
-																	<div class="pull-right">
+																	<div class="pull-right btn-group">
 																		<button ng-disabled="loadingNationalTargets||isDialogOpen" class="btn btn-primary" ng-click="openDialog({},'directives/formats/forms/national-target-dialog','edit-national-target-dialog')">Добавить целевую задачу</button><a translation-url ng-disabled="loadingNationalTargets" class="btn btn-primary" ng-hre="#" ng-click="refreshNationaTargets()"> <i class="fa fa-spin fa-spinner" ng-if="loadingNationalTargets" />Обновить</a></div>
 																</li>
 															</ul>
@@ -317,15 +122,15 @@
 
 																<div class="panel panel-default">
 																	<div class="panel-header">
-																		<h3>{{item.title[locale]}}</h3>
+																		<h3>{{item.title|lstring:locale}}</h3>
 																	</div>
 																	<div class="panel-body">
-																		<div class="btn-group-xs" 
-																		ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier_s || !waitForWorkflow.nationalTarget"><span class="label label-primary pull-right  bg-published"  style="margin-left:5px;"
+																		<div class="btn-group-xs btn-status" 
+																			ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier_s || !waitForWorkflow.nationalTarget"><span class="label label-primary pull-right  bg-published"  style="margin-left:5px;"
 																				ng-if="item._state_s=='public' || item.publicRecord">Общественная</span> <span class="label label-warning pull-right  bg-draft" ng-if="item._state_s=='draft'">Черновик</span> <span class="label label-warning pull-right  bg-request" ng-if="item._state_s=='workflow'">Ожидание одобрения</span></div>
-																		<div ng-if="waitForWorkflow.nationalTarget && waitForWorkflow.nationalTarget.identifier == item.identifier_s"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > Обработка...</span></div>
+																		<div class="btn-status" ng-if="waitForWorkflow.nationalTarget && waitForWorkflow.nationalTarget.identifier == item.identifier_s"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > Обработка...</span></div>
 																		<ul>
-																			<li ng-repeat="target in item.aichiTargets_EN_ss track by $index">{{target}}</li>
+																			<li ng-repeat="target in item.aichiTargets track by $index">{{target}}</li>
 																		</ul>
 																	</div>
 																	<div class="panel-footer">
@@ -361,7 +166,7 @@
 								</div>
 								<div class="panel panel-default implementationMeasure" ng-repeat="implementationMeasure in document.implementationMeasures track by $index">
 									<div class="panel-header clearfix">
-										<h3>{{implementationMeasure.title[locale]}}<div class="pull-right" style="padding-right:10px"><a translation-url ng-href="#" class="trash" ng-click="removeImplementationMeasure(implementationMeasure)"></a> <a translation-url ng-href="#" data-toggle="collapse" class="measure collapse-icon" data-target="#implementationMeasure{{$index}}"></a></div>
+										<h3>{{implementationMeasure.title|lstring:locale}}<div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a translation-url ng-href="#" class="trash btn" ng-click="removeImplementationMeasure(implementationMeasure)"></a> <a translation-url ng-href="#" data-toggle="collapse" class="btn measure collapse-icon" data-target="#implementationMeasure{{$index}}"></a></div>
 										</h3>
 									</div>
 									<div class="panel-body collapse in" id="implementationMeasure{{$index}}">
@@ -469,15 +274,15 @@
 											<div class="col-md-12">
 												<div class="km-control-group" name="progressAssessmentAdequacy" caption="Логическое обоснование национальной целевой задачи">
 													<div ng-if="progressAssessment.assessment">
-														<div class="row" style="margin-right:0.1%">
+														<div class="row btn-status" style="margin-right:0.1%">
 															<div ng-if="waitForWorkflow.nationalAssessment.identifier != progressAssessment.assessment.identifier || !waitForWorkflow.nationalAssessment"><span class="label label-primary pull-right  bg-published" style="margin-left:5px;"
 																	ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='public' || targetAssessments[progressAssessment.assessment.identifier].publicRecord">Общественная</span> <span class="label label-warning pull-right bg-draft" ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='draft'">Черновик</span> <span class="label label-warning pull-right bg-request" ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='workflow'">Ожидание одобрения</span></div>
 															<div ng-if="waitForWorkflow.nationalAssessment && waitForWorkflow.nationalAssessment.identifier == progressAssessment.assessment.identifier"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > Обработка...</span></div>
 														</div><img ng-src="/app/img/ratings/{{targetAssessments[progressAssessment.assessment.identifier].progress_s}}.png" class="pull-left"></img><div>
 															<div>
-																<h3>{{targetAssessments[progressAssessment.assessment.identifier].title[locale]}}</h3>
+																<h3>{{targetAssessments[progressAssessment.assessment.identifier].title|lstring:locale}}</h3>
 															</div>
-															<div>{{targetAssessments[progressAssessment.assessment.identifier].description[locale]}}</div>
+															<div>{{targetAssessments[progressAssessment.assessment.identifier].description|lstring:locale}}</div>
 														</div>
 													</div>
 													<div ng-if="!progressAssessment.assessment" class="label label-info"><span ng-if="progressAssessment.nationalTarget">Логическое обоснование национальной целевой задачи</span> <span ng-if="progressAssessment.aichiTarget">Логическое обоснование национальной целевой задачи</span></div>
@@ -800,7 +605,7 @@
 								<div ng-switch-when="AICHI-TARGET-07" class="row">
 									<div class="col-md-12">
 										<div class="km-control-group" name="nationalContributions-AICHI-TARGET-07" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи по сохранению и устойчивому использованию биоразнообразия, принятой в Айти, и приведите резюме использованных фактических данных в обоснование этого описания."
-											data-content="<p>In reporting on progress towards this target, Parties should consider the following guidance:</p> <p><a translation-url target='_blank' href='https://www.cbd.int/doc/decisions/cop-13/cop-13-dec-15-en.pdf'>Decision XIII/15</a> (Implications of the IPBES assessment on pollinators, pollination and food production for the work of the Convention), paragraph 8 - Invites Parties, other Governments and relevant organizations to provide the Executive Secretary with information on relevant national initiatives and activities to promote the conservation and sustainable use of pollinators and requests the Executive Secretary, subject to the availability of resources, to compile this information, including information in the national reports, for consideration by the Subsidiary Body on Scientific, Technical and Technological Advice at a meeting held prior to the fourteenth meeting of the Conference of the Parties;</p> <p>Some questions that your country may wish to consider responding to are:<ul><li> What measures, including changes to land use and resource management policies, have been put in place to ensure the sustainability of agriculture, aquaculture and forestry? </li><li>Насколько они были эффективны? </li></ul> Представляя результаты выполнения этой целевой задачи, Стороны, возможно, пожелают использовать информацию, размещенную в базе данных  <a target='_blank' href='http://faostat3.fao.org/home/E'>ФАОСТАТ </a>, на веб-сайте<a target='_blank' href='http://www.pefc.org'>Программы поддержки сертификации леса </a>, и на веб-сайте <a target='_blank' href='https://ca.fsc.org/en-ca'>Лесного попечительского совета</a>.</p>">
+											data-content="<p>При представлении отчетности о прогрессе в достижении этой цели Сторонам следует рассмотреть следующие рекомендации:</p> <p><a translation-url target='_blank' href='https://www.cbd.int/doc/decisions/cop-13/cop-13-dec-15-en.pdf'>Decision XIII/15</a> (Последствия оценки IPBES для опылителей, опыления и производства продуктов питания для работы в рамках Конвенции), пункт 8 - предлагает Сторонам, другим правительствам и соответствующим организациям представить Исполнительному секретарю информацию о соответствующих национальных инициативах и мероприятиях в целях содействия сохранению и устойчивое использование опылителей и поручает Исполнительному секретарю при условии наличия ресурсов обобщить эту информацию, включая информацию в национальных докладах, для рассмотрения Вспомогательным органом по научным, техническим и технологическим консультациям на совещании, состоявшемся до четырнадцатого совещание Конференции Сторон;</p> <p>Некоторые вопросы, которые ваша страна, возможно, пожелает рассмотреть, включают:<ul><li> Какие меры, включая изменения в политике землепользования и управления ресурсами, были созданы для обеспечения устойчивости сельского хозяйства, аквакультуры и лесного хозяйства? </li><li>Насколько они были эффективны? </li></ul> Представляя результаты выполнения этой целевой задачи, Стороны, возможно, пожелают использовать информацию, размещенную в базе данных  <a target='_blank' href='http://faostat3.fao.org/home/E'>ФАОСТАТ </a>, на веб-сайте<a target='_blank' href='http://www.pefc.org'>Программы поддержки сертификации леса </a>, и на веб-сайте <a target='_blank' href='https://ca.fsc.org/en-ca'>Лесного попечительского совета</a>.</p>">
 											<div km-textbox-ml name="nationalContributions-AICHI-TARGET-07" ng-model="target.description" locales="document.header.languages"
 												rows="3"></div>
 										</div>
@@ -964,7 +769,7 @@
 											<div class="panel-body">
 												<div class="col-md-12" ng-if="target.nationalReport">
 													<div>
-														<label>РУКОВОДЯЩИЕ УКАЗАНИЯ ДЛЯ ПОДГОТОВКИ ПРОМЕЖУТОЧНОГО НАЦИОНАЛЬНОГО ДОКЛАДА ОБ ОСУЩЕСТВЛЕНИИ НАГОЙСКОГО ПРОТОКОЛА</label><br><div style="background-color:#eee; padding:5px;">{{self.absNationalReport}} <a translation-url target="_new" class="bold" ng-href="{{absNationalReport.url}}">{{absNationalReport.uniqueIdentifier_s|uppercase}} <span class="color-black" style="font-weight:normal;">{{absNationalReport.title[locale]}}</span></a></div>
+														<label>РУКОВОДЯЩИЕ УКАЗАНИЯ ДЛЯ ПОДГОТОВКИ ПРОМЕЖУТОЧНОГО НАЦИОНАЛЬНОГО ДОКЛАДА ОБ ОСУЩЕСТВЛЕНИИ НАГОЙСКОГО ПРОТОКОЛА</label><br><div style="background-color:#eee; padding:5px;">{{self.absNationalReport}} <a translation-url target="_new" class="bold" ng-href="{{absNationalReport.url}}">{{absNationalReport.uniqueIdentifier_s|uppercase}} <span class="color-black" style="font-weight:normal;">{{absNationalReport.title|lstring:locale}}</span></a></div>
 													</div><br> <span info-bar data-content="There is no need to repeat information in the sixth national report that has already been included in the interim national report on the implementation of obligations under the Nagoya Protocol."></span><div class="km-control-group" name="nationalContributions-AICHI-TARGET-16-nationalReportDescription" caption="Просьба предоставить любую дополнительную, имеющую отношение информацию, которая не была включена в промежуточный национальный доклад о том, как и в какой степени ваша страна способствовала достижению этой целевой задачи по сохранению и устойчивому использованию биоразнообразия, принятой в Айти:">
 														<div km-textbox-ml name="nationalContributions--AICHI-TARGET-16-nationalReportDescription" ng-model="target.nationalReportDescription"
 															locales="document.header.languages" rows="3"></div>
@@ -1087,7 +892,7 @@
 											<label>Ваша страна еще не завершила работу над Системой финансовой отчетности, возможно, вы захотите это сделать.</label></br> <a translation-url href="/submit/resourceMobilisation/new" target="_new">Нажмите здесь, чтобы завершить работу над Системой финансовой отчетности</a></div>
 									</div>
 									<div class="col-md-12" ng-if="resourceMobilisation">
-										<label for="">Ваша страна предоставила Систему финансовой отчетности</label><br/><div style="background-color:#eee; padding:5px;"><a translation-url target="_new" ng-href="{{resourceMobilisation.url}}">{{resourceMobilisation.url}} <span class="color-black" style="font-weight:normal;">{{resourceMobilisation.title[locale]}}</span></a></div>
+										<label for="">Ваша страна предоставила Систему финансовой отчетности</label><br/><div style="background-color:#eee; padding:5px;"><a translation-url target="_new" ng-href="{{resourceMobilisation.url}}">{{resourceMobilisation.url}} <span class="color-black" style="font-weight:normal;">{{resourceMobilisation.title|lstring:locale}}</span></a></div>
 									</div>
 									<div class="col-md-12">
 										<div class="km-control-group" name="nationalContributions-AICHI-TARGET-20" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи по сохранению и устойчивому использованию биоразнообразия, принятой в Айти, и приведите резюме использованных фактических данных в обоснование этого описания."
