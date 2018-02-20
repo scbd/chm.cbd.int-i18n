@@ -4,6 +4,6 @@
 		}
 	</style><span ng-hide="errors || status=='loading buttons'"><div style="display:inline" class="pull-left"><span ng-show="lastSaved" style="text-transform:uppercase;font-size:12px;font-weight: 500;padding-right:3px;"><span class="bg-yellow label" style="font-size:12px;"><i class="color-grey glyphicon glyphicon-time"></i><span class="color-blue" style="padding:3px;">{{lastSaved}}</span></span> &nbsp;Depuis la derni&egrave;re sauvegarde</span></div>
 			<button type="button" class="btn btn-warning" ng-click="new_close($event)">Fermer</button>
-			<button type="button" class="btn btn-default bg-draft" ng-click="new_saveDraft($event)" >Enregistrer le brouillon <i ng-show="status=='saving'" class="fa fa-spinner fa-spin"></i></button>
+			<button ng-hide="hideSave" type="button" class="btn btn-default bg-draft" ng-click="new_saveDraft($event)" >Enregistrer le brouillon <i ng-show="status=='saving'" class="fa fa-spinner fa-spin"></i></button>
 			<button ng-show="security.canSave" type="button" class="btn btn-success" ng-click="new_publish($event)" >Publier <i ng-show="status=='publishing'" class="fa fa-spinner fa-spin"></i></button>
 			<button ng-show="!security.canSave" type="button" class="btn btn-danger" ng-click="new_publishRequest($event)" >Envoyer une demande de publication <i ng-show="status=='publishing'" class="fa fa-spinner fa-spin"></i></button></span> </span>

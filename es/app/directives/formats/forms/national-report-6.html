@@ -130,7 +130,9 @@
 																				ng-if="item._state_s=='public' || item.publicRecord">p&uacute;blico</span> <span class="label label-warning pull-right  bg-draft" ng-if="item._state_s=='draft'">Draft</span> <span class="label label-warning pull-right  bg-request" ng-if="item._state_s=='workflow'">Esperando aprobaci&oacute;n</span></div>
 																		<div class="btn-status" ng-if="waitForWorkflow.nationalTarget && waitForWorkflow.nationalTarget.identifier == item.identifier_s"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > Procesando...</span></div>
 																		<ul>
-																			<li ng-repeat="target in item.aichiTargets track by $index">{{target}}</li>
+																			<li ng-repeat="target in item.aichiTargets track by $index" ng-if="!item.isAichiTarget && item.aichiTargets">{{target}}</li>
+																			<li ng-repeat="target in item.otherAichiTargets track by $index" ng-if="item.otherAichiTargets">{{target}}</li>
+																			
 																		</ul>
 																	</div>
 																	<div class="panel-footer">

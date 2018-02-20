@@ -49,7 +49,7 @@
 							<ul class="pagination">
 								<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
 								<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">عام</a></li>
-								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">مراجعة:</a></li>
+								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">مراجعة</a></li>
 								<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
 							</ul>
 						</div>
@@ -159,7 +159,7 @@
 
 										<div class="col-md-12">
 											<div class="km-control-group" name="otherAichiTargets" caption="أهداف أيشي للتنوع البيولوجي الأخرى ذات الصلة (يرجى اختيار هدف واحد أو أكثر من أهداف أيشي للتنوع البيولوجي يتعلق به الهدف الوطني بشكل غير مباشر)." data-container=".nationalTargetForm" data-content="حسب الاقتضاء، يرجى الإشارة إلى هدف (أهداف) أيشي للتنوع البيولوجي التي يرتبط بها الهدف الوطني في بلدك بشكل غير مباشر أو جزئي. ونظرا لاتساع نطاق أهداف أيشي للتنوع البيولوجي والقضايا التي تعالجها، قد يرتبط الهدف الوطني في بلدك بصورة غير مباشرة بهدف او اكثر من أهداف أيشي للتنوع البيولوجي. وقد يكون بعض الأطراف قد اضطلع بهذا النوع من التحديد في التقارير الوطنية الخامسة و/أو في استراتيجياتها وخطط عملها الوطنية للتنوع البيولوجي.">
-												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="الرجاء اختيار أهداف أيشي للتنوع البيولوجي" watch-items items="options.aichiTargets"></div>
+												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="الرجاء اختيار أهداف أيشي للتنوع البيولوجي" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>							
 										
@@ -202,7 +202,7 @@
 							</div>
 							<div class="panel panel-default panelMain">
 								<div class="panel-header">
-									<h3>ملاحظات Notes</h3>
+									<h3>ملاحظات </h3>
 								</div>
 								<div class="panel-body">
 									<div class="row">

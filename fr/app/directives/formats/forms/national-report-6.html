@@ -130,7 +130,9 @@
 																				ng-if="item._state_s=='public' || item.publicRecord">Publique</span> <span class="label label-warning pull-right  bg-draft" ng-if="item._state_s=='draft'">Brouillon</span> <span class="label label-warning pull-right  bg-request" ng-if="item._state_s=='workflow'">en attente d&apos;approbation</span></div>
 																		<div class="btn-status" ng-if="waitForWorkflow.nationalTarget && waitForWorkflow.nationalTarget.identifier == item.identifier_s"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > En cours...</span></div>
 																		<ul>
-																			<li ng-repeat="target in item.aichiTargets track by $index">{{target}}</li>
+																			<li ng-repeat="target in item.aichiTargets track by $index" ng-if="!item.isAichiTarget && item.aichiTargets">{{target}}</li>
+																			<li ng-repeat="target in item.otherAichiTargets track by $index" ng-if="item.otherAichiTargets">{{target}}</li>
+																			
 																		</ul>
 																	</div>
 																	<div class="panel-footer">
@@ -1150,7 +1152,7 @@
 									<div class="row" style="margin-top:10px;"> 
 										<div class="col-xs-12"><span class="label label-danger" ng-if="hasAssessment">Veuillez supprimer l&apos;&eacute;valuation de l&apos;avancement de cet objectif national avant de supprimer l&apos;objectif national.</span><button ng-if="!hasAssessment" ng-show="security" type="button" class="btn btn-danger" ng-disabled="deletingRecord"
 											ng-click="deletePublic(publicRecordToDelete)" 
-											data-toggle="tooltip" data-placement="top" title="Note : Tout brouillon en attente sera aussi supprimé"><span ng-if="!security.canDelete">Demander la suppression de ce fichier</span> <span ng-if="security.canDelete">Supprimer le fichier</span></button> 
+											data-toggle="tooltip" data-placement="top" title="Note : Any pending draft will also be deleted"><span ng-if="!security.canDelete">Demander la suppression de ce fichier</span> <span ng-if="security.canDelete">Supprimer le fichier</span></button> 
 										</div>
 									</div>
 								</div>

@@ -27,7 +27,7 @@
 			  	<td><a translation-url    ng-show="workflow.result.documentID||workflow.data.documentID" ng-href="/database/record?documentID={{workflow.result.documentID||workflow.data.documentID}}">{{workflow.result.documentID||workflow.data.documentID}}</a> <span ng-hide="workflow.result.documentID||workflow.data.documentID">[new] {{workflow._id}}</span> <span ng-show="workflow.result.revision">(rev. {{workflow.result.revision}})</span></td>
 			  </tr>
 			  <tr>
-			  	<td>描述</td>
+			  	<td>Description</td>
 			  	<td><strong><span ng-show="workflow.schema==='bbiRequest'">Request for Assistance (BBI)</span> {{workflow.data.metadata.schema|schemaName}}</strong> - <span>{{workflow.data.title | lstring}}</span> <span ng-show="workflow.schema==='bbiRequest'">{{workflow.title | lstring}}</span></td>
 			  </tr>
 			  <tr>
@@ -80,7 +80,11 @@
 			</table>
 
 			<div ng-show="document" class="task-activity t-document md-whiteframe-z1 bg-grey">
-				<view-form-loader document="document" hide-buttons="true" link-target="_self"></view-form-loader>
+				<div class="btn-group" ng-show="document.header.languages.length>1">
+					<input type="button" class="btn" ng-class="{'btn-default' : options.documentLocale!=locale, 'btn-info' : options.documentLocale==locale}"
+						ng-repeat="locale in document.header.languages" ng-click="options.documentLocale = locale" value="{{locale | uppercase}}" />
+				</div>
+				<view-form-loader document="document" hide-buttons="true" link-target="_self" locale="options.documentLocale"></view-form-loader>
 			</div>
 
   		</div>
