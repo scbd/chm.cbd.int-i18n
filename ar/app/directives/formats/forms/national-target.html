@@ -140,7 +140,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="panel panel-default panelMain">
+							<div class="panel panel-default panelMain" ng-if="!document.isAichiTarget">
 								<div class="panel-header" name="">
 									<label for="relevantNationalTarget" style="width:0px;height:0px;display:inline"><span style="display:none">يرجى الإجابة على سؤال واحد على الأقل في القسم حول أهمية الأهداف الوطنية بالنسبة لأهداف أيشي للتنوع البيولوجي</span></label>
 									<h3>صلة الأهداف الوطنية بأهداف أيشي</h3>
@@ -153,13 +153,13 @@
 											<div class="help-block">الروابط بين الأهداف الوطنية وأهداف أيشي للتنوع البيولوجي (ملاحظة: ليست هناك حاجة لإدخال هذه المعلومات إذا كان بلدك عالج تقارير أهداف أيشي للتنوع البيولوجي).</div>
 
 											<div class="km-control-group" name="aichiTargets" caption="أهداف أيشي للتنوع البيولوجي الرئيسية ذات الصلة (يرجى اختيار هدف واحد أو أكثر من أهداف أيشي للتنوع البيولوجي يتعلق به الهدف الوطني كليا أو جزئيا. ويمكن أن تختار الأطراف هدفا كاملا أو أحد مكونات الهدف" data-container=".nationalTargetForm" data-content="حسب الاقتضاء، يرجى الإشارة إلى هدف (أهداف) أيشي للتنوع البيولوجي التي يرتبط بها الهدف الوطني في بلدك بشكل مباشر. وبالنظر إلى صياغة الهدف الوطني في بلدكم، فأنها قد تكون ذات صلة مباشرة بأهداف أيشي للتنوع البيولوجي المتعددة أو بأجزاء منها. وقد يكون بعض الأطراف قد اضطلع بهذا النوع من التحديد في التقارير الوطنية الخامسة و/أو في استراتيجياتها وخطط عملها الوطنية للتنوع البيولوجي.">
-												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="الرجاء اختيار أهداف أيشي للتنوع البيولوجي" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()" list="false"></div>
+												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="الرجاء اختيار أهداف أيشي للتنوع البيولوجي" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>
 
 										<div class="col-md-12">
 											<div class="km-control-group" name="otherAichiTargets" caption="أهداف أيشي للتنوع البيولوجي الأخرى ذات الصلة (يرجى اختيار هدف واحد أو أكثر من أهداف أيشي للتنوع البيولوجي يتعلق به الهدف الوطني بشكل غير مباشر)." data-container=".nationalTargetForm" data-content="حسب الاقتضاء، يرجى الإشارة إلى هدف (أهداف) أيشي للتنوع البيولوجي التي يرتبط بها الهدف الوطني في بلدك بشكل غير مباشر أو جزئي. ونظرا لاتساع نطاق أهداف أيشي للتنوع البيولوجي والقضايا التي تعالجها، قد يرتبط الهدف الوطني في بلدك بصورة غير مباشرة بهدف او اكثر من أهداف أيشي للتنوع البيولوجي. وقد يكون بعض الأطراف قد اضطلع بهذا النوع من التحديد في التقارير الوطنية الخامسة و/أو في استراتيجياتها وخطط عملها الوطنية للتنوع البيولوجي.">
-												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="الرجاء اختيار أهداف أيشي للتنوع البيولوجي" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
+												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="الرجاء اختيار أهداف أيشي للتنوع البيولوجي أخرى ذات صلة أو مكونات الهدف" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>							
 										
@@ -202,7 +202,7 @@
 							</div>
 							<div class="panel panel-default panelMain">
 								<div class="panel-header">
-									<h3>ملاحظات </h3>
+									<h3>ملاحظات</h3>
 								</div>
 								<div class="panel-body">
 									<div class="row">
@@ -222,7 +222,7 @@
 						<div km-document-validation ng-model="validationReport" data-container="{{container}}"></div>
 
 						<div class="btn-group" ng-show="document.header.languages.length>1">
-							<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
+							<input type="button" class="btn" ng-class="{'btn-default' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
 						</div>
 
 						<view-national-target ng-model="document" locale="review.locale"></view-national-target>
@@ -236,7 +236,7 @@
 							<ul class="pagination">
 								<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
 								<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">عام</a></li>
-								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">مراجعة:</a></li>
+								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">مراجعة</a></li>
 								<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
 							</ul>
 						</div>

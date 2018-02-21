@@ -83,7 +83,7 @@
 
 												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/><span ng-class="{'color-litegrey': document.isAichiTarget}">Crear una nueva Meta Nacional.</span></h4>
 
-												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Use an <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >Aichi Biodiversity Target</a> as your National Target</span></h4>
+												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Usar una  <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >Meta de Aichi para la Diversidad Biol&oacute;gica</a> como su Meta Nacional</span></h4>
 
 											</div>
 										</div>
@@ -140,7 +140,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="panel panel-default panelMain">
+							<div class="panel panel-default panelMain" ng-if="!document.isAichiTarget">
 								<div class="panel-header" name="">
 									<label for="relevantNationalTarget" style="width:0px;height:0px;display:inline"><span style="display:none">Por favor conteste al menos una pregunta relevante a las Metas de Aichi para la Diversidad Biol&oacute;gica.</span></label>
 									<h3>Pertinencia de las metas nacionales en relaci&oacute;n con las Metas de Aichi para la Diversidad Biol&oacute;gica</h3>
@@ -152,14 +152,14 @@
 
 											<div class="help-block">V&iacute;nculos entre los objetivos nacionales y las metas de Aichi para la Diversidad Biol&oacute;gica (Nota: No es necesario ingresar esta informaci&oacute;n si su pa&iacute;s informa en contra de las Metas de Aichi para la Diversidad Biol&oacute;gica).</div>
 
-											<div class="km-control-group" name="aichiTargets" caption="Principales Metas de Aichi para la Diversidad Biológica relacionadas (Seleccione una o más Metas de Aichi para la Diversidad Biológica con las que se relaciona su meta nacional parcial o totalmente. Las Partes pueden seleccionar toda una meta o un componente de una meta" data-container=".nationalTargetForm" data-content="Si corresponde, indique la Meta o Metas de Aichi para la Diversidad Biológica con las que se relaciona más directamente la meta nacional de su país. Según cómo esté formulada la meta nacional de su país, es posible que se relacione directamente con varias Metas de Aichi para la Diversidad Biológica o con componentes de ellas. Algunas Partes pueden haber optado por este tipo de configuración en sus quintos informes nacionales o en sus estrategias y planes de acción nacionales en materia de biodiversidad.">
-												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="Por favor seleccione las Metas de Aichi para la Diversidad Biológica principales." watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()" list="false"></div>
+											<div class="km-control-group" name="aichiTargets" caption="Principales Metas de Aichi para la Diversidad Biológica relacionadas (Seleccione una o más Metas de Aichi para la Diversidad Biológica con las que se relaciona su meta nacional parcial o totalmente. Las partes pueden seleccionar un objetivo completo o un componente de destino)" data-container=".nationalTargetForm" data-content="Si corresponde, indique la Meta o Metas de Aichi para la Diversidad Biológica con las que se relaciona más directamente la meta nacional de su país. Según cómo esté formulada la meta nacional de su país, es posible que se relacione directamente con varias Metas de Aichi para la Diversidad Biológica o con componentes de ellas. Algunas Partes pueden haber optado por este tipo de configuración en sus quintos informes nacionales o en sus estrategias y planes de acción nacionales en materia de biodiversidad.">
+												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="Por favor seleccione las Metas de Aichi para la Diversidad Biológica principales." watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>
 
 										<div class="col-md-12">
 											<div class="km-control-group" name="otherAichiTargets" caption="Otras Metas de Aichi para la Diversidad Biológica relacionadas (Seleccione una o más Metas de Aichi para la Diversidad Biológica con las que se relaciona indirectamente la meta nacional)." data-container=".nationalTargetForm" data-content="Si corresponde, indique la Meta o Metas de Aichi para la Diversidad Biológica con las que se relaciona indirecta o parcialmente la meta nacional de su país. Dada la amplitud de las Metas de Aichi para la Diversidad Biológica y los temas que abordan, la meta nacional de su país puede estar indirectamente relacionada con una o varias Metas de Aichi para la Diversidad Biológica. Algunas Partes pueden haber optado por este tipo de configuración en sus quintos informes nacionales o en sus estrategias y planes de acción nacionales en materia de biodiversidad.">
-												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Por favor seleccione otras Metas de Aichi para la Diversidad Biológica relacionadas" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
+												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Seleccione otras Metas de Aichi para la Diversidad Biológica o componentes Target" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>							
 										
@@ -207,7 +207,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">El campo &ldquo;Notas&rdquo; es para referencia personal y solo puede verse mientras se edita el registro.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>
@@ -222,7 +222,7 @@
 						<div km-document-validation ng-model="validationReport" data-container="{{container}}"></div>
 
 						<div class="btn-group" ng-show="document.header.languages.length>1">
-							<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
+							<input type="button" class="btn" ng-class="{'btn-default' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
 						</div>
 
 						<view-national-target ng-model="document" locale="review.locale"></view-national-target>

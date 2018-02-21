@@ -1,16 +1,18 @@
 ﻿<div class="col-md-12 panel panel-default view-national-target" dir="rtl">
 	<div class="panel-body">
 		<div class="viewForm">
-			<h2>{{document.title | lstring:locale}} <i ng-show="document.acronym">({{document.acronym | lstring:locale}})</i></h2>
+			<h2>
+				<div ng-style="{ direction : (document.title|direction:locale) }" ng-if="document.title"><span ng-bind="document.title | lstring:locale" dir="rtl"></span> <i ng-show="document.acronym" dir="rtl">({{document.acronym | lstring:locale}})</i></div>
+			</h2>
 
 			<div ng-show="document.government">
 				<label>الدولة</label>
-				<div class="km-value">{{document.government | term:locale}}</div>
+				<div class="km-value"  ng-style="{ direction : (document.government| term:locale|direction:locale) }"><span ng-bind="document.government | term:locale"></span></div>
 			</div>
 
 			<div ng-show="document.description">
 				<label>عرض أسباب ألهدف الوطني</label>
-				<div class="km-value km-pre" ng-bind="document.description | lstring:locale"></div>
+				<div class="km-value km-pre" ng-bind="document.description | lstring:locale"   ng-style="{ direction : (document.description|direction:locale) }"></div>
 			</div>
 
 
@@ -20,12 +22,12 @@
 
 				<div ng-show="document.jurisdiction">
 					<label>الولاية القضائية</label>
-					<div class="km-value">{{document.jurisdiction | term:locale}}</div>
+					<div class="km-value"  ng-style="{ direction : (document.jurisdiction| term:locale|direction:locale) }">{{document.jurisdiction | term:locale}}</div>
 				</div>
 
 				<div ng-show="document.jurisdictionInfo">
 					<label>تفاصيل حول مستوى التطبيق</label>
-					<div class="km-value km-pre" ng-bind="document.jurisdictionInfo | lstring:locale"></div>
+					<div class="km-value km-pre" ng-bind="document.jurisdictionInfo | lstring:locale"  ng-style="{ direction : (document.jurisdictionInfo|direction:locale) }"></div>
 				</div>
 			</div>
 
@@ -35,21 +37,23 @@
 				<legend>صلة الأهداف الوطنية بأهداف أيشي</legend>
 
 				<div ng-show="document.aichiTargets">
-					<label>أهداف أيتشي للتنوع البيولوجي</label>
+					<label ng-if="document.isAichiTarget" >أهداف أيتشي للتنوع البيولوجي</label>
+					<label ng-if="!document.isAichiTarget">مكونات أهداف أيشي</label>
 					<div class="km-value">
-						<div ng-repeat="item in document.aichiTargets">{{item | term:locale}}</div>
+						<div ng-repeat="item in document.aichiTargets"   ng-style="{ direction : (item| term:locale|direction:locale) }">{{item | term:locale}}</div>
 					</div>
 				</div>
 
 				<div ng-show="document.otherAichiTargets">
-					<label>تدعم أهداف أيتشي</label>
+					<label>تدعم أهداف أيتشي</label>&nbsp;
+					<label ng-if="!document.isAichiTarget">أو مكونات الهدف</label>
 					<div class="km-value">
-						<div ng-repeat="item in document.otherAichiTargets">{{item | term:locale}}</div>
+						<div ng-repeat="item in document.otherAichiTargets"  ng-style="{ direction : (itemn| term:locale|direction:locale) }">{{item | term:locale}}</div>
 					</div>
 				</div>
 				<div ng-show="document.noOtherAichiTargetsDescription">
 					<label>لا يتضمن تفسير الهدف الوطني أي هدف من أهداف أيشي للتنوع البيولوجي أو يتصل بأجزاء أخرى من الخطة الاستراتيجية للتنوع البيولوجي</label>
-					<div class="km-value km-pre" ng-bind="document.noOtherAichiTargetsDescription | lstring:locale"></div>
+					<div class="km-value km-pre" ng-bind="document.noOtherAichiTargetsDescription | lstring:locale"  ng-style="{ direction : (document.noOtherAichiTargetsDescription|direction:locale) }"></div>
 				</div>
 
 			</div>
@@ -60,7 +64,7 @@
 
 				<div ng-show="document.documentText">
 					<label>معلومات أخرى ذات صلة</label>
-					<div class="km-value km-pre">{{document.documentText|lstring:locale}}</div>
+					<div class="km-value km-pre"  ng-style="{ direction : (document.documentText|direction:locale) }">{{document.documentText|lstring:locale}}</div>
 				</div>
 
 				<div ng-show="document.documentLinks">
@@ -74,10 +78,11 @@
 
 			<div ng-show="document.relevantInformation||document.relevantDocuments">
 
-				<legend>معلومات إضافية</legend>
+				<legend>الوثائق والمعلومات ذات الصلة</legend>
 
 				<div ng-show="document.relevantInformation">
-					<div class="km-value" ng-bind-html="document.relevantInformation | lstring:locale | markdown"></div>
+					<div class="km-value" ng-bind-html="document.relevantInformation | lstring:locale | markdown"
+					ng-style="{ direction : (document.relevantInformation|direction:locale) }"></div>
 				</div>
 
 				<div ng-show="document.relevantDocuments">

@@ -19,16 +19,17 @@
 			<div class="row" ng-show="document.government">
 				<div class="col-xs-12">
 					<label>Pa&iacute;s</label>
-					<div class="km-value">{{document.government | term:locale}}</div>
+					<div class="km-value" ng-style="{ direction : (document.government | term:locale|direction:locale) }">{{document.government | term:locale}}</div>
 				</div>
 			</div>
 			
 			<div class="row" ng-show="document.nationalTargets">
 				<div class="col-xs-12" style="margin-top:10px;">
 					<label><strong>Metas nacionales</strong></label>
-					<div  ng-if="nationalTargets.length>0" style="margin-top: 10px;">
-						<div class="national-targets" ng-repeat="item in nationalTargets" style="margin:10px 0px">
-							<view-national-target ng-model="item" locale="locale" target="{{target}}"></view-national-target>							
+					<div  ng-if="document.nationalTargets.length>0" style="margin-top: 10px;">
+						<div class="national-targets" ng-repeat="item in document.nationalTargets" style="margin:10px 0px"
+						ng-if="nationalTargets[item.identifier]">
+							<view-national-target ng-model="nationalTargets[item.identifier]" locale="locale" target="{{target}}"></view-national-target>							
 						</div>
 					</div>
 				</div>
@@ -43,25 +44,25 @@
 		<div class="section-body" ng-if="document.implementationMeasures">
 			<div class="row " ng-repeat="implementationMeasure in document.implementationMeasures" style="margin-left:3px;margin-right:3px;">
 				<div class="col-md-12 panel panel-default">
-					<div class="panel-header clearfix">
+					<div class="panel-header clearfix" ng-style="{ direction : (implementationMeasure.title|direction:locale) }">
 						<h3>{{implementationMeasure.title|lstring:locale}}</h3>
 					</div>
 					<div class="panel-body">
 						<div ng-show="implementationMeasure.description">
 							<label>Medida adoptada para contribuir a la implementaci&oacute;n de la estrategia y plan de acci&oacute;n nacional en materia de biodiversidad de su pa&iacute;s.</label>
-							<div class="km-value km-pre">{{implementationMeasure.description | lstring:locale}}</div>
+							<div class="km-value km-pre" ng-style="{ direction : (implementationMeasure.description|direction:locale) }">{{implementationMeasure.description | lstring:locale}}</div>
 						</div>
 						<div ng-show="implementationMeasure.aichiTarget">
 							<label>Metas de Aichi para la diversidad biol&oacute;gica</label>
-							<div class="km-value km-pre">{{implementationMeasure.aichiTarget | term:locale}}</div>
+							<div class="km-value km-pre" ng-style="{ direction : (implementationMeasure.aichiTarget | term:locale|direction:locale) }">{{implementationMeasure.aichiTarget | term:locale}}</div>
 						</div>
 						<div ng-show="implementationMeasure.assessment">
 							<label>Evaluaci&oacute;n de la eficacia de la medida de implementaci&oacute;n adoptada en cuanto al logro de los resultados:</label>
-							<div class="km-value km-pre">{{implementationMeasure.assessment | term:locale}}</div>
+							<div class="km-value km-pre" ng-style="{ direction : (implementationMeasure.assessment | term:locale|direction:locale) }">{{implementationMeasure.assessment | term:locale}}</div>
 						</div>
 						<div ng-show="implementationMeasure.assessmentDescription">
 							<label>Herramientas o la metodolog&iacute;a utilizadas para obtener la evaluaci&oacute;n de eficacia antes indicada</label>
-							<div class="km-value km-pre">{{implementationMeasure.assessmentDescription | lstring:locale}}</div>
+							<div class="km-value km-pre" ng-style="{ direction : (implementationMeasure.assessmentDescription|direction:locale) }">{{implementationMeasure.assessmentDescription | lstring:locale}}</div>
 						</div>
 						<div ng-show="implementationMeasure.relevantDocuments">
 							<label>Sitios web, enlaces web y archivos pertinentes</label>
@@ -71,7 +72,7 @@
 						</div>
 						<div ng-show="implementationMeasure.otherRelevantInformation">
 							<label>Otra informaci&oacute;n pertinente</label>
-							<div class="km-value km-pre">{{implementationMeasure.otherRelevantInformation | lstring:locale}}</div>
+							<div class="km-value km-pre" ng-style="{ direction : (implementationMeasure.otherRelevantInformation|direction:locale) }">{{implementationMeasure.otherRelevantInformation | lstring:locale}}</div>
 						</div>
 						<div ng-show="implementationMeasure.otherRelevantDocuments">
 							<label>Otra direcci&oacute;n de sitio web pertinente o documentos adjuntos</label>
@@ -81,7 +82,7 @@
 						</div>
 						<div ng-show="implementationMeasure.obstacles">
 							<label>Obst&aacute;culos y necesidades cient&iacute;ficas y t&eacute;cnicas relacionadas con la medida adoptada</label>
-							<div class="km-value km-pre">{{implementationMeasure.obstacles | lstring:locale}}</div>
+							<div class="km-value km-pre" ng-style="{ direction : (implementationMeasure.obstacles|direction:locale) }">{{implementationMeasure.obstacles | lstring:locale}}</div>
 						</div>
 						<div ng-show="implementationMeasure.obstaclesRelevantDocuments">
 							<label>Sitios web, enlaces web y archivos pertinentes</label>
@@ -103,7 +104,7 @@
 					
 					<div class="col-md-12 panel panel-default">
 						<div class="panel-header clearfix">
-							<h3>Evaluaci&oacute;n del progreso para la meta de AICHI{{progressAssessment.aichiTarget | term:locale}} <span ng-if="progressAssessment.nationalTarget">de la meta nacional {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier)|lstring:locale}}</span></h3>
+							<h3>Evaluaci&oacute;n del progreso para la meta de AICHI {{progressAssessment.aichiTarget | term:locale}} <span ng-if="progressAssessment.nationalTarget">de la meta nacional {{nationalTargets[progressAssessment.nationalTarget.identifier].title|lstring:locale}}</span></h3>
 						</div>
 						<div class="panel-body">
 							<view-national-assessment ng-model="progressAssessment" locale="locale" target="{{target}}"></view-national-assessment>								
@@ -117,7 +118,7 @@
 					<a href="#" class="btn closeall pull-right" scroll-to="section5"  offset="100"> <i class="fa fa-chevron-circle-down" /></a></h3> --></div>
 		<div class="section-body">
 			<div class="panel panel-default" ng-repeat="aichiTarget in document.nationalContribution" ng-if="aichiTarget.identifier">
-				<div class="panel-header clearfix">
+				<div class="panel-header clearfix" ng-style="{ direction : (aichiTarget | term:locale|direction:locale) }">
 					<h3>Metas de Aichi para la Diversidad Biol&oacute;gica {{aichiTarget | term:locale}}</h3>
 				</div>
 				<div class="panel-body" collapse="">
@@ -127,14 +128,14 @@
 								<label for="">Informe nacional provisional sobre la aplicaci&oacute;n del Protocolo de Nagoya</label><br/> <a translation-url target="_new" ng-href="{{absNationalReport.url_ss[0]}}">{{absNationalReport.uniqueIdentifier_s|uppercase}}</a> {{absNationalReport.title_t}}</div>
 							<div ng-show="aichiTarget.nationalReportDescription">
 								<label for="">Informaci&oacute;n adicional pertinente que no se haya incluido en el informe nacional provisional</label>
-								<div class="km-value km-pre">{{aichiTarget.nationalReportDescription | lstring:locale}}</div>
+								<div class="km-value km-pre" ng-style="{ direction : (aichiTarget.nationalReportDescription|direction:locale) }">{{aichiTarget.nationalReportDescription | lstring:locale}}</div>
 							</div>							
 						</div>
 						<div ng-if="absLinkedRecords">
 
 							<div ng-show="aichiTarget.linkedRecordsDescription">
 								<label for="">Descripci&oacute;n de c&oacute;mo y en qu&eacute; medida su pa&iacute;s ha contribuido al logro de esta Meta de Aichi para la Diversidad Biol&oacute;gica</label>
-								<div class="km-value km-pre">{{aichiTarget.linkedRecordsDescription | lstring:locale}}</div>
+								<div class="km-value km-pre" ng-style="{ direction : (aichiTarget.linkedRecordsDescription|direction:locale) }">{{aichiTarget.linkedRecordsDescription | lstring:locale}}</div>
 							</div>
 							<label for="">Archivos del ABS Clearing-House</label>
 							<table class="table table-hover">
@@ -152,11 +153,11 @@
 						<label for="">Marco de informaci&oacute;n financiera</label><br/> <a translation-url target="_new" ng-href="{{resourceMobilisationReport.url_ss[0]}}">{{resourceMobilisationReport.url_ss[0]}}</a> {{resourceMobilisationReport.title_t}}</div>
 					<div ng-show="aichiTarget.description">
 						<label>Descripci&oacute;n de c&oacute;mo y en qu&eacute; medida su pa&iacute;s ha contribuido al logro de esta Meta de Aichi para la Diversidad Biol&oacute;gica</label>
-						<div class="km-value km-pre">{{aichiTarget.description | lstring:locale}}</div>
+						<div class="km-value km-pre" ng-style="{ direction : (aichiTarget.description|direction:locale) }">{{aichiTarget.description | lstring:locale}}</div>
 					</div>
 					<div ng-show="aichiTarget.achievementActivities">
 						<label for="">Otras actividades que contribuyen al logro de la Meta de Aichi para la Diversidad Biol&oacute;gica a nivel mundial</label>
-						<div class="km-value km-pre">{{aichiTarget.achievementActivities | lstring:locale}}</div>
+						<div class="km-value km-pre" ng-style="{ direction : (aichiTarget.achievementActivities|direction:locale) }">{{aichiTarget.achievementActivities | lstring:locale}}</div>
 					</div>
 					
 				</div>
@@ -164,7 +165,7 @@
 			<div class="panel panel-default" ng-if="document.nationalContribution.nationalContributionSDGs">
 				<div class="panel-body">
 						<label for="">Descripci&oacute;n de las contribuciones de su pa&iacute;s al logro de las Metas de Aichi para la Diversidad Biol&oacute;gica, describa de qu&eacute; manera y en qu&eacute; medida estas contribuciones apoyan la implementaci&oacute;n de la Agenda 2030 para el Desarrollo Sostenible y los Objetivos de Desarrollo Sostenible.</label>
-						<div class="km-value km-pre">{{document.nationalContribution.nationalContributionSDGs | lstring:locale}}</div>
+						<div class="km-value km-pre" ng-style="{ direction : (document.nationalContribution.nationalContributionSDGs|direction:locale) }">{{document.nationalContribution.nationalContributionSDGs | lstring:locale}}</div>
 				</div>
 			</div>
 		</div>
@@ -180,43 +181,43 @@
 								<div class="panel-body">
 									<div ng-show="document.gspcNationalContribution.hasGSPCTargets">
 										<label></label>
-										<div class="km-value km-pre"><strong>{{document.government | term:locale}} El pa&iacute;s tiene metas nacionales relacionadas con las metas de la GSPC</strong></div>
+										<div class="km-value km-pre" ng-style="{ direction : (document.government | term:locale|direction:locale) }"><strong>{{document.government | term:locale}} El pa&iacute;s tiene metas nacionales relacionadas con las metas de la GSPC</strong></div>
 									</div>
 									<div ng-show="!document.gspcNationalContribution.hasGSPCTargets">
 										<label></label>
-										<div class="km-value km-pre"><strong>{{document.government | term:locale}} no tiene objetivos nacionales relacionados con los Objetivos de GSPC</strong></div>
+										<div class="km-value km-pre" ng-style="{ direction : (document.government | term:locale|direction:locale) }"><strong>{{document.government | term:locale}} no tiene objetivos nacionales relacionados con los Objetivos de GSPC</strong></div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.gspcTargetDescription">
 										<label>Detalles sobre las metas espec&iacute;ficas</label>
-										<div class="km-value km-pre">{{document.gspcNationalContribution.gspcTargetDescription | lstring:locale}}</div>
+										<div class="km-value km-pre" ng-style="{ direction : (document.gspcNationalContribution.gspcTargetDescription|direction:locale) }">{{document.gspcNationalContribution.gspcTargetDescription | lstring:locale}}</div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.plantConservationNetwork">
 										<label>Informaci&oacute;n sobre las redes activas para la conservaci&oacute;n de las plantas</label>
-										<div class="km-value km-pre">{{document.gspcNationalContribution.plantConservationNetwork | lstring:locale}}</div>
+										<div class="km-value km-pre" ng-style="{ direction : (document.gspcNationalContribution.plantConservationNetwork|direction:locale) }">{{document.gspcNationalContribution.plantConservationNetwork | lstring:locale}}</div>
 									</div>
 									<div ng-show="document.gspcNationalContribution.implementationMeasures">
 										<label>Principales medidas adoptadas por su pa&iacute;s para implementar la Estrategia Mundial para la Conservaci&oacute;n de Especies Vegetales</label>
-										<div class="km-value km-pre">{{document.gspcNationalContribution.implementationMeasures | lstring:locale}}</div>
+										<div class="km-value km-pre" ng-style="{ direction : (document.gspcNationalContribution.implementationMeasures|direction:locale) }">{{document.gspcNationalContribution.implementationMeasures | lstring:locale}}</div>
 									</div>
 								</div>
 							</div>
 							<div class="panel panel-default" ng-repeat="gspcTarget in document.gspcNationalContribution" ng-if="gspcTarget.identifier">
-								<div class="panel-header clearfix">
+								<div class="panel-header clearfix" ng-style="{ direction : (gspcTarget | term:locale|direction:locale) }">
 									<h3>Metas EMCEV {{gspcTarget | term:locale}}</h3>
 								</div>
 								<div class="panel-body" collapse="">
 
 									<div ng-show="gspcTarget.categoryProgress">
 										<label>Categor&iacute;a de progresos logrados para alcanzar la meta de la Estrategia Mundial para la Conservaci&oacute;n de las Especies Vegetales a nivel nacional</label>
-										<div class="km-value km-pre">{{gspcTarget.categoryProgress | term:locale}}</div>
+										<div class="km-value km-pre" ng-style="{ direction : (gspcTarget.categoryProgress | term:locale|direction:locale) }">{{gspcTarget.categoryProgress | term:locale}}</div>
 									</div>
 									<div ng-show="gspcTarget.progressDescription">
 										<label>Explicaci&oacute;n sobre la categor&iacute;a de progreso hacia la meta de la Estrategia Mundial para la Conservaci&oacute;n de las Plantas a nivel nacional</label>
-										<div class="km-value km-pre">{{gspcTarget.progressDescription | lstring:locale}}</div>
+										<div class="km-value km-pre" ng-style="{ direction : (gspcTarget.progressDescription|direction:locale) }">{{gspcTarget.progressDescription | lstring:locale}}</div>
 									</div>
-									<div ng-show="gspcTarget.progressDescription">
+									<div ng-show="gspcTarget.description">
 										<label>Describa de qu&eacute; manera y en qu&eacute; medida su pa&iacute;s ha contribuido al logro de esta meta de la Estrategia Mundial para la Conservaci&oacute;n de las Especies Vegetales y sintetice la evidencia utilizada para sustentar esta descripci&oacute;n.</label>
-										<div class="km-value km-pre">{{gspcTarget.description | lstring:locale}}</div>
+										<div class="km-value km-pre" ng-style="{ direction : (gspcTarget.description |direction:locale) }">{{gspcTarget.description | lstring:locale}}</div>
 									</div>
 								</div>
 							</div><br/></div>
@@ -229,7 +230,7 @@
 					<a href="#" class="btn closeall pull-right" scroll-to="section7"  offset="100"> <i class="fa fa-chevron-circle-down" /></a></h3> --></div>
 		<div class="section-body">
 			<div ng-show="document.iplcContribution">
-				<div class="km-value km-pre">{{document.iplcContribution | lstring:locale}}</div>
+				<div class="km-value km-pre" ng-style="{ direction : (document.iplcContribution|direction:locale) }">{{document.iplcContribution | lstring:locale}}</div>
 			</div>
 			<div ng-if="!document.iplcContribution">
 				<div class="km-value km-pre">sin historia disponible</div>
@@ -244,27 +245,27 @@
 				<div class="panel-body" collapse="">
 					<div ng-show="document.biodiversityCountryProfile.statusAndTrends">
 						<label>Datos de diversidad biol&oacute;gica Estado y tendencias de la diversidad biol&oacute;gica, incluidos beneficios derivados de la diversidad biol&oacute;gica y los servicios y funciones de los ecosistemas:</label>
-						<div class="km-value km-pre">{{document.biodiversityCountryProfile.statusAndTrends | lstring:locale}}</div>
+						<div class="km-value km-pre" ng-style="{ direction : (document.biodiversityCountryProfile.statusAndTrends |direction:locale) }">{{document.biodiversityCountryProfile.statusAndTrends | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.mainDriversofChange">
 						<label>Principales presiones e impulsores de cambio de la diversidad biol&oacute;gica (directos e indirectos):</label>
-						<div class="km-value km-pre">{{document.biodiversityCountryProfile.mainDriversofChange | lstring:locale}}</div>
+						<div class="km-value km-pre" ng-style="{ direction : (document.biodiversityCountryProfile.mainDriversofChange |direction:locale) }">{{document.biodiversityCountryProfile.mainDriversofChange | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.nbsapImplementation">
 						<label>Aplicaci&oacute;n de la EPANB</label>
-						<div class="km-value km-pre">{{document.biodiversityCountryProfile.nbsapImplementation | lstring:locale}}</div>
+						<div class="km-value km-pre" ng-style="{ direction : (document.biodiversityCountryProfile.nbsapImplementation |direction:locale) }">{{document.biodiversityCountryProfile.nbsapImplementation | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.strategicPlanActions">
 						<label>Medidas generales adoptadas para contribuir a la aplicaci&oacute;n del Plan Estrat&eacute;gico para la Diversidad Biol&oacute;gica 2011-2020</label>
-						<div class="km-value km-pre">{{document.biodiversityCountryProfile.strategicPlanActions | lstring:locale}}</div>
+						<div class="km-value km-pre" ng-style="{ direction : (document.biodiversityCountryProfile.strategicPlanActions |direction:locale) }">{{document.biodiversityCountryProfile.strategicPlanActions | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.supportMechanisms">
 						<label>Mecanismos de apoyo para la aplicaci&oacute;n nacional (legislaci&oacute;n, financiaci&oacute;n, creaci&oacute;n de capacidad, coordinaci&oacute;n, incorporaci&oacute;n, etc.)</label>
-						<div class="km-value km-pre">{{document.biodiversityCountryProfile.supportMechanisms | lstring:locale}}</div>
+						<div class="km-value km-pre" ng-style="{ direction : (document.biodiversityCountryProfile.supportMechanisms |direction:locale) }">{{document.biodiversityCountryProfile.supportMechanisms | lstring:locale}}</div>
 					</div>
 					<div ng-show="document.biodiversityCountryProfile.monitoringReviewingMechanisms">
 						<label>Mecanismos de seguimiento y examen de la aplicaci&oacute;n:</label>
-						<div class="km-value km-pre">{{document.biodiversityCountryProfile.monitoringReviewingMechanisms | lstring:locale}}</div>
+						<div class="km-value km-pre" ng-style="{ direction : (document.biodiversityCountryProfile.monitoringReviewingMechanisms |direction:locale) }">{{document.biodiversityCountryProfile.monitoringReviewingMechanisms | lstring:locale}}</div>
 					</div>
 				</div>
 			</div>

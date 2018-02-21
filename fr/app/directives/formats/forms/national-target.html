@@ -83,7 +83,7 @@
 
 												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/><span ng-class="{'color-litegrey': document.isAichiTarget}">Cr&eacute;er un nouvel objectif national</span></h4>
 
-												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Use an <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >Aichi Biodiversity Target</a> as your National Target</span></h4>
+												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Utiliser un en tant qu&apos;objectif national <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >objectif d&apos;Aichi pour la biodiversit&eacute;</a> en tant qu&apos;objectif national</span></h4>
 
 											</div>
 										</div>
@@ -140,7 +140,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="panel panel-default panelMain">
+							<div class="panel panel-default panelMain" ng-if="!document.isAichiTarget">
 								<div class="panel-header" name="">
 									<label for="relevantNationalTarget" style="width:0px;height:0px;display:inline"><span style="display:none">Veuillez r&eacute;pondre au moins &agrave; une question concernant la pertinence des objectifs nationaux de la section Objectifs Aichi</span></label>
 									<h3>Pertinence des objectifs nationaux pour les Objectifs d&rsquo;Aichi pour la biodiversit&eacute;</h3>
@@ -152,14 +152,14 @@
 
 											<div class="help-block">Liens entre les objectifs nationaux et les Objectifs d&rsquo;Aichi pour la biodiversit&eacute; Il n&apos;est pas n&eacute;cessaire d&apos;entrer cette information si votre pays fait rapport sur les objectifs d&apos;Aichi pour la biodiversit&eacute;.</div>
 
-											<div class="km-control-group" name="aichiTargets" caption="Principaux Objectifs d’Aichi pour la biodiversité correspondants (Note : Veuillez sélectionner un ou plusieurs Objectifs d’Aichi auxquels votre objectif national est totalement ou partiellement lié. Les Parties peuvent sélectionner un objectif entier ou un élément d’objectif" data-container=".nationalTargetForm" data-content="Veuillez indiquer, s’il y a lieu, le ou les Objectifs d’Aichi pour la biodiversité auxquels l’objectif national de votre pays est le plus étroitement lié. La formulation de votre objectif national peut le relier à plusieurs Objectifs d’Aichi pour la biodiversité ou éléments de ceux-ci. Certaines Parties peuvent avoir effectué ce type de correspondance lors de leur cinquième rapport national et/ou dans leur stratégie et plans d’action nationaux pour la diversité biologique.">
-												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="Veuillez sélectionner les principaux objectifs d'Aichi pour la biodiversité" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()" list="false"></div>
+											<div class="km-control-group" name="aichiTargets" caption="Principaux Objectifs d’Aichi pour la biodiversité correspondants (Note : Veuillez sélectionner un ou plusieurs Objectifs d’Aichi auxquels votre objectif national est totalement ou partiellement lié. Les parties peuvent sélectionner une cible entière ou un composant cible)" data-container=".nationalTargetForm" data-content="Veuillez indiquer, s’il y a lieu, le ou les Objectifs d’Aichi pour la biodiversité auxquels l’objectif national de votre pays est le plus étroitement lié. La formulation de votre objectif national peut le relier à plusieurs Objectifs d’Aichi pour la biodiversité ou éléments de ceux-ci. Certaines Parties peuvent avoir effectué ce type de correspondance lors de leur cinquième rapport national et/ou dans leur stratégie et plans d’action nationaux pour la diversité biologique.">
+												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="Veuillez sélectionner les principaux objectifs d'Aichi pour la biodiversité" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>
 
 										<div class="col-md-12">
 											<div class="km-control-group" name="otherAichiTargets" caption="Autres Objectifs d’Aichi pour la biodiversité correspondants (veuillez sélectionner un ou plusieurs Objectifs d’Aichi pour la biodiversité auxquels votre objectif national est indirectement lié.)" data-container=".nationalTargetForm" data-content="Veuillez indiquer, s’il y a lieu, le ou les Objectifs d’Aichi pour la biodiversité auxquels l’objectif national de votre pays est indirectement ou en partie relié. Les Objectifs d’Aichi pour la biodiversité sont d’une telle ampleur et touchent à tellement de sujets que l’objectif national de votre pays peut être indirectement lié à un ou plusieurs Objectifs d’Aichi pour la biodiversité Certaines Parties peuvent avoir effectué ce type de correspondance lors de leur cinquième rapport national et/ou dans leur stratégie et plans d’action nationaux pour la diversité biologique.">
-												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Veuillez sélectionner autres Objectifs d’Aichi pour la biodiversité correspondants" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
+												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Veuillez sélectionner d'autres cibles ou objectifs cibles d'Aichi relatifs à la biodiversité" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>							
 										
@@ -222,7 +222,7 @@
 						<div km-document-validation ng-model="validationReport" data-container="{{container}}"></div>
 
 						<div class="btn-group" ng-show="document.header.languages.length>1">
-							<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
+							<input type="button" class="btn" ng-class="{'btn-default' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
 						</div>
 
 						<view-national-target ng-model="document" locale="review.locale"></view-national-target>

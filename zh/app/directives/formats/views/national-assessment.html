@@ -1,45 +1,42 @@
 ﻿<div class="col-md-12 panel panel-default view-national-assessment">
 	<div class="panel-body">
 		<div class="viewForm">
-			<div class="col-md-12" style="padding-left:0px"><img ng-src="/app/img/ratings/{{document.progress.identifier}}.png" class="pull-left"><legend>{{document.date.substr(0,4)}} - {{document.progress | term:locale}}</legend>
+			<div class="col-md-12" style="padding-left:0px" ng-style="{ direction : (document.progress| term:locale|direction:locale) }"><img ng-src="/app/img/ratings/{{document.progress.identifier}}.png" class="pull-left"><legend>{{document.date.substr(0,4)}} - {{document.progress | term:locale}}</legend>
 			</div>
 			<div ng-show="document.government" class="col-md-12">
 				<label>国家</label>
-				<div class="km-value"><span>{{document.government | term:locale}}</span></div>
+				<div class="km-value" ng-style="{ direction : (document.government| term:locale|direction:locale) }"><span>{{document.government | term:locale}}</span></div>
 			</div>
 
 			<div ng-show="document.description" class="col-md-12">
 				<label>描述</label>
-				<div class="km-value km-pre" ng-bind="document.description | lstring:locale"></div>
+				<div class="km-value km-pre" ng-style="{ direction : (document.description|direction:locale) }" 
+					ng-bind="document.description | lstring:locale"></div>
 			</div>
 
 			<div ng-show="document.nationalTarget||document.aichiTarget" class="col-md-12 assessment-tagets">
 				<label>目标</label>
-				<ul class="km-value">
-					<li ng-repeat="item in nationalTarget" ng-if="nationalTarget">{{item.title | lstring:locale}}</li>
-					<li ng-if="document.aichiTarget">{{document.aichiTarget | term:locale}}</li>
-				</ul>
+				<div class="km-value">
+					<div ng-repeat="item in nationalTarget" ng-style="{ direction : (item.title|direction:locale) }">{{item.title | lstring:locale}}</div>
+					<div ng-if="document.aichiTarget" ng-style="{ direction : (document.aichiTarget| term:locale|direction:locale) }">{{document.aichiTarget | term:locale}}</div>
+				</div>
 			</div>
 
-			<div ng-show="document.assessmentText || document.progress" class="col-md-12">
+			<div ng-show="document.assessmentText || document.progress || document.date" class="col-md-12">
 				<legend>实施所选目标取得的进展情况分类</legend>
 				<div ng-show="document.assessmentText">
 					<label>实施所选目标取得的进展情况分类</label>
-					<div class="km-value km-pre">{{document.progress | term:locale}}</div>
-				</div>
-				<div ng-show="document.assessmentText">
-					<label>评估</label>
-					<div class="km-value km-pre">{{document.assessmentText | lstring:locale}}</div>
+					<div class="km-value km-pre" ng-style="{ direction : (document.progress| term:locale|direction:locale) }">{{document.progress | term:locale}}</div>
 				</div>
 				<div ng-show="document.date">
 					<label>评估完成日期</label>
 					<div class="span4">
-						<div class="km-value km-pre">{{document.date | lstring:locale}}</div>
+						<div class="km-value km-pre" ng-style="{ direction : locale=='ar' ? 'rtl':'ltr'}">{{document.date | localeFormatDate:locale}}</div>
 					</div>
 				</div>
-				<div ng-show="document.progress">
+				<div ng-show="document.assessmentText">
 					<label>实施所选目标取得的进展情况评估总结</label>
-					<div class="km-value">{{document.progress | term:locale}}</div>
+					<div class="km-value" ng-style="{ direction : (document.assessmentText |direction:locale) }">{{document.assessmentText | lstring:locale}}</div>
 				</div>
 
 			</div>
@@ -50,88 +47,64 @@
 
 				<div ng-show="document.nationalIndicatorsUsed===false">
 					<label></label>
-					<div class="km-value">贵国没有使用指标评估该国家目标的进展</div>
+					<div class="km-value" >贵国没有使用指标评估该国家目标的进展</div>
 				</div>
-				<div ng-show="document.nationalIndicators">
+				<div ng-show="document.nationalIndicatorsUsed || document.nationalIndicators">
 					<label>本评估采用的指标</label>
-					<div class="km-value">{{document.nationalIndicators | lstring:locale}}</div>
+					<div class="km-value" ng-show="document.nationalIndicators" ng-style="{ direction : (document.nationalIndicators|direction:locale) }">{{document.nationalIndicators | lstring:locale}}</div>
 				</div>
-
-
-				<div ng-show="document.strategicPlanIndicators">
-					<label>本评估采用的指标链接</label>
-					<ul class="km-value">
-						<li ng-repeat="item in strategicPlanIndicators">{{item.title | lstring:locale}}</li>
-					</ul>
-				</div>
-
-				<div ng-show="document.implementationActivities">
-					<label>与该评估相关的国家层次活动的链接</label>
-					<ul class="km-value">
-						<li ng-repeat="item in document.implementationActivities">{{item.title | lstring:locale}}</li>
-					</ul>
-				</div>
-			</div>
-
-
-			<div ng-show="document.documentText||document.documentLinks" class="col-md-12">
-
-				<legend>相关文件和信息</legend>
-
 				<div ng-show="document.documentText">
-					<label>相关信息</label>
-					<div class="km-value km-pre">{{document.documentText|lstring:locale}}</div>
+					<label>请说明评估进展情况所用的任何其他工具或手段。</label>
+					<div class="km-value km-pre" ng-style="{ direction : (document.documentText|direction:locale) }">{{document.documentText|lstring:locale}}</div>
 				</div>
 
 				<div ng-show="document.documentLinks">
 					<label>相关网站、链接和文件</label>
 					<div class="km-value" ng-repeat="item in document.documentLinks"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></div>
 				</div>
+
+				<div ng-show="document.strategicPlanIndicators">
+					<label>本评估采用的指标链接</label>
+					<ul class="km-value">
+						<li ng-repeat="item in strategicPlanIndicators" ng-style="{ direction : (item.title|direction:locale) }">{{item.title | lstring:locale}}</li>
+					</ul>
+				</div>
+
+				<div ng-show="document.implementationActivities">
+					<label>与该评估相关的国家层次活动的链接</label>
+					<ul class="km-value">
+						<li ng-repeat="item in document.implementationActivities" ng-style="{ direction : (item.title|direction:locale) }">{{item.title | lstring:locale}}</li>
+					</ul>
+				</div>
 			</div>
 
-			<div ng-show="document.confidence || document.confidenceInfo" class="col-md-12">
+			<div ng-show="document.confidence || document.confidenceInfo || document.adequacy||document.adequacyDescription||document.otherRelevantDocuments" class="col-md-12">
 
 				<legend>置信水平</legend>
 
 				<div ng-show="document.confidence">
 					<label>上述评估的置信水平</label>
-					<div class="km-value">{{document.confidence | term:locale}}</div>
+					<div class="km-value" ng-style="{ direction : (document.confidence | term:locale|direction:locale) }">{{document.confidence | term:locale}}</div>
 				</div>
 
 				<div ng-show="document.confidenceInfo">
 					<label>上述评估的置信水平</label>
-					<div class="km-value km-pre">{{document.confidenceInfo | lstring:locale}}</div>
+					<div class="km-value km-pre" ng-style="{ direction : (document.confidenceInfo|direction:locale) }">{{document.confidenceInfo | lstring:locale}}</div>
 				</div>
-
-			</div>
-			<div ng-show="document.adequacy" class="col-md-12">
-				<label>支持评估监测信息的适足性</label>
-				<div class="km-value km-pre">{{document.adequacy | term:locale}}</div>
-			</div>
-			<div ng-show="document.adequacyDescription" class="col-md-12">
-				<label>该目标的监测系统</label>
-				<div class="km-value km-pre">{{document.adequacyDescription | lstring:locale}}</div>
-			</div>
-			<div ng-show="document.otherRelevantDocuments" class="col-md-12">
-				<label>其他相关网址或附加文档</label>
-				<ul class="km-value">
-					<li ng-repeat="item in document.otherRelevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></li>
-				</ul>
-			</div>
-			<div ng-show="document.relevantInformation||document.relevantDocuments" class="col-md-12">
-
-				<legend>更多信息</legend>
-
-				<div ng-show="document.relevantInformation">
-					<label>相关信息</label>
-					<div class="km-value" ng-bind-html="document.relevantInformation | lstring:locale | markdown"></div>
+				<div ng-show="document.adequacy">
+					<label>支持评估监测信息的适足性</label>
+					<div class="km-value km-pre" ng-style="{ direction : (document.adequacy | term:locale|direction:locale) }">{{document.adequacy | term:locale}}</div>
 				</div>
-
-				<div ng-show="document.relevantDocuments">
+				<div ng-show="document.adequacyDescription">
+					<label>该目标的监测系统</label>
+					<div class="km-value km-pre" ng-style="{ direction : (document.adequacyDescription|direction:locale) }">{{document.adequacyDescription | lstring:locale}}</div>
+				</div>
+				<div ng-show="document.otherRelevantDocuments">
 					<label>其他相关网址或附加文档</label>
-					<div class="km-value" ng-repeat="item in document.relevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></div>
+					<ul class="km-value">
+						<li ng-repeat="item in document.otherRelevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></li>
+					</ul>
 				</div>
-
 			</div>
 		</div>
 

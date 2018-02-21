@@ -83,7 +83,7 @@
 
 												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/><span ng-class="{'color-litegrey': document.isAichiTarget}">加上一个新的国家目标</span></h4>
 
-												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Use an <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >Aichi Biodiversity Target</a> as your National Target</span></h4>
+												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">用 <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >爱知生物多样性目标</a> 作为贵国的国家目标</span></h4>
 
 											</div>
 										</div>
@@ -140,7 +140,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="panel panel-default panelMain">
+							<div class="panel panel-default panelMain" ng-if="!document.isAichiTarget">
 								<div class="panel-header" name="">
 									<label for="relevantNationalTarget" style="width:0px;height:0px;display:inline"><span style="display:none">请回答国家目标和爱知目标之间的关联性这一部分中的至少一个问题</span></label>
 									<h3>国家目标与爱知目标的相关性</h3>
@@ -152,14 +152,14 @@
 
 											<div class="help-block">国家目标与爱知生物多样性目标之间的关联 （注：如果贵国把爱知生物多样性目标作为国家目标来报告，无需输入这样信息。）</div>
 
-											<div class="km-control-group" name="aichiTargets" caption="主要的相关爱知生物多样性目标（请选择本项国家目标与之完全或部分相关的一项或多项爱知生物多样性目标。缔约方可以选择整项目标或目标某一部分）" data-container=".nationalTargetForm" data-content="如适用，请指明贵国本项国家目标与之最为直接相关的爱知生物多样性目标。考虑到贵国本项国家目标的拟定，它可能会与多项爱知生物多样性目标或其中部分内容直接相关。一些缔约方可能已经在其第五次国家报告中和（或）在其国家生物多样性战略和行动计划中进行这类关联连接。">
-												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="请选择主要爱知生物多样性目标" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()" list="false"></div>
+											<div class="km-control-group" name="aichiTargets" caption="主要的相关爱知生物多样性目标（请选择本项国家目标与之完全或部分相关的一项或多项爱知生物多样性目标。各方可以选择整个目标或目标组件）" data-container=".nationalTargetForm" data-content="如适用，请指明贵国本项国家目标与之最为直接相关的爱知生物多样性目标。考虑到贵国本项国家目标的拟定，它可能会与多项爱知生物多样性目标或其中部分内容直接相关。一些缔约方可能已经在其第五次国家报告中和（或）在其国家生物多样性战略和行动计划中进行这类关联连接。">
+												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="请选择主要爱知生物多样性目标" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>
 
 										<div class="col-md-12">
 											<div class="km-control-group" name="otherAichiTargets" caption="其他相关爱知生物多样性目标（请选择本项国家目标与之间接相关的一项或多项爱知生物多样性目标）。" data-container=".nationalTargetForm" data-content="如适用，请指明贵国本项国家目标与之间接或部分相关的爱知生物多样性目标。鉴于爱知生物多样性目标及其所涉问题覆盖面广，贵国本项国家目标可能会与一项或几项爱知生物多样性目标间接相关。一些缔约方可能已经在其第五次国家报告中和（或）在其国家生物多样性战略和行动计划中进行这类关联连接。">
-												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="请选择其他相关的爱知生物多样性目标" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
+												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="请选择其他相关的爱知生物多样性目标或目标组成部分" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>							
 										
@@ -207,7 +207,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">&ldquo;备注&rdquo;字段供个人参考之用，并仅在编辑记录时方可看到。</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>
@@ -222,7 +222,7 @@
 						<div km-document-validation ng-model="validationReport" data-container="{{container}}"></div>
 
 						<div class="btn-group" ng-show="document.header.languages.length>1">
-							<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
+							<input type="button" class="btn" ng-class="{'btn-default' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
 						</div>
 
 						<view-national-target ng-model="document" locale="review.locale"></view-national-target>
