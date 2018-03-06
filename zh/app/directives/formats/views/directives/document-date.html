@@ -1,0 +1,10 @@
+﻿<div class="pull-right record-Options-div">
+    <span class="xlabel" ng-if="createdOn">提交:</span>
+    <span class="date" ng-if="createdOn">
+        {{createdOn | formatDate}}
+    </span>
+    &nbsp;
+    <span class="xlabel" ng-if="updatedOn && !createdOn">发表:</span>
+    <span class="xlabel" ng-if="updatedOn && createdOn">最近更新时间:</span>
+    <span class="date" ng-if="updatedOn"> {{updatedOn | formatDate}}</span>
+</div>

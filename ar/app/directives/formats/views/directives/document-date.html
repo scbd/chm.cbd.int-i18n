@@ -1,0 +1,10 @@
+﻿<div class="pull-right record-Options-div">
+    <span class="xlabel" ng-if="createdOn">تم إرساله:</span>
+    <span class="date" ng-if="createdOn">
+        {{createdOn | formatDate}}
+    </span>
+    &nbsp;
+    <span class="xlabel" ng-if="updatedOn && !createdOn">نشرت:</span>
+    <span class="xlabel" ng-if="updatedOn && createdOn">آخر تحديث:</span>
+    <span class="date" ng-if="updatedOn"> {{updatedOn | formatDate}}</span>
+</div>
