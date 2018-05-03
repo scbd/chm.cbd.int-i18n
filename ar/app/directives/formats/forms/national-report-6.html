@@ -10,10 +10,6 @@
 			</div>
 			<div class="panel-body">
 
-				<style>
-					
-				</style>
-
 				<div class="col-md-12" style="padding:0px" ><!-- Time since load {{timeTick}} --><div class="row" style="padding:15px;font-size: 3em" ng-show="status=='loading'"><i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i>تحميل التقرير الوطني السادس</div>
 
 
@@ -432,6 +428,9 @@
 									</div>
 									<div class="panel-body">
 										<div class="row  bottom-spacing">
+											<div class="col-md-12">
+												<div class="alert alert-info"><strong>المعلومات! </strong> يرجى استعراض وتحديث الملامح القطرية للتنوع البيولوجي في بلدك المعروضة حاليا على الموجز القطري للتنوع البيولوجي في آلية غرفة تبادل المعلومات وقدم عرضا عاما للمعلومات ذات الصلة بتنفيذ البلد للاتفاقية.</br> إذا لم يظهر أدناه نص ملفك الخاص بالتنوع البيولوجي ، فيمكن استرداده عبر آلية غرفة تبادل المعلومات على العنوان التالي: <a target="_blank" ng-href="https://www.cbd.int/countries/profile/default.shtml?country={{document.government.identifier}}">https://www.cbd.int/countries/profile/default.shtml?country={{document.government.identifier}}</a></div>
+											</div>
 											<div class="col-md-12"><span class="help-block">يرجى استعراض وتحديث الملامح القطرية للتنوع البيولوجي في بلدك المعروضة حاليا على الموجز القطري للتنوع البيولوجي في آلية غرفة تبادل المعلومات وقدم عرضا عاما للمعلومات ذات الصلة بتنفيذ البلد للاتفاقية. <a translation-url info-bar data-content="يهدف هذا القسم من التقرير الوطني السادس إلى مساعدة الأطراف في إكمال أو تحديث الموجز القطري للتنوع البيولوجي الوارد في الموقع الشبكي للاتفاقية المتعلقة بالتنوع البيولوجي. يقدم الموجز القطري للتنوع البيولوجي لمحة قصيرة عن حالة واتجاهات التنوع البيولوجي،  والضغوط الرئيسية على التنوع البيولوجي؛ والتدابير المتخذة لتحسين تنفيذ الاتفاقية من خلال تنفيذ الخطة الاستراتيجية للتنوع البيولوجي ا وخطة عملها والإجراءات التي تسهم في تنفيذ الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 هذه المعلومات يجب ان تحوي حالة واتجاهات التنوع البيولوجي وليس من الضروري تقديم تقييم مفصل ومع ذلك، ينبغي للمعلومات أن تزود القارئ بلمحة عامة موجزة ويتم عرض الموجز القطري للتنوع البيولوجي على صفحات الويب القطرية جنبا إلى جنب مع أي معلومات وطنية أخرى ذات صلة، مثل المعلومات المتعلقة بنقاط الاتصال الوطنية في البلاد وتفاصيل الاتصال، فضلا عن عضوية البلاد في البروتوكولات. سيتم شمول موجز التنوع البيولوجي الحالي في بلدك تلقائيا في النموذج الوارد أدناه كنقطة انطلاق/مرجعية."
 													    data-original-title=""><i class="fa fa-info-circle fa-2x"></i></a></span></div>
 											<div class="col-md-12">
@@ -485,15 +484,17 @@
 						<div  km-tab="review">
 
 							<div km-document-validation ng-model="validationReport"></div>
-
-							<div class="btn-group" ng-show="document.header.languages.length>1">
-								<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages"
-								    ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
-							</div>
+							<div class="btn-group" ng-if="document.header.languages.length>1">
+									<input type="button" class="btn" ng-class="{'btn-default' : $parent.review.locale!='*', 'btn-info' :$parent.review.locale=='*'}"
+									ng-click="$parent.review.locale='*'" value="*" title="كل اللغات" />
+									<input type="button" class="btn" ng-class="{'btn-default' : $parent.review.locale!=locale, 'btn-info' :$parent.review.locale==locale}"
+										ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}"
+										title="{{locale|languageLongName}}" />
+								</div>
 							<div class="btn-group btn-group-sm pull-right">
 								<button href="#" title="اطبع السجل" class="btn btn-default" ng-click="print()">طباعة <i class="fa fa-spin fa-spinner" ng-if="printing" /> <i class="fa fa-print" aria-hidden="true" ng-if="!printing"></i></button>
 							</div>
-							<view-national-report-6 ng-model="reviewDocument" locale="review.locale" link-target="_blank" id="schemaPrintView"></view-national-report-6>
+							<view-national-report-6 ng-model="reviewDocument" locale="getLocale()" link-target="_blank" id="schemaPrintView"></view-national-report-6>
 						</div>
 
 
@@ -784,7 +785,7 @@
 											<div class="panel-body">
 												<div class="col-md-12" ng-if="target.nationalReport">
 													<div>
-														<label>بلدك قدم التقرير الوطني المؤقت بشأن تنفيذ بروتوكول ناغويا</label><br><div style="background-color:#eee; padding:5px;">{{self.absNationalReport}} <a translation-url target="_new" class="bold" ng-href="{{absNationalReport.url}}">{{absNationalReport.uniqueIdentifier_s|uppercase}} <span class="color-black" style="font-weight:normal;">{{absNationalReport.title|lstring:locale}}</span></a></div>
+														<label>بلدك قدم التقرير الوطني المؤقت بشأن تنفيذ بروتوكول ناغويا</label><br><div style="background-color:#eee; padding:5px;">{{self.absNationalReport}} <a translation-url target="_blank" class="bold" ng-href="{{absNationalReport.url}}">{{absNationalReport.uniqueIdentifier_s|uppercase}} <span class="color-black" style="font-weight:normal;">{{absNationalReport.title|lstring:locale}}</span></a></div>
 													</div><br> <span info-bar data-content="There is no need to repeat information in the sixth national report that has already been included in the interim national report on the implementation of obligations under the Nagoya Protocol."></span><div class="km-control-group" name="nationalContributions-AICHI-TARGET-16-nationalReportDescription" caption="يرجى تقديم أي معلومات إضافية ذات صلة لم تدرج في التقرير الوطني المؤقت عن كيفية ومدى مساهمة بلدكم تحقيق هذا الهدف من اهداف أيشي للتنوع البيولوجي:">
 														<div km-textbox-ml name="nationalContributions--AICHI-TARGET-16-nationalReportDescription" ng-model="target.nationalReportDescription"
 															locales="document.header.languages" rows="3"></div>
@@ -916,10 +917,10 @@
 								<div ng-switch-when="AICHI-TARGET-20" class="row">
 									<div class="col-md-12">
 										<div class=" alert alert-danger" ng-if="!target.resourceMobilisationReport">
-											<label>لم ينجز بلدك إطار التقارير المالية، وقد ترغب في النظر في القيام بذلك.</label></br> <a translation-url href="/submit/resourceMobilisation/new" target="_new">انقر هنا لإكمال إطار التقارير المالية</a></div>
+											<label>لم ينجز بلدك إطار التقارير المالية، وقد ترغب في النظر في القيام بذلك.</label></br> <a translation-url href="/submit/resourceMobilisation/new" target="_blank">انقر هنا لإكمال إطار التقارير المالية</a></div>
 									</div>
 									<div class="col-md-12" ng-if="resourceMobilisation">
-										<label for="">قدم بلدك إطار التقارير المالية</label><br/><div style="background-color:#eee; padding:5px;"><a translation-url target="_new" ng-href="{{resourceMobilisation.url}}">{{resourceMobilisation.url}} <span class="color-black" style="font-weight:normal;">{{resourceMobilisation.title|lstring:locale}}</span></a></div>
+										<label for="">قدم بلدك إطار التقارير المالية</label><br/><div style="background-color:#eee; padding:5px;"><a translation-url target="_blank" ng-href="{{resourceMobilisation.url}}">{{resourceMobilisation.url}} <span class="color-black" style="font-weight:normal;">{{resourceMobilisation.title|lstring:locale}}</span></a></div>
 									</div>
 									<div class="col-md-12">
 										<div class="km-control-group" name="nationalContributions-AICHI-TARGET-20" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"

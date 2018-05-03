@@ -12,7 +12,7 @@
 
 			<div ng-show="document.description">
 				<label>国家目标的建立依据</label>
-				<div class="km-value km-pre" ng-bind="document.description | lstring:locale"   ng-style="{ direction : (document.description|direction:locale) }"></div>
+				<km-value-ml value="document.description" locales="locale" km-pre></km-value-ml>				
 			</div>
 
 
@@ -27,7 +27,7 @@
 
 				<div ng-show="document.jurisdictionInfo">
 					<label>适用级别的细节</label>
-					<div class="km-value km-pre" ng-bind="document.jurisdictionInfo | lstring:locale"  ng-style="{ direction : (document.jurisdictionInfo|direction:locale) }"></div>
+					<km-value-ml value="document.jurisdictionInfo" locales="locale" km-pre></km-value-ml>
 				</div>
 			</div>
 
@@ -53,7 +53,7 @@
 				</div>
 				<div ng-show="document.noOtherAichiTargetsDescription">
 					<label>国家目标没有对应的爱知生物多样性目标或者与《生物多样性战略计划》的其他部分相关</label>
-					<div class="km-value km-pre" ng-bind="document.noOtherAichiTargetsDescription | lstring:locale"  ng-style="{ direction : (document.noOtherAichiTargetsDescription|direction:locale) }"></div>
+					<km-value-ml value="document.noOtherAichiTargetsDescription" locales="locale" km-pre></km-value-ml>
 				</div>
 
 			</div>
@@ -64,7 +64,7 @@
 
 				<div ng-show="document.documentText">
 					<label>其它相关信息</label>
-					<div class="km-value km-pre"  ng-style="{ direction : (document.documentText|direction:locale) }">{{document.documentText|lstring:locale}}</div>
+					<km-value-ml value="document.documentText" locales="locale" km-pre></km-value-ml>					
 				</div>
 
 				<div ng-show="document.documentLinks">
@@ -81,8 +81,7 @@
 				<legend>相关文件和信息</legend>
 
 				<div ng-show="document.relevantInformation">
-					<div class="km-value" ng-bind-html="document.relevantInformation | lstring:locale | markdown"
-					ng-style="{ direction : (document.relevantInformation|direction:locale) }"></div>
+					<km-value-ml value="document.relevantInformation" locales="locale" markdown html></km-value-ml>					
 				</div>
 
 				<div ng-show="document.relevantDocuments">

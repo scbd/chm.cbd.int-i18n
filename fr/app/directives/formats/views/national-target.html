@@ -12,7 +12,7 @@
 
 			<div ng-show="document.description">
 				<label>Fondement de cet objectif national</label>
-				<div class="km-value km-pre" ng-bind="document.description | lstring:locale"   ng-style="{ direction : (document.description|direction:locale) }"></div>
+				<km-value-ml value="document.description" locales="locale" km-pre></km-value-ml>				
 			</div>
 
 
@@ -27,7 +27,7 @@
 
 				<div ng-show="document.jurisdictionInfo">
 					<label>D&eacute;tails sur le niveau d&apos;application</label>
-					<div class="km-value km-pre" ng-bind="document.jurisdictionInfo | lstring:locale"  ng-style="{ direction : (document.jurisdictionInfo|direction:locale) }"></div>
+					<km-value-ml value="document.jurisdictionInfo" locales="locale" km-pre></km-value-ml>
 				</div>
 			</div>
 
@@ -38,7 +38,7 @@
 
 				<div ng-show="document.aichiTargets">
 					<label ng-if="document.isAichiTarget" >Objectifs d&apos;Aichi pour la biodiversit&eacute;</label>
-					<label ng-if="!document.isAichiTarget">Bulletin des Objectifs d&apos;Aichi</label>
+					<label ng-if="!document.isAichiTarget">composants sur les Objectifs d&apos;Aichi</label>
 					<div class="km-value">
 						<div ng-repeat="item in document.aichiTargets"   ng-style="{ direction : (item| term:locale|direction:locale) }">{{item | term:locale}}</div>
 					</div>
@@ -53,7 +53,7 @@
 				</div>
 				<div ng-show="document.noOtherAichiTargetsDescription">
 					<label>Explication sur l&rsquo;objectif national n&rsquo;a pas d&rsquo;Objectif d&rsquo;Aichi pour la biodiversit&eacute; correspondant ou a trait &agrave; d&rsquo;autres parties du Plan strat&eacute;gique pour la diversit&eacute; biologique</label>
-					<div class="km-value km-pre" ng-bind="document.noOtherAichiTargetsDescription | lstring:locale"  ng-style="{ direction : (document.noOtherAichiTargetsDescription|direction:locale) }"></div>
+					<km-value-ml value="document.noOtherAichiTargetsDescription" locales="locale" km-pre></km-value-ml>
 				</div>
 
 			</div>
@@ -64,7 +64,7 @@
 
 				<div ng-show="document.documentText">
 					<label>Tout autres renseignements pertinents</label>
-					<div class="km-value km-pre"  ng-style="{ direction : (document.documentText|direction:locale) }">{{document.documentText|lstring:locale}}</div>
+					<km-value-ml value="document.documentText" locales="locale" km-pre></km-value-ml>					
 				</div>
 
 				<div ng-show="document.documentLinks">
@@ -81,8 +81,7 @@
 				<legend>Fichiers et informations pertinentes</legend>
 
 				<div ng-show="document.relevantInformation">
-					<div class="km-value" ng-bind-html="document.relevantInformation | lstring:locale | markdown"
-					ng-style="{ direction : (document.relevantInformation|direction:locale) }"></div>
+					<km-value-ml value="document.relevantInformation" locales="locale" markdown html></km-value-ml>					
 				</div>
 
 				<div ng-show="document.relevantDocuments">

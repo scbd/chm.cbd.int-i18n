@@ -10,10 +10,6 @@
 			</div>
 			<div class="panel-body">
 
-				<style>
-					
-				</style>
-
 				<div class="col-md-12" style="padding:0px" ><!-- Time since load {{timeTick}} --><div class="row" style="padding:15px;font-size: 3em" ng-show="status=='loading'"><i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i>Sixi&egrave;me Rapport National</div>
 
 
@@ -433,6 +429,9 @@
 									</div>
 									<div class="panel-body">
 										<div class="row  bottom-spacing">
+											<div class="col-md-12">
+												<div class="alert alert-info"><strong>Info!</strong> Veuillez examiner et mettre  jour le profil actuel de votre pays en mati&egrave;re de biodiversit&eacute; publi&eacute; dans le Centre d&rsquo;&eacute;change. Les profils des pays en mati&egrave;re de biodiversit&eacute; donnent un aper&ccedil;u g&eacute;n&eacute;ral des informations relatives &agrave; l&rsquo;application de la Convention et de ses Protocoles par votre pays.</br> Si le texte de votre profil en mati&egrave;re de biodiversit&eacute; n&rsquo;apparaisse pas ci-dessous, veuillez le r&eacute;cup&eacute;rer sur le Centre d&rsquo;&eacute;change &agrave; la page : <a target="_blank" ng-href="https://www.cbd.int/countries/profile/default.shtml?country={{document.government.identifier}}">https://www.cbd.int/countries/profile/default.shtml?country={{document.government.identifier}}</a></div>
+											</div>
 											<div class="col-md-12"><span class="help-block">Veuillez examiner et mettre  jour le profil actuel de votre pays en mati&egrave;re de biodiversit&eacute; publi&eacute; dans le Centre d&rsquo;&eacute;change. Les profils des pays en mati&egrave;re de biodiversit&eacute; donnent un aper&ccedil;u g&eacute;n&eacute;ral des informations relatives &agrave; l&rsquo;application de la Convention et de ses Protocoles par votre pays. <a translation-url info-bar data-content="Cette partie du sixi&egrave;me rapport national a pour but d&rsquo;aider les Parties &agrave; compl&eacute;ter ou &agrave; actualiser leur profil de pays en mati&egrave;re de diversit&eacute; biologique, pr&eacute;sent&eacute; sur le site Web de la Convention sur la diversit&eacute; biologique. Les profils des pays en mati&egrave;re de diversit&eacute; biologique pr&eacute;sentent un court aper&ccedil;u : de l&rsquo;&eacute;tat et des tendances de la diversit&eacute; biologique, y compris des avantages d&eacute;coulant de la diversit&eacute; biologique et des services et fonctions &eacute;cosyst&eacute;miques; des principales pressions exerc&eacute;es sur la diversit&eacute; biologique; des mesures prises pour renforcer l&rsquo;application de la Convention, par la mise en &oelig;uvre des strat&eacute;gies et plans d&rsquo;action nationaux pour la biodiversit&eacute; et par des mesures qui contribuent &agrave; la mise en &oelig;uvre du Plan strat&eacute;gique 2011-2020 pour la diversit&eacute; biologique et &agrave; la r&eacute;alisation des Objectifs d&rsquo;Aichi pour la biodiversit&eacute;; des m&eacute;canismes de soutien; et des m&eacute;canismes de suivi et d&rsquo;examen de l&rsquo;application. Ces informations devraient pr&eacute;senter un aper&ccedil;u g&eacute;n&eacute;ral de l&apos;&eacute;tat et des tendances de la biodiversit&eacute;. Il n&rsquo;est pas n&eacute;cessaire de fournir une &eacute;valuation d&eacute;taill&eacute;e des questions ci-dessus; par contre, vous devez fournir suffisamment d&rsquo;informations pour donner au lecteur un bref aper&ccedil;u (environ 2 pages ou 1000 mots) de la situation actuelle. Les profils des pays en mati&egrave;re de biodiversit&eacute; sont publi&eacute;s sur les pages web du pays, ainsi que d&rsquo;autres renseignements pertinents sur le pays, tels que des renseignements sur les correspondants nationaux du pays et leurs coordonn&eacute;es, et le statut de Partie ou non-Partie aux Protocoles Le profil actuel de votre pays en mati&egrave;re de diversit&eacute; biologique sera affich&eacute; automatiquement dans le mod&egrave;le ci-dessous comme point de d&eacute;part/r&eacute;f&eacute;rence."
 													    data-original-title=""><i class="fa fa-info-circle fa-2x"></i></a></span></div>
 											<div class="col-md-12">
@@ -486,15 +485,17 @@
 						<div  km-tab="review">
 
 							<div km-document-validation ng-model="validationReport"></div>
-
-							<div class="btn-group" ng-show="document.header.languages.length>1">
-								<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages"
-								    ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
-							</div>
+							<div class="btn-group" ng-if="document.header.languages.length>1">
+									<input type="button" class="btn" ng-class="{'btn-default' : $parent.review.locale!='*', 'btn-info' :$parent.review.locale=='*'}"
+									ng-click="$parent.review.locale='*'" value="*" title="dans toutes les langues" />
+									<input type="button" class="btn" ng-class="{'btn-default' : $parent.review.locale!=locale, 'btn-info' :$parent.review.locale==locale}"
+										ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}"
+										title="{{locale|languageLongName}}" />
+								</div>
 							<div class="btn-group btn-group-sm pull-right">
 								<button href="#" title="Imprimer le dossier" class="btn btn-default" ng-click="print()">Imprimer <i class="fa fa-spin fa-spinner" ng-if="printing" /> <i class="fa fa-print" aria-hidden="true" ng-if="!printing"></i></button>
 							</div>
-							<view-national-report-6 ng-model="reviewDocument" locale="review.locale" link-target="_blank" id="schemaPrintView"></view-national-report-6>
+							<view-national-report-6 ng-model="reviewDocument" locale="getLocale()" link-target="_blank" id="schemaPrintView"></view-national-report-6>
 						</div>
 
 
@@ -773,7 +774,7 @@
 											<div class="panel-body">
 												<div class="col-md-12" ng-if="target.nationalReport">
 													<div>
-														<label>Votre pays a soumis le rapport national int&eacute;rimaire sur l&rsquo;ex&eacute;cution de leurs obligations en vertu du Protocole de Nagoya.</label><br><div style="background-color:#eee; padding:5px;">{{self.absNationalReport}} <a translation-url target="_new" class="bold" ng-href="{{absNationalReport.url}}">{{absNationalReport.uniqueIdentifier_s|uppercase}} <span class="color-black" style="font-weight:normal;">{{absNationalReport.title|lstring:locale}}</span></a></div>
+														<label>Votre pays a soumis le rapport national int&eacute;rimaire sur l&rsquo;ex&eacute;cution de leurs obligations en vertu du Protocole de Nagoya.</label><br><div style="background-color:#eee; padding:5px;">{{self.absNationalReport}} <a translation-url target="_blank" class="bold" ng-href="{{absNationalReport.url}}">{{absNationalReport.uniqueIdentifier_s|uppercase}} <span class="color-black" style="font-weight:normal;">{{absNationalReport.title|lstring:locale}}</span></a></div>
 													</div><br> <span info-bar data-content="There is no need to repeat information in the sixth national report that has already been included in the interim national report on the implementation of obligations under the Nagoya Protocol."></span><div class="km-control-group" name="nationalContributions-AICHI-TARGET-16-nationalReportDescription" caption="Veuillez fournir toute autre information pertinente qui n'a pas été incluse dans le rapport national intérimaire sur le respect des obligations au titre du Protocole de Nagoya.">
 														<div km-textbox-ml name="nationalContributions--AICHI-TARGET-16-nationalReportDescription" ng-model="target.nationalReportDescription"
 															locales="document.header.languages" rows="3"></div>
@@ -893,10 +894,10 @@
 								<div ng-switch-when="AICHI-TARGET-20" class="row">
 									<div class="col-md-12">
 										<div class=" alert alert-danger" ng-if="!target.resourceMobilisationReport">
-											<label>Votre pays n&apos;a pas rempli le cadre d&apos;information financi&egrave;re, vous pouvez envisager de le faire.</label></br> <a translation-url href="/submit/resourceMobilisation/new" target="_new">Cliquez ici pour remplir le cadre d&apos;information financi&egrave;re</a></div>
+											<label>Votre pays n&apos;a pas rempli le cadre d&apos;information financi&egrave;re, vous pouvez envisager de le faire.</label></br> <a translation-url href="/submit/resourceMobilisation/new" target="_blank">Cliquez ici pour remplir le cadre d&apos;information financi&egrave;re</a></div>
 									</div>
 									<div class="col-md-12" ng-if="resourceMobilisation">
-										<label for="">Votre pays a soumis le Cadre d&apos;information financi&egrave;r</label><br/><div style="background-color:#eee; padding:5px;"><a translation-url target="_new" ng-href="{{resourceMobilisation.url}}">{{resourceMobilisation.url}} <span class="color-black" style="font-weight:normal;">{{resourceMobilisation.title|lstring:locale}}</span></a></div>
+										<label for="">Votre pays a soumis le Cadre d&apos;information financi&egrave;r</label><br/><div style="background-color:#eee; padding:5px;"><a translation-url target="_blank" ng-href="{{resourceMobilisation.url}}">{{resourceMobilisation.url}} <span class="color-black" style="font-weight:normal;">{{resourceMobilisation.title|lstring:locale}}</span></a></div>
 									</div>
 									<div class="col-md-12">
 										<div class="km-control-group" name="nationalContributions-AICHI-TARGET-20" caption="Veuillez décrire comment votre pays a contribué à la réalisation de cet Objectif d’Aichi pour la biodiversité et les données factuelles utilisées à l’appui de cette description:"
@@ -1152,7 +1153,7 @@
 									<div class="row" style="margin-top:10px;"> 
 										<div class="col-xs-12"><span class="label label-danger" ng-if="hasAssessment">Veuillez supprimer l&apos;&eacute;valuation de l&apos;avancement de cet objectif national avant de supprimer l&apos;objectif national.</span><button ng-if="!hasAssessment" ng-show="security" type="button" class="btn btn-danger" ng-disabled="deletingRecord"
 											ng-click="deletePublic(publicRecordToDelete)" 
-											data-toggle="tooltip" data-placement="top" title="Note : Any pending draft will also be deleted"><span ng-if="!security.canDelete">Demander la suppression de ce fichier</span> <span ng-if="security.canDelete">Supprimer le fichier</span></button> 
+											data-toggle="tooltip" data-placement="top" title="Note : Tout brouillon en attente sera aussi supprimé"><span ng-if="!security.canDelete">Demander la suppression de ce fichier</span> <span ng-if="security.canDelete">Supprimer le fichier</span></button> 
 										</div>
 									</div>
 								</div>

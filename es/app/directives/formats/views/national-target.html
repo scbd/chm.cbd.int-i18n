@@ -12,7 +12,7 @@
 
 			<div ng-show="document.description">
 				<label>Justificaci&oacute;n de la meta nacional</label>
-				<div class="km-value km-pre" ng-bind="document.description | lstring:locale"   ng-style="{ direction : (document.description|direction:locale) }"></div>
+				<km-value-ml value="document.description" locales="locale" km-pre></km-value-ml>				
 			</div>
 
 
@@ -27,7 +27,7 @@
 
 				<div ng-show="document.jurisdictionInfo">
 					<label>Detalles sobre el nivel de aplicaci&oacute;n</label>
-					<div class="km-value km-pre" ng-bind="document.jurisdictionInfo | lstring:locale"  ng-style="{ direction : (document.jurisdictionInfo|direction:locale) }"></div>
+					<km-value-ml value="document.jurisdictionInfo" locales="locale" km-pre></km-value-ml>
 				</div>
 			</div>
 
@@ -53,7 +53,7 @@
 				</div>
 				<div ng-show="document.noOtherAichiTargetsDescription">
 					<label>La explicaci&oacute;n sobre la meta nacional no tiene una Meta de Aichi para la Diversidad Biol&oacute;gica o se relaciona con otras partes del Plan Estrat&eacute;gico para la Biodiversidad</label>
-					<div class="km-value km-pre" ng-bind="document.noOtherAichiTargetsDescription | lstring:locale"  ng-style="{ direction : (document.noOtherAichiTargetsDescription|direction:locale) }"></div>
+					<km-value-ml value="document.noOtherAichiTargetsDescription" locales="locale" km-pre></km-value-ml>
 				</div>
 
 			</div>
@@ -64,7 +64,7 @@
 
 				<div ng-show="document.documentText">
 					<label>Otra informaci&oacute;n pertinente</label>
-					<div class="km-value km-pre"  ng-style="{ direction : (document.documentText|direction:locale) }">{{document.documentText|lstring:locale}}</div>
+					<km-value-ml value="document.documentText" locales="locale" km-pre></km-value-ml>					
 				</div>
 
 				<div ng-show="document.documentLinks">
@@ -81,8 +81,7 @@
 				<legend>Documentos y enlaces &uacute;tiles</legend>
 
 				<div ng-show="document.relevantInformation">
-					<div class="km-value" ng-bind-html="document.relevantInformation | lstring:locale | markdown"
-					ng-style="{ direction : (document.relevantInformation|direction:locale) }"></div>
+					<km-value-ml value="document.relevantInformation" locales="locale" markdown html></km-value-ml>					
 				</div>
 
 				<div ng-show="document.relevantDocuments">

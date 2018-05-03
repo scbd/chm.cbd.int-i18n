@@ -12,7 +12,7 @@
 
 			<div ng-show="document.description">
 				<label>عرض أسباب ألهدف الوطني</label>
-				<div class="km-value km-pre" ng-bind="document.description | lstring:locale"   ng-style="{ direction : (document.description|direction:locale) }"></div>
+				<km-value-ml value="document.description" locales="locale" km-pre></km-value-ml>				
 			</div>
 
 
@@ -27,7 +27,7 @@
 
 				<div ng-show="document.jurisdictionInfo">
 					<label>تفاصيل حول مستوى التطبيق</label>
-					<div class="km-value km-pre" ng-bind="document.jurisdictionInfo | lstring:locale"  ng-style="{ direction : (document.jurisdictionInfo|direction:locale) }"></div>
+					<km-value-ml value="document.jurisdictionInfo" locales="locale" km-pre></km-value-ml>
 				</div>
 			</div>
 
@@ -53,7 +53,7 @@
 				</div>
 				<div ng-show="document.noOtherAichiTargetsDescription">
 					<label>لا يتضمن تفسير الهدف الوطني أي هدف من أهداف أيشي للتنوع البيولوجي أو يتصل بأجزاء أخرى من الخطة الاستراتيجية للتنوع البيولوجي</label>
-					<div class="km-value km-pre" ng-bind="document.noOtherAichiTargetsDescription | lstring:locale"  ng-style="{ direction : (document.noOtherAichiTargetsDescription|direction:locale) }"></div>
+					<km-value-ml value="document.noOtherAichiTargetsDescription" locales="locale" km-pre></km-value-ml>
 				</div>
 
 			</div>
@@ -64,7 +64,7 @@
 
 				<div ng-show="document.documentText">
 					<label>معلومات أخرى ذات صلة</label>
-					<div class="km-value km-pre"  ng-style="{ direction : (document.documentText|direction:locale) }">{{document.documentText|lstring:locale}}</div>
+					<km-value-ml value="document.documentText" locales="locale" km-pre></km-value-ml>					
 				</div>
 
 				<div ng-show="document.documentLinks">
@@ -81,8 +81,7 @@
 				<legend>الوثائق والمعلومات ذات الصلة</legend>
 
 				<div ng-show="document.relevantInformation">
-					<div class="km-value" ng-bind-html="document.relevantInformation | lstring:locale | markdown"
-					ng-style="{ direction : (document.relevantInformation|direction:locale) }"></div>
+					<km-value-ml value="document.relevantInformation" locales="locale" markdown html></km-value-ml>					
 				</div>
 
 				<div ng-show="document.relevantDocuments">
