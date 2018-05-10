@@ -53,7 +53,14 @@
                 <div role="tabpanel" class="tab-pane active" id="email">
                     <div class="row">
                         <div class="content">
-                            <div>Veuillez patienter pendant que le pdf est g&eacute;n&eacute;r&eacute;</div><span ng-if="status=='generatingPDF'"> <i class="fa fa-spin fa-spinner" /> En cours...</span> </br></div>
+                            <div>                                
+                                <a ng-href="{{pdfUrl}}" target="_blank" class="btn btn-primary" ng-if="status!='generatingPDF' && pdfUrl">Ouvrir PDF</a>
+                            </div> 
+                            <span ng-if="status=='generatingPDF'">
+                            <div>Veuillez patienter pendant que le pdf est g&eacute;n&eacute;r&eacute;</div>
+                                <i class="fa fa-spin fa-spinner" /> En cours...</span>
+                            </br>
+                        </div>
                     </div>
                 </div>
             </div>
