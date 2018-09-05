@@ -102,7 +102,7 @@
     </style><!-- existing documents display --><div class="row">
         <div class="col-xs-12">
 
-            <button style="margin-right:20px;" class="btn btn-default" ng-click="openAddDialog();" ng-disabled="disabled"><i class="fa fa-plus"></i> {{caption || &apos;Add record&apos;}}{{type!==&apos;radio&apos; ? &quot;(s)&quot; : &quot;&quot;}}</button><span ng-show="model.length==0 || !model"><i class="color-blue">未链接任何记录。</i></span> <a translation-url class="bold" href="#" ng-click="areVisible = true" ng-show="!areVisible && model.length>0" name="showRecords"><i class="fa fa-chevron-circle-right"></i> {{model.length}} linked records.</a> <a translation-url class="bold" href="#" name="hideRecords" ng-click="areVisible=false" ng-show="areVisible && model.length>0 "><i class="fa fa-chevron-circle-down"></i> {{model.length}} linked records.</a></div>
+            <button style="margin-right:20px;" class="btn btn-default" ng-click="openAddDialog();" ng-disabled="disabled"><i class="fa fa-plus"></i> {{caption || &apos;Add record&apos;}}{{type!==&apos;radio&apos; ? &quot;(s)&quot; : &quot;&quot;}}</button><span ng-show="model.length==0 || !model"> <i class="color-blue"> 未链接任何记录。</i> </span> <a translation-url class="bold" href="#" ng-click="areVisible = true" ng-show="!areVisible && model.length>0" name="showRecords"><i class="fa fa-chevron-circle-right"></i> {{model.length}} linked records.</a> <a translation-url class="bold" href="#" name="hideRecords" ng-click="areVisible=false" ng-show="areVisible && model.length>0 "><i class="fa fa-chevron-circle-down"></i> {{model.length}} linked records.</a></div>
     </div>
     <div class="row" ng-show="areVisible && !disabled">
         <div class="col-xs-12">
@@ -145,16 +145,16 @@
 
                                             <li ng-if="doc.rec_countryName" class="hidden-xs"><span>{{doc.rec_countryName}}</span></li>
                                             <li ng-if="doc.uniqueIdentifier_s"><span>{{doc.uniqueIdentifier_s|uppercase}}</span></li>
-                                            <li class="hidden-xs" ng-if="doc.rec_meta1 && doc.schema_s !=='database'" id="meta1"><span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">CP:</span> <span ng-repeat="meta in doc.rec_meta1">{{meta}}{{$last ?&apos;&apos;:&apos;, &apos;}}</span></li>
-                                            <li class="hidden-xs" ng-if="doc.rec_meta2 && doc.schema_s !=='absPermit'" id="meta2"><span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">SOURCE:</span> <span ng-repeat="meta in doc.rec_meta2">{{meta}}{{$last ?&apos;&apos;:&apos;, &apos;}}</span></li>
-                                            <li class="hidden-xs" ng-if="doc.rec_meta3" id="meta3"><span ng-repeat="meta in doc.rec_meta3" ng-class="{'color-red':meta==='Revoked'}">{{meta}}{{$last ?&apos;&apos;:&apos;, &apos;}}</span></li>
+                                            <li class="hidden-xs" ng-if="doc.rec_meta1 && doc.schema_s !=='database'" id="meta1"><span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">CP:</span> <span ng-repeat="meta in doc.rec_meta1">{{meta}}{{$last ? &apos;&apos;:&apos;, &apos;}}</span></li>
+                                            <li class="hidden-xs" ng-if="doc.rec_meta2 && doc.schema_s !=='absPermit'" id="meta2"><span ng-if="doc.schema_s ==='absCheckpointCommunique'" style="color:#666!important;">SOURCE:</span> <span ng-repeat="meta in doc.rec_meta2">{{meta}}{{$last ? &apos;&apos;:&apos;, &apos;}}</span></li>
+                                            <li class="hidden-xs" ng-if="doc.rec_meta3" id="meta3"><span ng-repeat="meta in doc.rec_meta3" ng-class="{'color-red':meta==='Revoked'}">{{meta}}{{$last ? &apos;&apos;:&apos;, &apos;}}</span></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div></a></div>
                 </div>
-                <div ng-if="isLoading"><i class="fa fa-spinner fa-spin"></i> 正在加载...</div>
-                <div ng-if="rawDocuments.numFound===0">未找到记录。</div>
+                <div ng-if="isLoading"> <i class="fa fa-spinner fa-spin"></i> 正在加载...</div>
+                <div ng-if="rawDocuments.numFound===0"> 未找到记录。</div>
             </div>
 
             <div class="modal-footer bg-grey">

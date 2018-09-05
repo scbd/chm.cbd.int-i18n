@@ -121,7 +121,7 @@
 											生物多样性所承受的压力或生物多样性丧失的驱动因素的变化；生物多样性意识等社会经济条件的改变；资源可用性的改变；政府政策变更；或者，国家各主要部门行为的改变。关于
 											定量的国家目标，缔约方不妨考虑报告相对于目标价值的落实水平。对于某些类型的目标，可使用百分比来表示。缔约方
 											不妨说明在评估目标落实进展方面所使用的进程，并报告任何目标评估进程中所遇到的障碍。">
-												<div km-textbox-ml required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
+												<div km-rich-textbox identifier="document.header.identifier" required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -146,7 +146,7 @@
 											<div class="row" ng-show="document.nationalIndicatorsUsed">
 												<div class="col-md-12">
 													<div class="km-control-group" name="nationalIndicators" caption="请提供评估本目标所用的指标清单">
-														<div km-textbox-ml name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
+														<div km-rich-textbox identifier="document.header.identifier" name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
 													</div>
 												</div>
 											</div>
@@ -157,7 +157,7 @@
 									<div class="row  bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="documentText" caption="请说明评估进展情况所用的任何其他工具或手段。" data-container=".assessmentform" data-content="请说明贵国在评估本项国家目标的落实进展时所用的任何工具或方式。其中可以包括案例研究、案头研究、专家意见和利益攸关方磋商等等。">
-												<div km-textbox-ml name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox identifier="document.header.identifier" name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -188,7 +188,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" required name="confidenceInfo" caption="请解释贵国对前面所进行评估的置信水平。" data-container=".assessmentform" data-content="请说明以上的评估被给予上述置信水平的原因缔约方不妨就所用信息或指标的类型、代表性、覆盖面和可能存在的任何局限性发表评论。">
-												<div km-textbox-ml required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
+												<div km-rich-textbox identifier="document.header.identifier" required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -202,7 +202,7 @@
 									<div class="row">
 										<div class="col-md-12" ng-if="isMonitoringNotRequired()">
 											<div class="km-control-group" name="adequacyDescription" caption="请说明该目标是如何被监测的，并注明是否有一个监测系统。" data-container=".assessmentform" data-content="如果在上面的问题中已经选择前两项答案中的任意一项（即与本目标有关的监测适足或与本目标有关的监测部分适足），请说明如何对目标进行监测，包括任何相关监测系统的信息。谨建议贵国作出回复的问题包括：监测系统的特点、该系统的主管组织、信息或数据的收集方式、所收集数据的类型和数据的更新频率。">
-												<div km-textbox-ml name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
+												<div km-rich-textbox identifier="document.header.identifier" name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
 											</div>
 										</div>
 									</div>

@@ -1,25 +1,25 @@
 ﻿<div class="col-md-12 panel panel-default view-national-assessment">
 	<div class="panel-body">
 		<div class="viewForm">
-			<div class="col-md-12" style="padding-left:0px" ng-style="{ direction : (document.progress| term:locale|direction:locale) }"><img ng-src="/app/img/ratings/{{document.progress.identifier}}.png" class="pull-left"><legend>{{document.date.substr(0,4)}} - {{document.progress | term:locale}}</legend>
+			<div class="col-md-12" style="padding-left:0px" ng-style="{ direction : (document.progress| term:locale|direction:locale) }"><img ng-if="document.progress.identifier!='69C77387-2D3C-474C-BEA8-30F55D47AFBD'" ng-src="/app/img/ratings/{{document.progress.identifier}}.png" class="pull-left"><legend>{{document.date.substr(0,4)}} - {{document.progress | term:locale}}</legend>
 			</div>
 			<div ng-show="document.government" class="col-md-12">
 				<label>Pays</label>
-				<div class="km-value" ng-style="{ direction : (document.government| term:locale|direction:locale) }"><span>{{document.government | term:locale}}</span></div>
+				<div class="km-value" ng-style="{ direction : (document.government| term:locale|direction:locale) }"><span>{{document.government | term:locale}} </span></div>
 			</div>
 
 			<div ng-show="document.description" class="col-md-12">
 				<label>Description</label>
-				<km-value-ml value="document.description" locales="locale" km-pre></km-value-ml>
+				<km-value-ml value="document.description" locales="locale" km-pre html></km-value-ml>
 			</div>
 
-			<div ng-show="document.nationalTarget||nationalTarget" class="col-md-12 assessment-tagets">
+			<div ng-show="document.aichiTarget||nationalTarget" class="col-md-12 assessment-tagets">
 				<label>Objectifs</label>
 				<div >
 					<div ng-repeat="item in nationalTarget">
 						<km-value-ml value="item.title" locales="locale"></km-value-ml>
 					</div>
-					<div class="km-value" ng-if="document.aichiTarget" ng-style="{ direction : (document.aichiTarget| term:locale|direction:locale) }">{{document.aichiTarget | term:locale}}</div>
+					<div class="km-value" ng-if="document.aichiTarget" ng-style="{ direction : (document.aichiTarget| term:locale|direction:locale) }">{{document.aichiTarget | term:locale}} </div>
 				</div>
 			</div>
 
@@ -50,36 +50,34 @@
 					<label></label>
 					<div class="km-value" >Le pays n&apos;a pas utilis&eacute; d&apos;indicateurs pour &eacute;valuer les progr&egrave;s accomplis dans la r&eacute;alisation de cet objectif national.</div>
 				</div>
-				<div ng-show="document.nationalIndicatorsUsed || document.nationalIndicators">
+				<div ng-show="document.nationalIndicatorsUsed && document.nationalIndicators">
 					<label>Indicateurs utilis&eacute;s dans cette &eacute;valuation</label>
 					<km-value-ml value="document.nationalIndicators" locales="locale"></km-value-ml>
 				</div>
 				<div ng-show="document.documentText">
 					<label>Autres outils ou moyens utilis&eacute;s pour &eacute;valuer les progr&egrave;s.</label>
-					<km-value-ml value="document.documentText" locales="locale" km-pre></km-value-ml>
+					<km-value-ml value="document.documentText" locales="locale" km-pre html></km-value-ml>
 				</div>
 
 				<div ng-show="document.documentLinks">
 					<label>Sites Internet, liens Internet et fichiers pertinents</label>
-					<div class="km-value" ng-repeat="item in document.documentLinks"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></div>
-				</div>
-				<div ng-show="document.documentText">
-					<label>Autres outils ou moyens utilis&eacute;s pour &eacute;valuer les progr&egrave;s.</label>
-					<div class="km-value km-pre" ng-style="{ direction : (document.documentText|direction:locale) }">{{document.documentText|lstring:locale}}</div>
+					<div class="km-value" >
+						<div ng-repeat="item in document.documentLinks"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></div>
+					</div>
 				</div>
 
 				<div ng-show="document.strategicPlanIndicators">
 					<label>Indicateurs utilis&eacute;s dans cette &eacute;valuation</label>
-					<ul class="km-value">
-						<li ng-repeat="item in strategicPlanIndicators" ng-style="{ direction : (item.title|direction:locale) }">{{item.title | lstring:locale}}</li>
-					</ul>
+					<div class="km-value">
+						<div ng-repeat="item in strategicPlanIndicators" ng-style="{ direction : (item.title|direction:locale) }">{{item.title | lstring:locale}} </div>
+					</div>
 				</div>
 
 				<div ng-show="document.implementationActivities">
 					<label>Lien aux activit&eacute;s nationales li&eacute;es &agrave; cette &eacute;valuation</label>
-					<ul class="km-value">
-						<li ng-repeat="item in document.implementationActivities" ng-style="{ direction : (item.title|direction:locale) }">{{item.title | lstring:locale}}</li>
-					</ul>
+					<div class="km-value">
+						<div ng-repeat="item in document.implementationActivities" ng-style="{ direction : (item.title|direction:locale) }">{{item.title | lstring:locale}} </div>
+					</div>
 				</div>
 			</div>
 
@@ -89,12 +87,12 @@
 
 				<div ng-show="document.confidence">
 					<label>Niveau de confiance de l&rsquo;&eacute;valuation ci-dessus</label>
-					<div class="km-value" ng-style="{ direction : (document.confidence | term:locale|direction:locale) }">{{document.confidence | term:locale}}</div>
+					<div class="km-value" ng-style="{ direction : (document.confidence | term:locale|direction:locale) }">{{document.confidence | term:locale}} </div>
 				</div>
 
 				<div ng-show="document.confidenceInfo">
 					<label>Niveau de confiance de l&rsquo;&eacute;valuation ci-dessus</label>
-					<km-value-ml value="document.confidenceInfo" locales="locale" km-pre></km-value-ml>
+					<km-value-ml value="document.confidenceInfo" locales="locale" km-pre html></km-value-ml>
 				</div>
 				<div ng-show="document.adequacy">
 					<label>Caract&egrave;re ad&eacute;quat des donn&eacute;es de suivi qui appuient l&rsquo;&eacute;valuation</label>
@@ -102,13 +100,13 @@
 				</div>
 				<div ng-show="document.adequacyDescription">
 					<label>Syst&egrave;me de suivi de l&apos;objectif</label>
-					<km-value-ml value="document.adequacyDescription" locales="locale" km-pre></km-value-ml>
+					<km-value-ml value="document.adequacyDescription" locales="locale" km-pre html></km-value-ml>
 				</div>
 				<div ng-show="document.otherRelevantDocuments">
 					<label>Autres sites Internet ou fichiers en pi&egrave;ces jointes</label>
-					<ul class="km-value">
-						<li ng-repeat="item in document.otherRelevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></li>
-					</ul>
+					<div class="km-value">
+						<div ng-repeat="item in document.otherRelevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></div>
+					</div>
 				</div>
 			</div>
 		</div>

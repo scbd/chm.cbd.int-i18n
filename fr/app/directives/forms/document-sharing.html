@@ -1,5 +1,5 @@
-﻿<span><button type="button" class="btn btn-primary" ng-click="shareDocument()">Partager</button>
-    <button type="button" class="btn btn-primary" ng-click="getPdf()">PDF</button>
+﻿<span><button ng-disabled="disabled" type="button" class="btn btn-primary" ng-click="shareDocument()">Partager</button>
+    <button ng-disabled="disabled" type="button" class="btn btn-primary" ng-click="getPdf()">PDF</button>
     <style>
         /* .ngdialog-content {
                 background: transparent !important;
@@ -12,7 +12,7 @@
         .tab-pane .content {
             margin: 2%;
         }
-    </style>  <script type="text/ng-template" id="shareDocumentTemplate.html" trados-translation="true">
+    </style>  </span><script type="text/ng-template" id="shareDocumentTemplate.html" trados-translation="true">
         <h1>{{title}}</h1><br/><div role="tabpanel"><!-- Nav tabs --><ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a translation-url href="#email" aria-controls="email" role="tab" data-toggle="tab"><span class="sub-header">Envoy&eacute; par email</span></a></li>
                 <li role="presentation"><a translation-url href="#url" aria-controls="url" role="tab" data-toggle="tab"><span class="sub-header">Envoyer par URL</span></a></li>
@@ -23,14 +23,14 @@
                             <div>Nous enverrons aux destinataires un email avec le lien pour voir ce document provisoire.</div>
                             <hr/>courriels&nbsp;: <br/><input type="text" placeholder="entrer un email" class="form-control" ng-model="document.sharedWith.emails" />
                             <div><span style="font-size: smaller;color: #777575;">S&eacute;parez plusieurs courriels par des virgules. Nous enverrons aux destinataires un email avec le lien pour voir ce document provisoire.</span></div>
-                            <div><span ng-if="status=='creatingLink'"> <i class="fa fa-spin fa-spinner" /> Mise &agrave; jour...</span><button type="button" class="btn btn-primary pull-right" ng-click="shareEmail()" ng-disabled="status=='creatingLink'">&Eacute;metteur</button>
+                            <div><span ng-if="status=='creatingLink'"> <i class="fa fa-spin fa-spinner" /> Mise &agrave; jour... </span><button type="button" class="btn btn-primary pull-right" ng-click="shareEmail()" ng-disabled="status=='creatingLink'">&Eacute;metteur</button>
                             </div></br></div>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="url">
                     <div class="row">
                         <div class="content">
-                            <label>N&apos;importe qui avec le lien peut voir ce projet de document</label>
+                            <label>N&apos;importe qui avec le lien peut voir ce projet de document </label>
                             <div style="margin:auto"><a ng-href="#" ng-click="self.createLink()" class="btn btn-primary" ng-if="status!='creatingLink' && !document.sharedWith.link">Cr&eacute;er un lien</a> <i class="fa fa-spin fa-spinner" ng-if="status=='creatingLink'" /></div>
                             <div ng-if="document.sharedWith.link && status!='creatingLink'">
                                 <div class="btn-group">
@@ -53,12 +53,7 @@
                 <div role="tabpanel" class="tab-pane active" id="email">
                     <div class="row">
                         <div class="content">
-                            <div>                                
-                                <a ng-href="{{pdfUrl}}" target="_blank" class="btn btn-primary" ng-if="status!='generatingPDF' && pdfUrl">Ouvrir PDF</a>
-                            </div> 
-                            <span ng-if="status=='generatingPDF'">
-                            <div>Veuillez patienter pendant que le pdf est g&eacute;n&eacute;r&eacute;</div>
-                                <i class="fa fa-spin fa-spinner" /> En cours...</span>
+                            <div><a ng-href="{{pdfUrl}}" target="_blank" class="btn btn-primary" ng-if="status!='generatingPDF' && pdfUrl">Ouvrir le PDF</a></div><span ng-if="status=='generatingPDF'"><div>Veuillez patienter pendant que le pdf est g&eacute;n&eacute;r&eacute;</div><i class="fa fa-spin fa-spinner" /> En cours...</span>  
                             </br>
                         </div>
                     </div>
@@ -66,4 +61,3 @@
             </div>
         </div>
     </script>
-</span>

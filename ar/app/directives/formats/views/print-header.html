@@ -1,4 +1,4 @@
-﻿<div id="printContentHeader" style="">
+﻿<div id="printContentHeader" style="" dir="rtl">
     <style>
         .unep-logo {
             height: 100px;
@@ -19,21 +19,11 @@
             margin: 0 auto;
         }
     </style>
+    
     <div class="row" style="padding-bottom:10px;border-bottom:1px solid #ddd">
-        <div class="col-xs-4 ">
-            <img class="unep-logo" src="/app/img/unep-short-logo-black-{{options.locale}}.svg" />
-        </div>
-        <div class="col-xs-4" style="padding-top:10px;">
-            <img src="/app/img/logo-cbd-{{options.locale}}-full.svg" class="cbd-logo" />
-        </div>
-        <div class="col-xs-4">
-            <img class="un-logo" src="https://absch.cbd.int/app/img/Emblem_of_the_United_Nations.svg" />
-        </div>
-        <div class="row" >
-           <strong style="font-weight:700!important"> 
-               <span class="col-xs-12" style="margin-top:20px;text-align:center;">آلية غرفة تبادل المعلومات التابعة لاتفاقية التنوع البيولوجي</span>
-           </strong>
-        </div>
-    </div>
-    <br/>
-</div>
+        <div class="col-xs-4 "><img class="unep-logo" src="/app/img/unep-short-logo-black-{{options.locale.replace('*', websiteLocale)}}.svg" /></div>
+        <div class="col-xs-4" style="padding-top:10px;"><img src="/app/img/logo-cbd-{{options.locale.replace('*', websiteLocale)}}-full.svg" class="cbd-logo" /></div>
+        <div class="col-xs-4"><img class="un-logo" src="https://absch.cbd.int/app/img/Emblem_of_the_United_Nations.svg" /></div>
+        <div class="row" ><strong style="font-weight:700!important"><div class="col-xs-12" style="float:left!important;text-align:center;">The Clearing-House Mechanism of the Convention on Biological Diversity</span>
+           </strong></strong></div>
+    </div><br/></div>

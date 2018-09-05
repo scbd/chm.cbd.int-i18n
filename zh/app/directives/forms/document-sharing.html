@@ -1,5 +1,5 @@
-﻿<span><button type="button" class="btn btn-primary" ng-click="shareDocument()">分享</button>
-    <button type="button" class="btn btn-primary" ng-click="getPdf()">PDF</button>
+﻿<span><button ng-disabled="disabled" type="button" class="btn btn-primary" ng-click="shareDocument()">分享</button>
+    <button ng-disabled="disabled" type="button" class="btn btn-primary" ng-click="getPdf()">PDF</button>
     <style>
         /* .ngdialog-content {
                 background: transparent !important;
@@ -12,7 +12,7 @@
         .tab-pane .content {
             margin: 2%;
         }
-    </style>  <script type="text/ng-template" id="shareDocumentTemplate.html" trados-translation="true">
+    </style>  </span><script type="text/ng-template" id="shareDocumentTemplate.html" trados-translation="true">
         <h1>{{title}}</h1><br/><div role="tabpanel"><!-- Nav tabs --><ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a translation-url href="#email" aria-controls="email" role="tab" data-toggle="tab"><span class="sub-header">通过电子邮件发送</span></a></li>
                 <li role="presentation"><a translation-url href="#url" aria-controls="url" role="tab" data-toggle="tab"><span class="sub-header">通过URL发送</span></a></li>
@@ -22,15 +22,15 @@
                         <div class="content">
                             <div>我们将向收件人发送一封电子邮件，其中包含链接以查看此草稿文档。</div>
                             <hr/>电子邮箱 <br/><input type="text" placeholder="输入邮件" class="form-control" ng-model="document.sharedWith.emails" />
-                            <div><span style="font-size: smaller;color: #777575;">用逗号分隔多个电子邮件。这些用户在查看草稿记录之前必须使用此电子邮件登录到CBD</span></div>
-                            <div><span ng-if="status=='creatingLink'"> <i class="fa fa-spin fa-spinner" /> 更新</span><button type="button" class="btn btn-primary pull-right" ng-click="shareEmail()" ng-disabled="status=='creatingLink'">发送</button>
+                            <div><span style="font-size: smaller;color: #777575;">用逗号分隔多个电子邮件。 这些用户在查看草稿记录之前必须使用此电子邮件登录到CBD</span></div>
+                            <div><span ng-if="status=='creatingLink'"> <i class="fa fa-spin fa-spinner" /> 更新 </span><button type="button" class="btn btn-primary pull-right" ng-click="shareEmail()" ng-disabled="status=='creatingLink'">发送</button>
                             </div></br></div>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="url">
                     <div class="row">
                         <div class="content">
-                            <label>任何有链接的人都可以查看此草稿</label>
+                            <label>任何有链接的人都可以查看此草稿 </label>
                             <div style="margin:auto"><a ng-href="#" ng-click="self.createLink()" class="btn btn-primary" ng-if="status!='creatingLink' && !document.sharedWith.link">创建链接</a> <i class="fa fa-spin fa-spinner" ng-if="status=='creatingLink'" /></div>
                             <div ng-if="document.sharedWith.link && status!='creatingLink'">
                                 <div class="btn-group">
@@ -53,13 +53,11 @@
                 <div role="tabpanel" class="tab-pane active" id="email">
                     <div class="row">
                         <div class="content">
-                            <div>                                
-                                <a ng-href="{{pdfUrl}}" target="_blank" class="btn btn-primary" ng-if="status!='generatingPDF' && pdfUrl">打开 PDF</a>
-                            </div> 
-                            <span ng-if="status=='generatingPDF'"><div>请等待pdf生成</div> <i class="fa fa-spin fa-spinner" /> 正在处理...</span> </br></div>
+                            <div><a ng-href="{{pdfUrl}}" target="_blank" class="btn btn-primary" ng-if="status!='generatingPDF' && pdfUrl">打開PDF</a></div><span ng-if="status=='generatingPDF'"><div>请等待pdf生成</div><i class="fa fa-spin fa-spinner" /> 正在处理...</span>  
+                            </br>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </script>
-</span>

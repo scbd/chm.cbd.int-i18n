@@ -24,7 +24,7 @@
         </div>
         <div class="row" style="background:#fff;border: 1px solid #ddd;">
             <div class="col-md-2">
-                <div class="" style="width:100%;"><br> 文件名{{pdf.fileName|uppercase}} <br> <br> <a ng-href="{{pdf.src}}" download="{{pdf.fileName}}" class="btn btn-success" target="_blank"><i class="fa fa-download"></i> 下载</a> <br> <br> 查看 <span ng-repeat="lang in ['ar', 'fr', 'en', 'es', 'ru', 'zh']"><a ng-href="#" ng-click="loadLangPdf(lang)">{{lang}}</a> |</span></div>
+                <div class="" style="width:100%;"><br> 文件名{{pdf.fileName|uppercase}} <br><br> <a ng-href="{{pdf.src}}" download="{{pdf.fileName}}" class="btn btn-success" target="_blank"><i class="fa fa-download"></i> 下载</a> <br> <br> 查看 <span ng-repeat="lang in ['ar', 'fr', 'en', 'es', 'ru', 'zh']"><a ng-href="#" ng-click="loadLangPdf(lang)">{{lang}}</a> | </span></div>
             </div>
             <div class="col-md-10" style="padding:0px;border-right: 1px solid #ddd">
                 <div class="file-viewer-preview file-preview">

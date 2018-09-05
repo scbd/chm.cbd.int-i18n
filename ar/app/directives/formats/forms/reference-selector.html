@@ -102,7 +102,7 @@
     </style><!-- existing documents display --><div class="row">
         <div class="col-xs-12">
 
-            <button style="margin-right:20px;" class="btn btn-default" ng-click="openAddDialog();" ng-disabled="disabled"><i class="fa fa-plus"></i> {{caption || &apos;إضافة سجل&apos;}}{{type!==&apos;radio&apos; ? &quot;(s)&quot; : &quot;&quot;}}</button><span ng-show="model.length==0 || !model"><i class="color-blue">لم يتّم ربط أية سجلات</i></span> <a translation-url class="bold" href="#" ng-click="areVisible = true" ng-show="!areVisible && model.length>0" name="showRecords"><i class="fa fa-chevron-circle-right"></i> {{model.length}} linked records.</a> <a translation-url class="bold" href="#" name="hideRecords" ng-click="areVisible=false" ng-show="areVisible && model.length>0 "><i class="fa fa-chevron-circle-down"></i> {{model.length}} سجلات مرتبطة.</a></div>
+            <button style="margin-right:20px;" class="btn btn-default" ng-click="openAddDialog();" ng-disabled="disabled"><i class="fa fa-plus"></i> {{caption || &apos;إضافة سجل&apos;}}{{type!==&apos;radio&apos; ? &quot;(s)&quot; : &quot;&quot;}}</button><span ng-show="model.length==0 || !model"> <i class="color-blue"> لم يتّم ربط أية سجلات </i> </span> <a translation-url class="bold" href="#" ng-click="areVisible = true" ng-show="!areVisible && model.length>0" name="showRecords"><i class="fa fa-chevron-circle-right"></i> {{model.length}} linked records.</a> <a translation-url class="bold" href="#" name="hideRecords" ng-click="areVisible=false" ng-show="areVisible && model.length>0 "><i class="fa fa-chevron-circle-down"></i> {{model.length}} سجلات مرتبطة.</a></div>
     </div>
     <div class="row" ng-show="areVisible && !disabled">
         <div class="col-xs-12">
@@ -153,13 +153,13 @@
                                 </div>
                             </div></a></div>
                 </div>
-                <div ng-if="isLoading"><i class="fa fa-spinner fa-spin"></i> التحميل</div>
-                <div ng-if="rawDocuments.numFound===0">لا توجد أي سجلات</div>
+                <div ng-if="isLoading"> <i class="fa fa-spinner fa-spin"></i> التحميل</div>
+                <div ng-if="rawDocuments.numFound===0"> لا توجد أي سجلات</div>
             </div>
 
             <div class="modal-footer bg-grey">
                 <div class="row">
-                    <div class="col-xs-12"><a translation-url type="button" class="btn btn-primary bold pull-left" style="color:white;" ng-click="saveDocuments()">Save</a> <a translation-url type="button" class="btn btn-warning bold" data-dismiss="modal" ng-click="closeDialog()">Close</a></div>
+                    <div class="col-xs-12"><a translation-url type="button" class="btn btn-primary bold pull-left" style="color:white;" ng-click="saveDocuments()">حفظ</a> <a translation-url type="button" class="btn btn-warning bold" data-dismiss="modal" ng-click="closeDialog()">إغلاق</a></div>
                 </div>
             </div>
         </div>

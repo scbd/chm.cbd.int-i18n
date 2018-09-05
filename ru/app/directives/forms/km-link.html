@@ -26,7 +26,7 @@
 					<div class="alert alert-info">Укажите URL-адрес веб-сайта (например<a translation-url target="_blank" href="http://www.cbd.int">http://www.cbd.int</a>) и название веб-сайта (например, «Конвенция о биологическом разнообразии»).</div>
 					<form name="linkForm">
 						<fieldset>
-							<div class="alert alert-warning" ng-show="linkForm.$error.url"><strong>Внимание!</strong> Указанное значение не является допустимым URL<ul><li>Убедитесь, что URL начинается с http: // или https: //</li></ul>
+							<div class="alert alert-warning" ng-show="linkForm.$error.url"><strong>Внимание!</strong> Указанное значение не является допустимым URL<ul><li> Убедитесь, что URL начинается с http: // или https: //</li></ul>
 							</div>
 							<div class="control-group" ng-class="{error: linkForm.editor.url.$invalid}">
 								<label class="control-label" ng-required="editor.visible" for="url">URL-адрес</label>
@@ -35,7 +35,7 @@
 
 							<div class="control-group" ng-class="{error: linkForm.name.$invalid}">
 								<label>Название</label>
-								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="example: Веб-сайт Секретариата Конвенции о биологическом разнообразии">
+								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="пример: Веб-сайт Секретариата Конвенции о биологическом разнообразии">
 							</div>
 						</fieldset>
 					</form>
@@ -67,7 +67,7 @@
 						<input class="form-control" type="text" style="width:98%" ng-model="editor.name" ng-disabled="true">
 					</div><br/><div class="control-group" >
 						<label>Теги</label>
-						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="example: биологическое разнообразие, целевая задача по сохранению и устойчивому использованию биоразнообразия, принятая в Айти">
+						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="пример: биологическое разнообразие, целевая задача по сохранению и устойчивому использованию биоразнообразия, принятая в Айти">
 					</div>
 				</div>
 				<div class="modal-footer">
