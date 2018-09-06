@@ -1,0 +1,133 @@
+﻿<div dir="rtl">
+    
+    <div class="panel panel-default">
+        <div class="panel-header">
+            <h3>القسم الثاني تدابير التنفيذ وفعاليتها، والعقبات المرتبطة بها، والاحتياجات العلمية والتقنية اللازمة لتحقيق الأهداف الوطنية</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row  bottom-spacing">
+                <div class="col-md-12"><span class="help-block">باستخدام النموذج أدناه، يرجى الإبلاغ عن التدابير الرئيسية التي اتخذها بلدك لتنفيذ استراتيجيتها وخطة عملها الوطنية للتنوع البيولوجي. ويرجى أيضا تقديم تقييم لمدى فعالية هذه التدابير. وينبغي تكرار النموذج لكل تدبير مبلغ عنه. <a translation-url info-bar data-content="The objective of this section of the report is to collect information on the main measures taken by countries to implement their national biodiversity strategies and action plans and contribute to the achievement of its targets. This section of the reporting guidelines also seeks information on <ul><li>(a) the effectiveness of the measures taken;</li><li> (b) any identified obstacles or scientific and technical needs that need to be addressed; and </li><li>(c) any needs for implementation support.</li></ul> It is not necessary to list all the individual measures that have been taken. Countries should limit reporting to those measures that are of national significance. Furthermore, Parties may also wish to combine similar types of measures into a single entry in the national report or to use categories of measures in order to simplify the reporting process."
+                            data-title="CHM Help: Sixth national report"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
+                <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.implementationMeasure')">افتح كل شيء <i class="fa  fa-arrow-circle-o-up" /></a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.implementationMeasure')">إغلاق كل شيء <i class="fa  fa-arrow-circle-o-down" /> </a><button type="button" class="btn btn-primary pull-right" ng-click="addImplementationMeasure()">إضافة تدابير</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default implementationMeasure" ng-repeat="implementationMeasure in document.implementationMeasures track by $index">
+        <div class="panel-header clearfix">
+            <h3>{{implementationMeasure.title|lstring:locale}}<div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a translation-url ng-href="#" class="trash btn" ng-click="removeImplementationMeasure(implementationMeasure)"></a> <a translation-url ng-href="#" data-toggle="collapse" class="btn measure collapse-icon" data-target="#implementationMeasure{{$index}}"></a> <a ng-href="#" class="btn " ng-click="movePosition(document.implementationMeasures, $index, 'up')"
+                        data-toggle="tooltip" data-placement="top" title="تحريك واحدة تصل الأعلى" ng-if="!$first" style="width: 0% !important;padding-right: 10px;padding-left: 10px;"> <i class="fa fa-level-up" style="font-size:20px"/> </a> <a ng-href="#" class="btn " ng-click="movePosition(document.implementationMeasures, $index, 'down')"
+                    data-toggle="tooltip" data-placement="top" title="Move one potision down" ng-if="!$last" style="width: 0% !important;padding-right: 10px;padding-left: 10px;"> <i class="fa fa-level-down" style="font-size:20px"/> </a></div>
+            </h3>
+        </div>
+        <div class="panel-body collapse in" id="implementationMeasure{{$index}}">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="implementationMeasureTitle" caption="عنوان التدابير" data-content="يرجى تقديم عنوان قصير لهذا التدبير الذي تم اتخاذه.">
+                        <div km-textbox-ml name="implementationMeasureTitle" ng-model="implementationMeasure.title" locales="document.header.languages"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="implementationMeasureDescription" caption="صِف التدابير المتخذة للمساهمة في تنفيذ الاستراتيجيات وخطط العمل الوطنية للتنوع البيولوجي في بلدك."
+                        data-content="ينبغي نسخ هذا النموذج لكل تدبير أو فئة رئيسية من التدابير  المتخذة. وينبغي للأطراف أن تشير إلى تدبير رئيسي تم اتخاذه لتنفيذ الاستراتيجية وخطة العمل الوطنية للتنوع البيولوجي و/ أو لتحقيق أهداف التنوع البيولوجي الوطنية. ويمكن أن تشمل هذه على السياسات والتشريعات و/ أو البرامج والمبادرات. وقد ترغب الأطراف أيضا في الإبلاغ عن التدابير التي تتخذها الشعوب الأصلية والمجتمعات المحلية وأصحاب المصلحة. وعند وصف هذا الإجراء، قد ترغب الأطراف في تقديم معلومات حول هذه المسألة (المسائل) الذي يسعى التدبير إلى معالجته، والإجراءات المخططة والمنفذة، والتعميم، والأطر الزمنية، والجهات المعنية المشاركة. . وقد ترغب الأطراف أيضا في الإشارة إلى ما إذا كان التدبير المتخذ مرتبط بمقرر محدد صادر عن مؤتمر الأطراف، أو بتوصية صادرة عن إحدى هيئاته الفرعية، أو ببرنامج عمل مواضيعي أو مسألة شاملة تتناولها الاتفاقية. وقد ترغب الأطراف أيضا في الإشارة إلى إذا ما كان التدبير المعني يرتبط بعمليات دولية أخرى، مثل الاتفاقات البيئية المتعددة الأطراف و/أو العمليات الإقليمية ذات الصلة.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureDescription" ng-model="implementationMeasure.description" locales="document.header.languages"
+                            rows="3"  on-file-upload="onEditorFileUpload(data)"></div>
+                    </div>
+                </div>
+                <div class="col-md-12" ng-if="!document.targetPursued">
+                    <div class="km-control-group" name="implementationMeasureAichiTargets" caption="لكل واحد من تدابير التنفيذ، يرجى الإشارة إلى الهدف الوطني (الأهداف الوطنية) أو هدف (أهداف) أيشي للتنوع البيولوجي التي يسهم فيها. "
+                        data-content="يرجى الإشارة إلى الهدف (الأهداف) الوطنية التي ترتبط بهذا التدبير. إذا لم تضع بلدك أهداف وطنية، الرجاء الإشارة إلى (هدف) أهداف أيشي للتنوع البيولوجي التي يرتبط بها هذا التدبير. وإذا قرر بلدك استخدام أداة الإبلاغ على الإنترنت، ستعرض الأهداف الوطنية لبلدك (التي أدخلت في القسم الأول) أو أهداف أيشي للتنوع البيولوجي بصورة تلقائية للاختيار من بينها.">
+                        <div km-select multiple name="implementationMeasureAichiTargets" ng-model="implementationMeasure.aichiTargets" placeholder="الرجاء اختيار أهداف أيشي للتنوع البيولوجي"
+                            items="options.aichiTargets()"></div>
+                    </div>
+                </div>
+                <div class="col-md-12" ng-if="document.targetPursued">
+                    <div class="km-control-group" name="implementationMeasureAichiTargets" caption="لكل واحد من تدابير التنفيذ، يرجى الإشارة إلى الهدف الوطني (الأهداف الوطنية) أو هدف (أهداف) أيشي للتنوع البيولوجي التي يسهم فيها. "
+                        data-content="يرجى الإشارة إلى الهدف (الأهداف) الوطنية التي ترتبط بهذا التدبير. إذا لم تضع بلدك أهداف وطنية، الرجاء الإشارة إلى (هدف) أهداف أيشي للتنوع البيولوجي التي يرتبط بها هذا التدبير. وإذا قرر بلدك استخدام أداة الإبلاغ على الإنترنت، ستعرض الأهداف الوطنية لبلدك (التي أدخلت في القسم الأول) أو أهداف أيشي للتنوع البيولوجي بصورة تلقائية للاختيار من بينها.">
+                        <div km-select multiple name="implementationMeasureNationalTargets" ng-model="implementationMeasure.nationalTargets" placeholder="الرجاء تحديد الأهداف الوطنية"
+                            items="options.nationalTargets()"></div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="km-control-group" name="implementationMeasureAssessment" caption="تقييم لفعالية تدابير التنفيذ في تحقيق النتائج المرغوبة"
+                        data-content="يرجى بيان فعالية التدبير في تحقيق التغيير المتوقع. ويمكن أن تشمل التغييرات المتوقعة، من بين أمور أخرى، تغييرات في حالة واتجاهات التنوع البيولوجي، والتغيرات في عوامل فقدان التنوع البيولوجي، والتغيرات في السلوك أو تغييرات في السياسات.">
+                        <div km-term-radio name="implementationMeasureAssessment" ng-model="implementationMeasure.assessment" terms="options.assessment()"
+                            description="true" binding-type="term" ng-click="save()"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="implementationMeasureAssessmentDescription" caption="يرجى توضيح سبب الاختيار والإشارة إن أمكن إلى الأدوات أو المنهجية المستخدمة لتقييم الفاعلية"
+                        data-content="يرجى تقديم معلومات إثباتية للاختيار الوارد أعلاه بشأن فعالية هذا الإجراء. على سبيل المثال، يمكن أن يشمل ذلك المعلومات المتعلقة بالتغيرات التي طرأت على حالة واتجاهات التنوع البيولوجي أو تغيرات الضغوط على التنوع البيولوجي أو دوافع فقدانه. . ويمكن أن تشمل أيضا التغيرات في الظروف الاجتماعية والاقتصادية، مثل الوعي بالتنوع البيولوجي، والتغيرات في توافر الموارد، والتغيرات في السياسات الحكومية، أو تغييرات في سلوك القطاعات الرئيسية في البلاد.</br> 
+وعند الإبلاغ عن هذه المسألة، ينبغي للأطراف أن يضعوا في اعتبارهم الفقرة 29 من المقرر 13/1 التي تشجع الأطراف على إجراء تقييمات لفعالية التدابير المتخذة من أجل تنفيذ الخطة الاستراتيجية للتنوع البيولوجي 2011-2020، لتوثيق الخبرات، بما في ذلك المنهجيات المستخدمة، وتحديد الدروس المستفادة، وتوفير هذه المعلومات إلى الأمين التنفيذي، بما في ذلك من خلال التقرير الوطني السادس وآلية غرفة تبادل المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureAssessmentDescription" ng-model="implementationMeasure.assessmentDescription"
+                            locales="document.header.languages" rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="implementationMeasureRelevantDocuments" caption="المواقع الشبكية ووصلات الويب والملفات ذات الصلة (يرجى استخدام هذا الحقل للإشارة إلى أي مواقع شبكية أو وصلات الويب أو الوثائق ذات الصلة التي يمكن العثور فيها على معلومات إضافية عن هذا التقييم)."
+                        data-content="يرجى الإشارة إلى أي وثائق أو مواقع أو وصلات ويب أو وثائق توفر معلومات إضافية ذات صلة لتقييم فعالية التدابير المتخذة. على سبيل المثال، يمكن أن يشمل ربط مباشرة للمقالات العلمية، وتقديم المواقع الشبكية ووصلات الويب ومواقع المنشورات.">
+                        <div km-link name="implementationMeasureRelevantDocuments" ng-model="implementationMeasure.relevantDocuments" identifier="document.header.identifier"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="implementationMeasureOtherRelevantInformation" caption="المعلومات الأخرى ذات الصلة، بما في ذلك دراسات حالة لتوضيح كيف حققت التدابير المتخذة (أو من المتوقع أن تحقق) نتائج تسهم في تنفيذ الاستراتيجيات وخطط العمل الوطنية للتنوع البيولوجي."
+                        data-content="يرجى تقديم أي معلومات إضافية ذات صلة، مثل دراسات الحالة المتعلقة بالتدابير المتخذة. يمكن أن تشمل عناصر دراسات الحالة مقدمة موجزة للموضوع أو المشكلة، ووصف ما جرى أو ما يجري القيام به للتصدي لها، ومعلومات عن الجهات الفاعلة المشاركة، ومعلومات عن لماذا تعد المسألة ذات صلة بالأهداف الوطنية أو أهداف أيشي للتنوع البيولوجي والاستنتاجات العامة والدروس المستفادة، بما في ذلك النتائج المحققة حتى الآن. ويمكن أيضا أن تشمل دراسات الحالة على شخصيات، أو خرائط، أو صور.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureOtherRelevantInformation" rows="3" ng-model="implementationMeasure.otherRelevantInformation"
+                            locales="document.header.languages"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="implementationMeasureOtherRelevantDocuments" caption="مواقع شبكية وملفات ذات الصلة (يرجى استخدام هذا الحقل للإشارة إلى أي مواقع شبكية أو وصلات الويب أو الوثائق ذات الصلة التي يمكن العثور فيها على معلومات إضافية عن هذا التقييم)."
+                        data-content="يرجى الإشارة إلى أي مواقع أو وصلات ويب أو وثائق توفر معلومات ذات صلة إضافية.">
+                        <div km-link name="implementationMeasureOtherRelevantDocuments" ng-model="implementationMeasure.otherRelevantDocuments" identifier="document.header.identifier"></div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="km-control-group" name="implementationMeasureObstacles" caption="العقبات والاحتياجات العلمية والتقنية المتعلقة بالتدابير المتخذة: يرجى وصف العقبات المواجهة وأي احتياجات علمية وتقنية للتغلب عليها، بما في ذلك التعاون التقني والعلمي، وأنشطة تنمية القدرات أو الاحتياج إلى مواد إرشادية."
+                        data-content="يرجى وصف أي احتياجات للتنفيذ أو العقبات التي تم تحديدها أو مصادفتها عند اتخاذ هذا الإجراء على سبيل المثال، يمكن أن تشمل بلدك قضايا / المجالات المواضيعية محددة التي تحتاج إلى دعم، ونوع الدعم المطلوب، ما سيحققه الدعم في البلد، والذي ستستفيد المجموعات المجتمعية بصورة رئيسية من هذا الدعم القضايا المحددة التي قد يرغب بلدكم في التعليق عليها هي الاحتياجات المرتبطة بالتدريب و/ أو تطوير القوانين والتقنيات والأدوات والأدلة أو الدراسات. قد يرغب بلدك أيضا في التعليق على أي عقبات يمكن معالجتها من خلال فهم أفضل للمعارف التقليدية والعلوم الحديثة. قد ترغب الأطراف أيضا في التعليق على توضيح أي عقبات أو احتياجات تعد ذات أولوية لمعالجتها . وستساعد المعلومات الواردة في هذا القسم من التقرير الوطني على تعزيز بناء القدرات والتعاون التقني والعلمي ونقل التكنولوجيا لدعم تنفيذ الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 والتأكد من أن المعلومات حول هذه القضايا يتم تبادلها بفعالية تماشيا مع المقرر 12/2 والمقرر 13/23.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureObstacles" rows="3" ng-model="implementationMeasure.obstacles" locales="document.header.languages"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="implementationMeasureObstaclesRelevantDocuments" caption="المواقع الشبكية ووصلات الويب والملفات ذات الصلة (يرجى استخدام هذا الحقل للإشارة إلى أي مواقع شبكية أو وصلات الويب أو الوثائق ذات الصلة التي يمكن العثور فيها على معلومات إضافية عن هذا التقييم)."
+                        data-content="يرجى الإشارة إلى أي مواقع أو وصلات ويب أو وثائق ذات صلة توفر مزيدا من المعلومات المتعلقة بهذه العقبات والاحتياجات العلمية والتقنية على سبيل المثال، يمكن أن يشمل ربط مباشرة للمقالات العلمية، وتقديم المواقع الشبكية ووصلات الويب ومواقع المنشورات.">
+                        <div km-link name="implementationMeasureObstaclesRelevantDocuments" ng-model="implementationMeasure.obstaclesRelevantDocuments"
+                            identifier="document.header.identifier"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/ng-template" trados-translation="true" id="deleteImplementationRecordModal">              
+					
+        <div class="modal-header" dir="rtl">
+            <h4 class="modal-title" >هل تريد الحذف حقاً؟ <i ng-show="deletingRecord" class="fa fa-spinner fa-spin" dir="rtl"></i></h4>
+        </div>
+        <div class="modal-body  bg-white"  dir="rtl">
+            <div ng-if="draftRecordToDelete" class="well" style="font-size:14px;">
+                <div style="font-size:11px;font-weight:bold;text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;margin-bottom:10px;">مقياس التنفيذ</div>
+                <div class="row">     
+                    <div class="col-xs-2" class="color-litegrey">عنوان:</div> 
+                    <div class="col-xs-10" style="font-weight:bold"> {{draftRecordToDelete.title|lstring:locale}}</div>
+                </div>
+                <div class="row"> 
+                    <div class="col-xs-2" class="color-litegrey">ملخص:</div> 
+                    <div class="col-xs-10 summary-description" style="font-weight:bold;" ><span ng-bind-html="draftRecordToDelete.description|lstring:locale"></span></div>
+                </div>
+                <div class="row" style="margin-top:10px;"> 
+                    <div class="col-xs-12"> 
+                        <button ng-disabled="deletingRecord" type="button" class="btn btn-danger"  ng-click="deleteImplementation(draftRecordToDelete)">حذف</button></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer"  dir="rtl">
+            <button type="button" class="btn btn-default" ng-click="closeDialog()">إلغاء</button>
+        </div>
+    </script>
+</div>

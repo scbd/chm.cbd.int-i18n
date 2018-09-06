@@ -1,0 +1,56 @@
+﻿<div>
+    <div class="panel panel-default">
+        <div class="panel-header">
+            <h3>Раздел III. Оценка результативности выполнения каждой из национальных целевых задач</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row  bottom-spacing">
+                <div class="col-md-12"><span class="help-block">Оцените, используя приведенную ниже матрицу, уровень прогресса, достигнутого в выполнении каждой из национальных целевых задач страны или аналогичных обязательств. Матрицу следует копировать для каждой национальной целевой задачи. Если страна не поставила национальных целевых задач, просьба использовать целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти. <a translation-url info-bar data-content="The objective of this section of the report is to collect information on the progress made towards the attainment of your country’s national targets. The template should be reproduced for each of your country’s national targets. If your country has not established national targets, please assess national progress towards the Aichi Biodiversity Targets."
+                            data-title="CHM Help: Sixth national report"><i class="fa fa-info-circle fa-2x"></i></a></span><div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.progressAssessment')">Открыть все <i class="fa  fa-arrow-circle-o-up" /></a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.progressAssessment')">Закрыть все <i class="fa  fa-arrow-circle-o-down" /> </a><button class="btn btn-primary pull-right" ng-click="refreshAssessment()" ng-disabled="loadingAssessments"><i class="fa fa-spin fa-spinner" ng-if="loadingAssessments" />Обновить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default progressAssessment" ng-repeat="progressAssessment in document.progressAssessments track by $index">
+        <div class="panel-header clearfix">
+            <h3>Оценка прогресса для <span ng-if="progressAssessment.nationalTarget">национальных целей : {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier, locale)}}</span> <span ng-if="progressAssessment.aichiTarget">Целевая задача сохранения биоразнообразия AICHI : {{::aichiTargets[progressAssessment.aichiTarget.identifier].title[locale]}}</span><div class="pull-right" style="padding-right:10px"><a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#progressAssessment{{$index}}"></a></div>
+            </h3>
+        </div>
+        <div class="panel-body collapse in" id="progressAssessment{{$index}}">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="progressAssessmentAdequacy" caption="Логическое обоснование национальной целевой задачи">
+                        <div ng-if="progressAssessment.assessment">
+                            <div class="row btn-status" style="margin-right:0.1%">
+                                <div ng-if="waitForWorkflow.nationalAssessment.identifier != progressAssessment.assessment.identifier || !waitForWorkflow.nationalAssessment"><span class="label label-primary pull-right  bg-published" style="margin-left:5px;"
+                                        ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='public' || targetAssessments[progressAssessment.assessment.identifier].publicRecord">Общественная</span> <span class="label label-warning pull-right bg-draft" ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='draft'">Черновик</span> <span class="label label-warning pull-right bg-request" ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='workflow'">Ожидание одобрения</span></div>
+                                <div ng-if="waitForWorkflow.nationalAssessment && waitForWorkflow.nationalAssessment.identifier == progressAssessment.assessment.identifier"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > Обработка...</span></div>
+                            </div><img ng-if="targetAssessments[progressAssessment.assessment.identifier].progress_s!='69C77387-2D3C-474C-BEA8-30F55D47AFBD'"
+                                ng-src="/app/img/ratings/{{targetAssessments[progressAssessment.assessment.identifier].progress_s}}.png" class="pull-left"></img><div>
+                                <div>
+                                    <h3>{{targetAssessments[progressAssessment.assessment.identifier].title|lstring:locale}}</h3>
+                                </div>
+                                <div>{{targetAssessments[progressAssessment.assessment.identifier].description|lstring:locale}}</div>
+                            </div>
+                        </div>
+                        <div ng-if="!progressAssessment.assessment" class="label label-info"><span ng-if="progressAssessment.nationalTarget">Логическое обоснование национальной целевой задачи</span> <span ng-if="progressAssessment.aichiTarget">Логическое обоснование национальной целевой задачи</span></div>
+                    </div>
+                    <div class="km-control-group pull-right">
+                        <div class="btn-group btn-group-xs" ng-if="waitForWorkflow.nationalAssessment.identifier != progressAssessment.assessment.identifier || !waitForWorkflow.nationalAssessment">
+                            <button ng-if="!progressAssessment.assessment" target="_blank" class="btn btn-primary" ng-click="openDialog(progressAssessment,'directives/formats/forms/national-assessment-dialog','edit-national-assessment-dialog')"
+                                ng-disabled="isDialogOpen"><i class="fa fa-plus"></i> Добавить</button><a translation-url title="Просмотр" ng-if="progressAssessment.assessment && targetAssessments[progressAssessment.assessment.identifier]._state_s == 'public'"
+                                target="_blank" class="btn btn-primary" ng-href="{{progressAssessment.assessment && targetAssessments[progressAssessment.assessment.identifier].url}}"><i class="fa fa-search"></i> Просмотр</a> <a translation-url ng-if="progressAssessment.assessment && targetAssessments[progressAssessment.assessment.identifier]._state_s=='workflow' "
+                                title="Заблокировано для редактирования" target="_blank" class="btn btn-primary" ng-href="/management/requests/{{getWorkflowId(progressAssessment.assessment && targetAssessments[progressAssessment.assessment.identifier])}}/publishRecord"><i class="fa fa-lock"></i> Статус просмотра</a><button ng-click="openDialog(progressAssessment,'directives/formats/forms/national-assessment-dialog','edit-national-assessment-dialog')"
+                                ng-if="progressAssessment.assessment && targetAssessments[progressAssessment.assessment.identifier]._state_s!='workflow'"
+                                title="Редактировать" type="button" class="btn btn-primary"><i class="fa fa-edit"></i> Редактировать</button>
+                            <button ng-if="progressAssessment.assessment && targetAssessments[progressAssessment.assessment.identifier]._state_s!='workflow'"
+                                title="Удалить" type="button" class="btn btn-primary" ng-click="delete(targetAssessments[progressAssessment.assessment.identifier],'nationalAssessment', $event)"><i class="fa fa-trash-o"></i> Удалить</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

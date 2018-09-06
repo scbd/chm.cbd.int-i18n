@@ -1,0 +1,483 @@
+﻿<div dir="rtl">
+    <div class="panel panel-default">
+        <div class="panel-header">
+            <h3>القسم الرابع وصف المساهمة الوطنية في تحقيق كل هدف عالمي من أهداف أيشي للتنوع البيولوجي</h3>
+        </div>
+        <div class="panel-body" >
+            <div class="row  bottom-spacing">
+                <div class="col-md-12"><span class="help-block"> </br>باستخدام النموذج أدناه، يرجى وصف مساهمة بلدك في تحقيق كل هدف عالمي من أهداف أيشي للتنوع البيولوجي. </br>وبالنسبة للأطراف التي تكون أهدافها الوطنية مماثلة لأهداف أيشي للتنوع البيولوجي، يمكن رصد بعض هذه المعلومات في القسمين الثاني والثالث أعلاه. ويرجى توفير وصف إضافي عن مساهمة بلدك الوطنية في تحقيق كل هدف من أهداف أيشي للتنوع البيولوجي. <a translation-url info-bar data-content="The objective of this section of the sixth national report guidelines is to collect information on progress towards the global Aichi Biodiversity Targets.
+        </br>
+        This section links progress made at the national level to the Aichi Biodiversity Targets. In describing national contributions towards the Aichi Biodiversity Targets, please consider all the elements associated with the Aichi Biodiversity Target.
+        </br>
+        The information collected through this section of the national report will enable preparation of an analysis/synthesis of the contributions of national, regional and other actions, towards the global targets in accordance with decision X/2.
+        </br>
+        Responses in this section of the national report should build on the information contained in sections II and III. However, it is not necessary to repeat information that has already been included in earlier sections of the report.
+        " data-title="CHM Help: Sixth national report"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
+                <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.aichiTarget')">افتح كل شيء <i class="fa  fa-arrow-circle-o-up" /></a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.aichiTarget')">إغلاق كل شيء <i class="fa  fa-arrow-circle-o-down" /> </a></div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default aichiTarget" ng-repeat="aichiTarget in document.nationalContribution track by $index" ng-if="aichiTarget.identifier">
+        <div class="panel-header clearfix">
+            <h3>{{aichiTargets[aichiTarget.identifier].title[locale]}}<div class="pull-right" style="padding-right:10px"><a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#{{aichiTarget.identifier}}"></a></div>
+            </h3>
+        </div>
+        <div class="panel-body collapse in" id="{{aichiTarget.identifier}}"><span ng-include src="'aichiTargetContribution'" onload="target=aichiTarget"></span></div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributionSDGs" caption="استنادا إلى وصف مساهمة بلدك في تحقيق أهداف أيشي للتنوع البيولوجي، يرجى وصف كيف دعمت هذه المساهمات وإلى أي حد تنفيذ خطة التنمية المستدامة لعام 2030 وأهداف التنمية المستدامة."
+                        data-content="استنادا إلى المعلومات الواردة في القسم الرابع من التقرير الوطني، يرجى وصف كيف يساعد التنوع البيولوجي ومساهمات بلدكم لتحقيق أهداف أيشي للتنوع البيولوجي في معالجة الموضوعات الرئيسية التي تناولها الهدف 17 من أهداف التنمية المستدامة. وقد ترغب البلدان في استخدام تقرير عن الصلات بين <a target='_blank' href='https://www.cbd.int/doc/meetings/sbstta/sbstta-19/information/sbstta-19-inf-09-en.pdf'>  أهداف أيشي للتنوع البيولوجي وخطة التنمية المستدامة 2030  </a>, a <a target='_blank' href='https://www.cbd.int/development/doc/biodiversity-2030-agenda-technical-note-en.pdf'>  )، ومذكرة تقنية عن التنوع البيولوجي وخطة التنمية المستدامة 2030  </a>, وورقة مناقشات بشأن الروابط بين <a target='_blank' href='http://swed.bio/wp-content/uploads/2016/11/The-2030-Agenda-and-Ecosystems_spread.pdf'>  أهداف أيشي للتنوع البيولوجي وأهداف التنمية المستدامة </a>  من إعداد مركز استكهولم لدراسات الصمود.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributionSDGs" ng-model="document.nationalContribution.nationalContributionSDGs" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="aichiTargetContribution" trados-translation="true">
+
+        <div ng-switch="target.identifier" dir="rtl">
+            <div ng-switch-when="AICHI-TARGET-01" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-01" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هو المستوى الحالي للتوعية بالتنوع البيولوجي؟ ما هي المجموعات التي لديها فهم أفضل/أقل بالتنوع البيولوجي (على سبيل المثال، قد يرغب بلدك في دراسة المعلومات المصنفة حسب نوع الجنس أو العمر أو مستوى التعليم؟ ما هي الأنشطة التوعية التي أجريت؟ ما مدى فعالية هذه الأنشطة؟ في وصف التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة </li></ul><p><a translation-url target='_blank' href='http://ethicalbiotrade.org/biodiversity-barometer/' >Biodiversity على الموقع الشبكي لمقياس التنوع البيولوجي  </a> و <a translation-url target='_blank' href='https://www.google.ca/trends/' > وعلى موقع اتجاهات غوغل </a>.</p>">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-01" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-01" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-01" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-02" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-02" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: : ما هي دراسات التقييم التي تم الاضطلاع بها وما هي النظم الإيكولوجية التي غطت هذه الدراسات؟ إلى أي مدى تم استخدام دراسات التقييم هذه في الاسترشاد بها في عمليات صنع القرار؟ إلى أي مدى تم إدماج اعتبارات التنوع البيولوجي في عمليات التخطيط واستراتيجيات التنمية والحد من الفقر على المستويين الوطني والمحلي؟ إلى أي مدى تم إدماج التنوع البيولوجي في الإبلاغ الوطني ونظم والمحاسبة ؟ إلى أي مدى يقوم بلدك بتنفيذ حسابات الموارد الطبيعية في إطار نظام المحاسبة البيئية والاقتصادية (نظام المحاسبة)؟ في وصف التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب في النظر في ردود بلدك على السؤالين 2 و3 من إطار الإبلاغ المالي. وقد ترغب الأطراف أيضا في الاستفادة من المعلومات المتاحة  <a translation-url target='_blank' href='http://unstats.un.org/unsd/envaccounting/default.asp'>  على الموقع الشبكي لشعبة إحصاءات الأمم المتحدة بشأن الحسابات البيئية والاقتصادية </a>) والدليل الأولي المتعلق بوضع المفاهيم المتنوعة لقيم الطبيعة المتعددة وفوائدها والذي أعده ا في مجال التنوع البيولوجي وخدمات النظم الإيكولوجية   <a translation-url target='_blank' href='http://www.ipbes.net/sites/default/files/downloads/IPBES-4-INF-13_EN.pdf'>لمنبر الحكومي الدولي للعلوم والسياسات </a>.</p>">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-02" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-02" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-02" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-03" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-03" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="عند وصف التقدم المحرز في سبيل تحقيق هذا الهدف، قد ترغب البلدان في النظر في المراحل الرئيسية للتنفيذ التام للهدف 3 من أهداف أيشي للتنوع البيولوجي (الذي اعتُمد في المقرر 12/3)،   <a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13366'>decision XII/3</a>),  إلى جانب طرائق التنفيذ المرتبطة بها. وفي المقرر ذاته، دُعيت الأطراف إلى الإبلاغ عن التقدم المحرز في بلوغ هذه المراحل الرئيسية، إلى جانب أي مراحل رئيسية وأطر زمنية إضافية محددة على المستوى الوطني، وذلك في تقاريرها الوطنية، أو، حسب الاقتضاء، في إطار الإبلاغ الإلكتروني على الإنترنت المتعلق بتنفيذ الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 وأهداف أيشي للتنوع البيولوجي. ويرد مزيد من المعلومات بشأن طرائق التفعيل التام للهدف 3 من أهداف التنوع البيولوجي في الوثيقة  <a translation-url target='_blank' href='https://www.cbd.int/doc/meetings/cop/cop-12/information/cop-12-inf-20-en.doc'>UNEP/CBD/COP/12/INF/20</a>. ). وبالإضافة إلى ذلك، ذكّر مؤتمر الأطراف، في مقرره 13/20، بهذا المقرر ودعا الأطراف إلى إدراج معلومات كذلك عن الدراسات التحليلية الوطنية التي تحدد أساليب مرشحة لإلغاء الحوافز كليةً أو تدريجيا أو إصلاحها، بما في ذلك الدعم، التي تضر بالتنوع البيولوجي، كما تحدد فرصا لتعزيز التصميم والاعتراف الملائم وتوفير الدعم للشعوب الأصلية والمجتمعات المحلية التي تتولى حفظ الأراضي والمناطق، وغيرها من مبادرات الحفظ المجتمعية الفعالة؛ وتنفيذ تدابير الحوافز الإيجابية، مثل الاعتراف الملائم وتوفير الدعم للشعوب الأصلية والمجتمعات المحلية التي تتولى حفظ الأراضي والمناطق، وغيرها من مبادرات الحفظ المجتمعية الفعالة. وتتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: هل أجريت عمليات استعراض للحوافز وآثارها المحتملة على التنوع البيولوجي وخدمات النظم الإيكولوجية؟ ما هي الحوافز الضارة، بما في ذلك الإعانات، التي تم القضاء عليها، أو تم تخفيضها تدريجيا أو تم إصلاحها؟ ما تأثير ذلك على التنوع البيولوجي? ؟ ما هي الحوافز الضارة الأخرى الموجودة في البلاد وكيف تؤثر على التنوع البيولوجي؟ ما هي الحوافز الإيجابية للتنوع البيولوجي التي تم تنفيذها وما هي قضايا التنوع البيولوجي التي تعالجها؟ في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة من قاعدة بيانات تقديرات دعم المستهلك التابعة  <a translation-url target='_blank' href='http://www.oecd.org/tad/agricultural- policies/producerandconsumersupportestimates database.htm'> لمنظمة التعاون والتنمية في الميدان الاقتصادي  </a>.</p> ">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-03" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-03" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-03" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-04" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-04" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="عند الإبلاغ عن التقدم المحرز في سبيل تحقيق هذا الهدف، ينبغي للأطراف النظر في التوجيهات التالية:<p>
+								<a translation-url target='_blank' href='https://www.cbd.int/doc/decisions/cop-13/cop-13-dec-08-en.pdf'>
+المقرر 13/8</a> (الاستخدام المستدام للتنوع البيولوجي: لحوم الطرائد والإدارة المستدامة للأحياء البرية)،   الفقرة 3: إن مؤتمر الأطراف، يدعو الأطراف إلى إدراج معلومات في تقاريرها الوطنية السادسة إلى اتفاقية التنوع البيولوجي، عن استخدام نظم الإدارة المعتمدة على الحقوق وتحويل هذه الحقوق وما يرتبط بها من إدارة إلى الشعوب الأصلية والمجتمعات المحلية فيما يتعلق بالإدارة المستدامة للأحياء البرية.
+وقد يرغب بلدك أيضا في التعليق على القضايا المتصلة بالسياحة المستدامة فيما يتعلق  <a translation-url target='_blank' href='https://www.cbd.int/doc/decisions/cop-13/cop-13-dec-03-en.pdf'>  بالمقرر 13/3 </a> (  (الإجراءات الاستراتيجية لتعزيز تنفيذ الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 وتحقيق أهداف أيشي للتنوع البيولوجي، بما في ذلك ما يتعلق بتعميم التنوع البيولوجي ودمجه داخل القطاعات وعبرها) ,  الفقرة  111 (a). ). وتطلب هذه الفقرة إلى الأمين التنفيذي، رهنا بتوفر الموارد، تحليل المعلومات التي يقدمها الأطراف في تقاريرهم الوطنية السادسة عن أنشطة السياحة، والتي يجرى تكميلها بالمعلومات المقدمة من المنظمات والمبادرات الدولية ذات الصلة.
+وتتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هي الإجراءات التي اتخذت للحد من تأثير القطاعات الإنتاجية على التنوع البيولوجي؟ كيف تغير الطلب على الموارد الطبيعية في البلاد وهل هو مستدام حاليا؟ ما هي الإجراءات التي تم اتخاذها للحد من استهلاك الموارد و/أو لجعلها أكثر استدامة؟ ما هي خطط الاستهلاك والإنتاج المستدامين التي تم وضعها؟ كيف تراعي هذه الخطط احتياجات المجموعات المختلفة؟ 
+في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة من  <a translation-url target='_blank' href='https://cites.org/eng'> اتفاقية التجارة الدولية بأنواع الحيوانات والنباتات البرية المهددة بالانقراض</a>, <a translation-url target='_blank' href='www.unwto.org'>) ومنظمة الأمم المتحدة للسياحة العالمية  </a>,   <a translation-url target='_blank' href='http://www.iucnredlist.org'> والقائمة الحمراء للأنواع المهددة بالانقراض للاتحاد الدولي لحماية الطبيعة والموارد الطبيعية </a>,  <a translation-url target='_blank' href='http://www.footprintnetwork.org/en/index.php/GFN/page/footprint_for_nations/'>والشبكة العالمية للبصمة البيئية </a>,  <a translation-url target='_blank' href='http://waterfootprint.org/en/water-footprint/national-water-footprint/'> وشبكة البصمة المائية  </a>  <a translation-url target='_blank' href='http://www.traffic.org/'>وبرنامج تحليل السجلات التجارية للاتجار بالحيوانات والنباتات </a></p>. ">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-04" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-04" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-04" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-05" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-05" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كيف تغير معدل فقدان الموائل الرئيسية في البلاد ؟ كيف كان معدل تدهور الموائل وتجزئتها؟ هل كان هناك تغير؟ ما الذي أدى إلى هذا التغير؟ ما هي الإجراءات التي اتخذت لمعالجة الأسباب الكامنة وراء فقدان التنوع البيولوجي؟ ولمساعدة الأطراف في جمع وتقاسم البيانات بشأن حالة الهدف 5 من أهداف التنوع البيولوجي، أعدت أمانة الاتفاقية ملفات بيانات باستخدام معلومات مستمدة من مصادر متنوعة. ويمكن الحصول على هذه الملفات من الموقع الإلكتروني <a translation-url target='_blank' href='https://www.cbd.int/forest/'>https://www.cbd.int/forest/</a>. وفي وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف أيضا في الاستفادة من المعلومات المتاحة في  <a translation-url target='_blank' href='http://www.fao.org/forest-resources-assessment/en/'> التقييم العالمي للموارد الحرجية لمنظمة الأغذية والزراعة </a>, <a translation-url target='_blank' href='http://www.wri.org/our-work/project/global-forest-watch/maps_data'> والرصد العالمي للغابات </a>, <a translation-url target='_blank' href='http://www.gmba.unibe.ch/'>والتقييم العالمي للتنوع البيولوجي للجبال  Assessment</a>. كما يمكن الاطلاع على المعلومات ذات الصلة على الموقع الإلكتروني  <a translation-url target='_blank' href='http://www.unccd.int/en/Pages/default.aspx'>لاتفاقية الأمم المتحدة لمكافحة التصحر  </a> و <a translation-url target='_blank' href='http://www.ramsar.org/'>وموقع اتفاقية رامسار</a> .">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-05" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-05" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-05" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-06" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-06" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كيف تغيرت حالة الأرصدة السمكية واللافقاريات والنباتات المائية في البلاد؟ ما الذي أدى إلى هذه التغيرات؟ ما مدى استدامة تقنيات الصيد المستخدمة في البلاد? ما هي الخطط الإدارية التي تم وضعها للأرصدة السمكية المنضبة؟ ما هي اللوائح أو السياسات المتعلقة بانتعاش الأنواع المنضبة الموجودة في البلاد؟ ما هي الأحكام الموجودة للحد من آثار مصائد الأسماك على الأنواع المهددة بالانقراض؟ ما هي الأحكام الموجودة لحساب الآثار السلبية غير المباشرة الكبيرة على الأنواع غير المستهدفة؟ ما هي الأحكام الموجودة المتعلقة بحماية الموائل البحرية المعرضة للخطر وتهدد هيكل ومهام النظام الإيكولوجي ؟ ما هي التدابير الإدارية التي وضعت للحد من الصيد العرضي والمرتجع؟ في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة في منشور منظمة الأغذية والزراعة بشأن حالة  <a translation-url target='_blank' href='http://www.fao.org/fishery/sofia/en'> حالة مصايد الأسماك وتربية الأحياء المائية في العالم</a>,  <a translation-url target='_blank' href='http://www.fao.org/fishery/statistics/en'>، إحصائيات مصايد الأسماك لمنظمة الأغذية والزراعة </a>),  <a translation-url target='_blank' href='https://www.msc.org'>على الموقع الإلكتروني لمجلس التوجيه البحري </a>,   <a translation-url target='_blank' href='http://www.seaaroundus.org'> والموقع الشبكي للبحر من حولنا الموقع</a>,  <a translation-url target='_blank' href='http://www.iucnredlist.org'> والقائمة الحمراء للأنواع المهددة بالانقراض للاتحاد الدولي لحماية الطبيعة والموارد الطبيعية</a> و  <a translation-url target='_blank' href='http://www.fishbase.ca/'>)، وموقع قاعدة الأسماك </a>.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-06" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-06" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-06" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-07" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-07" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="ينبغي للأطراف، عند الإبلاغ عن التقدم المحرز في سبيل تحقيق هذا الهدف، النظر في التوجيهات التالي:
+</p>
+								<p><a translation-url target='_blank' href='https://www.cbd.int/doc/decisions/cop-13/cop-13-dec-15-en.pdf'> 
+المقرر 13/15 (آثار التقييم الذي أجراه المنبر الحكومي الدولي للعلوم والسياسات في مجال التنوع البيولوجي وخدمات النظم الإيكولوجية بشأن الملقحات، والتلقيح وإنتاج الأغذية، على أعمال الاتفاقية)، الفقرة 8 - يدعو الأطراف، والحكومات الأخرى والمنظمات ذات الصلة إلى تزويد الأمين التنفيذي بمعلومات عن المبادرات والأنشطة الوطنية ذات الصلة لتشجيع حفظ الملقحات واستخدامها المستدام ويطلب إلى الأمين التنفيذي، رهنا بتوافر الموارد، أن يجمع هذه المعلومات، بما في ذلك المعلومات الواردة في التقارير الوطنية، لتنظر فيها الهيئة الفرعية للمشورة العلمية والتقنية والتكنولوجية في اجتماع يعقد قبل الاجتماع الرابع عشر لمؤتمر الأطراف؛
+وتتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هي التدابير، بما في ذلك التغييرات على سياسات استخدام الأراضي وإدارة الموارد، التي تم وضعها لضمان استدامة الزراعة وتربية الأحياء المائية والغابات? ؟ ما مدى فعالية هذه التدابير؟ في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة في <a translation-url target='_blank' href='http://faostat3.fao.org/home/E'> قاعدة البيانات الإحصائية لمنظمة الأغذية والزراعة</a>, <a translation-url target='_blank' href='http://www.pefc.org'> والموقع الشبكي لبرنامج إقرار خطط إصدار الشهادات الحرجية  Certification (PEFC)</a>, و <a translation-url target='_blank' href='https://ca.fsc.org/en-ca'> والموقع الشبكي لمجلس رعاية الغابات l</a>.</p>">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-07" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-07" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-07" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-08" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-08" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كيف تغيرت الملوثات وكميات المغذيات في النظم الإيكولوجية في البلاد؟ ما هي النظم الإيكولوجية شهدت تغيرا كبيرا؟ ما هي الملوثات التي لا تزال تمثل مخاوف في البلاد؟ ما هي التدابير أو الضوابط التي تم وضعها للحد من مصادر التلوث؟ ما هي التدابير أو الضوابط التي تم وضعها لمعالجة مصادر الانتشار من التلوث؟ في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة على  <a translation-url target='_blank' href='http://chm.pops.int'>على المواقع لاتفاقيات بازل وروتردام واستكهولم </a>, <a translation-url target='_blank' href='http://www.mercuryconvention.org'>  واتفاقية ميناماتا بشأن الزئبق <a/>, <a translation-url target='_blank' href='http://www.initrogen.org/'> والمبادرة الدولية المعنية بالنيتروجين </a>, <a translation-url target='_blank' href='http://faostat3.fao.org/home/E'> قاعدة البيانات الإحصائية الموضوعية لمنظمة الأغذية والزراعة </a>, و <a translation-url target='_blank' href='http://www.unep.org/gemswater/'>والنظام العالمي لرصد البيئة  (GEMS Water)</a>.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-08" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-08" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-08" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-09" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-09" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كيف تغير عدد الأنواع الغريبة الغازية في البلاد؟ ما هي الإجراءات التي تم اتخاذها للقضاء أو السيطرة على الأنواع الغريبة الغازية الحالية والجهات التي تم إشراكها في تنفيذ هذه الإجراءات؟ ما هي تدابير مراقبة الحدود وتدابير الحجر الصحي التي تم وضعها لمنع إدخال الأنواع الغريبة الغازية الجديدة؟ كيف تم تعزيز تدابير مراقبة الحدود والحجر الصحي القائمة؟ في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة في 
+ <a translation-url target='_blank' href='http://giasipartnership.myspecies.info/en'> بوابة الشراكة العالمية للمعلومات بشأن الأنواع الغريبة الغازية </a>.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-09" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-09" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-09" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-10" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-10" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هي الإجراءات التي تم اتخاذها للحد من الضغوط على النظم الإيكولوجية الهشة لتغير المناخ و/أو تحمض المحيطات؟ كيف تم تقليل هذه الضغوط؟ في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة من  <a translation-url target='_blank' href='http://www.fao.org/in-action/vulnerable-marine-ecosystems/en/'> قاعدة بيانات النظم الإيكولوجية الهشة البحرية لمنظمة الأغذية والزراعة </a>  وعلى <a translation-url target='_blank' href='http://www.icriforum.org/'>  الموقع الشبكي للمبادرة الدولية للشعاب المرجانية </a>.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-10" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-10" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-10" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-11" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-11" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="<p>الإبلاغ عن التقدم المحرز في سبيل تحقيق هذا الهدف، ينبغي للأطراف النظر في التوجيهات التالية:</p>
+								<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13185'>المقرر 11/2</a> (المناطق المحمية) – الفقرة 1.:</p>
+								<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13185'> يدعو الأطراف إلى : : (ي) الإبلاغ عن تنفيذ خطط العمل الوطنية لبرنامج عمل المناطق المحمية، بما في ذلك إدراج نتائج تنفيذ المشروعات الممولة من مرفق البيئة العالمية والجهات المانحة الأخرى، من خلال إطار الإبلاغ عن برنامج العمل، المدرج في التقارير الوطنية الخامسة والسادسة، على النحو المطلوب في الفقرتين 33(أ) و(ﻫ) من المقرر 10/31، لتتبع التقدم المحرز نحو تحقيق الهدف 11 من أهداف أيشي للتنوع البيولوجي وتنفيذ برنامج العمل؛;</p>
+								<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13192'>
+المقرر 10/31 </a>(المناطق المحمية) – الفقرة 33 يدعو الأطراف إلى : : (أ) النظر كجزء من عملية الإبلاغ الوطني في وضع عملية بسيطة وفعالة للإبلاغ الوطني من شأنها تتبع الحالة العامة لحفظ التنوع البيولوجي داخل المناطق المحمية، بالإضافة إلى تدابير ونتائج برنامج العمل بشأن المناطق المحمية؛ (ه) التأكد من إدماج الإبلاغ عن برنامج العمل بشأن المناطق المحمية بوضوح مع الإبلاغ عن التقدم المحرز صوب تحقيق أهداف أيشي للتنوع البيولوجي والمؤشرات المرتبطة بها؛</p>
+								<p>
+وتتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هو المدى الحالي للمناطق المحمية على اليابسة وفي المناطق البحرية (بشكل عام، من خلال المناطق الإيكولوجية، حسب نوع الموئل، وما إلى ذلك)؟ هل تشمل هذه الأرقام المناطق الخاضعة لأنشطة الحفظ الفعالة التي يضطلع بها المجتمع المحلي والسكان الأصليين؟ ما هي المناطق ذات الأهمية للتنوع البيولوجي وخدمات النظام الإيكولوجي التي تعد غير محمية حاليا؟ ما هي المناطق الممثلة تمثيلا ناقصا؟ ما مدى فعالية المناطق المحمية القائمة؟ كيف تغيرت فعالية إدارتها؟ وما هي الإجراءات المتخذة لتعزيز الإدارة المنصفة للمناطق المحمية؟ هل شاركت الشعوب الأصلية والمجتمعات المحلية المعنية في إدارة المناطق المحمية؟ ما هو الدعم أو العمليات التي تم تأسيسها لدعم المجتمعات الأصلية والمحلية في توثيق ورسم الخرائط، أو تسجيل المناطق المحمية التابعة للمجتمع المحلي و/أو وضع أو تنفيذ أو رصد خطط حفظ المجتمعات المحلية؟ وما هي المجموعات أو الأطراف المعنية الأخرى المشاركة في إدارة المناطق المحمية؟ وما هي الإجراءات المتخذة لإدماج المناطق المحمية في المشهد الطبيعي والبحري؟</li></ul></p>
+								<p>
+ولمساعدة الأطراف على جمع وتقاسم المعلومات والبيانات المتعلقة بحالة الهدف 11 من أهداف أيشي للتنوع البيولوجي، أعدت أمانة الاتفاقية ملفات بيانات باستخدام معلومات مستمدة من مصادر مختلفة. ويتضمن كل ملف بيانات قطرية معلومات بشأن نطاق تغطية المناطق المحمية المقدّر، والمناطق الإيكولوجية البرية والبحرية، ومناط.ق الطيور والتنوع البيولوجي المهمة، ومواقع التحالف من أجل تلافي الانقراض، في جملة أمور أخرى. يمكن الحصول على هذه الملفات من الموقع الإلكتروني<a translation-url target='_blank' href='https://www.cbd.int/protected/'>https://www.cbd.int/protected/</a>. وعند وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة على <a translation-url target='_blank' href='http://www.protectedplanet.net'>  الموقع الشبكي للكوكب المحمي </a>,  <a translation-url target='_blank' href='https://www.protectedplanet.net/c/protected-areas-management-effectiveness-pame'> management  وبوابة معلومات فعالية إدارة المناطق المحمية </a>, <a translation-url target='_blank' href='http://www.iccaregistry.org/'> سجل المناطق المحفوظة بواسطة الشعوب الأصلية والمجتمعات المحلية </a> و <a translation-url target='_blank' href='https://mol.org/indicators/'> ومؤشرات تمثيل وترابط المناطق المحمية التابعة لمنظمة الكومنولث للبحوث العلمية والصناعية ومؤشر خريطة الأنواع التابع لموقع Map of Life </a>.</p>">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-11" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-11" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-11" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-12" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-12" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="<p>تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: هل يوجد أي نوع من الأنواع التي انقرضت في بادكم منذ اعتماد الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 ؟ كيف تغير وضع الحفاظ على الأنواع؟ ما هي النسبة المئوية للأنواع المهددة في بلدكم؟ وكم عدد المتوطن من هذه الأنواع؟ ما هي الإجراءات التي اتخذت لمعالجة هذا الوضع؟ كيف تغيرت التهديدات الرئيسية للأنواع منذ اعتماد الخطة الاستراتيجية للتنوع البيولوجي 2011-2020؟ ما هي التهديدات الرئيسية للأنواع المهددة بالانقراض في بلدكم؟ ما هي الإجراءات التي اتخذت لمعالجة هذه التهديدات</li></ul></p><p> 
+							عند وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات الموجودة في  <a translation-url target='_blank' href='http://www.iucnredlist.org'> القائمة الحمراء للأنواع المهددة بالانقراض </a>, <a translation-url target='_blank' href='http://www.livingplanetindex.org/home/index'> ومؤشر الكوكب الحي </a>, <a translation-url target='_blank' href='http://www.teamnetwork.org'> والشبكة الاستوائية لتقييم ورصد البيئة  </a>, <a translation-url target='_blank' href='http://www.bgci.org/threat_search.php'>) وقاعدة بيانات البحث عن الأنواع المهددة التابعة للمنظمة الدولية لحفظ حدائق النباتات  </a> و <a translation-url target='_blank' href='https://www.speciesplus.net/'>Species+</a> databases, <a translation-url target='_blank' href='http://www.predicts.org.uk/'> ومؤشر عدم المساس بالتنوع البيولوجي المحلي التابع لمبادرة PREDICTS </a>  <a translation-url target='_blank' href='https://mol.org/indicators/'> ومؤشرات موائل الأنواع على الموقع الإلكتروني Map </a>.</p>">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-12" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-12" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-12" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-13" class="row">
+                <div class="col-md-12 help-block" ng-hide="true">بحلول عام 2020، الحفاظ على التنوع الجيني للنباتات المزروعة وحيوانات المزارع والحيوانات الأليفة والتنوع الجيني للأقارب البرية، بما في ذلك الأنواع الأخرى ذات القيمة الاجتماعية والاقتصادية فضلاً عن القيمة الثقافية، ووضع وتنفيذ إستراتيجيات لتقليل التآكل الجيني وصون تنوعها الجيني.</div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-13" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="<p>تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هي الإجراءات التي اتخذت لحماية التنوع الجيني لأنواع النباتات المزروعة وحيوانات المزارع والمدجنة، وأقاربها البرية والأنواع ذات القيمة الاجتماعية والاقتصادية أو الثقافية؟ هل يجري حفظ الأنواع في الموقع أو خارج الموقع؟ كيف أُعدت هذه الخطط وما هي المجموعات التي تم إشراكها في العملية؟ ما أنواع خطط الإدارة أو الاستراتيجيات التي وضعت للحفاظ على التنوع الجيني في الموقع أو خارج الموقع؟ </li></ul> </p>
+							<p>وعند وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة في بنك المعلومات العالمية المنظمة للموارد الوراثية الحيوانية، و <a translation-url target='_blank' href='http://dad.fao.org/'> نظام معلومات التنوع الوراثي للحيوانات المنزلية و <a translation-url target='_blank' href='http://www.fao.org/forestry/fgr/64582/en/'>’ وحالة الموارد الوراثية للغابات في العالم .</a>.</p>">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-13" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-13" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-13" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-14" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-14" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="<p>عند الإبلاغ عن التقدم المحرز في سبيل تحقيق هذا الهدف، ينبغي للأطراف النظر في التوجيهات التالية:</p>
+							<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13368'>المقرر 12/5 </a>  (التنوع البيولوجي من أجل القضاء على الفقر وتحقيق التنمية المستدامة -  الفقرة 3. يشجع الأطراف على أن تدمج التنوع البيولوجي ومنافع الطبيعة للناس، بما في ذلك خدمات النظم الإيكولوجية ووظائفها، في استراتيجيات ومبادرات وعمليات القضاء على الفقر وتحقيق التنمية، على جميع المستويات، من أجل إدماج شواغل وأولويات القضاء على الفقر وتحقيق التنمية في الاستراتيجيات وخطط العمل الوطنية للتنوع البيولوجي وغيرها من الخطط والسياسات والبرامج الملائمة لتنفيذ الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 وتحقيق أهداف أيشي للتنوع البيولوجي، ورصد وتقييم وإعداد تقارير عن جهود الإدماج هذه، من خلال المؤشرات والأدوات الملائمة، وإدراج هذه المعلومات ضمن أمور أخرى في تقريرها الوطني؛</p>
+							<p> 
+تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كيف تغيرت حالة النظم الإيكولوجية التي تعد هامة لتوفير خدمات النظم الإيكولوجية؟ كيف تغيرت الضغوط على النظم الإيكولوجية التي تعد هامة لتوفير خدمات النظم الإيكولوجية؟ كيف تساهم هذه النظم الإيكولوجية في رفاهية الإنسان؟ ما هي حالة النظم البيئية الهامة في بلدكم؟ ما هي النظم الإيكولوجية التي تتدهور بصورة أسرع؟ ما هي النظم الإيكولوجية التي تتحسن؟ هل تجاوز التدهور في بعض النظم الإيكولوجية خطر نقاط مرور التحول؟ ما هي النظم الإيكولوجية التي تحتاج إلى استعادة؟ ما هي النظم الإيكولوجية التي تحتاج إلى حماية؟ ما هي الضغوط الرئيسية على النظم الإيكولوجية التي توفر الخدمات الأساسية لرفاهية الإنسان؟ ما هي النظم الإيكولوجية التي تعد ذات أهمية خاصة بالنسبة لرفاهية النساء والشعوب الأصلية والمجتمعات المحلية، والفقراء والمستضعفين؟ كيف روعيت احتياجات النساء والشعوب الأصلية والمجتمعات المحلية والفقراء والمستضعفين في إدارة النظم الإيكولوجية؟ ما هي العوامل التي تقود إلى أو تتسبب في فقدان خدمات النظام البيئي?</li></ul> </p>
+							<p> ؟ في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة في  <a translation-url target='_blank' href='http://www.oceanhealthindex.org'> مؤشر صحة المحيط </a>, و <a translation-url target='_blank' href='http://www.wri.org/resources/data-sets/aqueduct-projected-water-stress-country-rankings'>)، وقناة بيانات وتصنيف الإجهاد المائي المتوقع التابع لمعهد الموارد العالمية .</a>.</p>">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-14" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-14" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-14" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-15" class="row">
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-15" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="<p>عند الإبلاغ عن التقدم المحرز في سبيل تحقيق هذا الهدف، ينبغي للأطراف النظر في التوجيهات التالية:</p> 
+								<p><a translation-url target='_blank' href='https://www.cbd.int/doc/decisions/cop-13/cop-13-dec-05-en.pdf'>المقرر 13/5 </a> (استعادة النظم الإيكولوجية: خطة عمل قصيرة الأجل)، الفقرة 6. يدعو الأطراف أن تقدم، على أساس طوعي، معلومات عن أنشطتها ونتائجها بشأن تنفيذ خطة العمل، ويطلب إلى الأمين التنفيذي أن يقوم بتجميع التقارير وجعلها متاحة من خلال آلية غرفة تبادل المعلومات؛</p>
+								<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13180'>المقرر 11/19 </a> (التنوع البيولوجي وتغير المناخ والمسائل الأخرى ذات الصلة: مشورة حول تطبيق الضمانات ذات الصلة بالتنوع البيولوجي فيما يتعلق بالنهُج السياساتية والحوافز الإيجابية المتعلقة بخفض الانبعاثات الناجمة عن إزالة الغابات وتدهورها في البلدان النامية ودور الحفاظ على الغابات وإدارتها المستدامة وتعزيز مخزون الكربون في الغابات في البلدان النامية)؛ الفقرة 11. يدعو أيضا الأطراف، والحكومات الأخرى، والمنظمات المعنية إلى النظر في المعلومات الواردة في المرفق عند إعداد التقارير الوطنية والتقديمات الأخرى عن التقدم المحرز نحو تحقيق أهداف أيشي للتنوع البيولوجي في الخطة الاستراتيجية للتنوع البيولوجي 2011-2020، وحسب مقتضى الحال، بالنسبة للتقديمات الأخرى ذات الصلة في إطار العمليات الأخرى؛</p>
+								<p>
+تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كيف تغير مدى الموائل المتدهورة في البلاد منذ اعتماد الخطة الاستراتيجية للتنوع البيولوجي 2011-2020؟ ما هي المناطق و/أو ما عدد الموائل تم استعادتها؟ هل كانت أي من المناطق التي تم استعادتها مهمة لعزل الكربون؟ ما نوع أنشطة الاستعادة التي تم استخدامها؟ كيف تمت مراعاة الأهداف الاجتماعية والاقتصادية والبيئية ومشاركة جميع الأطراف ذات الصلة، بما في ذلك الشعوب الأصلية والمجتمعات المحلية، والنساء، كيف أثرت أنشطة استعادة على مرونة النظم الإيكولوجية?
+</li></ul></p>
+
+								<p>
+ولمساعدة الأطراف على جمع وتقاسم المعلومات والبيانات بشأن حالة الهدف 15 من أهداف أيشي للتنوع البيولوجي، أعدت أمانة الاتفاقية ملفات بيانات باستخدام معلومات مستمدة من مصادر مختلفة. يمكن الحصول على هذه الملفات من الموقع الإلكتروني <a translation-url target='_blank' href='https://www.cbd.int/restoration/'>https://www.cbd.int/restoration/</a>. Iوعند وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف أيضا في الاستفادة من المعلومات المتاحة في  <a translation-url target='_blank' href='http://www.bonnchallenge.org/'> الموقع الشبكي لتحدى بون </a>, و <a translation-url target='_blank' href='http://www.wri.org/resources/maps/atlas-forest-and-landscape-restoration-opportunities'>وموقع أطلس فرص استعادة الغابات والمناظر الطبيعية التابع للمعهد العالمي للموارد . </a>.</p>">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-15" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-15" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-15" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-16" class="row">
+                <div class="col-md-12 help-block" ng-hide="true">بحلول عام 2015، يسري مفعول بروتوكول ناغويا للحصول على الموارد الجينية والتقاسم العادل والمنصف للمنافع الناشئة عن استخدامها، ويتم تفعيله، بما يتمشى مع التشريع الوطني.</div>
+                <div class="col-md-12">
+                    <div class="panel panel-default" ng-if="target.nationalReport">
+
+                        <div class="panel-body">
+                            <div class="col-md-12" ng-if="target.nationalReport">
+                                <div>
+                                    <label>بلدك قدم التقرير الوطني المؤقت بشأن تنفيذ بروتوكول ناغويا</label><br><div style="background-color:#eee; padding:5px;">{{self.absNationalReport}} <a translation-url target="_blank" class="bold" ng-href="{{absNationalReport.url}}">{{absNationalReport.uniqueIdentifier_s|uppercase}} <span class="color-black" style="font-weight:normal;">{{absNationalReport.title|lstring:locale}}</span></a></div>
+                                </div><br> <span info-bar data-content="There is no need to repeat information in the sixth national report that has already been included in the interim national report on the implementation of obligations under the Nagoya Protocol."></span><div class="km-control-group" name="nationalContributions-AICHI-TARGET-16-nationalReportDescription" caption="Please provide any additional relevant information that has not been included in the interim national report on how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target:">
+                                    <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions--AICHI-TARGET-16-nationalReportDescription" ng-model="target.nationalReportDescription"
+                                        locales="document.header.languages" rows="3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default" ng-if="target.includeLinkedRecords || !target.nationalReport || target.linkedRecords">
+                        <div class="panel-header" ng-if="includeLinkedRecords||(!target.includeLinkedRecords && target.nationalReport && target.linkedRecords)">
+                            <div class="checkbox">
+                                <label>
+                                    <h4 class="color-red"> بلدك قدم التقرير الوطني المؤقت بشأن تنفيذ بروتوكول ناغويا فإن المعلومات التالية قد لا تكون ضرورية. يرجى التحقق من المعلومات الواردة أدناه وتحديد ما إذا كان لا يزال ملائما.</h4>
+                                    <input type="checkbox" ng-model="target.includeLinkedRecords" ng-change="setIncludeLinkedRecords()"><span class="bold">ارفق المعلومات الواردة أدناه في الإرسال.</span></label>
+                            </div>
+                        </div>
+                        <div ng-class="{'greyout':!target.includeLinkedRecords && target.nationalReport}">
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger" ng-if="!target.nationalReport">
+                                        <label>لم يكن بلدك قد استكمل إعداد تقرير وطني مؤقت بشأن تنفيذ التزاماته في إطار بروتوكول ناغويا، فقد ترغب في النظر في القيام بذلك.</label><span info-bar data-content="In decision NP-1/3, paragraph 4, Parties to the Nagoya Protocol are requested to submit an interim national report on the implementation of their obligations under the Nagoya Protocol twelve months prior to the third meeting of the COP-MOP
+                                    (November 2017). In the same decision, COP-MOP also welcomed submissions of relevant information by non-Parties. There is no need to repeat information in the sixth national report that has already been included in the interim national report
+                                    on the implementation of obligations under the Nagoya Protocol."></span> <a translation-url href="https://www.cbd.int/doc/notifications/2017/ntf-2017-017-absch-en.pdf" target="new_">انقر هنا لمزيد من المعلومات
+        .</a></div>
+
+                                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-16" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"><span info-bar data-content="Some questions that your country may wish to consider responding to are:
+                                    <ul>
+                                        <li>If your country has not ratified or acceded to the Protocol, what actions are being taken to do so? </li>
+                                        <li>If your country has ratified or acceded to the Protocol, what is being done to make it operational nationally? </li>
+                                        <li>Has your country put institutional structures in place to implement the Protocol (national focal point, competent national authority(ies) and checkpoint(s))? </li>
+                                        <li>Has your country put in place the ABS legislative, administrative or policy measures (ABS measures) required to meet the obligations set out under the Protocol? </li>
+                                        <li>If no ABS measures are in place, is your country currently reviewing or developing ABS measures or planning to do so with a view to implementing the Protocol? </li>
+                                    </ul>"></span><div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-16" ng-disabled="target.nationalReport && !target.includeLinkedRecords"
+                                            ng-model="target.linkedRecordsDescription" locales="document.header.languages" rows="3"></div>
+                                    </div>
+                                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-16-linkRecords" caption="If desired, please to link to any of the relevant national records published in the ABS Clearing-House:"><span ng-model="target.linkedRecords" reference-selector government="document.government" type="checkbox" ng-disabled="!document.government || (target.nationalReport && !target.includeLinkedRecords)"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-16" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-16" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-17" class="row">
+                <div class="col-md-12 help-block" ng-hide="true">بحلول عام 2015، يكون كل طرف قد أعد واعتمد كأداة من أدوات السياسة، وبدأ في تنفيذ، استراتيجية وخطة عمل وطنية للتنوع البيولوجي بحيث تكون فعالة وتشاركية ومحدثة.</div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-17" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: إذا لم يقم بلدكم بإعداد استراتيجية وخطة العمل الوطنيتان لحفظ التنوع البيولوجي أو تنقيح/تحديث استراتيجيته وخطة عمله الوطنية لحفظ التنوع البيولوجي منذ اعتماد الخطة الاستراتيجية للتنوع البيولوجي 2011-2020، فما هي الإجراءات التي يتم اتخاذها للقيام بذلك؟ إذا كان لا يوجد أية خطط للقيام بذلك، هل هناك أي سياسات أو خطط أو برامج وطنية أو استراتيجيات أخرى تتناول الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 وأهداف أيشي للتنوع البيولوجي؟ هل يوجد في بلدكم أي استراتيجيات إقليمية أو دون وطنية للتنوع البيولوجي؟ هل هناك أي خطط لتطوير هذا؟ ما هي الإجراءات التي اتخذت لتبني استراتيجية وخطة العمل الوطنيتان لحفظ التنوع البيولوجي الحالية في بلدكم كأداة من أدوات السياسة؟ على أي مستوى تم اعتماد استراتيجية وخطة العمل الوطنية لحفظ التنوع البيولوجي ومن الجهة التي قامت بذلك (مثلا وزارة البيئة، مجلس الوزراء، البرلمان، وما إلى ذلك)؟ وما الآثار المترتبة على ذلك؟ كيف سيساعد ذلك في إدماج شواغل التنوع البيولوجي في الخطط والسياسات القطاعية وعبر القطاعية التي تؤثر على التنوع البيولوجي؟ من هم الأطراف وأصحاب المصلحة المعنيين الذين شاركوا في إعداد أو استعراض/ تحديث استراتيجية وخطة العمل الوطنية لحفظ التنوع البيولوجي وما هو دورهم في هذه العملية؟ وكيف سيساهمون في تنفيذ استراتيجية وخطة العمل الوطنية لحفظ التنوع البيولوجي؟ ما هي التدابير المتخذة لتقييم مدى فعالية استراتيجية وخطة العمل الوطنية لحفظ التنوع البيولوجي؟ هل لدى استراتيجية وخطة العمل الوطنيتان لحفظ التنوع البيولوجي مؤشرات و/أو آلية رصد لتقييم فعالية تنفيذها؟">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-17" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-17" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-17" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-18" class="row">
+                <div class="col-md-12 help-block" ng-hide="true">بحلول عام 2020، احترام المعارف والابتكارات والممارسات التقليدية للمجتمعات الأصلية والمحلية ذات الصلة بحفظ التنوع البيولوجي واستخدامه المستدام، واحترام استخدامها المألوف للموارد البيولوجية، رهناً بالتشريع الوطني والالتزامات الدولية ذات الصلة، وأن تدمج وتنعكس بالكامل في تنفيذ الاتفاقية مع المشاركة الكاملة والفعالة للمجتمعات الأصلية والمحلية، وذلك على جميع المستويات ذات الصلة.</div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-18" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، على الأطراف أن تضع في اعتبارها التوجيهات التالية: </p>
+									<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13375'>
+المقرر 12/12 (المادة 8 (ي)</a> (والأحكام ذات الصلة)، ألف. الفقرة 9 . يشجع الأطراف والمجتمعات الأصلية والمحلية على النظر في كيفية مشاركة المجتمعات الأصلية والمحلية بفعالية في عملية إعداد وجمع وتحليل البيانات، بما في ذلك عن طريق عملية الرصد المجتمعية، ومواصلة استكشاف كيفية مساهمة نظم الرصد والمعلومات المجتمعية للمجتمعات الأصلية والمحلية في رصد مؤشرات أهداف أيشي، وكيفية تطبيق نهج قائم على الأدلة في التحقق من هذه البيانات المولدة من مختلف نظم المعارف على قدم المساواة. ويمكن أن تساهم هذه الجهود في التقارير الوطنية القادمة واستعراض تنفيذ الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 وتحقيق أهداف أيشي للتنوع البيولوجي، لا سيما الهدف 18؛; </p>
+									<p>Also from <a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13375'>decision XII/12</a>: </p>
+									<p>
+الحوار المتعمق بشأن المجالات المواضيعية وغير ذلك من القضايا الشاملة - الفقرة 14. . يشجع الأطراف، والحكومات الأخرى، والمنظمات الدولية ذات الصلة والمجتمعات الأصلية والمحلية وأصحاب المصلحة المهتمين، ويطلب إلى الأمين التنفيذي النظر في المشورة والتوصيات الناتجة عن الحوار المتعمق بشأن:يشجع الأطراف، والحكومات الأخرى، والمنظمات الدولية ذات الصلة والمجتمعات الأصلية والمحلية وأصحاب المصلحة المهتمين، ويطلب إلى الأمين التنفيذي النظر في المشورة والتوصيات الناتجة عن الحوار المتعمق بشأن: “ربط نظم المعارف التقليدية والعلوم، مثل النظم المعمول بها في إطار المنبر الحكومي الدولي للعلوم والسياسات في مجال التنوع البيولوجي وخدمات النظم الإيكولوجية، بما في ذلك الأبعاد الجنسانية”، لدى تنفيذ مجالات عمل الاتفاقية ذات الصلة؛ ومواصلة تشجيع الأطراف في النظر في الإبلاغ عن التقدم المحرز في التقارير الوطنية المقبلة;</p>
+									<p>
+باء الفقرة 2. . يدعو الأطراف والحكومات الأخرى، والمنظمات الدولية ذات الصلة، والمجتمعات الأصلية والمحلية وأصحاب المصلحة المعنيين إلى تنفيذ خطة العمل المتعلقة بالاستخدام المألوف المستدام للتنوع البيولوجي، مع مراعاة الظروف الوطنية المختلفة بما في ذلك النظم القانونية والسياسية، وتقديم تقرير عن التقدم المحرز إلى الأمين التنفيذي وكذلك من خلال عملية إعداد التقارير الوطنية؛</p>
+									<p>هاء الفقرة 6. . يحث الأطراف والحكومات الأخرى على الاعتراف بالنظم الفريدة المحلية ودعمها والتشجيع على إعدادها من جانب المجتمعات الأصلية والمحلية، بما في ذلك من خلال وضع بروتوكولات مجتمعية، كجزء من خطط العمل الوطنية لحماية وحفظ وتعزيز المعارف والابتكارات والممارسات التقليدية ضمن الاستراتيجيات وخطط العمل الوطنية للتنوع البيولوجي، ويدعو الأطراف والحكومات الأخرى إلى الإبلاغ عن هذه المبادرات من خلال عملية الإبلاغ الوطني، والفريق العامل المعني بالمادة 8(ي) والأحكام المتصلة بها، ومن خلال بوابة معلومات المعارف التقليدية التابعة للاتفاقية;</p>
+									<p><a translation-url target='_blank' href='https://www.cbd.int/doc/decisions/cop-13/cop-13-dec-18-en.pdf'>
+المقرر 13/18 (المادة 8(ي) </a> ) والأحكام ذات الصلة بالمبادئ التوجيهية الطوعية (Mo’otz Kuxtall),</br>
+									الفقرة 5. . يدعو الأطراف إلى الإبلاغ عن الخبرات المكتسبة من استخدام المبادئ التوجيهية الطوعية من خلال التقارير الوطنية؛<p>
+									<p>
+عند وصف التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب في التشاور، حسب الاقتضاء، مع الشعوب الأصلية والمجتمعات المحلية. تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هي الخطوات التي اتخذت منذ اعتماد الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 لاحترام المعارف والابتكارات والممارسات والاستخدام المألوف للموارد البيولوجية؟ ما هي العمليات أو الآليات تم وضعها لتعزيز هذا؟ كيف تم دمج المعارف التقليدية وانعكاسها في تنفيذ الاتفاقية؟ هل تم تعيين نقطة اتصال وطنية للمادة 8 (ي) والأحكام المتصلة؟ هل تم وضع خطة عمل وطنية لحماية وصون وتعزيز المعارف والابتكارات والممارسات وتشجيع الاستخدام المستدام للتنوع البيولوجي لدى الشعوب الأصلية والمجتمعات المحلية؟ هل يوجد خطط عمل مجتمعية للمعارف التقليدية؟ هل كانت هناك مشاركة كاملة وفعالة من الشعوب الأصلية و/ أو المجتمعات المحلية فيما يتعلق بتكامل معارفهم في تنفيذ الاتفاقية؟ هي الشعوب الأصلية و/ أو المجتمعات المحلية، حسب الاقتضاء، تشارك بفعالية في تنفيذ الاتفاقية، بما في ذلك استعراض/ تحديث وتنفيذ الاستراتيجيات وخطط العمل؟ هل تم وضع خطط عمل أو ترتيبات وطنية أخرى لحماية وصون وتعزيز المعارف والابتكارات والممارسات الخاصة بالشعوب الأصلية والمجتمعات المحلية؟ هل تم وضع نظم منح الموافقة المسبقة عن علم من المجتمعات الأصلية والمحلية فيما يتعلق بالحصول على المعارف والابتكارات والممارسات الخاصة بهم؟ هل تم اتخاذ تدابير على المستوى الوطني تعترف وتشجع حقوق الاستخدام المألوف والمستدام للتنوع البيولوجي؟ ما هو التقدم الذي تم إحرازه في تنفيذ خطة العمل بشأن الاستخدام المستدام للتنوع البيولوجي، وTkarihwaié : وهي ما تعرف بمدونة السلوك الأخلاقي لكفالة :احترام التراث الثقافي والفكري للمجتمعات الأصلية والمحلية، و Akwé وهي المبادئ التوجيهية الطوعية لتقييم الأثر الثقافي والبيئي والاجتماعي بشأن التطورات المقترح إجراؤها في، أو التي يحتمل أن تؤثر على المواقع المقدسة والأراضي والمياه التي تشغلها أو تستعملها المجتمعات الأصلية والمحلية، والمبادئ التوجيهية الطوعية Mo’otz Kuhtal1 لتصميم الآليات أو إعداد التشريعات أو غيرها من المبادرات المناسبة لضمان “الموافقة المسبقة عن علم” أو “الموافقة الحرة والمسبقة عن علم” أو “القبول والمشاركة”، استنادا إلى الظروف الوطنية للشعوب الأصلية والمجتمعات المحلية، من أجل الوصول إلى معارفها وابتكاراتها وممارساتها، ومن أجل تقاسم الفوائد الناشئة عن استخدام التنوع البيولوجي على أساس عادل ومنصف، ومن أجل منع مصادرة المعارف التقليدية على أساس غير مشروع؟</li></ul></p>
+									<p> 
+عند وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من مؤشر تيرالنغوا للتنوع اللغوي  <a translation-url target='_blank' href='http://terralingua.org/our-work/linguistic-diversity/'>Terralingua’s Index of Linguistic Diversity</a>.</p> ">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-18" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-18" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-18" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-19" class="row">
+                <div class="col-md-12 help-block" ng-hide="true">بحلول عام 2020، إتمام تحسين المعارف والقاعدة العلمية والتكنولوجيات المتعلقة بالتنوع البيولوجي، وقيمه، ووظيفته، وحالته واتجاهاته، والآثار المترتبة على فقدانه، وتقاسم هذه المعارف والقاعدة والتكنولوجيات ونقلها وتطبيقها على نطاق واسع.</div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-19" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="<p>عند الإبلاغ عن التقدم المحرز في سبيل تحقيق هذا الهدف، ينبغي للأطراف النظر في التوجيهات التالية:</p> 
+									<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=12289'>: 
+المقرر 10/23 </a>   
+(خطة عمل متعددة السنوات للتعاون فيما بين بلدان الجنوب في مجال التنوع البيولوجي من أجل التنمية) الفقرة 6. . يدعو الأطراف إلى تضمين تقاريرها الوطنية المقبلة بمعلومات عن كيفية قيامها بتنفيذ أو دعم التعاون فيما بين بلدان الجنوب؛</p>
+									<p><a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13190'>
+المقرر 11/29 </a>  (المبادرة العالمية للتصنيف) – الفقرة 9. يطلب إلى الأطراف الإبلاغ عن مدى فعالية جهودها في مجال بناء القدرات لدعم تنفيذ المبادرة العالمية للتصنيف، من خلال تقاريرها الوطنية الخامسة والسادسة في إطار الاتفاقية، ويطلب إلى الأمين التنفيذي الإبلاغ عن التقدم المحرز في تنفيذ المبادرة العالمية للتصنيف، استنادا إلى التقارير الوطنية المقدمة من الأطراف، إلى اجتماعات مؤتمر الأطراف ذات الصلة؛</p>
+									<p><a translation-url target='_blank' href='https://www.cbd.int/doc/decisions/cop-13/cop-13-dec-23-en.pdf'>
+المقرر 13/23</a>ناء القدرات، والتعاون التقني والعلمي، ونقل التكنولوجيا وآلية غرفة تبادل المعلومات. الفقرة 5. يدعو أيضا الأطراف، والحكومات الأخرى والمنظمات ذات الصلة إلى النظر في اتخاذ التدابير التكميلية التالية لتعزيز تنفيذ المادة 12 من الاتفاقية: (ك) تبادل المعلومات ذات الصلة والدروس المستفادة عن طريق آلية غرفة تبادل المعلومات والتقارير الوطنية والوسائل والآليات الأخرى ذات الصلة؛ الفقرة 6 . يدعو الأطراف إلى المساهمة في التعاون التقني والعلمي من خلال وسائل من بينها تقديم معلومات عن الاحتياجات ذات الأولوية، وتوفير أمثلة للممارسات الفعالة/النقاط البارزة لتكرارها، وتحديد أوجه التآزر في خططها وبرامجها وأنشطتها في مجال العلوم والتكنولوجيا والتعاون التقني والعلمي، وتيسير الربط بين احتياجات الأطراف مع الدعم المتاح للتعاون التقني والعلمي وتبادل هذه المعلومات من خلال الآلية المركزية لغرفة تبادل المعلومات، ومن خلال الآليات الوطنية لغرفة تبادل المعلومات، حسب الاقتضاء، والتقارير الوطنية؛</p>
+
+									<p> 
+تتمثل بعض الأسئلة التي قد يرغب بلدك في النظر في الرد عليها فيما يلي: كيف تغير توافر المعلومات وسهولة الوصول إليها بشأن التنوع البيولوجي في البلاد منذ اعتماد الخطة الاستراتيجية للتنوع البيولوجي 2011-2020؟ ما هي الإجراءات التي تم اتخاذها لتحسين توافر ونوعية المعلومات بشأن التنوع البيولوجي وسهولة الوصول إليها ؟ ما هي الآليات التي تم وضعها أو تطويرها لتبادل المعلومات والتكنولوجيات المتعلقة بالتنوع البيولوجي؟ كيف تم استخدام معلومات التنوع البيولوجي لدعم تطوير السياسات وصنع القرار في البلاد؟ في وصف التقدم نحو تحقيق هذا الهدف، قد ترغب الأطراف في الاستفادة من المعلومات المتاحة على الموقع الإلكتروني  <a translation-url target='_blank' href='http://www.gbif.org'> الإلكتروني للمرفق العالمي لمعلومات التنوع البيولوجي </a>,  <a translation-url target='_blank' href='http://geobon.org/'> وعلى شبكة رصد التنوع البيولوجي التابعة للفريق المعني برصد الأرض </a>, <a translation-url target='_blank' href='https://mol.org/'>Map of Life’s  </a>, و <a translation-url target='_blank' href='http://www.bgci.org/threat_search.php'>h وفي قاعدة بيانات البحث عن الأنواع المهددة التابعة للمنظمة الدولية لحفظ حدائق النباتات </a>.</p>">
+                        <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-19" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-19" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-19" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="AICHI-TARGET-20" class="row">
+                <div class="col-md-12">
+                    <div class=" alert alert-danger" ng-if="!target.resourceMobilisationReport">
+                        <label>لم ينجز بلدك إطار التقارير المالية، وقد ترغب في النظر في القيام بذلك.</label></br> <a translation-url href="/submit/resourceMobilisation/new" target="_blank">انقر هنا لإكمال إطار التقارير المالية</a></div>
+                </div>
+                <div class="col-md-12" ng-if="resourceMobilisation">
+                    <label for="">قدم بلدك إطار التقارير المالية</label><br/><div style="background-color:#eee; padding:5px;"><a translation-url target="_blank" ng-href="{{resourceMobilisation.url}}">{{resourceMobilisation.url}} <span class="color-black" style="font-weight:normal;">{{resourceMobilisation.title|lstring:locale}}</span></a></div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-20" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"
+                        data-content="<a translation-url target='_blank' href='https://www.cbd.int/decision/cop/default.shtml?id=13366'> في المقرر 12/3 </a>, 
+اعتمد مؤتمر الأطراف إطارا لإعداد التقارير المالية لتوفير المعلومات المتعلقة بالأهداف المالية العالمية بموجب الهدف 20 من أهداف أيشي للتنوع البيولوجي . وقام مؤتمر الأطراف بدعوة الأطراف إلى الإبلاغ، باستخدام إطار الإبلاغ المالي على الإنترنت، عن مساهمتها في الجهود الجماعية الرامية إلى تحقيق الأهداف العالمية لتعبئة الموارد، وفقا لخط الأساس المحدد، إلى جانب تقاريرها الوطنية السادسة. وليس هناك ضرورة لتكرار المعلومات في التقرير الوطني السادس إن كانت قد أدرجت بالفعل في إطار الإبلاغ المالي."></span><div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-20" ng-model="target.description" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group" name="activitiesContributions-AICHI-TARGET-20" caption="Please describe other activities contributing to the achievement of the Aichi Biodiversity Target at the global level (optional): "
+                        data-content="حسبما يكون مناسبا، يرجى توفير معلومات عن الإجراءات التي اتخذها بلدك للمساهمة في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي على المستوى العالمي. ويمكن أن يشمل ذلك المساعدة المقدمة إلى بلدان أو أقاليم أو منظمات الأخرى. كما يمكن أن يشمل التعاون الإقليمي أو الدولي، و/أو نقل التكنولوجيا، و/أو تقاسم المعلومات.">
+                        <div km-rich-textbox identifier="document.header.identifier" name="activitiesContributions-AICHI-TARGET-20" ng-model="target.achievementActivities" locales="document.header.languages"
+                            rows="3"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </script>
+
+</div>
