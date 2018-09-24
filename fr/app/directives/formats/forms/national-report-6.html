@@ -69,7 +69,7 @@
 									<div class="panel-header">
 										<h3>Partie I. Informations sur les objectifs poursuivis au niveau national</h3>
 									</div>
-									<div class="panel-body">
+									<div class="panel-body" ng-if="tab=='general'">
 										<div class="row  mainHeading">
 											<div class="col-md-12"><span class="help-block">Veuillez compl&eacute;ter ce tableau pour chacun des objectifs nationaux de votre pays. Les objectifs indiqu&eacute;s dans cette partie seront utilis&eacute;s dans d&rsquo;autres parties du sixi&egrave;me rapport national. Si votre pays n&rsquo;a pas encore fix&eacute; ou adopt&eacute; d&rsquo;objectif national relatif au Plan strat&eacute;gique pour la diversit&eacute; biologique 2011-2020, veuillez l&rsquo;indiquer dans la case ci-dessous et passer &agrave; la partie II. <a translation-url info-bar data-content="The objective of this section of the report is to collect information on the national targets that countries have adopted in line with the Strategic Plan for Biodiversity 2011-2020 (paragraph 3(b) of decision X/2). If your country has set and/or adopted national targets or equivalent commitments related to the Strategic Plan for Biodiversity 2011-2020 please use the following template to describe them."
 													    data-title="CHM Help: Sixth national report"></a></span></div>
@@ -183,24 +183,24 @@
 								</div>
 							</div>
 							<div    id="implementationTab"  km-tab="implementation">
-								<div style="margin:0 50%"><i ng-show="loadingimplementationTab" class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
+								<div style="margin:0 50%" ng-show="loadingimplementationTab"><i class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
 							</div>
 							<div  id="progressTab"   km-tab="progress">
-								<div style="margin:0 50%"><i ng-show="loadingprogressTab" class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
+								<div style="margin:0 50%" ng-show="loadingprogressTab"><i class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
 							</div>
 							<div id="nationalContributionTab"  km-tab="nationalContribution">
-								<div style="margin:0 50%"><i ng-show="loadingnationalContributionTab" class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
+								<div style="margin:0 50%" ng-show="loadingnationalContributionTab"><i class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
 							</div>
 							<div  id="gspcContributionTab"  km-tab="gspcContribution">
-								<div style="margin:0 50%"><i ng-show="loadinggspcContributionTab" class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
+								<div style="margin:0 50%" ng-show="loadinggspcContributionTab"><i class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
 							</div>
 
 							<div id="iplcContributionTab" km-tab="iplcContribution">
-								<div  style="margin:0 50%"><i ng-show="loadingiplcContributionTab" class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
+								<div  style="margin:0 50%" ng-show="loadingiplcContributionTab"><i class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
 							</div>
 
 							<div  id="countryProfileTab"  km-tab="countryProfile">
-								<div style="margin:0 50%"><i ng-show="loadingcountryProfileTab" class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
+								<div style="margin:0 50%" ng-show="loadingcountryProfileTab"><i class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
 							</div>
 						</form>
 
@@ -215,8 +215,9 @@
 										title="{{locale|languageLongName}}" />
 								</div>
 							<div class="btn-group btn-group-sm pull-right">
-								<button href="#" title="Imprimer le dossier" class="btn btn-default" ng-click="print()">Imprimer <i class="fa fa-spin fa-spinner" ng-if="printing" /> <i class="fa fa-print" aria-hidden="true" ng-if="!printing"></i></button>
+								<button href="#" title="Imprimer le dossier" class="btn btn-default" ng-click="print()">Imprimer <i class="fa fa-spin fa-spinner" ng-if="printing" ></i> <i class="fa fa-print" aria-hidden="true" ng-if="!printing"></i></button>
 							</div>
+							<div style="margin:0 50%" ng-show="loadingReviewTab"><i  class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
 							<div id="reviewSchemaView">
 								<view-national-report-6 ng-model="reviewDocument" locale="getLocale()" link-target="_blank" id="schemaPrintView"></view-national-report-6>
 							</div>

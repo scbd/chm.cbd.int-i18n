@@ -1,64 +1,120 @@
 ﻿<div dir="rtl">
+        <style>
+                .webui-popover {
+                    z-index: 19999;
+                }
+            </style> 
     <div class="panel panel-default">
         <div class="panel-header">
-            <h3>القسم الخامس - وصف المساهمة الوطنية في تحقيق أهداف الاستراتيجية العالمية لحفظ النباتات (الانتهاء من هذا القسم هو اختياري)</h3>
+            <h3>
+                <div class="pull-right"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.gspcTarget')">افتح كل شيء <i class="fa  fa-arrow-circle-o-up" /></a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.gspcTarget')" dir="rtl">إغلاق كل شيء <i class="fa  fa-arrow-circle-o-down" /> </a></div>القسم الخامس - وصف المساهمة الوطنية في تحقيق أهداف الاستراتيجية العالمية لحفظ النباتات (الانتهاء من هذا القسم هو اختياري)</h3>
         </div>
         <div class="panel-body">
-            <div class="row  bottom-spacing">
-                <div class="col-md-12"><span class="help-block">باستخدام النموذج أدناه، يرجى وصف مساهمة بلدك في تحقيق أهداف الاستراتيجية العالمية لحفظ النباتات. وينبغي تكرار هذا النموذج لكل من الأهداف الستة عشر للاستراتيجية العالمية لحفظ النبات. <a translation-url info-bar data-content="This section of the sixth national report is optional but is recommended for all Parties that have developed strategies for plant conservation in response to the GSPC and/ or for Parties that have active plant conservation work taking place via networks of botanical gardens or botanical collections institutions.
-        <br/></br>
-        For those GSPC targets that are closely aligned to specific Aichi Biodiversity Targets, information entered in the other sections of the report will be relevant here. If this is the case, the information does not need to be reproduced in its entirety in this section of the national report. Instead a reference to previous sections of the national report can be inserted. Through its Secretariat at Botanic Gardens Conservation International (bgci.org), members of the Global Partnership for Plant Conservation and other botanical institutions may be able to support Parties in compiling relevant information related to this section.
-        " data-title="CHM Help: Sixth national report"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
-                <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.gspcTarget')">افتح كل شيء <i class="fa  fa-arrow-circle-o-up" /></a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.gspcTarget')">إغلاق كل شيء <i class="fa  fa-arrow-circle-o-down" /> </a></div>
-            </div>
-
-            <div class="km-control-group" name="gspcTarget" caption="هل وضع بلدك أهدافا وطنية تتعلق بأهداف الاستراتيجية العالمية لحفظ النباتات؟"
-                data-content="إذا اعتمد بلدكم أهدافا وطنية أو التزامات مماثلة تتعلق بالأهداف الواردة في الاستراتيجية العالمية لحفظ النبات ، يرجى وضع علامة في هذه الخانة والإشارة إلى صياغة الأهداف في الأقسام التالية.">
-                <button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.gspcNationalContribution.hasGSPCTargets, 'btn-default': document.gspcNationalContribution.hasGSPCTargets==false}"
-                    class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=true">نعم</button><span info-bar data-content="ضع علامة في هذه الخانة إذا اعتمد بلدكم أهدافا أو التزامات معادلة ذات صلة بهذه الاستراتيجية العالمية لحفظ النباتات، والإشارة إلى صياغة الأهداف في الأقسام التالية."></span><button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.gspcNationalContribution.hasGSPCTargets==false, 'btn-default': document.gspcNationalContribution.hasGSPCTargets}"
-                    class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=false">لا</button><span info-bar data-content="يرجى وضع علامة في هذه الخانة إذا لم يعتمد بلدكم أهدافا وطنية أو التزامات معادلة ذات صلة بهذه الاستراتيجية العالمية لحفظ النباتات."></span></div>
-            <div class="row" ng-show="document.gspcNationalContribution.hasGSPCTargets">
-                <div class="col-md-12">
-                    <div class="km-control-group" name="gspcTargetDescription" caption="يرجى تقديم التفاصيل عن الأهداف المحددة">
-                        <div km-rich-textbox identifier="document.header.identifier" name="gspcTargetDescription" ng-model="document.gspcNationalContribution.gspcTargetDescription" locales="document.header.languages"
-                            rows="3"></div>
+                <div class="row  bottom-spacing">
+                        <div class="col-md-12"><span class="help-block">باستخدام النموذج أدناه، يرجى وصف مساهمة بلدك في تحقيق أهداف الاستراتيجية العالمية لحفظ النباتات. وينبغي تكرار هذا النموذج لكل من الأهداف الستة عشر للاستراتيجية العالمية لحفظ النبات. <a translation-url info-bar data-content="This section of the sixth national report is optional but is recommended for all Parties that have developed strategies for plant conservation in response to the GSPC and/ or for Parties that have active plant conservation work taking place via networks of botanical gardens or botanical collections institutions.
+                <br/></br>
+                For those GSPC targets that are closely aligned to specific Aichi Biodiversity Targets, information entered in the other sections of the report will be relevant here. If this is the case, the information does not need to be reproduced in its entirety in this section of the national report. Instead a reference to previous sections of the national report can be inserted. Through its Secretariat at Botanic Gardens Conservation International (bgci.org), members of the Global Partnership for Plant Conservation and other botanical institutions may be able to support Parties in compiling relevant information related to this section.
+                " data-title="CHM Help: Sixth national report"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="km-control-group" name="plantConservationNetwork" caption="يرجى تقديم معلومات عن أي شبكات فعلية لحفظ النباتات موجودة في بلدك."
-                        data-content="يرجى ذكر أي مجموعات لحفظ النباتات أو شبكات الحدائق النباتية التي تعمل على حفظ النبات في بلدك.">
-                        <div km-rich-textbox identifier="document.header.identifier" name="plantConservationNetwork" ng-model="document.gspcNationalContribution.plantConservationNetwork"
-                            locales="document.header.languages" rows="3"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasures" caption="يرجى وصف التدابير الرئيسية التي اتخذها بلدك لتنفيذ الاستراتيجية العالمية لحفظ النباتات على المستوى الوطني (يمكن أن تبلغ الأطراف عن الإجراءات المتخذة لتنفيذ هذه الأهداف إذا لم تتم تغطيتها في القسم الثاني أو الثالث أو الرابع.)">
-                        <div class="help-block">إذا اعتمد بلدكم أهدافا وطنية أو التزامات مماثلة تتعلق بالأهداف الواردة في الاستراتيجية العالمية لحفظ النبات، يرجى وصف الإجراءات المتخذة وإسهامها في تحقيق الاستراتيجية العالمية لحفظ النبات.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasures" ng-model="document.gspcNationalContribution.implementationMeasures" locales="document.header.languages"
-                            rows="3"></div>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>
+
+    <div class="panel panel-default gspcTarget" >
+        <div class="panel-header clearfix">
+            <h3>
+                <div class="pull-right btn-group" style="padding-right:10px"><a ng-href="#" class="btn btn-primary " ng-click="editInDialog(undefined, undefined, 'gspcGeneralInfo')"><i class="fa fa-2x1 fa-edit"></i> تعديل</a> <a ng-href="#" class="btn btn-primary " data-toggle="collapse" data-target="#gspcGeneralInfos"><i class="fa fa-2x1 fa-arrow-circle-o-up"></i></a></div>معلومات عامة</h3>
+        </div>
+        <div class="panel-body collapse in" id="gspcGeneralInfo">
+                <div ng-show="document.gspcNationalContribution.hasGSPCTargets">
+                    <label></label>
+                    <div class="km-value km-pre" ng-style="{ direction : (document.government | term:locale|direction:locale) }"><strong>{{document.government | term:locale}} أهدافا وطنية تتعلق بأهداف االستراتيجية العاملية حلفظ النباتات</strong></div>
+                </div>
+                <div ng-show="!document.gspcNationalContribution.hasGSPCTargets">
+                    <label></label>
+                    <div class="km-value km-pre" ng-style="{ direction : (document.government | term:locale|direction:locale) }"><strong>{{document.government | term:locale}} أهدافا وطنية تتعلق بأهداف االستراتيجية العاملية حلفظ النباتات</strong></div>
+                </div>
+                <div ng-show="document.gspcNationalContribution.gspcTargetDescription">
+                    <label>تفاصيل عن الأهداف المحددة</label>
+                    <km-value-ml value="document.gspcNationalContribution.gspcTargetDescription" locales="document.header.languages" km-pre html></km-value-ml>
+                </div>
+                <div ng-show="document.gspcNationalContribution.plantConservationNetwork">
+                    <label>معلومات عن أي شبكات نشطة لحفظ النبات</label>
+                    <km-value-ml value="document.gspcNationalContribution.plantConservationNetwork" locales="document.header.languages" km-pre html></km-value-ml>
+                </div>
+                <div ng-show="document.gspcNationalContribution.implementationMeasures">
+                    <label>التدابير الرئيسية التي اتخذها بلدك لتنفيذ الاستراتيجية العالمية لحفظ النباتات على المستوى الوطني</label>
+                    <km-value-ml value="document.gspcNationalContribution.implementationMeasures" locales="document.header.languages" km-pre html></km-value-ml>
+                </div>
+        </div>
+    </div>
+
     <div class="panel panel-default gspcTarget" ng-repeat="gspcTarget in document.gspcNationalContribution track by $index" ng-if="gspcTarget.identifier">
         <div class="panel-header clearfix">
-            <h3>{{gspcTargets[gspcTarget.identifier].title[locale]}}<div class="pull-right" style="padding-right:10px"><a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#{{gspcTarget.identifier}}"></a></div>
-            </h3>
+            <h3>
+                <div class="pull-right btn-group" style="padding-right:10px"><a ng-href="#" class="btn btn-primary " ng-click="editInDialog(gspcTarget, 'target', 'gspcNationalContribution')"><i class="fa fa-2x1 fa-edit"></i> تعديل</a> <a ng-href="#" class="btn btn-primary " data-toggle="collapse" data-target="#{{gspcTarget.identifier}}"><i class="fa fa-2x1 fa-arrow-circle-o-up"></i></a></div>{{gspcTargets[gspcTarget.identifier].title[locale]}}</h3>
         </div>
-        <div class="panel-body collapse in" id="{{gspcTarget.identifier}}"><span ng-include src="'gspcNationalContribution'" onload="target=gspcTarget"></span></div>
+        <div class="panel-body collapse in" id="{{gspcTarget.identifier}}"><!-- <span ng-include src="'gspcNationalContribution'" onload="target=gspcTarget"></span> --><div ng-show="gspcTarget.categoryProgress">
+                <label>فئة التقدم المحرز نحو تحقيق هدف الاستراتيجية العالمية لحفظ النباتات على المستوى الوطني.</label>
+                <div class="km-value km-pre" ng-style="{ direction : (gspcTarget.categoryProgress | term:locale|direction:locale) }">{{gspcTarget.categoryProgress | term:locale}}</div>
+            </div>
+            <div ng-show="gspcTarget.progressDescription">
+                <label>تفسير فئة التقدم المحرز نحو تحقيق هدف الاستراتيجية العالمية لحفظ النباتات على المستوى الوطني.</label>
+                <km-value-ml value="gspcTarget.progressDescription" locales="locale" km-pre html></km-value-ml>
+            </div>
+            <div ng-show="gspcTarget.description">
+                <label>يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف</label>
+                <km-value-ml value="gspcTarget.description" locales="locale" km-pre html></km-value-ml>
+            </div>
+        </div>
     </div>
 
+    <script type="text/ng-template" id="gspcGeneralInfo" trados-translation="true">
+        <div dir="rtl">
+                
+        
+                    <div class="km-control-group" name="gspcTarget" caption="Does your country have national targets related to the GSPC Targets?"
+                        data-content="إذا اعتمد بلدكم أهدافا وطنية أو التزامات مماثلة تتعلق بالأهداف الواردة في الاستراتيجية العالمية لحفظ النبات ، يرجى وضع علامة في هذه الخانة والإشارة إلى صياغة الأهداف في الأقسام التالية.">
+                        <button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.gspcNationalContribution.hasGSPCTargets, 'btn-default': document.gspcNationalContribution.hasGSPCTargets==false}"
+                            class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=true">نعم</button><span info-bar data-content="Check this box if your country has adopted national targets or equivalent commitments related to the Global Strategy for Plant Conservation, and indicate the wording of the targets in the sections below."></span><button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.gspcNationalContribution.hasGSPCTargets==false, 'btn-default': document.gspcNationalContribution.hasGSPCTargets}"
+                            class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=false">لا</button><span info-bar data-content="Check this box if your country has not (yet) adopted national targets or equivalent commitments related to the Global Strategy for Plant Conservation."></span></div>
+                    <div class="row" ng-show="document.gspcNationalContribution.hasGSPCTargets">
+                        <div class="col-md-12">
+                            <div class="km-control-group" name="gspcTargetDescription" caption="Please provide details on the specific targets.">
+                                <div km-rich-textbox identifier="document.header.identifier" name="gspcTargetDescription" ng-model="document.gspcNationalContribution.gspcTargetDescription" locales="document.header.languages"
+                                    rows="3"></div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="km-control-group" name="plantConservationNetwork" caption="Please provide information on any active networks for plant conservation present in your country."
+                                data-content="يرجى ذكر أي مجموعات لحفظ النباتات أو شبكات الحدائق النباتية التي تعمل على حفظ النبات في بلدك.">
+                                <div km-rich-textbox identifier="document.header.identifier" name="plantConservationNetwork" ng-model="document.gspcNationalContribution.plantConservationNetwork"
+                                    locales="document.header.languages" rows="3"></div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="km-control-group" name="implementationMeasures" caption="Please describe the major measures taken by your country for the implementation of the Global Strategy for Plant Conservation.
+            (Parties can report on actions taken to implement these targets if they are not covered in sections II, III or IV)">
+                                <div class="help-block">إذا اعتمد بلدكم أهدافا وطنية أو التزامات مماثلة تتعلق بالأهداف الواردة في الاستراتيجية العالمية لحفظ النبات، يرجى وصف الإجراءات المتخذة وإسهامها في تحقيق الاستراتيجية العالمية لحفظ النبات.</div>
+                                <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasures" ng-model="document.gspcNationalContribution.implementationMeasures" locales="document.header.languages"
+                                    rows="3"></div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </script>
 
     <script type="text/ng-template" id="gspcNationalContribution" trados-translation="true">
-        <div dir="rtl"><span ng-include src="'gspcNationalContributionTargets'" dir="rtl"></span><div ng-switch="target.identifier">
+        <div dir="rtl">
+            <div style="border-bottom:1px solid #eee">
+                <h3>{{gspcTargets[target.identifier].title[locale]}}</h3>
+            </div><span ng-include src="'gspcNationalContributionTargets'"></span><div ng-switch="target.identifier">
                 <div ng-switch-when="GSPC-TARGET-01" class="row">
                     <div class="col-md-12">
                         <div class="km-control-group" name="nationalContributions-GSPC-TARGET-01" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"

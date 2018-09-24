@@ -1,4 +1,10 @@
 ﻿<div>
+
+        <style>
+                .webui-popover {
+                    z-index: 19999;
+                }
+            </style> 
     <div class="panel panel-default">
         <div class="panel-header">
             <h3>第四部分说明贵国对实现各项全球性爱知生物多样性目标所作的贡献</h3>
@@ -19,10 +25,18 @@
     </div>
     <div class="panel panel-default aichiTarget" ng-repeat="aichiTarget in document.nationalContribution track by $index" ng-if="aichiTarget.identifier">
         <div class="panel-header clearfix">
-            <h3>{{aichiTargets[aichiTarget.identifier].title[locale]}}<div class="pull-right" style="padding-right:10px"><a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#{{aichiTarget.identifier}}"></a></div>
-            </h3>
+            <h3>
+                <div class="pull-right btn-group" style="padding-right:10px"><a ng-href="#" class="btn btn-primary " ng-click="editInDialog(aichiTarget, 'target', 'aichiTargetContribution')"><i class="fa fa-2x1 fa-edit"></i> 编辑</a> <a ng-href="#" class="btn btn-primary " data-toggle="collapse" data-target="#{{aichiTarget.identifier}}"><i class="fa fa-2x1 fa-arrow-circle-o-up"></i></a></div>{{aichiTargets[aichiTarget.identifier].title[locale]}}</h3>
         </div>
-        <div class="panel-body collapse in" id="{{aichiTarget.identifier}}"><span ng-include src="'aichiTargetContribution'" onload="target=aichiTarget"></span></div>
+        <div class="panel-body collapse in" id="{{aichiTarget.identifier}}">
+            <div ng-show="implementationMeasure.description">
+                <label>请说明贵国现已通过哪些方式以及在何种程度上为实现本项爱知生物多样性目标作出了贡献，并概述可佐证此说法的证据。</label>
+                <km-value-ml value="implementationMeasure.description" locales="document.header.languages" km-pre html></km-value-ml>
+            </div>
+            <div ng-show="implementationMeasure.description">
+                <label>请说明为在全球一级实现该全球爱知生物多样性目标作出贡献的其他活动（可选择是否填写本部分）。</label>
+                <km-value-ml value="implementationMeasure.achievementActivities" locales="document.header.languages" km-pre html></km-value-ml>
+            </div><!-- <span ng-include src="'aichiTargetContribution'" onload="target=aichiTarget"></span> --></div>
     </div>
 
     <div class="panel panel-default">
@@ -38,8 +52,11 @@
             </div>
         </div>
     </div>
-    <script type="text/ng-template" id="aichiTargetContribution" trados-translation="true">
 
+    <script type="text/ng-template" id="aichiTargetContribution" trados-translation="true">
+        <div style="border-bottom:1px solid #eee">
+            <h3>{{aichiTargets[target.identifier].title[locale]}}</h3>
+        </div>
         <div ng-switch="target.identifier">
             <div ng-switch-when="AICHI-TARGET-01" class="row">
                 <div class="col-md-12">

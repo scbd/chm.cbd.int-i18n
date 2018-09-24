@@ -1,5 +1,9 @@
-﻿<div>
-    
+﻿<div class="edit-implementation-measure">
+    <style>
+        .webui-popover {
+            z-index: 19999;
+        }
+    </style>   
     <div class="panel panel-default">
         <div class="panel-header">
             <h3>Partie II. Mesures de mise en &oelig;uvre qui ont &eacute;t&eacute; prises, &eacute;valuation de leur efficacit&eacute;, obstacles et besoins scientifiques et techniques connexes pour atteindre les objectifs nationaux</h3>
@@ -15,93 +19,143 @@
     </div>
     <div class="panel panel-default implementationMeasure" ng-repeat="implementationMeasure in document.implementationMeasures track by $index">
         <div class="panel-header clearfix">
-            <h3>{{implementationMeasure.title|lstring:locale}}<div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a translation-url ng-href="#" class="trash btn" ng-click="removeImplementationMeasure(implementationMeasure)"></a> <a translation-url ng-href="#" data-toggle="collapse" class="btn measure collapse-icon" data-target="#implementationMeasure{{$index}}"></a> <a ng-href="#" class="btn " ng-click="movePosition(document.implementationMeasures, $index, 'up')"
-                        data-toggle="tooltip" data-placement="top" title="D&eacute;placer une mesure" ng-if="!$first" style="width: 0% !important;padding-right: 10px;padding-left: 10px;"> <i class="fa fa-level-up" style="font-size:20px"/> </a> <a ng-href="#" class="btn " ng-click="movePosition(document.implementationMeasures, $index, 'down')"
-                    data-toggle="tooltip" data-placement="top" title="D&eacute;placer une mesure vers le bas" ng-if="!$last" style="width: 0% !important;padding-right: 10px;padding-left: 10px;"> <i class="fa fa-level-down" style="font-size:20px"/> </a></div>
-            </h3>
+            <h3>
+                <div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a ng-href="#" class="btn btn-primary " ng-click="editInDialog(implementationMeasure, 'implementationMeasure', 'editImplementationRecordModal')"><i class="fa fa-2x1 fa-edit"></i> Modifier</a> <a ng-href="#" class="btn btn-primary " ng-click="removeImplementationMeasure(implementationMeasure)"><i class="fa fa-2x1 fa-trash"></i></a> <a ng-href="#" class="btn btn-primary " data-toggle="collapse" data-target="#implementationMeasure{{$index}}"><i class="fa fa-2x1 fa-arrow-circle-o-up"></i></a> <a ng-href="#" class="btn btn-primary" ng-click="movePosition(document.implementationMeasures, $index, 'up')" data-toggle="tooltip" data-placement="top" title="D&eacute;placer une mesure" ng-if="!$first" ><i class="fa fa-2x1 fa-level-up"></i></a> <a ng-href="#" class="btn btn-primary " ng-click="movePosition(document.implementationMeasures, $index, 'down')" data-toggle="tooltip" data-placement="top" title="D&eacute;placer une mesure vers le bas" ng-if="!$last"><i class="fa fa-2x1 fa-level-down"></i></a></div>{{implementationMeasure.title|lstring:locale}}</h3>
         </div>
         <div class="panel-body collapse in" id="implementationMeasure{{$index}}">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureTitle" caption="Titre de la mesure" data-content="Veuillez fournir un titre concis pour la mesure qui a été prise.">
-                        <div km-textbox-ml name="implementationMeasureTitle" ng-model="implementationMeasure.title" locales="document.header.languages"></div>
+                    <div class="col-md-12">
+                    <div ng-show="implementationMeasure.description">
+                        <label>Titre de la mesure</label>
+                        <km-value-ml value="implementationMeasure.title" locales="document.header.languages"></km-value-ml>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureDescription" caption="Veuillez décrire les mesures prises pour contribuer à la mise en œuvre des stratégies et plans d’action nationaux pour la diversité biologique de votre pays."
-                        data-content="Ce modèle doit être reproduit pour chaque mesure principale ou catégorie de mesures prise. Les Parties doivent préciser la mesure principale prise pour l’application de leurs stratégie et plans d’action nationaux pour la diversité biologique et/ou atteindre leurs objectifs nationaux pour la diversité biologique par exemple, les politiques, mesures législatives et/ou programmes et projets. Les Parties peuvent aussi déclarer dans leur rapport les mesures prises par les peuples autochtones, et les communautés et parties prenantes locales. La description des mesures doit comprendre des informations sur les problèmes que la mesure tente de corriger, les actions prévues et mises en œuvre, l’intégration, les échéanciers et les acteurs en cause. Les Parties peuvent aussi préciser si la mesure prise est liée à une décision particulière de la Conférence des Parties, à une recommandation de l’un de ses organes subsidiaires, ou à un programme de travail thématique ou question intersectorielle abordée par la Convention. Les Parties souhaiteront peut-être également indiquer si la mesure est liée à d’autres processus internationaux, tels que ceux d’accords multilatéraux sur l’environnement et/ou processus régionaux pertinents.">
-                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureDescription" ng-model="implementationMeasure.description" locales="document.header.languages"
-                            rows="3"  on-file-upload="onEditorFileUpload(data)"></div>
+                    <div ng-show="implementationMeasure.description">
+                        <label>Veuillez d&eacute;crire les mesures prises pour contribuer &agrave; la mise en &oelig;uvre des strat&eacute;gies et plans d&rsquo;action nationaux pour la diversit&eacute; biologique de votre pays.</label>
+                        <km-value-ml value="implementationMeasure.description" locales="document.header.languages" km-pre html></km-value-ml>
                     </div>
-                </div>
-                <div class="col-md-12" ng-if="!document.targetPursued">
-                    <div class="km-control-group" name="implementationMeasureAichiTargets" caption="Veuillez indiquer, pour la mesure de mise en œuvre, à quels objectifs nationaux ou à quel(s) Objectif(s) d’Aichi pour la biodiversité elle contribue. "
-                        data-content="Veuillez indiquer l’objectif national ou les objectifs nationaux auxquels la mesure est liée. Si votre pays n’a pas établi d’objectifs nationaux, veuillez indiquer à quel(s) Objectif(s) d’Aichi pour la biodiversité la mesure est liée. Si votre pays a décidé d’utiliser l’outil d’établissement de rapports en ligne, les objectifs nationaux de votre pays (saisis dans la partie I) ou les Objectifs d’Aichi pour la biodiversité seront automatiquement affichés pour que vous puissiez sélectionner les objectifs concernés.">
-                        <div km-select multiple name="implementationMeasureAichiTargets" ng-model="implementationMeasure.aichiTargets" placeholder="Choisir un ou plusieurs objectifs"
-                            items="options.aichiTargets()"></div>
+                    <div ng-show="implementationMeasure.aichiTarget">
+                        <label>Objectifs d&apos;Aichi pour la biodiversit&eacute;</label>
+                        <div class="km-value km-pre" ng-style="{ direction : (aichiTargets[implementationMeasure.aichiTarget.identifier].title | direction:locale) }">{{aichiTargets[implementationMeasure.aichiTarget.identifier].title | lstring:locale}}</div>
                     </div>
-                </div>
-                <div class="col-md-12" ng-if="document.targetPursued">
-                    <div class="km-control-group" name="implementationMeasureAichiTargets" caption="Veuillez indiquer, pour la mesure de mise en œuvre, à quels objectifs nationaux ou à quel(s) Objectif(s) d’Aichi pour la biodiversité elle contribue. "
-                        data-content="Veuillez indiquer l’objectif national ou les objectifs nationaux auxquels la mesure est liée. Si votre pays n’a pas établi d’objectifs nationaux, veuillez indiquer à quel(s) Objectif(s) d’Aichi pour la biodiversité la mesure est liée. Si votre pays a décidé d’utiliser l’outil d’établissement de rapports en ligne, les objectifs nationaux de votre pays (saisis dans la partie I) ou les Objectifs d’Aichi pour la biodiversité seront automatiquement affichés pour que vous puissiez sélectionner les objectifs concernés.">
-                        <div km-select multiple name="implementationMeasureNationalTargets" ng-model="implementationMeasure.nationalTargets" placeholder="Choisir un ou plusieurs objectifs"
-                            items="options.nationalTargets()"></div>
+                    <div ng-show="implementationMeasure.assessment">
+                        <label>&Eacute;valuation de l&rsquo;efficacit&eacute; des mesures de mise en &oelig;uvre prises pour obtenir les r&eacute;sultats souhait&eacute;s</label>
+                        <div class="km-value km-pre" ng-style="{ direction : (implementationMeasure.assessment | term:locale|direction:locale) }">{{implementationMeasure.assessment | term:locale}}</div>
                     </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="km-control-group" name="implementationMeasureAssessment" caption="Évaluation de l’efficacité des mesures de mise en œuvre prises pour obtenir les résultats souhaités"
-                        data-content="Veuillez indiquer l’efficacité de la mesure à créer le changement souhaité par exemple un changement dans l’état ou la tendance en matière de diversité biologique, un changement dans les facteurs d’appauvrissement de la diversité biologique, un changement
-												de comportement ou un changement de politique.">
-                        <div km-term-radio name="implementationMeasureAssessment" ng-model="implementationMeasure.assessment" terms="options.assessment()"
-                            description="true" binding-type="term" ng-click="save()"></div>
+                    <div ng-show="implementationMeasure.assessmentDescription">
+                        <label>outils ou la m&eacute;thode employ&eacute;s pour l&rsquo;&eacute;valuation de l&rsquo;efficacit&eacute; ci-dessus</label>
+                        <km-value-ml value="implementationMeasure.assessmentDescription" locales="document.header.languages" km-pre html></km-value-ml>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureAssessmentDescription" caption="Veuillez expliquer votre choix et indiquer si possible les outils ou la méthode employés pour l’évaluation de l’efficacité ci-dessus."
-                        data-content="Veuillez fournir des justifications de l’efficacité de la mesure indiquée ci-dessus par exemple, des informations sur les changements dans l’état et les tendances en matière de diversité biologique, des changements dans les pressions exercées sur la diversité biologique ou les facteurs de son appauvrissement ou encore des changements dans les conditions socioéconomiques telles que le sensibilisation à la diversité biologique, des changements dans la disponibilité des ressources, des changements aux politiques du gouvernement ou des changements dans le comportement des principaux secteurs d’activités du pays.</br>Lorsqu’elles font rapport sur cette question, les Parties devraient garder à l’esprit le paragraphe 29 de la décision XIII/1, qui encourage les Parties à entreprendre des évaluations de l’efficacité des mesures prises pour mettre en œuvre le Plan stratégique 2011-2020 pour la diversité biologique, à documenter les expériences, y compris les méthodes appliquées, à identifier les enseignements tirés, et à transmettre cette information au Secrétaire exécutif, y compris par le biais de leur sixième rapport national et du Centre d’échange.">
-                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureAssessmentDescription" ng-model="implementationMeasure.assessmentDescription"
-                            locales="document.header.languages" rows="3"></div>
+                    <div ng-show="implementationMeasure.relevantDocuments">
+                        <label>Sites Internet, liens Internet et fichiers pertinents</label>
+                        <div class="km-value">
+                            <div ng-repeat="item in implementationMeasure.relevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a> <span ng-if="item.tag">({{item.tag}})</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureRelevantDocuments" caption="Sites Internet, liens Internet et fichiers pertinents (Veuillez utiliser ce champ pour indiquer des sites et liens Internet ou documents qui permettent d’accéder à de plus amples informations sur cette évaluation)."
-                        data-content="Veuillez indiquer tout site Internet, lien Internet ou document pertinent donnant accès à des informations supplémentaires liés à l’évaluation de l’efficacité de la mesure prise, par exemple en joignant des articles scientifiques, en fournissant des liens Internet et des citations issues de publications.">
-                        <div km-link name="implementationMeasureRelevantDocuments" ng-model="implementationMeasure.relevantDocuments" identifier="document.header.identifier"></div>
+                    <div ng-show="implementationMeasure.otherRelevantInformation">
+                        <label>Tout autres renseignements pertinents</label>
+                        <km-value-ml value="implementationMeasure.otherRelevantInformation" locales="document.header.languages" km-pre html></km-value-ml>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureOtherRelevantInformation" caption="Autres informations pertinentes, notamment des études de cas illustrant comment les mesures prises ont produit (ou devraient produire) des résultats qui contribuent à la mise en œuvre des SPANB"
-                        data-content="Veuillez fournir des informations supplémentaires, tels que des études de cas liées aux mesures prises. Les éléments des études de cas peuvent comprendre entre autres une courte introduction au sujet ou au problème, une description de ce qui a été fait ou de ce qui est fait actuellement pour corriger la situation, des informations sur les acteurs en cause, des informations sur les enjeux pertinents aux objectifs nationaux ou aux Objectifs d’Aichi pour la biodiversité et des conclusions générales et des enseignements tirés, y compris les résultats atteints à ce jour. Les études de cas peuvent être accompagnées de chiffres, de cartes et de photos.">
-                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureOtherRelevantInformation" rows="3" ng-model="implementationMeasure.otherRelevantInformation"
-                            locales="document.header.languages"></div>
+                    <div ng-show="implementationMeasure.otherRelevantDocuments">
+                        <label>Autres sites Internet ou fichiers en pi&egrave;ces jointes</label>
+                        <div class="km-value">
+                            <div ng-repeat="item in implementationMeasure.otherRelevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a> <span ng-if="item.tag">({{item.tag}})</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureOtherRelevantDocuments" caption="Sites Internet, liens Internet et fichiers pertinents. (Veuillez utiliser ce champ pour indiquer des sites et liens Internet ou documents qui permettent d’accéder à de plus amples informations)"
-                        data-content="Veuillez indiquer tout site Internet, lien Internet ou document pertinent menant à des informations supplémentaires pertinentes.">
-                        <div km-link name="implementationMeasureOtherRelevantDocuments" ng-model="implementationMeasure.otherRelevantDocuments" identifier="document.header.identifier"></div>
+                    <div ng-show="implementationMeasure.obstacles">						
+                        <label>Obstacles et besoins scientifiques et techniques li&eacute;s &agrave; la mesure prise</label>
+                        <km-value-ml value="implementationMeasure.obstacles" locales="document.header.languages" km-pre html></km-value-ml>
                     </div>
-                </div>
-
-
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureObstacles" caption="Obstacles et besoins scientifiques et techniques liés à la mesure prise: Veuiller décrire les obstacles rencontrés et tout besoin scientifique et technique identifé en vue de, y compris la coopération technique et scientifique, des activités de renforcement des capacités ou la nécessité de matériel d’orientation."
-                        data-content="Veuillez décrire les besoins ou obstacles identifiés ou rencontrés en termes de mise en œuvre lorsque cette mesure a été prise. A titre d’exemple, votre pays pourrait inclure des questions spécifiques/domaines thématiques pour lesquels une assistance est requise, le type d’assistance nécessaire, ce que le pays pourrait faire grâce à cette aide, et quels groupes de la société seront les principaux bénéficiaires de cette aide. Votre pays pourrait faire des observations sur des questions spécifiques comme les besoins liés à la formation et/ou l’élaboration des lois, technologies, outils, guides ou études. Votre pays souhaitera peut-être également faire des observations sur tout obstacle qui pourrait être surmonté grâce à une meilleure compréhension des systèmes de connaissances traditionnelles et de la science moderne. Les Parties pourraient aussi indiquer quels obstacles ou besoins doivent être traités en priorité. Des informations venant de cette partie du rapport national aideront à améliorer davantage le renforcement des capacités, la coopération technique et scientifique et le transfert de technologie, pour appuyer la mise en œuvre du Plan stratégique 2011-2020 pour la diversité biologique et pour faire en sorte que les informations sur ces questions soient partagées efficacement, conformément à la décision XII/2 et à la décision XIII/23.">
-                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureObstacles" rows="3" ng-model="implementationMeasure.obstacles" locales="document.header.languages"></div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureObstaclesRelevantDocuments" caption="Sites Internet, liens Internet et fichiers pertinents. (Veuillez utiliser ce champ pour indiquer des sites et liens Internet ou documents qui permettent d’accéder à de plus amples informations sur ces obstacles et besoins scientifiques et techniques)."
-                        data-content="Veuillez indiquer tout site Internet, lien Internet ou document pertinent donnant accès à des informations supplémentaires liés à ces obstacles et besoins scientifiques et techniques, par exemple en joignant des rapports ou articles scientifiques, en fournissant des liens Internet et/ou des citations issues de publications. notamment en joignant des rapports ou articles scientifiques, en indiquant des liens Internet et/ou en fournissant des citations tirées de publications.">
-                        <div km-link name="implementationMeasureObstaclesRelevantDocuments" ng-model="implementationMeasure.obstaclesRelevantDocuments"
-                            identifier="document.header.identifier"></div>
+                    <div ng-show="implementationMeasure.obstaclesRelevantDocuments">
+                        <label>Sites Internet, liens Internet et fichiers pertinents</label>
+                        <div class="km-value">
+                            <div ng-repeat="item in implementationMeasure.obstaclesRelevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a>	<span ng-if="item.tag">({{item.tag}})</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script type="text/ng-template" trados-translation="true" id="editImplementationRecordModal">   
+         
+        <div class="row edit-implementation-div"  >
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureTitle" caption="Title of measure" data-content="Veuillez fournir un titre concis pour la mesure qui a été prise.">
+                    <div km-textbox-ml name="implementationMeasureTitle" ng-model="implementationMeasure.title" locales="document.header.languages"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureDescription" caption="Describe a measure taken to contribute to the implementation of your country’s national biodiversity strategy and action plan."
+                    data-content="Ce modèle doit être reproduit pour chaque mesure principale ou catégorie de mesures prise. Les Parties doivent préciser la mesure principale prise pour l’application de leurs stratégie et plans d’action nationaux pour la diversité biologique et/ou atteindre leurs objectifs nationaux pour la diversité biologique par exemple, les politiques, mesures législatives et/ou programmes et projets. Les Parties peuvent aussi déclarer dans leur rapport les mesures prises par les peuples autochtones, et les communautés et parties prenantes locales. La description des mesures doit comprendre des informations sur les problèmes que la mesure tente de corriger, les actions prévues et mises en œuvre, l’intégration, les échéanciers et les acteurs en cause. Les Parties peuvent aussi préciser si la mesure prise est liée à une décision particulière de la Conférence des Parties, à une recommandation de l’un de ses organes subsidiaires, ou à un programme de travail thématique ou question intersectorielle abordée par la Convention. Les Parties souhaiteront peut-être également indiquer si la mesure est liée à d’autres processus internationaux, tels que ceux d’accords multilatéraux sur l’environnement et/ou processus régionaux pertinents.">
+                    <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureDescription" ng-model="implementationMeasure.description" locales="document.header.languages"
+                        rows="3"  on-file-upload="onEditorFileUpload(data)"></div>
+                </div>
+            </div>
+            <div class="col-md-12" ng-if="!document.targetPursued">
+                <div class="km-control-group" name="implementationMeasureAichiTargets" caption="For the implementation measure, please indicate to which Aichi Biodiversity target(s) it contributes "
+                    data-content="Veuillez indiquer l’objectif national ou les objectifs nationaux auxquels la mesure est liée. Si votre pays n’a pas établi d’objectifs nationaux, veuillez indiquer à quel(s) Objectif(s) d’Aichi pour la biodiversité la mesure est liée. Si votre pays a décidé d’utiliser l’outil d’établissement de rapports en ligne, les objectifs nationaux de votre pays (saisis dans la partie I) ou les Objectifs d’Aichi pour la biodiversité seront automatiquement affichés pour que vous puissiez sélectionner les objectifs concernés.">
+                    <div km-select multiple name="implementationMeasureAichiTargets" ng-model="implementationMeasure.aichiTargets" placeholder="Choisir un ou plusieurs objectifs"
+                        items="options.aichiTargets()"></div>
+                </div>
+            </div>
+            <div class="col-md-12" ng-if="document.targetPursued">
+                <div class="km-control-group" name="implementationMeasureAichiTargets" caption="For the implementation measure, please indicate to which national or Aichi Biodiversity target(s) it contributes "
+                    data-content="Veuillez indiquer l’objectif national ou les objectifs nationaux auxquels la mesure est liée. Si votre pays n’a pas établi d’objectifs nationaux, veuillez indiquer à quel(s) Objectif(s) d’Aichi pour la biodiversité la mesure est liée. Si votre pays a décidé d’utiliser l’outil d’établissement de rapports en ligne, les objectifs nationaux de votre pays (saisis dans la partie I) ou les Objectifs d’Aichi pour la biodiversité seront automatiquement affichés pour que vous puissiez sélectionner les objectifs concernés.">
+                    <div km-select multiple name="implementationMeasureNationalTargets" ng-model="implementationMeasure.nationalTargets" placeholder="Choisir un ou plusieurs objectifs"
+                        items="options.nationalTargets()"></div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="km-control-group" name="implementationMeasureAssessment" caption="Assessment of the effectiveness of the implementation measure taken in achieving desired outcomes"
+                    data-content="Veuillez indiquer l’efficacité de la mesure à créer le changement souhaité par exemple un changement dans l’état ou la tendance en matière de diversité biologique, un changement dans les facteurs d’appauvrissement de la diversité biologique, un changement
+												de comportement ou un changement de politique.">
+                    <div km-term-radio name="implementationMeasureAssessment" ng-model="implementationMeasure.assessment" terms="options.assessment()"
+                        description="true" binding-type="term" ng-click="save()"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureAssessmentDescription" caption="Please explain the selection and where possible indicate the tools or methodology used for the assessment of effectiveness above"
+                    data-content="Veuillez fournir des justifications de l’efficacité de la mesure indiquée ci-dessus par exemple, des informations sur les changements dans l’état et les tendances en matière de diversité biologique, des changements dans les pressions exercées sur la diversité biologique ou les facteurs de son appauvrissement ou encore des changements dans les conditions socioéconomiques telles que le sensibilisation à la diversité biologique, des changements dans la disponibilité des ressources, des changements aux politiques du gouvernement ou des changements dans le comportement des principaux secteurs d’activités du pays.</br>Lorsqu’elles font rapport sur cette question, les Parties devraient garder à l’esprit le paragraphe 29 de la décision XIII/1, qui encourage les Parties à entreprendre des évaluations de l’efficacité des mesures prises pour mettre en œuvre le Plan stratégique 2011-2020 pour la diversité biologique, à documenter les expériences, y compris les méthodes appliquées, à identifier les enseignements tirés, et à transmettre cette information au Secrétaire exécutif, y compris par le biais de leur sixième rapport national et du Centre d’échange.">
+                    <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureAssessmentDescription" ng-model="implementationMeasure.assessmentDescription"
+                        locales="document.header.languages" rows="3"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureRelevantDocuments" caption="Relevant websites, links, and filesfiles (Please use this field to indicate any relevant websites, web links or documents where additional information related to this assessment can be found.)"
+                    data-content="Veuillez indiquer tout site Internet, lien Internet ou document pertinent donnant accès à des informations supplémentaires liés à l’évaluation de l’efficacité de la mesure prise, par exemple en joignant des articles scientifiques, en fournissant des liens Internet et des citations issues de publications.">
+                    <div km-link name="implementationMeasureRelevantDocuments" ng-model="implementationMeasure.relevantDocuments" identifier="document.header.identifier"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureOtherRelevantInformation" caption="Other relevant information, including case studies to illustrate how the measure taken has resulted in (or is expected to result in) outcomes that contribute to the implementation of the NBSAP"
+                    data-content="Veuillez fournir des informations supplémentaires, tels que des études de cas liées aux mesures prises. Les éléments des études de cas peuvent comprendre entre autres une courte introduction au sujet ou au problème, une description de ce qui a été fait ou de ce qui est fait actuellement pour corriger la situation, des informations sur les acteurs en cause, des informations sur les enjeux pertinents aux objectifs nationaux ou aux Objectifs d’Aichi pour la biodiversité et des conclusions générales et des enseignements tirés, y compris les résultats atteints à ce jour. Les études de cas peuvent être accompagnées de chiffres, de cartes et de photos.">
+                    <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureOtherRelevantInformation" rows="3" ng-model="implementationMeasure.otherRelevantInformation"
+                        locales="document.header.languages"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureOtherRelevantDocuments" caption="Other relevant website address or attached documents (Please use this field to indicate any relevant websites, web links or documents where additional information can be found)"
+                    data-content="Veuillez indiquer tout site Internet, lien Internet ou document pertinent menant à des informations supplémentaires pertinentes.">
+                    <div km-link name="implementationMeasureOtherRelevantDocuments" ng-model="implementationMeasure.otherRelevantDocuments" identifier="document.header.identifier"></div>
+                </div>
+            </div>
 
+
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureObstacles" caption="Obstacles and scientific and technical needs related to the measure taken: Please describe what obstacles have been encountered and any scientific and technical needs for addressing these, including technical and scientific cooperation, capacity development activities or the need for guidance materials."
+                    data-content="Veuillez décrire les besoins ou obstacles identifiés ou rencontrés en termes de mise en œuvre lorsque cette mesure a été prise. A titre d’exemple, votre pays pourrait inclure des questions spécifiques/domaines thématiques pour lesquels une assistance est requise, le type d’assistance nécessaire, ce que le pays pourrait faire grâce à cette aide, et quels groupes de la société seront les principaux bénéficiaires de cette aide. Votre pays pourrait faire des observations sur des questions spécifiques comme les besoins liés à la formation et/ou l’élaboration des lois, technologies, outils, guides ou études. Votre pays souhaitera peut-être également faire des observations sur tout obstacle qui pourrait être surmonté grâce à une meilleure compréhension des systèmes de connaissances traditionnelles et de la science moderne. Les Parties pourraient aussi indiquer quels obstacles ou besoins doivent être traités en priorité. Des informations venant de cette partie du rapport national aideront à améliorer davantage le renforcement des capacités, la coopération technique et scientifique et le transfert de technologie, pour appuyer la mise en œuvre du Plan stratégique 2011-2020 pour la diversité biologique et pour faire en sorte que les informations sur ces questions soient partagées efficacement, conformément à la décision XII/2 et à la décision XIII/23.">
+                    <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureObstacles" rows="3" ng-model="implementationMeasure.obstacles" locales="document.header.languages"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureObstaclesRelevantDocuments" caption="Relevant websites, web links and files (Please use this field to indicate any relevant websites, web links or documents where additional information related to these obstacles and scientific and technical needs can be found.)"
+                    data-content="Veuillez indiquer tout site Internet, lien Internet ou document pertinent donnant accès à des informations supplémentaires liés à ces obstacles et besoins scientifiques et techniques, par exemple en joignant des rapports ou articles scientifiques, en fournissant des liens Internet et/ou des citations issues de publications. notamment en joignant des rapports ou articles scientifiques, en indiquant des liens Internet et/ou en fournissant des citations tirées de publications.">
+                    <div km-link name="implementationMeasureObstaclesRelevantDocuments" ng-model="implementationMeasure.obstaclesRelevantDocuments"
+                        identifier="document.header.identifier"></div>
+                </div>
+            </div>
+        </div>
+    </script>
 
     <script type="text/ng-template" trados-translation="true" id="deleteImplementationRecordModal">              
 					

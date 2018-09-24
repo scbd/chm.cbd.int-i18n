@@ -70,7 +70,7 @@
 									<div class="panel-header">
 										<h3>القسم الأول. معلومات عن الأهداف الجاري السعي وراء تحقيقها على المستوى الوطني</h3>
 									</div>
-									<div class="panel-body">
+									<div class="panel-body" ng-if="tab=='general'">
 										<div class="row  mainHeading">
 											<div class="col-md-12"><span class="help-block">يرجى استخدام النموذج التالي لوصف الأهداف الوطنية لبلدك. سيتم ربط الأهداف الوطنية التي تمّ ادخالها في هذا القسم بأقسام أخرى من التقرير. إذا لم يكن بلدك قد وضع أو اعتمد بعد أهدافا وطنية تتعلق بالخطة الاستراتيجية للتنوع البيولوجي 2011-2020، يرجى الإشارة إلى ذلك في الإطار التالي والانتقال إلى القسم الثاني. <a translation-url info-bar data-content="The objective of this section of the report is to collect information on the national targets that countries have adopted in line with the Strategic Plan for Biodiversity 2011-2020 (paragraph 3(b) of decision X/2). If your country has set and/or adopted national targets or equivalent commitments related to the Strategic Plan for Biodiversity 2011-2020 please use the following template to describe them."
 													    data-title="CHM Help: Sixth national report"></a></span></div>
@@ -136,8 +136,8 @@
 
 																		<div class="panel panel-default">
 																			<div class="panel-header clearfix"><!-- <div class="row"> --> <!-- <div class="col-xs-11">							 --><h3>{{nationalTargets[item.identifier].title|lstring:locale}}<div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a ng-href="#" class="btn" ng-click="movePosition(document.nationalTargets, $index, 'up', 'nationalTarget')"
-																								data-toggle="tooltip" data-placement="top" title="تحريك واحدة تصل الأعلى" ng-if="!$first"> <i class="fa fa-level-up" style="font-size:20px"/> </a> <a ng-href="#" class="btn " ng-click="movePosition(document.nationalTargets, $index, 'down', 'nationalTarget')"
-																							data-toggle="tooltip" data-placement="top" title="Move one potision down" ng-if="!$last"> <i class="fa fa-level-down" style="font-size:20px"/> </a></div>
+																								data-toggle="tooltip" data-placement="top" title="تأكيد الحذف" ng-if="!$first"> <i class="fa fa-level-up" style="font-size:20px"/> </a> <a ng-href="#" class="btn " ng-click="movePosition(document.nationalTargets, $index, 'down', 'nationalTarget')"
+																							data-toggle="tooltip" data-placement="top" title="مقياس التنفيذ" ng-if="!$last"> <i class="fa fa-level-down" style="font-size:20px"/> </a></div>
 																					</h3><!-- </div> --> <!-- <div class="col-xs-1">	
 																						<table class="pull-right">
 																							<tr>																				
@@ -185,24 +185,24 @@
 								</div>
 							</div>
 							<div    id="implementationTab"  km-tab="implementation">
-								<div style="margin:0 50%"><i ng-show="loadingimplementationTab" class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
+								<div style="margin:0 50%" ng-show="loadingimplementationTab"><i class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
 							</div>
 							<div  id="progressTab"   km-tab="progress">
-								<div style="margin:0 50%"><i ng-show="loadingprogressTab" class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
+								<div style="margin:0 50%" ng-show="loadingprogressTab"><i class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
 							</div>
 							<div id="nationalContributionTab"  km-tab="nationalContribution">
-								<div style="margin:0 50%"><i ng-show="loadingnationalContributionTab" class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
+								<div style="margin:0 50%" ng-show="loadingnationalContributionTab"><i class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
 							</div>
 							<div  id="gspcContributionTab"  km-tab="gspcContribution">
-								<div style="margin:0 50%"><i ng-show="loadinggspcContributionTab" class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
+								<div style="margin:0 50%" ng-show="loadinggspcContributionTab"><i class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
 							</div>
 
 							<div id="iplcContributionTab" km-tab="iplcContribution">
-								<div  style="margin:0 50%"><i ng-show="loadingiplcContributionTab" class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
+								<div  style="margin:0 50%" ng-show="loadingiplcContributionTab"><i class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
 							</div>
 
 							<div  id="countryProfileTab"  km-tab="countryProfile">
-								<div style="margin:0 50%"><i ng-show="loadingcountryProfileTab" class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
+								<div style="margin:0 50%" ng-show="loadingcountryProfileTab"><i class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
 							</div>
 						</form>
 
@@ -217,8 +217,9 @@
 										title="{{locale|languageLongName}}" />
 								</div>
 							<div class="btn-group btn-group-sm pull-right">
-								<button href="#" title="اطبع السجل" class="btn btn-default" ng-click="print()">طباعة <i class="fa fa-spin fa-spinner" ng-if="printing" /> <i class="fa fa-print" aria-hidden="true" ng-if="!printing"></i></button>
+								<button href="#" title="اطبع السجل" class="btn btn-default" ng-click="print()">طباعة <i class="fa fa-spin fa-spinner" ng-if="printing" ></i> <i class="fa fa-print" aria-hidden="true" ng-if="!printing"></i></button>
 							</div>
+							<div style="margin:0 50%" ng-show="loadingReviewTab"><i  class="fa fa-spinner fa-spin"></i>قيد التحميل</div>
 							<div id="reviewSchemaView">
 								<view-national-report-6 ng-model="reviewDocument" locale="getLocale()" link-target="_blank" id="schemaPrintView"></view-national-report-6>
 							</div>

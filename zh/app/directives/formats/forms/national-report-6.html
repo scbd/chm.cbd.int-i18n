@@ -69,7 +69,7 @@
 									<div class="panel-header">
 										<h3>关于在国家层面所追求的目标的信息</h3>
 									</div>
-									<div class="panel-body">
+									<div class="panel-body" ng-if="tab=='general'">
 										<div class="row  mainHeading">
 											<div class="col-md-12"><span class="help-block">本模板应予复制，以供逐一填写贵国各项国家目标相关信息在报告模板本部分填写的国家目标将和本报告的其他部分联系在一起。如果贵国尚未通过任何与2011-2020生物多样性战略计划有关的国家生物多样性目标，请在第一个方框标明，并转至第二部分。 <a translation-url info-bar data-content="The objective of this section of the report is to collect information on the national targets that countries have adopted in line with the Strategic Plan for Biodiversity 2011-2020 (paragraph 3(b) of decision X/2). If your country has set and/or adopted national targets or equivalent commitments related to the Strategic Plan for Biodiversity 2011-2020 please use the following template to describe them."
 													    data-title="CHM Help: Sixth national report"></a></span></div>
@@ -184,24 +184,24 @@
 								</div>
 							</div>
 							<div    id="implementationTab"  km-tab="implementation">
-								<div style="margin:0 50%"><i ng-show="loadingimplementationTab" class="fa fa-spinner fa-spin"></i>正在加载...</div>
+								<div style="margin:0 50%" ng-show="loadingimplementationTab"><i class="fa fa-spinner fa-spin"></i>正在加载...</div>
 							</div>
 							<div  id="progressTab"   km-tab="progress">
-								<div style="margin:0 50%"><i ng-show="loadingprogressTab" class="fa fa-spinner fa-spin"></i>正在加载...</div>
+								<div style="margin:0 50%" ng-show="loadingprogressTab"><i class="fa fa-spinner fa-spin"></i>正在加载...</div>
 							</div>
 							<div id="nationalContributionTab"  km-tab="nationalContribution">
-								<div style="margin:0 50%"><i ng-show="loadingnationalContributionTab" class="fa fa-spinner fa-spin"></i>正在加载...</div>
+								<div style="margin:0 50%" ng-show="loadingnationalContributionTab"><i class="fa fa-spinner fa-spin"></i>正在加载...</div>
 							</div>
 							<div  id="gspcContributionTab"  km-tab="gspcContribution">
-								<div style="margin:0 50%"><i ng-show="loadinggspcContributionTab" class="fa fa-spinner fa-spin"></i>正在加载...</div>
+								<div style="margin:0 50%" ng-show="loadinggspcContributionTab"><i class="fa fa-spinner fa-spin"></i>正在加载...</div>
 							</div>
 
 							<div id="iplcContributionTab" km-tab="iplcContribution">
-								<div  style="margin:0 50%"><i ng-show="loadingiplcContributionTab" class="fa fa-spinner fa-spin"></i>正在加载...</div>
+								<div  style="margin:0 50%" ng-show="loadingiplcContributionTab"><i class="fa fa-spinner fa-spin"></i>正在加载...</div>
 							</div>
 
 							<div  id="countryProfileTab"  km-tab="countryProfile">
-								<div style="margin:0 50%"><i ng-show="loadingcountryProfileTab" class="fa fa-spinner fa-spin"></i>正在加载...</div>
+								<div style="margin:0 50%" ng-show="loadingcountryProfileTab"><i class="fa fa-spinner fa-spin"></i>正在加载...</div>
 							</div>
 						</form>
 
@@ -216,8 +216,9 @@
 										title="{{locale|languageLongName}}" />
 								</div>
 							<div class="btn-group btn-group-sm pull-right">
-								<button href="#" title="打印记录" class="btn btn-default" ng-click="print()">打印 <i class="fa fa-spin fa-spinner" ng-if="printing" /> <i class="fa fa-print" aria-hidden="true" ng-if="!printing"></i></button>
+								<button href="#" title="打印记录" class="btn btn-default" ng-click="print()">打印 <i class="fa fa-spin fa-spinner" ng-if="printing" ></i> <i class="fa fa-print" aria-hidden="true" ng-if="!printing"></i></button>
 							</div>
+							<div style="margin:0 50%" ng-show="loadingReviewTab"><i  class="fa fa-spinner fa-spin"></i>正在加载...</div>
 							<div id="reviewSchemaView">
 								<view-national-report-6 ng-model="reviewDocument" locale="getLocale()" link-target="_blank" id="schemaPrintView"></view-national-report-6>
 							</div>

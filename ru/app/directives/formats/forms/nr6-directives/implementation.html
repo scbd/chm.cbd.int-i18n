@@ -1,5 +1,9 @@
-﻿<div>
-    
+﻿<div class="edit-implementation-measure">
+    <style>
+        .webui-popover {
+            z-index: 19999;
+        }
+    </style>   
     <div class="panel panel-default">
         <div class="panel-header">
             <h3>Раздел II. Принятые меры осуществления, оценка их эффективности, возникавшие препятствия и научные и технические потребности для выполнения национальных целевых задач</h3>
@@ -15,93 +19,143 @@
     </div>
     <div class="panel panel-default implementationMeasure" ng-repeat="implementationMeasure in document.implementationMeasures track by $index">
         <div class="panel-header clearfix">
-            <h3>{{implementationMeasure.title|lstring:locale}}<div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a translation-url ng-href="#" class="trash btn" ng-click="removeImplementationMeasure(implementationMeasure)"></a> <a translation-url ng-href="#" data-toggle="collapse" class="btn measure collapse-icon" data-target="#implementationMeasure{{$index}}"></a> <a ng-href="#" class="btn " ng-click="movePosition(document.implementationMeasures, $index, 'up')"
-                        data-toggle="tooltip" data-placement="top" title="Перенести одно измерение вверх" ng-if="!$first" style="width: 0% !important;padding-right: 10px;padding-left: 10px;"> <i class="fa fa-level-up" style="font-size:20px"/> </a> <a ng-href="#" class="btn " ng-click="movePosition(document.implementationMeasures, $index, 'down')"
-                    data-toggle="tooltip" data-placement="top" title="Перенести одну потерю вниз" ng-if="!$last" style="width: 0% !important;padding-right: 10px;padding-left: 10px;"> <i class="fa fa-level-down" style="font-size:20px"/> </a></div>
-            </h3>
+            <h3>
+                <div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a ng-href="#" class="btn btn-primary " ng-click="editInDialog(implementationMeasure, 'implementationMeasure', 'editImplementationRecordModal')"><i class="fa fa-2x1 fa-edit"></i> Редактировать</a> <a ng-href="#" class="btn btn-primary " ng-click="removeImplementationMeasure(implementationMeasure)"><i class="fa fa-2x1 fa-trash"></i></a> <a ng-href="#" class="btn btn-primary " data-toggle="collapse" data-target="#implementationMeasure{{$index}}"><i class="fa fa-2x1 fa-arrow-circle-o-up"></i></a> <a ng-href="#" class="btn btn-primary" ng-click="movePosition(document.implementationMeasures, $index, 'up')" data-toggle="tooltip" data-placement="top" title="Перенести одно измерение вверх" ng-if="!$first" ><i class="fa fa-2x1 fa-level-up"></i></a> <a ng-href="#" class="btn btn-primary " ng-click="movePosition(document.implementationMeasures, $index, 'down')" data-toggle="tooltip" data-placement="top" title="Перенести одну потерю вниз" ng-if="!$last"><i class="fa fa-2x1 fa-level-down"></i></a></div>{{implementationMeasure.title|lstring:locale}}</h3>
         </div>
         <div class="panel-body collapse in" id="implementationMeasure{{$index}}">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureTitle" caption="Название меры" data-content="Пожалуйста, введите короткий заголовок принятой меры.">
-                        <div km-textbox-ml name="implementationMeasureTitle" ng-model="implementationMeasure.title" locales="document.header.languages"></div>
+                    <div class="col-md-12">
+                    <div ng-show="implementationMeasure.description">
+                        <label>Название меры</label>
+                        <km-value-ml value="implementationMeasure.title" locales="document.header.languages"></km-value-ml>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureDescription" caption="Просьба описать меру, принятую для оказания содействия выполнению национальной стратегии и плана действий вашей страны по сохранению биоразнообразия."
-                        data-content="Матрицу следует воспроизводить для каждой из сообщенных мер. Стороны должны указать основную меру, принятую для выполнения своей национальной стратегии и плана действий по сохранению биоразнообразия и/или своих национальных задач в области биоразнообразия. Такие меры могут включать политики, законодательство и/или программы и инициативы. Стороны, возможно, также пожелают сообщить о мерах, принятых коренными народами и местными общинами и субъектами деятельности. При описании мер Стороны, возможно, пожелают представить информацию по проблеме(проблемам), для устранения которой принимается эта мера, о запланированных и осуществленных действиях, сроках и привлеченных участниках. Стороны, возможно, также пожелают указать, связана ли принятая мера с конкретным решением Конференции Сторон, рекомендацией одного из ее вспомогательных органов, с тематической программой работы или со сквозным вопросом, рассматриваемым в рамках Конвенции. Стороны, возможно, пожелают также указать, связана ли мера с другими международными процессами, такими как те, что осуществляются в рамках соответствующих многосторонних экологических соглашений и/или региональных процессов.">
-                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureDescription" ng-model="implementationMeasure.description" locales="document.header.languages"
-                            rows="3"  on-file-upload="onEditorFileUpload(data)"></div>
+                    <div ng-show="implementationMeasure.description">
+                        <label>основных мерах, принятых странами для осуществления своих национальных стратегий и планов действий по сохранению биоразнообразия и достижения своих целевых задач.</label>
+                        <km-value-ml value="implementationMeasure.description" locales="document.header.languages" km-pre html></km-value-ml>
                     </div>
-                </div>
-                <div class="col-md-12" ng-if="!document.targetPursued">
-                    <div class="km-control-group" name="implementationMeasureAichiTargets" caption="В отношении меры осуществления укажите национальную целевую задачу или целевую задачу(и) по сохранению и устойчивому использованию биоразнообразия, принятую(ые) в Айти, выполнению которых она содействует. "
-                        data-content="Укажите национальную целевую задачу(задачи), с которой связана эта мера. Если ваша страна не поставила еще национальных целевых задач, укажите, с какой целевой задачей(ами) по сохранению и устойчивому использованию биоразнообразия, принятой(ыми) в Айти, соотносится эта мера. Если ваша страна решила использовать онлайновый инструмент представления отчетности, то национальные целевые задачи вашей страны (указанные в разделе I), либо целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти, будут автоматически отображены для выбора необходимой из них.">
-                        <div km-select multiple name="implementationMeasureAichiTargets" ng-model="implementationMeasure.aichiTargets" placeholder="Выберите одну или несколько целевых задач"
-                            items="options.aichiTargets()"></div>
+                    <div ng-show="implementationMeasure.aichiTarget">
+                        <label>Айтинские целевые задачи по биоразнообразию</label>
+                        <div class="km-value km-pre" ng-style="{ direction : (aichiTargets[implementationMeasure.aichiTarget.identifier].title | direction:locale) }">{{aichiTargets[implementationMeasure.aichiTarget.identifier].title | lstring:locale}}</div>
                     </div>
-                </div>
-                <div class="col-md-12" ng-if="document.targetPursued">
-                    <div class="km-control-group" name="implementationMeasureAichiTargets" caption="В отношении меры осуществления укажите национальную целевую задачу или целевую задачу(и) по сохранению и устойчивому использованию биоразнообразия, принятую(ые) в Айти, выполнению которых она содействует. "
-                        data-content="Укажите национальную целевую задачу(задачи), с которой связана эта мера. Если ваша страна не поставила еще национальных целевых задач, укажите, с какой целевой задачей(ами) по сохранению и устойчивому использованию биоразнообразия, принятой(ыми) в Айти, соотносится эта мера. Если ваша страна решила использовать онлайновый инструмент представления отчетности, то национальные целевые задачи вашей страны (указанные в разделе I), либо целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти, будут автоматически отображены для выбора необходимой из них.">
-                        <div km-select multiple name="implementationMeasureNationalTargets" ng-model="implementationMeasure.nationalTargets" placeholder="Выберите одну или несколько целевых задач"
-                            items="options.nationalTargets()"></div>
+                    <div ng-show="implementationMeasure.assessment">
+                        <label>Оценка эффективности меры осуществления, принятой для достижения желаемых итогов:</label>
+                        <div class="km-value km-pre" ng-style="{ direction : (implementationMeasure.assessment | term:locale|direction:locale) }">{{implementationMeasure.assessment | term:locale}}</div>
                     </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="km-control-group" name="implementationMeasureAssessment" caption="Оценка эффективности меры осуществления, принятой для достижения желаемых итогов:"
-                        data-content="Укажите, насколько эффективной была мера для обеспечения ожидаемого изменения. Ожидаемые изменения могут включать, кроме всего прочего, изменение тенденций развития и статуса биоразнообразия, изменение приводных механизмов, вызывающих утрату биоразнообразия, изменения 
-												в поведении или изменение политик.">
-                        <div km-term-radio name="implementationMeasureAssessment" ng-model="implementationMeasure.assessment" terms="options.assessment()"
-                            description="true" binding-type="term" ng-click="save()"></div>
+                    <div ng-show="implementationMeasure.assessmentDescription">
+                        <label>инструменты или методологию использованные для оценки вышеупомянутой эффективности.</label>
+                        <km-value-ml value="implementationMeasure.assessmentDescription" locales="document.header.languages" km-pre html></km-value-ml>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureAssessmentDescription" caption="Просьба пояснить выбор и указать, если возможно, инструменты или методологию, использованные для оценки вышеупомянутой эффективности."
-                        data-content="Приведите информацию, обосновывающую сделанный выше выбор касательно эффективности меры. Можно, например, включить информацию об изменении в тенденциях развития и статусе биоразнообразия или об изменении в нагрузках на биоразнообразие или в приводных механизмах, вызывающих его утрату. Можно также сообщить об изменении социально-экономических условий, таких как осведомленность о биоразнообразии, об изменении в доступности ресурсов, изменении государственных политик или изменении в поведении основных секторов в стране.</br>Представляя отчетность по данному вопросу, Стороны должны учитывать пункт 29 решения XIII/1, в котором содержится призыв к Сторонам провести оценки эффективности мер, принятых в целях осуществления Стратегического плана в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы, задокументировать этот опыт, включая применявшиеся методологии, сделать полезные выводы и представить данную информацию Исполнительному секретарю, в том числе через посредство своего шестого национального доклада и через механизм посредничества.">
-                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureAssessmentDescription" ng-model="implementationMeasure.assessmentDescription"
-                            locales="document.header.languages" rows="3"></div>
+                    <div ng-show="implementationMeasure.relevantDocuments">
+                        <label>Соответствующие веб-сайты, веб-ссылки и файлы</label>
+                        <div class="km-value">
+                            <div ng-repeat="item in implementationMeasure.relevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a> <span ng-if="item.tag">({{item.tag}})</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureRelevantDocuments" caption="Соответствующие веб-сайты, веб-ссылки и файлы. (Просьба указать в данном поле все соответствующие веб-сайты, веб-ссылки или документы, где можно найти дополнительную информацию, связанную с данной оценкой)."
-                        data-content="Просьба указать все соответствующие веб-сайты, веб-ссылки или документы, касающиеся дополнительной информации об оценке эффективности принятых мер. Можно, например, прямо приложить научные статьи, привести веб-ссылки и ссылки на публикации.">
-                        <div km-link name="implementationMeasureRelevantDocuments" ng-model="implementationMeasure.relevantDocuments" identifier="document.header.identifier"></div>
+                    <div ng-show="implementationMeasure.otherRelevantInformation">
+                        <label>Другая релевантная информация</label>
+                        <km-value-ml value="implementationMeasure.otherRelevantInformation" locales="document.header.languages" km-pre html></km-value-ml>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureOtherRelevantInformation" caption="Другая соответствующая информация, включая тематические исследования, иллюстрирующая, как принятые меры привели (или, как ожидается, приведут) к итогам, содействующим осуществлению НСПДСБ."
-                        data-content="Приведите любую дополнительную информацию, такую как тематические исследования, касающиеся принятых мер. Элементы тематических исследований могут включать краткое ознакомление с темой или проблемой, описание принятых или принимаемых мер по ее решению, информацию о привлеченных участниках, информацию о причинах актуальности данного вопроса для национальных целевых задач или целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, и описание общих выводов и усвоенных практических навыков, включая итоги, достигнутые на данный момент. Тематические исследования можно также сопроводить рисунками, картами и фотографиями.">
-                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureOtherRelevantInformation" rows="3" ng-model="implementationMeasure.otherRelevantInformation"
-                            locales="document.header.languages"></div>
+                    <div ng-show="implementationMeasure.otherRelevantDocuments">
+                        <label>Другие релевантные адреса веб-сайтов или прилагающиеся документы</label>
+                        <div class="km-value">
+                            <div ng-repeat="item in implementationMeasure.otherRelevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a> <span ng-if="item.tag">({{item.tag}})</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureOtherRelevantDocuments" caption="Соответствующие веб-сайты, веб-ссылки и файлы. (Просьба указать в данном поле все соответствующие веб-сайты, веб-ссылки или документы, где можно найти дополнительную информацию)."
-                        data-content="Приведите любые соответствующие веб-сайты, веб-ссылки или документы, касающиеся соответствующей дополнительной информации.">
-                        <div km-link name="implementationMeasureOtherRelevantDocuments" ng-model="implementationMeasure.otherRelevantDocuments" identifier="document.header.identifier"></div>
+                    <div ng-show="implementationMeasure.obstacles">						
+                        <label>Препятствия и научные и технические потребности, связанные с принятой мерой</label>
+                        <km-value-ml value="implementationMeasure.obstacles" locales="document.header.languages" km-pre html></km-value-ml>
                     </div>
-                </div>
-
-
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureObstacles" caption="Препятствия и научные и технические потребности, связанные с принятой мерой. Приведите описание встреченных препятствий и всех научных и технических потребностей для их устранения, включая техническое и научное сотрудничество, реализацию мероприятий по развитию потенциала или необходимость разработки инструктивных материалов."
-                        data-content="Опишите потребности или препятствия, связанные с осуществлением, которые были выявлены или с которыми пришлось столкнуться в процессе реализации данной меры. Ваша страна может, например, включить конкретные вопросы/тематические области, по которым требуется поддержка, указать тип необходимой поддержки, результаты, которых такая поддержка позволит стране достичь, и какие социальные группы будут основными бенефициарами поддержки. Конкретные вопросы, по которым ваша страна, возможно, пожелает представить замечания, включают: потребности, связанные с профессиональной подготовкой и/или разработкой законов, технологиями, инструментами, руководствами или исследованиями. Кроме того, ваша страна, возможно, также пожелает представить замечания обо всех препятствиях, которые можно было бы преодолеть за счет более глубокого понимания систем традиционных знаний и современной науки. Стороны, возможно, также пожелают представить замечания относительно приоритетности решения тех или иных препятствий или потребностей. Информация, приведенная в настоящем разделе национального доклада, поможет продолжить активизацию создания потенциала, научно-технического сотрудничества и передачи технологии в поддержку осуществления Стратегического плана в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы и обеспечения эффективного совместного использования информации по данным вопросам в соответствии с решением XII/2 и с решением XIII/23.">
-                        <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureObstacles" rows="3" ng-model="implementationMeasure.obstacles" locales="document.header.languages"></div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="km-control-group" name="implementationMeasureObstaclesRelevantDocuments" caption="Соответствующие веб-сайты, веб-ссылки и файлы. (Просьба указать в данном поле все соответствующие веб-сайты, веб-ссылки или документы, где можно найти дополнительную информацию об этих препятствиях и научных и технических потребностях)."
-                        data-content="Приведите любые соответствующие веб-сайты, веб-ссылки или документы, касающиеся дополнительной информации об оценке эффективности принятой меры. Можно, например, прямо приложить научные статьи, привести веб-ссылки и ссылки на публикации.">
-                        <div km-link name="implementationMeasureObstaclesRelevantDocuments" ng-model="implementationMeasure.obstaclesRelevantDocuments"
-                            identifier="document.header.identifier"></div>
+                    <div ng-show="implementationMeasure.obstaclesRelevantDocuments">
+                        <label>Соответствующие веб-сайты, веб-ссылки и файлы</label>
+                        <div class="km-value">
+                            <div ng-repeat="item in implementationMeasure.obstaclesRelevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a>	<span ng-if="item.tag">({{item.tag}})</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script type="text/ng-template" trados-translation="true" id="editImplementationRecordModal">   
+         
+        <div class="row edit-implementation-div"  >
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureTitle" caption="Title of measure" data-content="Пожалуйста, введите короткий заголовок принятой меры.">
+                    <div km-textbox-ml name="implementationMeasureTitle" ng-model="implementationMeasure.title" locales="document.header.languages"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureDescription" caption="Describe a measure taken to contribute to the implementation of your country’s national biodiversity strategy and action plan."
+                    data-content="Матрицу следует воспроизводить для каждой из сообщенных мер. Стороны должны указать основную меру, принятую для выполнения своей национальной стратегии и плана действий по сохранению биоразнообразия и/или своих национальных задач в области биоразнообразия. Такие меры могут включать политики, законодательство и/или программы и инициативы. Стороны, возможно, также пожелают сообщить о мерах, принятых коренными народами и местными общинами и субъектами деятельности. При описании мер Стороны, возможно, пожелают представить информацию по проблеме(проблемам), для устранения которой принимается эта мера, о запланированных и осуществленных действиях, сроках и привлеченных участниках. Стороны, возможно, также пожелают указать, связана ли принятая мера с конкретным решением Конференции Сторон, рекомендацией одного из ее вспомогательных органов, с тематической программой работы или со сквозным вопросом, рассматриваемым в рамках Конвенции. Стороны, возможно, пожелают также указать, связана ли мера с другими международными процессами, такими как те, что осуществляются в рамках соответствующих многосторонних экологических соглашений и/или региональных процессов.">
+                    <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureDescription" ng-model="implementationMeasure.description" locales="document.header.languages"
+                        rows="3"  on-file-upload="onEditorFileUpload(data)"></div>
+                </div>
+            </div>
+            <div class="col-md-12" ng-if="!document.targetPursued">
+                <div class="km-control-group" name="implementationMeasureAichiTargets" caption="For the implementation measure, please indicate to which Aichi Biodiversity target(s) it contributes "
+                    data-content="Укажите национальную целевую задачу(задачи), с которой связана эта мера. Если ваша страна не поставила еще национальных целевых задач, укажите, с какой целевой задачей(ами) по сохранению и устойчивому использованию биоразнообразия, принятой(ыми) в Айти, соотносится эта мера. Если ваша страна решила использовать онлайновый инструмент представления отчетности, то национальные целевые задачи вашей страны (указанные в разделе I), либо целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти, будут автоматически отображены для выбора необходимой из них.">
+                    <div km-select multiple name="implementationMeasureAichiTargets" ng-model="implementationMeasure.aichiTargets" placeholder="Выберите одну или несколько целевых задач"
+                        items="options.aichiTargets()"></div>
+                </div>
+            </div>
+            <div class="col-md-12" ng-if="document.targetPursued">
+                <div class="km-control-group" name="implementationMeasureAichiTargets" caption="For the implementation measure, please indicate to which national or Aichi Biodiversity target(s) it contributes "
+                    data-content="Укажите национальную целевую задачу(задачи), с которой связана эта мера. Если ваша страна не поставила еще национальных целевых задач, укажите, с какой целевой задачей(ами) по сохранению и устойчивому использованию биоразнообразия, принятой(ыми) в Айти, соотносится эта мера. Если ваша страна решила использовать онлайновый инструмент представления отчетности, то национальные целевые задачи вашей страны (указанные в разделе I), либо целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти, будут автоматически отображены для выбора необходимой из них.">
+                    <div km-select multiple name="implementationMeasureNationalTargets" ng-model="implementationMeasure.nationalTargets" placeholder="Выберите одну или несколько целевых задач"
+                        items="options.nationalTargets()"></div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="km-control-group" name="implementationMeasureAssessment" caption="Assessment of the effectiveness of the implementation measure taken in achieving desired outcomes"
+                    data-content="Укажите, насколько эффективной была мера для обеспечения ожидаемого изменения. Ожидаемые изменения могут включать, кроме всего прочего, изменение тенденций развития и статуса биоразнообразия, изменение приводных механизмов, вызывающих утрату биоразнообразия, изменения 
+												в поведении или изменение политик.">
+                    <div km-term-radio name="implementationMeasureAssessment" ng-model="implementationMeasure.assessment" terms="options.assessment()"
+                        description="true" binding-type="term" ng-click="save()"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureAssessmentDescription" caption="Please explain the selection and where possible indicate the tools or methodology used for the assessment of effectiveness above"
+                    data-content="Приведите информацию, обосновывающую сделанный выше выбор касательно эффективности меры. Можно, например, включить информацию об изменении в тенденциях развития и статусе биоразнообразия или об изменении в нагрузках на биоразнообразие или в приводных механизмах, вызывающих его утрату. Можно также сообщить об изменении социально-экономических условий, таких как осведомленность о биоразнообразии, об изменении в доступности ресурсов, изменении государственных политик или изменении в поведении основных секторов в стране.</br>Представляя отчетность по данному вопросу, Стороны должны учитывать пункт 29 решения XIII/1, в котором содержится призыв к Сторонам провести оценки эффективности мер, принятых в целях осуществления Стратегического плана в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы, задокументировать этот опыт, включая применявшиеся методологии, сделать полезные выводы и представить данную информацию Исполнительному секретарю, в том числе через посредство своего шестого национального доклада и через механизм посредничества.">
+                    <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureAssessmentDescription" ng-model="implementationMeasure.assessmentDescription"
+                        locales="document.header.languages" rows="3"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureRelevantDocuments" caption="Relevant websites, links, and filesfiles (Please use this field to indicate any relevant websites, web links or documents where additional information related to this assessment can be found.)"
+                    data-content="Просьба указать все соответствующие веб-сайты, веб-ссылки или документы, касающиеся дополнительной информации об оценке эффективности принятых мер. Можно, например, прямо приложить научные статьи, привести веб-ссылки и ссылки на публикации.">
+                    <div km-link name="implementationMeasureRelevantDocuments" ng-model="implementationMeasure.relevantDocuments" identifier="document.header.identifier"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureOtherRelevantInformation" caption="Other relevant information, including case studies to illustrate how the measure taken has resulted in (or is expected to result in) outcomes that contribute to the implementation of the NBSAP"
+                    data-content="Приведите любую дополнительную информацию, такую как тематические исследования, касающиеся принятых мер. Элементы тематических исследований могут включать краткое ознакомление с темой или проблемой, описание принятых или принимаемых мер по ее решению, информацию о привлеченных участниках, информацию о причинах актуальности данного вопроса для национальных целевых задач или целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, и описание общих выводов и усвоенных практических навыков, включая итоги, достигнутые на данный момент. Тематические исследования можно также сопроводить рисунками, картами и фотографиями.">
+                    <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureOtherRelevantInformation" rows="3" ng-model="implementationMeasure.otherRelevantInformation"
+                        locales="document.header.languages"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureOtherRelevantDocuments" caption="Other relevant website address or attached documents (Please use this field to indicate any relevant websites, web links or documents where additional information can be found)"
+                    data-content="Приведите любые соответствующие веб-сайты, веб-ссылки или документы, касающиеся соответствующей дополнительной информации.">
+                    <div km-link name="implementationMeasureOtherRelevantDocuments" ng-model="implementationMeasure.otherRelevantDocuments" identifier="document.header.identifier"></div>
+                </div>
+            </div>
 
+
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureObstacles" caption="Obstacles and scientific and technical needs related to the measure taken: Please describe what obstacles have been encountered and any scientific and technical needs for addressing these, including technical and scientific cooperation, capacity development activities or the need for guidance materials."
+                    data-content="Опишите потребности или препятствия, связанные с осуществлением, которые были выявлены или с которыми пришлось столкнуться в процессе реализации данной меры. Ваша страна может, например, включить конкретные вопросы/тематические области, по которым требуется поддержка, указать тип необходимой поддержки, результаты, которых такая поддержка позволит стране достичь, и какие социальные группы будут основными бенефициарами поддержки. Конкретные вопросы, по которым ваша страна, возможно, пожелает представить замечания, включают: потребности, связанные с профессиональной подготовкой и/или разработкой законов, технологиями, инструментами, руководствами или исследованиями. Кроме того, ваша страна, возможно, также пожелает представить замечания обо всех препятствиях, которые можно было бы преодолеть за счет более глубокого понимания систем традиционных знаний и современной науки. Стороны, возможно, также пожелают представить замечания относительно приоритетности решения тех или иных препятствий или потребностей. Информация, приведенная в настоящем разделе национального доклада, поможет продолжить активизацию создания потенциала, научно-технического сотрудничества и передачи технологии в поддержку осуществления Стратегического плана в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы и обеспечения эффективного совместного использования информации по данным вопросам в соответствии с решением XII/2 и с решением XIII/23.">
+                    <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasureObstacles" rows="3" ng-model="implementationMeasure.obstacles" locales="document.header.languages"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="km-control-group" name="implementationMeasureObstaclesRelevantDocuments" caption="Relevant websites, web links and files (Please use this field to indicate any relevant websites, web links or documents where additional information related to these obstacles and scientific and technical needs can be found.)"
+                    data-content="Приведите любые соответствующие веб-сайты, веб-ссылки или документы, касающиеся дополнительной информации об оценке эффективности принятой меры. Можно, например, прямо приложить научные статьи, привести веб-ссылки и ссылки на публикации.">
+                    <div km-link name="implementationMeasureObstaclesRelevantDocuments" ng-model="implementationMeasure.obstaclesRelevantDocuments"
+                        identifier="document.header.identifier"></div>
+                </div>
+            </div>
+        </div>
+    </script>
 
     <script type="text/ng-template" trados-translation="true" id="deleteImplementationRecordModal">              
 					
