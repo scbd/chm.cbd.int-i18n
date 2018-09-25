@@ -71,8 +71,8 @@
 									</div>
 									<div class="panel-body" ng-if="tab=='general'">
 										<div class="row  mainHeading">
-											<div class="col-md-12"><span class="help-block">本模板应予复制，以供逐一填写贵国各项国家目标相关信息在报告模板本部分填写的国家目标将和本报告的其他部分联系在一起。如果贵国尚未通过任何与2011-2020生物多样性战略计划有关的国家生物多样性目标，请在第一个方框标明，并转至第二部分。 <a translation-url info-bar data-content="The objective of this section of the report is to collect information on the national targets that countries have adopted in line with the Strategic Plan for Biodiversity 2011-2020 (paragraph 3(b) of decision X/2). If your country has set and/or adopted national targets or equivalent commitments related to the Strategic Plan for Biodiversity 2011-2020 please use the following template to describe them."
-													    data-title="CHM Help: Sixth national report"></a></span></div>
+											<div class="col-md-12"><span class="help-block">本模板应予复制，以供逐一填写贵国各项国家目标相关信息在报告模板本部分填写的国家目标将和本报告的其他部分联系在一起。如果贵国尚未通过任何与2011-2020生物多样性战略计划有关的国家生物多样性目标，请在第一个方框标明，并转至第二部分。 <a translation-url info-bar data-content="报告的第一部分要求提供关于各国依照2011-2020年生物多样性战略计划（第X/2号决定第3(b)段）所通过的每一项国家目标的信息。如果贵国已经制定和（或）通过国家指标或者与2011-2020年生物多样性战略计划有关的同等承诺，请在下方模板中加以说明。"
+													    data-title="CHM幫助：第六次国家报告"></a></span></div>
 										</div>
 										<div class="section">
 											<div class="section-header">
@@ -90,12 +90,12 @@
 												<div class="row" ng-if="document.government">
 													<div class="col-md-12">
 														<div class="km-control-group" name="targetPursued">
-															<input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="true" /> 我国业已根据2011-2020年生物多样性战略计划和爱知生物多样性目标通过了国家生物多样性目标或同等承诺。 <a translation-url info-bar data-content="Check this box if your country has adopted national biodiversity targets or equivalent commitments associated to the attainment of the Aichi Biodiversity Targets or other parts of the Strategic Plan for Biodiversity 2011-2020."
-															    data-title="CHM Help: Sixth national report"></a> <br/> <br/><input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="false" /> 我国尚未通过国家生物多样性目标，现正参照爱知生物多样性目标来报告进展情况。（移至第二部分在第三部分，应将爱知生物多样性目标作为国家目标，用于本报告之目的，并应评估国家范围内这些目标的落实进展。） <a translation-url info-bar data-content="Check this box if your country has not (yet) adopted national biodiversity targets. In section II, your country will be asked to link its implementation measures to the Aichi Biodiversity Targets. In section III, your country will be asked to assess national progress towards the Aichi Biodiversity Targets"
-															    data-title="CHM Help: Sixth national report"><i class="fa fa-info-circle fa-2x"></i></a> <br/> <br/><input type="radio" name="targetPursued" 
+															<input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="true" /> 我国业已根据2011-2020年生物多样性战略计划和爱知生物多样性目标通过了国家生物多样性目标或同等承诺。 <a translation-url info-bar data-content="如果贵国业已为实现各项爱知生物多样性目标或2011-2020年国家生物多样性战略计划其他部分通过了国家生物多样性目标或同等承诺，请勾选此框。"
+															    data-title="CHM幫助：第六次国家报告"></a> <br/> <br/><input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="false" /> 我国尚未通过国家生物多样性目标，现正参照爱知生物多样性目标来报告进展情况。（移至第二部分在第三部分，应将爱知生物多样性目标作为国家目标，用于本报告之目的，并应评估国家范围内这些目标的落实进展。） <a translation-url info-bar data-content="如果贵国（尚）未通过国家生物多样性目标，请勾选此框。在第二部分中，贵国须按照要求将本国的履约措施与爱知生物多样性目标挂钩。在第三部分中，贵国须按照要求评估爱知生物多样性目标实施进展情况。"
+															    data-title="CHM幫助：第六次国家报告"><i class="fa fa-info-circle fa-2x"></i></a> <br/> <br/><input type="radio" name="targetPursued" 
 															ng-model="document.notReportingOnNationalTargets" group="targetPursued" 
-															ng-value="true" ng-change="updateNotReportingOnNationalTargets(document.notReportingOnNationalTargets)" />我國已採納國家生物多樣性目標，但選擇使用愛知生物多樣性目標報告進展情況，以供參考。 <a translation-url info-bar data-content="If your country has adopted national biodiversity targets but wishes to report using the Aichi Biodiversity Targets, please select this option. Upon selecting this option, a text box will become available in which you can provide an explanation for your choice."
-															    data-title="CHM Help: Sixth national report"><i class="fa fa-info-circle fa-2x"></i></a><div class="row" ng-if="document.notReportingOnNationalTargets">
+															ng-value="true" ng-change="updateNotReportingOnNationalTargets(document.notReportingOnNationalTargets)" />我國已採納國家生物多樣性目標，但選擇使用愛知生物多樣性目標報告進展情況，以供參考。 <a translation-url info-bar data-content="如果貴國已採用國家生物多樣性目標但希望使用愛知生物多樣性目標進行報告，請選擇此選項。選擇此選項後，將出現一個文本框，您可以在其中提供您選擇的說明。"
+															    data-title="CHM幫助：第六次国家报告"><i class="fa fa-info-circle fa-2x"></i></a><div class="row" ng-if="document.notReportingOnNationalTargets">
 																<div class="col-md-12">
 																	<div class="km-control-group" name="notReportingOnNationalTargetsReason" 
 																	caption="请提供你的国家为什么采用爱知生物多样性目标报告，而不是国家目标来报告的信息。">

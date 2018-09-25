@@ -11,10 +11,8 @@
         </div>
         <div class="panel-body">
                 <div class="row  bottom-spacing">
-                        <div class="col-md-12"><span class="help-block">请使用下方模板说明贵国对实现《全球植物保护战略》中的目标所作的贡献。 <a translation-url info-bar data-content="This section of the sixth national report is optional but is recommended for all Parties that have developed strategies for plant conservation in response to the GSPC and/ or for Parties that have active plant conservation work taking place via networks of botanical gardens or botanical collections institutions.
-                <br/></br>
-                For those GSPC targets that are closely aligned to specific Aichi Biodiversity Targets, information entered in the other sections of the report will be relevant here. If this is the case, the information does not need to be reproduced in its entirety in this section of the national report. Instead a reference to previous sections of the national report can be inserted. Through its Secretariat at Botanic Gardens Conservation International (bgci.org), members of the Global Partnership for Plant Conservation and other botanical institutions may be able to support Parties in compiling relevant information related to this section.
-                " data-title="CHM Help: Sixth national report"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
+                        <div class="col-md-12"><span class="help-block">请使用下方模板说明贵国对实现《全球植物保护战略》中的目标所作的贡献。 <a translation-url info-bar data-content="第六次国家报告这一部分虽然可选择是否填写，但仍建议所有业已按照本《战略》制定植物保护战略或类似承诺的缔约方和/或现正通过植物园或植物收集机构网络开展植物保护工作的缔约方予以填写。&lt;br/&gt;&lt;/br&gt;
+									对于本《战略》中那些与特定爱知生物多样性目标高度一致的目标，在报告其他部分录入的信息将与这一部分相关联。如果是这样的话，这些信息就不需要在国家报告这一部分全部重复。插入对国家报告前几部分的提述即可。通过其设于植物园保护国际（bgci.org）的秘书处，全球植物保护伙伴关系和其他植物机构的成员或可为缔约方编写有关本部分的相关信息提供支助。 " data-title="CHM幫助：第六次国家报告"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
                     </div>
         </div>
 
@@ -73,14 +71,14 @@
         <div>
                 
         
-                    <div class="km-control-group" name="gspcTarget" caption="Does your country have national targets related to the GSPC Targets?"
+                    <div class="km-control-group" name="gspcTarget" caption="贵国是否已制定与本项《战略》目标有关的国家目标？"
                         data-content="如果贵国业已通过与《全球植物保护战略》有关的国家目标或同等承诺，请勾选此框，并在后面各部分写明表述这些目标的措辞。">
                         <button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.gspcNationalContribution.hasGSPCTargets, 'btn-default': document.gspcNationalContribution.hasGSPCTargets==false}"
-                            class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=true">是</button><span info-bar data-content="Check this box if your country has adopted national targets or equivalent commitments related to the Global Strategy for Plant Conservation, and indicate the wording of the targets in the sections below."></span><button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.gspcNationalContribution.hasGSPCTargets==false, 'btn-default': document.gspcNationalContribution.hasGSPCTargets}"
-                            class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=false">否</button><span info-bar data-content="Check this box if your country has not (yet) adopted national targets or equivalent commitments related to the Global Strategy for Plant Conservation."></span></div>
+                            class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=true">是</button><span info-bar data-content="如果贵国业已通过与《全球植物保护战略》有关的国家目标或同等承诺，请勾选此框，并在后面各部分写明表述这些目标的措辞。"></span><button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.gspcNationalContribution.hasGSPCTargets==false, 'btn-default': document.gspcNationalContribution.hasGSPCTargets}"
+                            class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=false">否</button><span info-bar data-content="如果贵国（尚）未通过与《全球植物保护战略》有关的国家目标或同等承诺，请勾选此框。"></span></div>
                     <div class="row" ng-show="document.gspcNationalContribution.hasGSPCTargets">
                         <div class="col-md-12">
-                            <div class="km-control-group" name="gspcTargetDescription" caption="Please provide details on the specific targets.">
+                            <div class="km-control-group" name="gspcTargetDescription" caption="请提供关于具体目标的详细信息。">
                                 <div km-rich-textbox identifier="document.header.identifier" name="gspcTargetDescription" ng-model="document.gspcNationalContribution.gspcTargetDescription" locales="document.header.languages"
                                     rows="3"></div>
                             </div>
@@ -89,7 +87,7 @@
         
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="km-control-group" name="plantConservationNetwork" caption="Please provide information on any active networks for plant conservation present in your country."
+                            <div class="km-control-group" name="plantConservationNetwork" caption="请提供贵国的任何从事植物保护工作的网络的信息。"
                                 data-content="请开列贵国的任何从事植物保护工作的植物保护组织或植物园网络。">
                                 <div km-rich-textbox identifier="document.header.identifier" name="plantConservationNetwork" ng-model="document.gspcNationalContribution.plantConservationNetwork"
                                     locales="document.header.languages" rows="3"></div>
@@ -99,8 +97,7 @@
         
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="km-control-group" name="implementationMeasures" caption="Please describe the major measures taken by your country for the implementation of the Global Strategy for Plant Conservation.
-            (Parties can report on actions taken to implement these targets if they are not covered in sections II, III or IV)">
+                            <div class="km-control-group" name="implementationMeasures" caption="请说明贵国为执行《全球植物保护战略》所采取的重大举措。 （缔约方可报告为落实这些目标所采取的且未在第二、第三或第四部分说明的行动）">
                                 <div class="help-block">如果贵国业已通过与《全球植物保护战略》所载指标有关的国家目标或同等承诺，请说明所采取的行动及这些行动对落实本《战略》作出的贡献。</div>
                                 <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasures" ng-model="document.gspcNationalContribution.implementationMeasures" locales="document.header.languages"
                                     rows="3"></div>
@@ -117,7 +114,7 @@
             </div><span ng-include src="'gspcNationalContributionTargets'"></span><div ng-switch="target.identifier">
                 <div ng-switch-when="GSPC-TARGET-01" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-01" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-01" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议贵国考虑作出回复的问题如下:<ul><li> 有无描述贵国境内已发现的植物物种的国家或地区级植物志？ </li><li>是否已着手将国家/区域植物志
 										数字化？</li><li>贵国是否有机构参加世界植物志在线联盟或以其他方式与之合作？</li></ul>谨建议各国在报告本项指标的落实进度时，参考 <a translation-url target='_blank' href='www.worldfloraonline.org'>世界植物志在线联盟网站</a>。">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-01" ng-model="target.description" locales="document.header.languages"
@@ -127,7 +124,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-02" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-02" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-02" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议贵国考虑作出回复的问题如下：<ul><li>贵国使用世界自然同盟的3.1分类和标准或者使用国家系统来评估植物物种保护状态已经涵盖了多少植物物种？ </li><li> 贵国植物多样性哪些部分已经进行了评估？</li><li> 保护评估得到的数据是如何用来指导保护行动？</li></ul> 谨建议各国在报告本项指标的落实进度时，可以使用下列网站的信息 <a translation-url target='_blank' href='http://www.iucnredlist.org'>世界自然保护同盟的植物红色名单</a>, 和<a translation-url target='_blank' href='http://www.bgci.org/threat_search.php'>植物园国际的威胁搜寻数据库</a> and <a translation-url target='_blank' href='http://www.bgci.org/plant_search.php'>植物搜寻</a> 数据库。">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-02" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -136,7 +133,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-03" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-03" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-03" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议贵国考虑作出回复的问题如下：<ul><li>贵国植物多样性调查已深入到何种程度？</li><li>目前正对哪些领域进行调查？ </li><li>自2010年以来，在完善植物多样性模式相关知识方面取得了哪些进展？ </li><li>
 										国家标本馆中现已实现数字化的植物标本记录占多大比重？</li><li> 这些记录是否可供保护评估和土地利用规划查考？自1970年以来，植物志中修订内容占多大比重？</li><li> 异地
 										繁殖技术和案例研究是否已记录成文且可供查阅？</li><li>目前有无关于商业化植物物种的资源评估和可持续开采准则可供查阅？</li></ul>">
@@ -147,7 +144,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-04" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-04" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-04" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议各国在报告《战略》目标4的落实进度时，交叉参考在国家报告第四部分就爱知生物多样性目标11（保护区）和目标15（生态系统的恢复工作和复原力）作出的回复。 如果《战略》目标4所涵盖的问题已在第四部分中充分阐明，则此处无需再度重复。">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-04" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -156,7 +153,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-05" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-05" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-05" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议贵国考虑作出回复的问题如下：<ul><li> 贵国重要植物地是否已查明？</li><li>位于保护区内的重要植物地占多大比重？</li><li>当前在保护区
 										之外的重要植物地内采取的其他管理措施有哪些？</li></ul> 各国在报告本项目标的落实进度时，不妨利用<a translation-url target='_blank' href='www.plantlife.org.uk/international/wild_plants/IPA/ipa_online_database/'>植物生命组织的重要植物地数据库中的信息 </a>。">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-05" ng-model="target.description" locales="document.header.languages"
@@ -166,7 +163,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-06" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-06" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-06" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议各国在报告《战略》目标6的落实进度时，交叉参考在国家报告第四部分就爱知生物多样性目标7（可持续农业、水养殖业和林业）作出的回复。 如果《战略》目标6所涵盖的问题已在第四部分中充分阐明，则此处无需再度重复。">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-06" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -175,7 +172,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-07" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-07" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-07" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议贵国考虑作出回复的问题如下：<ul><li> 至少有一个族群位于保护区内的濒危植物物种所占百分比是多少？</li><li>自2010年以来，多少种其他濒危物种得到保护？</li><li>未受保护的濒危植物的优先保护生境是否已确定？</li><li> 现已出台哪些干预措施以将保护区扩大至濒危植物高度集中的生境？</li></ul> 各国在报告这项目标的落实进度时，不妨利用 <a translation-url target='_blank' href='http://www.bgci.org/threat_search.php'>植物园保护国际的ThreatSearch 数据库</a> 和 <a translation-url target='_blank' href='http://www.bgci.org/plant_search.php'>植物搜寻</a> 数据库中的信息。">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-07" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -184,7 +181,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-08" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-08" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-08" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议贵国考虑作出回复的问题如下：<ul><li> 在植物园种子库中或者在活植物收集中或其他植物收集中移地保护的濒危植物物种占多大比重？</li><li>可供开展复原或恢复工作的百分比是多少？</li><li> 现已将多少个物种纳入现有复原方案？</li><li> 目前在多少个生态区开展复原工作？</li><li>贵国有无植物园是植物园生态恢复联盟的成员？</li></ul> 谨建议贵国提及复原案例研究。 各国在报告本项目标的落实进度时，不妨利用下列来源的信息：<a translation-url target='_blank' href='http://www.bgci.org/threat_search.php'>植物园保护国际的ThreatSearch 数据库</a> 和 <a translation-url target='_blank' href='http://www.bgci.org/plant_search.php'>植物搜寻</a> 数据库和 <a translation-url target='_blank' href='www.erabg.org'>生态恢复联盟网站</a>。">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-08" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -193,7 +190,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-09" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-09" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-09" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议各国在报告《战略》目标9的落实进度时，交叉参考在国家报告第四部分就爱知生物多样性目标13（保护基因多样性）作出的回复。 如果《战略》目标9所涵盖的问题已在第四部分中充分阐明，则此处无需再度重复。</p>
 								<p>谨建议贵国考虑作出回复的问题如下： <ul><li>贵国有无关于作物野生亲缘种以及其他具有社会经济价值的植物（药用植物、饲料作物、有益树种等等）的国家清单？</li><li> 贵国有无关于作物野生亲缘种/药用植物保护的国家战略？</li><li> 有无关于粮食和农业植物遗传资源的国家方案？</li><li>在种子库或者植物园活植物收集和其他植物收集中进行移地保护的作物野生亲缘种以及其他具有社会经济价值的物种占多大比重？</li><li>在保护区内或通过农场保护进行保护的作物野生亲缘种以及其他具有社会经济价值的物种占多大比重？</li></ul>  谨建议各国在报告本项目标的落实进度时，使用各自通过国家报告向粮农组织第二份<a translation-url target='_blank' href='http://www.fao.org/agriculture/crops/core-themes/theme/seeds-pgr/sow/sow2/country-reports/en/'>《世界粮食和农业植物遗传资源状况报告》</a>。</p>">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-09" ng-model="target.description" locales="document.header.languages"
@@ -203,7 +200,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-10" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-10" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-10" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议各国在报告《战略》目标10的落实进度时，交叉参考在国家报告第四部分就爱知生物多样性目标9（防止和控制外来侵入物种）作出的回复。 如果《战略》目标10所涵盖的问题已在第四部分中充分阐明，则此处无需再度重复。 谨建议贵国考虑作出回复的其他问题如下：<ul><li> 贵国是否确认
 										重要的植物区（贵国就《战略》目标5作出的回复可能已经包含这个问题）？</li><li> 其中多少个区有应对入侵物种的管理计划？ </li></ul>">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-10" ng-model="target.description" locales="document.header.languages"
@@ -213,7 +210,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-11" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-11" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-11" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="<p>《战略》目标11是通过在执行《濒危野生动植物物种国际贸易公约》条款和管控措施的框架内实施的活动来实现。 谨建议各国在报告《战略》目标11的落实进度时，提到该公约相应的管理和科学机构，以及在该公约植物委员会、常设委员会、缔约方会议和其他植物贸易相关会议的框架内编写的报告。</p>
 								<p>谨建议各国在报告《战略》目标11的落实进度时，交叉参考在国家报告第四部分就爱知生物多样性目标4（可持续的生产和消费）作出的回复。 如果《战略》目标11所涵盖的问题已在第四部分中充分阐明，则此处无需再度重复。</p>
 								<p>谨建议各国在报告本项目标的落实进度时，使用见载于<a translation-url target='_blank' href='http://www.plants2020.net/target-11'>Plants 2020网站的信息</a>。</p>">
@@ -224,7 +221,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-12" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-12" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-12" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议各国在报告《战略》目标12的落实进度时，交叉参考在国家报告第四部分就爱知生物多样性目标4（可持续生产和消费）作出的回复。 如果《战略》目标12所涵盖的问题已在第四部分中充分阐明，则此处无需再度重复。</p>
 								<p>谨建议贵国考虑作出回复的其他问题如下：<ul><li>贵国有无关于野外植物类产品的清单？</li><li>定有资源评估和管理计划和可持续采集指导方针的野外采集的商业贸易植物占多大比重？</li><li>有无鼓励和执行植物可持续野外采集以及可持续使用和贸易的专项法规或政策（请注明）？</li><li>贵国有无经公平野生标准等可持续性认证体系认证的产品、物种或公司（请注明）？</li><li> 现有哪些干预措施来确保土著社区对植物物种可持续的野外采集和使用？</li></ul> </p>
 								<p>各国在报告本项目标的落实进度时，不妨利用<a translation-url target='_blank' href='http://www.plants2020.net/index/'>Plants 2020网站</a> and <a translation-url target='_blank' href='http://www.fairwild.org'>公平野生基金会</a> 网站。</p>">
@@ -235,7 +232,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-13" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-13" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-13" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议各国在报告《战略》目标13的落实进度时，交叉参考在国家报告第四部分就爱知生物多样性目标18（尊重传统知识）作出的回复。 如果《战略》目标13所涵盖的问题已在第四部分中充分阐明，则此处无需再度重复。">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-13" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -244,7 +241,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-14" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-14" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-14" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议各国在报告《战略》目标14的落实进度时，交叉参考在国家报告第四部分就爱知生物多样性目标1（提高意识）作出的回复。 如果《战略》目标14所涵盖的问题已在第四部分中充分阐明，则此处无需再度重复。 至于针对特定植物的活动，谨建议各国利用 <a translation-url target='_blank' href='www.bgci.org/garden_search.php'>植物园保护国际的GardenSearch数据库的信息</a>。 缔约方不妨考虑就以下其他问题作出回复： 贵国有无含纳植物数据收集的公民科学方案？ 贵国的植物园有无教育方案？ 有没有其他
 										基于自然的非政府组织在提供关于植物的非正规教育？">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-14" ng-model="target.description" locales="document.header.languages"
@@ -254,7 +251,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-15" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-15" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-15" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议贵国考虑作出答复的问题如下：<ul><li> 有多少所大学/学院提供关于植物科学/植物保护的高等教育？</li><li> 植物保护组织是否提供实习/短期
 										课程等以支助在职培训和技能发展？</li></ul> 谨建议各国在报告本项目标的落实进度时，可以接触<a translation-url target='_blank' href='http://www.plants2020.net/gppcpartners/'>植物保护全球伙伴关系有关成员</a>。">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-15" ng-model="target.description" locales="document.header.languages"
@@ -264,7 +261,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-16" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-16" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-16" caption="请说明贵国现已通过哪些方式以及在何种程度上为实现本项全球植物保护战略目标作出了贡献，并概述可佐证此说法的证据。"
                             data-content="谨建议贵国考虑作出答复的问题如下：<ul><li> 贵国有无国家植物园网络？</li><li>  有无积极落实本《战略》各项指标的国家植物保护网络或
 										国家植物园协会？</li></ul> 谨建议各国在报告本项指标的落实进度时，使用植物园保护国际的 <a translation-url target='_blank' href='www.bgci.org/about-us/networks/'>植物园网络清单</a>。">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-16" ng-model="target.description" locales="document.header.languages"
@@ -281,7 +278,7 @@
     <script type="text/ng-template" id="gspcNationalContributionTargets" trados-translation="true">
         <div class="row">
             <div class="col-sm-12">
-                <div class="km-control-group" name="nationalContributions-GSPC-TARGET-Progress-Category" caption="Category of progress towards the target of the Global Strategy for Plant Conservation at the national level">
+                <div class="km-control-group" name="nationalContributions-GSPC-TARGET-Progress-Category" caption="该全球植物保护战略目标国家层次上的进展类别">
                     <div km-term-radio name="nationalContributions-GSPC-TARGET-Progress-Category" ng-model="target.categoryProgress" terms="options.gspcCategoryProgress()"
                         description="true" binding-type="term" ng-click="save()"></div>
                 </div>
@@ -289,7 +286,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="km-control-group" name="nationalContributions-GSPC-TARGET-Progress-Description" caption="Please explain the selection above:"
+                <div class="km-control-group" name="nationalContributions-GSPC-TARGET-Progress-Description" caption="请解释上述的选择："
                     data-content="请提供佐证信息说明为何作出如上选择。 这可以包括以下几个方面的信息：所采取措施的整体影响，生物多样性现状及发展趋势的改变，生物多样性所承受的压力或生物多样性丧失的驱动因素的变化；生物多样性意识等社会经济条件的改变；资源可用性的改变；政府政策变更；或者，国家各主要部门行为的改变。 关于定量的国家目标，缔约方不妨考虑报告相对于目标价值的落实水平。 对于某些类型的指标，可使用百分比来表示。 ">
                     <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-Progress-Description" ng-model="target.progressDescription" locales="document.header.languages"
                         rows="3">

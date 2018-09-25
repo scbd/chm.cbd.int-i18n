@@ -11,10 +11,8 @@
         </div>
         <div class="panel-body">
                 <div class="row  bottom-spacing">
-                        <div class="col-md-12"><span class="help-block">Опишите, используя нижеприведенную матрицу, вклад вашей станы в выполнение целевых задач Глобальной стратегии сохранения растений. <a translation-url info-bar data-content="This section of the sixth national report is optional but is recommended for all Parties that have developed strategies for plant conservation in response to the GSPC and/ or for Parties that have active plant conservation work taking place via networks of botanical gardens or botanical collections institutions.
-                <br/></br>
-                For those GSPC targets that are closely aligned to specific Aichi Biodiversity Targets, information entered in the other sections of the report will be relevant here. If this is the case, the information does not need to be reproduced in its entirety in this section of the national report. Instead a reference to previous sections of the national report can be inserted. Through its Secretariat at Botanic Gardens Conservation International (bgci.org), members of the Global Partnership for Plant Conservation and other botanical institutions may be able to support Parties in compiling relevant information related to this section.
-                " data-title="CHM Help: Sixth national report"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
+                        <div class="col-md-12"><span class="help-block">Опишите, используя нижеприведенную матрицу, вклад вашей станы в выполнение целевых задач Глобальной стратегии сохранения растений. <a translation-url info-bar data-content="Заполнение настоящего раздела шестого национального доклада является факультативным, но оно рекомендуется всем Сторонам, которые разработали стратегии сохранения растений или аналогичные обязательства в соответствии с Глобальной стратегией сохранения растений (ГССР), и/или Сторонам, которые активно занимаются сохранением растений посредством сетей ботанических садов или учреждений, собирающих, систематизирующих, хранящих и экспонирующих ботанические коллекции. &lt;br/&gt;&lt;/br&gt;
+									По тем целевым задачам ГССР, которые тесно связаны с целевыми задачами по сохранению и устойчивому использованию биоразнообразия, принятыми в Айти, актуальной в данном случае будет информация, включенная в другие разделы доклада. В таком случае нет необходимости полностью воспроизводить ее в настоящем разделе национального доклада. Вместо этого можно привести ссылку на предыдущие разделы национального доклада. Члены Глобального партнерства по сохранению растений через посредство своего секретариата в Международном совете ботанических садов по охране растений (bgci.org) и другие ботанические учреждения могут оказывать Сторонам содействие в сборе соответствующей информации, относящейся к настоящему разделу. " data-title="Справка CHM: Шестой национальный доклад"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
                     </div>
         </div>
 
@@ -73,14 +71,14 @@
         <div>
                 
         
-                    <div class="km-control-group" name="gspcTarget" caption="Does your country have national targets related to the GSPC Targets?"
+                    <div class="km-control-group" name="gspcTarget" caption="Имеются ли в стране национальные целевые задачи, связанные с целевыми задачами ГССР?"
                         data-content="Просьба отметить “галочкой”  это окно, если ваша страна поставила национальные целевые задачи или взяла на себя эквивалентные обязательства, связанные с Глобальной стратегией сохранения растений, и привести формулировку целевой задачи в последующих разделах.">
                         <button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.gspcNationalContribution.hasGSPCTargets, 'btn-default': document.gspcNationalContribution.hasGSPCTargets==false}"
-                            class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=true">Да</button><span info-bar data-content="Check this box if your country has adopted national targets or equivalent commitments related to the Global Strategy for Plant Conservation, and indicate the wording of the targets in the sections below."></span><button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.gspcNationalContribution.hasGSPCTargets==false, 'btn-default': document.gspcNationalContribution.hasGSPCTargets}"
-                            class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=false">Нет</button><span info-bar data-content="Check this box if your country has not (yet) adopted national targets or equivalent commitments related to the Global Strategy for Plant Conservation."></span></div>
+                            class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=true">Да</button><span info-bar data-content="Просьба отметить &ldquo;галочкой&rdquo; это окно, если ваша страна поставила национальные целевые задачи или взяла на себя эквивалентные обязательства, связанные с Глобальной стратегией сохранения растений, и привести формулировку целевой задачи в последующих разделах."></span><button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.gspcNationalContribution.hasGSPCTargets==false, 'btn-default': document.gspcNationalContribution.hasGSPCTargets}"
+                            class="btn btn-default" ng-click="document.gspcNationalContribution.hasGSPCTargets=false">Нет</button><span info-bar data-content="Просьба отметить &ldquo;галочкой&rdquo; это окно, если ваша страна не ставила (еще) национальных целевых задач или не брала на себя эквивалентных обязательств, связанных с Глобальной стратегией сохранения растений."></span></div>
                     <div class="row" ng-show="document.gspcNationalContribution.hasGSPCTargets">
                         <div class="col-md-12">
-                            <div class="km-control-group" name="gspcTargetDescription" caption="Please provide details on the specific targets.">
+                            <div class="km-control-group" name="gspcTargetDescription" caption="Просьба привести ниже подробные сведения о конкретных целевых задачах">
                                 <div km-rich-textbox identifier="document.header.identifier" name="gspcTargetDescription" ng-model="document.gspcNationalContribution.gspcTargetDescription" locales="document.header.languages"
                                     rows="3"></div>
                             </div>
@@ -89,7 +87,7 @@
         
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="km-control-group" name="plantConservationNetwork" caption="Please provide information on any active networks for plant conservation present in your country."
+                            <div class="km-control-group" name="plantConservationNetwork" caption="Приведите информацию обо всех активных сетях по сохранению растений в вашей стране:"
                                 data-content="Приведите список всех групп или сетей ботанических садов, занимающихся сохранением растений в вашей стране.">
                                 <div km-rich-textbox identifier="document.header.identifier" name="plantConservationNetwork" ng-model="document.gspcNationalContribution.plantConservationNetwork"
                                     locales="document.header.languages" rows="3"></div>
@@ -99,8 +97,7 @@
         
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="km-control-group" name="implementationMeasures" caption="Please describe the major measures taken by your country for the implementation of the Global Strategy for Plant Conservation.
-            (Parties can report on actions taken to implement these targets if they are not covered in sections II, III or IV)">
+                            <div class="km-control-group" name="implementationMeasures" caption="Опишите основные меры, принятые вашей страной для осуществления Глобальной стратегии сохранения растений. (Стороны могут сообщить о принятых мерах по осуществлению данных целевых задач, если они не охвачены в разделах II, III или IV)">
                                 <div class="help-block">Если ваша страна поставила национальные целевые задачи или взяла на себя эквивалентные обязательства, связанные с целевыми задачами в Глобальной стратегии сохранения растений, просьба привести описание принятых мер и их вклада в достижение целей ГССР.</div>
                                 <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasures" ng-model="document.gspcNationalContribution.implementationMeasures" locales="document.header.languages"
                                     rows="3"></div>
@@ -117,7 +114,7 @@
             </div><span ng-include src="'gspcNationalContributionTargets'"></span><div ng-switch="target.identifier">
                 <div ng-switch-when="GSPC-TARGET-01" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-01" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-01" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Некоторые вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают:<ul><li> Существуют ли национальные или региональные форумы, которые обеспечивают описание видов растений, встречающихся в стране? </li><li>Проводится ли в стране работа по оцифровке данных о национальной/региональной 
 										флоре?</li><li> Участвует ли какое-либо учреждение вашей страны в Сетевом консорциуме всемирной флоры или сотрудничает ли оно с ним иным образом?</li></ul> Представляя результаты выполнения этой целевой задачи, Стороны, возможно, пожелают привести ссылку на <a target='_blank' href='www.worldfloraonline.org'>Сетевой консорциум всемирной флоры </a>.">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-01" ng-model="target.description" locales="document.header.languages"
@@ -127,7 +124,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-02" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-02" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-02" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Некоторые вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают:<ul><li> Статус сохранности скольких видов растений был оценен с использованием категорий и критериев 3.1 МСОП или национальной системы?</li><li> Какая процентная доля флоры вашей страны была оценена?</li><li> Как данные, полученные в результате оценок сохранности, используются в качестве ориентиров в деятельности по сохранению растений?</li></ul> Представляя результаты выполнения этой целевой задачи, Стороны, возможно, пожелают использовать информацию из <a target='_blank' href='http://www.iucnredlist.org'>Красного списка МСОП животных и растений, находящихся под угрозой исчезновения</a>, и из  <a target='_blank' href='http://www.bgci.org/threat_search.php'>баз данных Международного совета ботанических садов по охране растений ThreatSearch (Поиск угроз) </a> и <a target='_blank' href='http://www.bgci.org/plant_search.php'>PlantSearch (Поиск растений) </a>.">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-02" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -136,7 +133,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-03" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-03" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-03" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Некоторые вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают:<ul><li> Насколько хорошо проведено обследование разнообразия растений вашей страны?</li><li> Какие районы остаются недостаточно обследованными?</li><li> Какие результаты были достигнуты с 2010 года в повышении знаний о составе разнообразия растений?</li><li>
 										Какой процент записей об образцах растений, существующих в национальных гербариях, был оцифрован? </li><li> Доступны ли эти записи для целей оценки сохранности и планирования землепользования? </li><li> Какой процент флоры был пересмотрен за период с 1970 года?</li><li> Задокументированы ли 
 										и являются ли доступными методы размножения ex-situ и тематические исследования по реинтродукции видов?</li><li> Существуют ли оценки ресурсов в отношении коммерчески используемых видов растений и руководящие указания по их устойчивой добыче? </li></ul>">
@@ -147,7 +144,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-04" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-04" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-04" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Представляя результаты выполнения целевой задачи 4 ГССР, страны, возможно, пожелают привести перекрестные ссылки на свои ответы по целевым задачам по сохранению и устойчивому использованию биоразнообразия, принятым в Айти, 11 (Охраняемые районы) и 15 (Восстановление и устойчивость экосистем) в разделе IV национального доклада. Если вопросы, охваченные в целевой задаче 4 ГССР, достаточно освещены в разделе IV, то нет необходимости повторно приводить здесь данную информацию.">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-04" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -156,7 +153,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-05" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-05" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-05" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Некоторые вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают: :<ul><li> Выявлены ли в вашей стране районы, имеющие важное значение в плане сохранения растений? </li><li> Каков процент районов, находящихся на территории охраняемых районов, которые имеют важное значение в плане сохранения растений?</li><li> Какие дополнительные управленческие мероприятия проводятся в районах, имеющих важное значение в плане сохранения растений, 
 										за пределами охраняемых районов?</li></ul> Представляя результаты выполнения этой целевой задачи, Стороны, возможно, пожелают использовать базу данных  <a target='_blank' href='www.plantlife.org.uk/international/wild_plants/IPA/ipa_online_database/'>Плантлайф Интернэшнл о районах, имеющих важное значение в плане сохранения растений  </a>.">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-05" ng-model="target.description" locales="document.header.languages"
@@ -166,7 +163,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-06" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-06" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-06" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Представляя результаты выполнения целевой задачи 6 ГССР, страны, возможно, пожелают привести перекрестные ссылки на свои ответы по целевой задаче 7 по сохранению и устойчивому использованию биоразнообразия, принятой в Айти (Устойчивое сельское хозяйство, аквакультура и лесоводство) в разделе IV национального доклада. Если вопросы, охваченные в целевой задаче 6 ГССР, достаточно освещены в разделе IV, то нет необходимости повторно приводить здесь данную информацию.">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-06" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -175,7 +172,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-07" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-07" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-07" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Некоторые вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают: <ul><li> Какова процентная доля угрожаемых видов растений, по крайней мере одна популяция которых встречается в охраняемом районе?</li><li> Сколько дополнительных угрожаемых видов было сохранено за период с 2010 года?</li><li> Были ли намечены приоритетные участки для сохранения незащищенных угрожаемых растений?</li><li> Какие принимаются меры для расширения территории охраняемых районов, чтобы охватить ими участки высокой концентрации угрожаемых растений?</li></ul> Представляя результаты выполнения этой целевой задачи, страны, возможно, пожелают использовать информацию из баз данных <a target='_blank' href='http://www.bgci.org/threat_search.php'>Международного совета ботанических садов по охране растений ThreatSearch (Поиск угроз</a> и <a target='_blank' href='http://www.bgci.org/plant_search.php'>PlantSearch (Поиск растений) </a>.">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-07" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -184,7 +181,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-08" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-08" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-08" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Некоторые вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают:<ul><li> Какой процент угрожаемых видов растений сохраняется ex-situ в семенных фондах или в живых коллекциях ботанических садов или в других коллекциях растений?</li><li> Какой процент доступен для проведения работ по восстановлению или возобновлению? </li><li> Сколько видов охвачены программами активного восстановления?</li><li>В каком числе различных экорегионов проводится работа по восстановлению?</li><li> Являются ли какие-либо ботанические сады вашей страны членами Альянса ботанических садов за экологическую реставрацию?</li></ul> Ваша страна, возможно, также пожелает привести ссылки на тематические исследования по вопросам восстановления. IПредставляя результаты выполнения этой целевой задачи, страны, возможно, пожелают использовать информацию из баз данных  <a target='_blank' href='http://www.bgci.org/threat_search.php'>Международного совета ботанических садов по охране растений ThreatSearch (Поиск угроз)</a> и с веб-сайта <a target='_blank' href='http://www.bgci.org/plant_search.php'>Альянса за восстановление экологии </a> .">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-08" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -193,7 +190,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-09" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-09" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-09" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="<p>Представляя результаты выполнения целевой задачи 9 ГССР, страны, возможно, пожелают привести перекрестные ссылки на свои ответы по целевой задаче 13 по сохранению и устойчивому использованию биоразнообразия, принятой в Айти (Защита генетического разнообразия) в разделе IV национального доклада. Если вопросы, охваченные в целевой задаче 9 ГССР, достаточно освещены в разделе IV, то нет необходимости повторно приводить здесь данную информацию. </p>
 								<p>Некоторые вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают: <ul><li>Существует ли в вашей стране национальный реестр диких родственников сельскохозяйственных культур и других ценных с социально-экономической точки зрения видов растений (лекарственные растения, кормовые культуры, полезные породы деревьев и т.п.)? </li><li> Существует ли в вашей стране стратегия сохранения диких родственников сельскохозяйственных культур / лекарственных растений?</li><li>  Существует ли национальная программа по генетическим ресурсам растений для производства продовольствия и ведения сельского хозяйства?</li><li> Какой процент диких родственников сельскохозяйственных культур и других ценных с социально-экономической точки зрения видов сохраняется ex-situ в семенных фондах или в живых коллекциях ботанических садов и в других коллекциях растений?</li><li> Какой процент диких родственников сельскохозяйственных культур и других ценных с социально-экономической точки зрения видов сохраняется на территории охраняемых районов или непосредственно на фермах?</li></ul> Представляя результаты выполнения этой целевой задачи, Стороны, возможно, пожелают использовать информацию, представленную ФАО в своих национальных докладах для <a translation-url target='_blank' href='http://www.fao.org/agriculture/crops/core-themes/theme/seeds-pgr/sow/sow2/country-reports/en/'>второго Доклада о состоянии генетических ресурсов растений в мире для производства продовольствия и ведения сельского хозяйства</a>.</p>">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-09" ng-model="target.description" locales="document.header.languages"
@@ -203,7 +200,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-10" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-10" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-10" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Представляя результаты выполнения целевой задачи 10 ГССР, страны, возможно, пожелают привести перекрёстные ссылки на свои ответы по целевой задаче 9 по сохранению и устойчивому использованию биоразнообразия, принятой в Айти (Предотвращение и контроль интродукции инвазивных чужеродных видов), в разделе IV национального доклада. Если вопросы, охваченные в целевой задаче 10 ГССР, достаточно освещены в разделе IV, то нет необходимости повторно приводить здесь данную информацию. Некоторые вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают: <ul><li> Выявлены ли в вашей стране районы
 										важные с точки зрения разнообразия растений (ответ на этот вопрос может быть уже дан в рамках целевой задачи 5 ГССР)? </li><li> В скольких из них существуют планы управления, предусматривающие ведение борьбы с инвазивными видами? </li></ul>">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-10" ng-model="target.description" locales="document.header.languages"
@@ -213,7 +210,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-11" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-11" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-11" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="<p>Целевая задача 11 ГССР осуществляется посредством мероприятий, реализуемых в рамках осуществления положений и мер контроля Конвенции о международной торговле видами дикой фауны и флоры, находящимися под угрозой исчезновения (СИТЕС). Представляя результаты выполнения целевой задачи 11 ГССР, страны, возможно, пожелают сослаться на соответствующие органы управления и научные органы СИТЕС, а также на доклады, подготовленные в рамках Комитета по растениям, Постоянного комитета, Конференции Сторон СИТЕС и других совещаний, относящихся к торговле растениями.</p>
 								<p>Представляя результаты выполнения целевой задачи 11 ГССР, страны, возможно, пожелают привести перекрестные ссылки на свои ответы по целевой задаче 4 по сохранению и устойчивому использованию биоразнообразия, принятой в Айти (Устойчивое производство и потребление), в разделе в разделе IV настоящего доклада. Если вопросы, охваченные в целевой задаче 11 ГССР, достаточно освещены в разделе IV, то нет необходимости повторно приводить здесь данную информацию.</p>
 								<p>Представляя результаты выполнения данной целевой задачи, страны, возможно, пожелают использовать информацию, приведенную на веб-сайте <a target='_blank' href='http://www.plants2020.net/target-11'>Растения 2020 </a>.</p>">
@@ -224,7 +221,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-12" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-12" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-12" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="<p>Представляя результаты выполнения целевой задачи 12 ГССР, страны, возможно, пожелают привести перекрёстные ссылки на свои ответы по целевой задаче 4 по сохранению и устойчивому использованию биоразнообразия, принятой в Айти (Устойчивое производство и потребление), в разделе IV национального доклада. Если вопросы, охваченные в целевой задаче 12 ГССР, достаточно освещены в разделе IV, то нет необходимости повторно приводить здесь данную информацию.</p>
 								<p>Некоторые дополнительные вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают: <ul><li> Существует ли в вашей стране реестр продуктов, производимых из растений, собираемых в дикой природе?</li><li> Для какого процента растений, собираемых в дикой природе и являющихся объектом торговли, существуют оценки ресурсов, планы управления и руководства по устойчивому сбыту?</li><li> Существуют ли конкретные нормативные положения или политики, стимулирующие и обеспечивающие устойчивую добычу растений в дикой природе, устойчивое их использование и устойчивую торговлю ими (просьба указать конкретно)?</li><li> Имеются ли в вашей стране продукты, виды или компании, сертифицированные по сертификации устойчивости, например по Стандарту FairWild (просьба указать конкретно)?</li><li>  Какие принимаются меры по обеспечению устойчивой добычи в дикой природе и использования видов растений коренными общинами? </li></ul> </p>
 								<p>Представляя результаты выполнения данной целевой задачи, страны, возможно, пожелают использовать информацию, приведенную на веб-сайтах<a target='_blank' href='http://www.plants2020.net/index/'>“Растения 2020“ </a> и <a target='_blank' href='http://www.fairwild.org'>Фонда FairWild </a> websites.</p>">
@@ -235,7 +232,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-13" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-13" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-13" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Представляя результаты выполнения целевой задачи 13 ГССР, страны, возможно, пожелают привести перекрёстные ссылки на свои ответы по целевой задаче 18 по сохранению и устойчивому использованию биоразнообразия, принятой в Айти (Уважение традиционных знаний), в разделе IV настоящего доклада. Если вопросы, охваченные в целевой задаче 13 ГССР, достаточно освещены в разделе IV, то нет необходимости повторно приводить здесь данную информацию.">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-13" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -244,7 +241,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-14" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-14" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-14" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Представляя результаты выполнения целевой задачи 14 ГССР, страны, возможно, пожелают привести перекрёстные ссылки на свои ответы по целевой задаче 1 по сохранению и устойчивому использованию биоразнообразия, принятой в Айти (Повышение осведомленности), в разделе IV настоящего доклада. Если вопросы, охваченные в целевой задаче 14 ГССР, достаточно освещены в разделе IV, то нет необходимости повторно приводить здесь данную информацию. В отношении мероприятий, конкретно касающихся растений, страны, возможно, пожелают также использовать базу данных  <a target='_blank' href='www.bgci.org/garden_search.php'>GardenSearch Международного совета ботанических садов по охране растений</a>. Некоторые дополнительные вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают: Существуют ли в вашей стране программы гражданской науки, предусматривающие сбор данных о растениях? Проводятся ли в ваших ботанических садах учебные программы? Существуют ли еще другие НПО, занимающиеся вопросами природы, которые проводят программы неформального обучения по тематике растений?">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-14" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -253,7 +250,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-15" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-15" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-15" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Некоторые вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают: <ul><li> Сколько университетов/колледжей предлагают высшее образование по специальностям ботаника/сохранение растений?</li><li> Предлагают ли организации, занимающиеся вопросами сохранения растений, интернатуру/краткие курсы и т.п. для оказания поддержки обучению без отрыва от работы и развитию навыков?/li></ul> Представляя результаты выполнения этой целевой задачи, Стороны, возможно, пожелают установить связь с соответствующими членами  <a target='_blank' href='http://www.plants2020.net/gppcpartners/'>Глобального партнерства по сохранению растений</a>.">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-15" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -262,7 +259,7 @@
                 </div>
                 <div ng-switch-when="GSPC-TARGET-16" class="row">
                     <div class="col-md-12">
-                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-16" caption="Please describe how and to what extent your country has contributed to the achievement of this GSPC Target and summarize the evidence used to support this description:"
+                        <div class="km-control-group" name="nationalContributions-GSPC-TARGET-16" caption="Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи ГССР, и приведите резюме использованных фактических данных в обоснование этого описания:"
                             data-content="Некоторые вопросы, которые ваша страна, возможно, пожелает рассмотреть с целью ответа на них, включают: <ul><li> Существует ли в стране сеть национальных ботанических садов? </li><li> Существует ли национальная сеть сохранения растений или национальное ботаническое общество, которые активно реализуют целевые задачи ГССР? </li></ul> Представляя результаты выполнения этой целевой задачи, Стороны, возможно, пожелают использовать список сетей ботанических садов <a target='_blank' href='www.bgci.org/about-us/networks/'>Международного совета ботанических садов по охране растений</a>.">
                             <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-16" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
@@ -278,7 +275,7 @@
     <script type="text/ng-template" id="gspcNationalContributionTargets" trados-translation="true">
         <div class="row">
             <div class="col-sm-12">
-                <div class="km-control-group" name="nationalContributions-GSPC-TARGET-Progress-Category" caption="Category of progress towards the target of the Global Strategy for Plant Conservation at the national level">
+                <div class="km-control-group" name="nationalContributions-GSPC-TARGET-Progress-Category" caption="Категория прогресса, достигнутого в выполнении целевой задачи Глобальной стратегии сохранения растений на национальном уровне">
                     <div km-term-radio name="nationalContributions-GSPC-TARGET-Progress-Category" ng-model="target.categoryProgress" terms="options.gspcCategoryProgress()"
                         description="true" binding-type="term" ng-click="save()"></div>
                 </div>
@@ -286,7 +283,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="km-control-group" name="nationalContributions-GSPC-TARGET-Progress-Description" caption="Please explain the selection above:"
+                <div class="km-control-group" name="nationalContributions-GSPC-TARGET-Progress-Description" caption="Поясните указанный выше выбор:"
                     data-content="Приведите информацию, обосновывающую сделанный выше выбор. Можно, например, включить информацию об общем воздействии принятых мер, изменении в тенденциях развития и статусе биоразнообразия, изменении в нагрузках на биоразнообразие или в приводных механизмах, вызывающих его утрату, изменении социально-экономических условий, таких как осведомленность о биоразнообразии, об изменении в доступности ресурсов, изменении государственных политик или изменении в поведении основных секторов в стране. Касательно национальных целевых задач количественного характера страны, возможно, пожелают изучить вопрос о представлении отчетности о степени выполнения целевой задачи в сопоставлении с контрольным показателем. По определенным типам целевых задач можно, например, использовать процентные доли. ">
                     <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-Progress-Description" ng-model="target.progressDescription" locales="document.header.languages"
                         rows="3">
