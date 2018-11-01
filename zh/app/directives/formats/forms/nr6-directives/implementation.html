@@ -12,7 +12,7 @@
             <div class="row  bottom-spacing">
                 <div class="col-md-12"><span class="help-block">请用下面摸板报告贵国为执行本国国家生物多样性战略和行动计划所采取的主要措施的信息。还请对这些措施的成效作出评估。本模板应予复制，以供逐一填写所报告的各项措施。 <a translation-url info-bar data-content="报告的第二部分旨在收集关于各国为执行本国国家生物多样性战略和行动计划以及实现本国目标所采取的主要措施的信息报告指南这一部分要求各国提供以下信息 &lt;ul&gt;&lt;li&gt;(a) 采取措施的有效性；&lt;/li&gt;&lt;li&gt; (b) 任何需要解决的障碍和科技方面的需求以及 &lt;/li&gt;&lt;li&gt;(c) 履约需要的支持。&lt;/li&gt;&lt;/ul&gt; 没有必要列举所有采取过的措施。各国应该仅报告那些具有全国重要性的措施。另外，各缔约方不妨将类型或类别相似的措施合并成国家报告中的单个条目或者使用不同类型的措施，以精简报告工作。"
                             data-title="CHM幫助：第六次国家报告"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
-                <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.implementationMeasure')">打开所有文档 <i class="fa  fa-arrow-circle-o-up" /></a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.implementationMeasure')">关闭所有文档 <i class="fa  fa-arrow-circle-o-down" /> </a><button type="button" class="btn btn-primary pull-right" ng-click="addImplementationMeasure()">添加措施</button>
+                <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.implementationMeasure')">open all <i class="fa  fa-arrow-circle-o-up" /> </a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.implementationMeasure')">close all <i class="fa  fa-arrow-circle-o-down" /> </a><button type="button" class="btn btn-primary pull-right" ng-click="addImplementationMeasure()">添加措施</button>
                 </div>
             </div>
         </div>
@@ -33,9 +33,23 @@
                         <label>描述为实施贵国生物多样性战略和行动计划作出贡献所采取的措施。</label>
                         <km-value-ml value="implementationMeasure.description" locales="document.header.languages" km-pre html></km-value-ml>
                     </div>
-                    <div ng-show="implementationMeasure.aichiTarget">
+                    <div ng-show="implementationMeasure.nationalTargets">
+                        <label>国家目标</label>
+                        <div class="km-value" >
+                            <div ng-repeat="nationalTarget in implementationMeasure.nationalTargets"
+                                ng-style="{ direction : (nationalTargets[nationalTarget.identifier].title | direction:locale) }"
+                                ng-bind="nationalTargets[nationalTarget.identifier].title | lstring:locale">
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="implementationMeasure.aichiTargets">
                         <label>爱知生物多样性目标</label>
-                        <div class="km-value km-pre" ng-style="{ direction : (aichiTargets[implementationMeasure.aichiTarget.identifier].title | direction:locale) }">{{aichiTargets[implementationMeasure.aichiTarget.identifier].title | lstring:locale}}</div>
+                        <div class="km-value" >
+                            <div ng-repeat="aichiTarget in implementationMeasure.aichiTargets"
+                                ng-style="{ direction : (aichiTargets[aichiTarget.identifier].title | direction:locale) }"
+                                ng-bind="aichiTargets[aichiTarget.identifier].title | lstring:locale">
+                            </div>
+                        </div>
                     </div>
                     <div ng-show="implementationMeasure.assessment">
                         <label>请评估本项措施在带来预期改变方面的成效</label>
@@ -48,7 +62,7 @@
                     <div ng-show="implementationMeasure.relevantDocuments">
                         <label>相关网站、链接和文件</label>
                         <div class="km-value">
-                            <div ng-repeat="item in implementationMeasure.relevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a> <span ng-if="item.tag">({{item.tag}})</span></div>
+                            <div ng-repeat="item in implementationMeasure.relevantDocuments"><a translation-url target="_blank" ng-href="{{item.url}}">{{item.name||item.url}}</a> <span ng-if="item.tag">({{item.tag}})</span></div>
                         </div>
                     </div>
                     <div ng-show="implementationMeasure.otherRelevantInformation">
@@ -58,7 +72,7 @@
                     <div ng-show="implementationMeasure.otherRelevantDocuments">
                         <label>其他相关网址或附加文档</label>
                         <div class="km-value">
-                            <div ng-repeat="item in implementationMeasure.otherRelevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a> <span ng-if="item.tag">({{item.tag}})</span></div>
+                            <div ng-repeat="item in implementationMeasure.otherRelevantDocuments"><a translation-url target="_blank" ng-href="{{item.url}}">{{item.name||item.url}}</a> <span ng-if="item.tag">({{item.tag}})</span></div>
                         </div>
                     </div>
                     <div ng-show="implementationMeasure.obstacles">						
@@ -68,7 +82,7 @@
                     <div ng-show="implementationMeasure.obstaclesRelevantDocuments">
                         <label>相关网站、链接和文件</label>
                         <div class="km-value">
-                            <div ng-repeat="item in implementationMeasure.obstaclesRelevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a>	<span ng-if="item.tag">({{item.tag}})</span></div>
+                            <div ng-repeat="item in implementationMeasure.obstaclesRelevantDocuments"><a translation-url target="_blank" ng-href="{{item.url}}">{{item.name||item.url}}</a>	<span ng-if="item.tag">({{item.tag}})</span></div>
                         </div>
                     </div>
                 </div>

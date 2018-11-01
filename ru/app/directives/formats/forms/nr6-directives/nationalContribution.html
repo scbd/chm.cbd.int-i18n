@@ -15,7 +15,7 @@
 									В настоящем разделе прогресс, достигнутый на национальном уровне, связывается с целевыми задачами по сохранению и устойчивому использованию биоразнообразия, принятыми в Айти. При описании национального вклада в осуществление целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, просьба учитывать все соответствующие элементы, связанные с целевой задачей по сохранению и устойчивому использованию биоразнообразия, принятой в Айти. &lt;/br&gt;
 									TИнформация, собранная посредством настоящего раздела национального доклада, позволит подготовить анализ/обобщение вклада национальных, региональных и других мер в осуществление глобальных целевых задач в соответствии с решением X/2. &lt;/br&gt;
 									Ответы в настоящем разделе национального доклада должны строиться на информации, приведенной в разделах II и III. Вместе с тем нет необходимости в повторении информации, которая уже включена в предыдущие разделы доклада. " data-title="Справка CHM: Шестой национальный доклад"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
-                <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.aichiTarget')">Открыть все <i class="fa  fa-arrow-circle-o-up" /></a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.aichiTarget')">Закрыть все <i class="fa  fa-arrow-circle-o-down" /> </a></div>
+                <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.aichiTarget')">open all <i class="fa  fa-arrow-circle-o-up" /> </a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.aichiTarget')">close all <i class="fa  fa-arrow-circle-o-down" /> </a></div>
             </div>
         </div>
     </div>
@@ -25,13 +25,13 @@
                 <div class="pull-right btn-group" style="padding-right:10px"><a ng-href="#" class="btn btn-primary " ng-click="editInDialog(aichiTarget, 'target', 'aichiTargetContribution')"><i class="fa fa-2x1 fa-edit"></i> Редактировать</a> <a ng-href="#" class="btn btn-primary " data-toggle="collapse" data-target="#{{aichiTarget.identifier}}"><i class="fa fa-2x1 fa-arrow-circle-o-up"></i></a></div>{{aichiTargets[aichiTarget.identifier].title[locale]}}</h3>
         </div>
         <div class="panel-body collapse in" id="{{aichiTarget.identifier}}">
-            <div ng-show="implementationMeasure.description">
+            <div ng-show="aichiTarget.description">
                 <label>Опишите, как и в какой степени ваша страна содействовала выполнению настоящей целевой задачи по сохранению и устойчивому использованию биоразнообразия, принятой в Айти, и приведите резюме использованных фактических данных в обоснование этого описания.</label>
-                <km-value-ml value="implementationMeasure.description" locales="document.header.languages" km-pre html></km-value-ml>
+                <km-value-ml value="aichiTarget.description" locales="document.header.languages" km-pre html></km-value-ml>
             </div>
-            <div ng-show="implementationMeasure.description">
+            <div ng-show="aichiTarget.description">
                 <label>Приведите описание других мероприятий, содействующих выполнению целевой задачи по сохранению и устойчивому использованию биоразнообразия, принятой в Айти, на глобальном уровне (факультативно)</label>
-                <km-value-ml value="implementationMeasure.achievementActivities" locales="document.header.languages" km-pre html></km-value-ml>
+                <km-value-ml value="aichiTarget.achievementActivities" locales="document.header.languages" km-pre html></km-value-ml>
             </div><!-- <span ng-include src="'aichiTargetContribution'" onload="target=aichiTarget"></span> --></div>
     </div>
 

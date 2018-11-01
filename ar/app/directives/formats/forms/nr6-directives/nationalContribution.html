@@ -22,13 +22,13 @@
                 <div class="pull-right btn-group" style="padding-right:10px"><a ng-href="#" class="btn btn-primary " ng-click="editInDialog(aichiTarget, 'target', 'aichiTargetContribution')"><i class="fa fa-2x1 fa-edit"></i> تعديل</a> <a ng-href="#" class="btn btn-primary " data-toggle="collapse" data-target="#{{aichiTarget.identifier}}"><i class="fa fa-2x1 fa-arrow-circle-o-up"></i></a></div>{{aichiTargets[aichiTarget.identifier].title[locale]}}</h3>
         </div>
         <div class="panel-body collapse in" id="{{aichiTarget.identifier}}">
-            <div ng-show="implementationMeasure.description">
+            <div ng-show="aichiTarget.description">
                 <label>يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي، وقدم موجزا للأدلة المستخدمة لدعم هذا</label>
-                <km-value-ml value="implementationMeasure.description" locales="document.header.languages" km-pre html></km-value-ml>
+                <km-value-ml value="aichiTarget.description" locales="document.header.languages" km-pre html></km-value-ml>
             </div>
-            <div ng-show="implementationMeasure.description">
+            <div ng-show="aichiTarget.description">
                 <label>يرجى وصف الأنشطة الأخرى التي تسهم في تحقيق هدف التنوع البيولوجي على المستوى العالمي (اختياري)</label>
-                <km-value-ml value="implementationMeasure.achievementActivities" locales="document.header.languages" km-pre html></km-value-ml>
+                <km-value-ml value="aichiTarget.achievementActivities" locales="document.header.languages" km-pre html></km-value-ml>
             </div><!-- <span ng-include src="'aichiTargetContribution'" onload="target=aichiTarget"></span> --></div>
     </div>
 
@@ -357,7 +357,7 @@
                                         <label>لم يكن بلدك قد استكمل إعداد تقرير وطني مؤقت بشأن تنفيذ التزاماته في إطار بروتوكول ناغويا، فقد ترغب في النظر في القيام بذلك.</label><span info-bar data-content="في المقرر NP-1/3 ، الفقرة 4 ، يطلب من الأطراف في بروتوكول ناغويا تقديم تقرير وطني مؤقت بشأن تنفيذ التزاماتها بموجب بروتوكول ناغويا قبل اثني عشر شهرًا قبل الاجتماع الثالث لمؤتمر الأطراف العامل كاجتماع للأطراف في البروتوكول (نوفمبر 2017) . وفي نفس المقرر ، رحب مؤتمر الأطراف العامل كاجتماع للأطراف في البروتوكول ببيانات مقدمة من غير الأطراف. ليست هناك حاجة لتكرار المعلومات في التقرير الوطني السادس الذي تم إدراجه بالفعل في التقرير الوطني المؤقت بشأن تنفيذ الالتزامات بموجب بروتوكول ناغويا."></span> <a translation-url href="https://www.cbd.int/doc/notifications/2017/ntf-2017-017-absch-en.pdf" target="new_">انقر هنا لمزيد من المعلومات
         .</a></div>
 
-                                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-16" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف أيشي للتنوع البيولوجي، وقدم موجزا للأدلة المستخدمة لدعم هذا:"><span info-bar data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: &lt;ul&gt; &lt;li&gt; إذا لم يصادق بلدك على البروتوكول أو انضم إليه ، فما هي الإجراءات التي يتم اتخاذها للقيام بذلك؟ &lt;/ li&gt; &lt;li&gt; إذا قام بلدك بالتصديق على البروتوكول أو الانضمام إليه ، فما الذي يتم عمله لجعله يعمل على المستوى الوطني؟ &lt;/ li&gt; &lt;li&gt; هل وضع بلدك هياكل مؤسسية لتنفيذ البروتوكول (نقطة الاتصال الوطنية ، والسلطة / السلطات الوطنية المختصة ونقاط التفتيش)؟ &lt;/ li&gt; &lt;li&gt; هل وضع بلدك التدابير التشريعية أو الإدارية أو السياسية الخاصة بالحصول وتقاسم المنافع (تدابير الحصول وتقاسم المنافع) اللازمة للوفاء بالالتزامات المنصوص عليها في البروتوكول؟ &lt;/ li&gt; &lt;li&gt; في حالة عدم وجود تدابير ABS ، هل يقوم بلدك حاليًا بمراجعة أو تطوير تدابير الحصول وتقاسم المنافع أو التخطيط للقيام بذلك بهدف تنفيذ البروتوكول؟ &lt;/li&gt;
+                                    <div class="km-control-group" name="nationalContributions-AICHI-TARGET-16" caption="Please describe how and to what extent your country has contributed to the achievement of this Aichi Biodiversity Target and summarize the evidence used to support this description:"><span info-bar data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: &lt;ul&gt; &lt;li&gt; إذا لم يصادق بلدك على البروتوكول أو انضم إليه ، فما هي الإجراءات التي يتم اتخاذها للقيام بذلك؟ &lt;/ li&gt; &lt;li&gt; إذا قام بلدك بالتصديق على البروتوكول أو الانضمام إليه ، فما الذي يتم عمله لجعله يعمل على المستوى الوطني؟ &lt;/ li&gt; &lt;li&gt; هل وضع بلدك هياكل مؤسسية لتنفيذ البروتوكول (نقطة الاتصال الوطنية ، والسلطة / السلطات الوطنية المختصة ونقاط التفتيش)؟ &lt;/ li&gt; &lt;li&gt; هل وضع بلدك التدابير التشريعية أو الإدارية أو السياسية الخاصة بالحصول وتقاسم المنافع (تدابير الحصول وتقاسم المنافع) اللازمة للوفاء بالالتزامات المنصوص عليها في البروتوكول؟ &lt;/ li&gt; &lt;li&gt; في حالة عدم وجود تدابير ABS ، هل يقوم بلدك حاليًا بمراجعة أو تطوير تدابير الحصول وتقاسم المنافع أو التخطيط للقيام بذلك بهدف تنفيذ البروتوكول؟ &lt;/li&gt;
 													&lt;/ul&gt;"></span><div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-AICHI-TARGET-16" ng-disabled="target.nationalReport && !target.includeLinkedRecords"
                                             ng-model="target.linkedRecordsDescription" locales="document.header.languages" rows="3"></div>
                                     </div>

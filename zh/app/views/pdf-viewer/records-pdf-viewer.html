@@ -24,7 +24,10 @@
         </div>
         <div class="row" style="background:#fff;border: 1px solid #ddd;">
             <div class="col-md-2">
-                <div class="" style="width:100%;"><br> 文件名{{pdf.fileName|uppercase}} <br><br> <a ng-href="{{pdf.src}}" download="{{pdf.fileName}}" class="btn btn-success" target="_blank"><i class="fa fa-download"></i> 下载</a> <br> <br> 查看 <span ng-repeat="lang in ['ar', 'fr', 'en', 'es', 'ru', 'zh']"><a ng-href="#" ng-click="loadLangPdf(lang)">{{lang}}</a> | </span></div>
+                <div class="" style="width:100%;"><br> 文件名{{pdf.fileName|uppercase}} <br><br> <a ng-href="{{pdf.src}}" download="{{pdf.fileName}}" class="btn btn-success" target="_blank"><i class="fa fa-download"></i> 下载</a> <a href="#" ng-click="loadLangPdf(pdf, true)" class="btn btn-success"><i class="fa fa-refresh"></i> 强制重装</a> <br> <br><div class="alert alert-info" role="alert">查看<br><div class="btn-group"><a ng-repeat="lang in ['ar', 'fr', 'en', 'es', 'ru', 'zh']" ng-href="#" 
+                            class="btn btn-primary btn-xs" ng-bind="lang|uppercase" ng-click="loadLangPdf(lang)"></a></div> <br> 生成单独的语言PDF</div> 
+                    <div class="alert alert-success" role="alert"><strong><a ng-href="#" ng-click="loadLangPdf()" class="btn btn-primary btn-xs" >生成所有可用语言PDF</a></strong></div>                   
+                </div>
             </div>
             <div class="col-md-10" style="padding:0px;border-right: 1px solid #ddd">
                 <div class="file-viewer-preview file-preview">

@@ -25,13 +25,13 @@
                 <div class="pull-right btn-group" style="padding-right:10px"><a ng-href="#" class="btn btn-primary " ng-click="editInDialog(aichiTarget, 'target', 'aichiTargetContribution')"><i class="fa fa-2x1 fa-edit"></i> 编辑</a> <a ng-href="#" class="btn btn-primary " data-toggle="collapse" data-target="#{{aichiTarget.identifier}}"><i class="fa fa-2x1 fa-arrow-circle-o-up"></i></a></div>{{aichiTargets[aichiTarget.identifier].title[locale]}}</h3>
         </div>
         <div class="panel-body collapse in" id="{{aichiTarget.identifier}}">
-            <div ng-show="implementationMeasure.description">
+            <div ng-show="aichiTarget.description">
                 <label>请说明贵国现已通过哪些方式以及在何种程度上为实现本项爱知生物多样性目标作出了贡献，并概述可佐证此说法的证据。</label>
-                <km-value-ml value="implementationMeasure.description" locales="document.header.languages" km-pre html></km-value-ml>
+                <km-value-ml value="aichiTarget.description" locales="document.header.languages" km-pre html></km-value-ml>
             </div>
-            <div ng-show="implementationMeasure.description">
+            <div ng-show="aichiTarget.description">
                 <label>请说明为在全球一级实现该全球爱知生物多样性目标作出贡献的其他活动（可选择是否填写本部分）。</label>
-                <km-value-ml value="implementationMeasure.achievementActivities" locales="document.header.languages" km-pre html></km-value-ml>
+                <km-value-ml value="aichiTarget.achievementActivities" locales="document.header.languages" km-pre html></km-value-ml>
             </div><!-- <span ng-include src="'aichiTargetContribution'" onload="target=aichiTarget"></span> --></div>
     </div>
 

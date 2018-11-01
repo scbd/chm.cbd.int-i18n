@@ -15,7 +15,7 @@
 									Cette section &eacute;tablit un lien entre les progr&egrave;s accomplis au niveau national et les Objectifs d&rsquo;Aichi pour la biodiversit&eacute;. Veuillez tenir compte de tous les &eacute;l&eacute;ments associ&eacute;s &agrave; l&rsquo;Objectif d&apos;Aichi pour la biodiversit&eacute; dans votre description de la contribution de votre pays aux Objectifs d&rsquo;Aichi pour la biodiversit&eacute;. &lt;/br&gt;
 									L&rsquo;information recueillie dans cette partie du rapport facilitera la pr&eacute;paration d&rsquo;une analyse/synth&egrave;se des contributions des mesures nationales, r&eacute;gionales et autres mesures aux objectifs mondiaux, conform&eacute;ment &agrave; la d&eacute;cision X/2. &lt;/br&gt;
 									Les r&eacute;ponses fournies dans cette partie du rapport national devraient prendre appui sur l&rsquo;information fournie dans les parties II et III, sans toutefois r&eacute;p&eacute;ter l&rsquo;information fournie dans les parties pr&eacute;c&eacute;dentes du rapport. " data-title="CHM Aide: Sixi&egrave;me Rapport National"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
-                <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.aichiTarget')">ouvre tout <i class="fa  fa-arrow-circle-o-up" /></a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.aichiTarget')">ferme tout <i class="fa  fa-arrow-circle-o-down" /> </a></div>
+                <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.aichiTarget')">open all <i class="fa  fa-arrow-circle-o-up" /> </a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.aichiTarget')">close all <i class="fa  fa-arrow-circle-o-down" /> </a></div>
             </div>
         </div>
     </div>
@@ -25,13 +25,13 @@
                 <div class="pull-right btn-group" style="padding-right:10px"><a ng-href="#" class="btn btn-primary " ng-click="editInDialog(aichiTarget, 'target', 'aichiTargetContribution')"><i class="fa fa-2x1 fa-edit"></i> Modifier</a> <a ng-href="#" class="btn btn-primary " data-toggle="collapse" data-target="#{{aichiTarget.identifier}}"><i class="fa fa-2x1 fa-arrow-circle-o-up"></i></a></div>{{aichiTargets[aichiTarget.identifier].title[locale]}}</h3>
         </div>
         <div class="panel-body collapse in" id="{{aichiTarget.identifier}}">
-            <div ng-show="implementationMeasure.description">
+            <div ng-show="aichiTarget.description">
                 <label>Veuillez d&eacute;crire comment votre pays a contribu&eacute; &agrave; la r&eacute;alisation de cet Objectif d&rsquo;Aichi pour la biodiversit&eacute; et les donn&eacute;es factuelles utilis&eacute;es &agrave; l&rsquo;appui de cette description</label>
-                <km-value-ml value="implementationMeasure.description" locales="document.header.languages" km-pre html></km-value-ml>
+                <km-value-ml value="aichiTarget.description" locales="document.header.languages" km-pre html></km-value-ml>
             </div>
-            <div ng-show="implementationMeasure.description">
+            <div ng-show="aichiTarget.description">
                 <label>Veuillez d&eacute;crire d&rsquo;autres activit&eacute;s qui contribuent &agrave; la r&eacute;alisation de l&rsquo;Objectif d&rsquo;Aichi pour la biodiversit&eacute; &agrave; l&rsquo;&eacute;chelle mondiale (facultatif).</label>
-                <km-value-ml value="implementationMeasure.achievementActivities" locales="document.header.languages" km-pre html></km-value-ml>
+                <km-value-ml value="aichiTarget.achievementActivities" locales="document.header.languages" km-pre html></km-value-ml>
             </div><!-- <span ng-include src="'aichiTargetContribution'" onload="target=aichiTarget"></span> --></div>
     </div>
 

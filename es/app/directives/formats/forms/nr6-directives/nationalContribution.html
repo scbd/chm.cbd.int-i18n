@@ -15,7 +15,7 @@
 									Esta secci&oacute;n vincula los progresos alcanzados a nivel nacional con las Metas de Aichi para la Diversidad Biol&oacute;gica. Al describir las contribuciones nacionales al logro de las Metas de Aichi para la Diversidad Biol&oacute;gica, tenga en cuenta todos los elementos asociados con cada Meta de Aichi para la Diversidad Biol&oacute;gica. &lt;/br&gt;
 									La informaci&oacute;n recabada en esta secci&oacute;n del informe nacional permitir&aacute; preparar un an&aacute;lisis o una s&iacute;ntesis de las contribuciones aportadas por medidas nacionales, regionales y de otro tipo al logro de las metas mundiales, de conformidad con la decisi&oacute;n X/2. &lt;/br&gt;
 									Para las respuestas de esta secci&oacute;n del informe nacional se recomienda partir de la informaci&oacute;n contenida en las secciones II y III. No obstante, no es necesario repetir informaci&oacute;n que ya se haya incluido en secciones anteriores del informe. " data-title="Ayuda de CHM: Sexto Informe Nacional"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
-                <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.aichiTarget')">Abrir todos <i class="fa  fa-arrow-circle-o-up" /></a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.aichiTarget')">Cerrar todos <i class="fa  fa-arrow-circle-o-down" /> </a></div>
+                <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.aichiTarget')">open all <i class="fa  fa-arrow-circle-o-up" /> </a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.aichiTarget')">close all <i class="fa  fa-arrow-circle-o-down" /> </a></div>
             </div>
         </div>
     </div>
@@ -25,13 +25,13 @@
                 <div class="pull-right btn-group" style="padding-right:10px"><a ng-href="#" class="btn btn-primary " ng-click="editInDialog(aichiTarget, 'target', 'aichiTargetContribution')"><i class="fa fa-2x1 fa-edit"></i> editar</a> <a ng-href="#" class="btn btn-primary " data-toggle="collapse" data-target="#{{aichiTarget.identifier}}"><i class="fa fa-2x1 fa-arrow-circle-o-up"></i></a></div>{{aichiTargets[aichiTarget.identifier].title[locale]}}</h3>
         </div>
         <div class="panel-body collapse in" id="{{aichiTarget.identifier}}">
-            <div ng-show="implementationMeasure.description">
+            <div ng-show="aichiTarget.description">
                 <label>Describa de qu&eacute; manera y en qu&eacute; medida su pa&iacute;s ha contribuido al logro de esta Meta de Aichi para la Diversidad Biol&oacute;gica y sintetice la evidencia utilizada para sustentar esta descripci&oacute;n</label>
-                <km-value-ml value="implementationMeasure.description" locales="document.header.languages" km-pre html></km-value-ml>
+                <km-value-ml value="aichiTarget.description" locales="document.header.languages" km-pre html></km-value-ml>
             </div>
-            <div ng-show="implementationMeasure.description">
+            <div ng-show="aichiTarget.description">
                 <label>Describa otras actividades que contribuyen al logro de la Meta de Aichi para la Diversidad Biol&oacute;gica a nivel mundial (opcional):</label>
-                <km-value-ml value="implementationMeasure.achievementActivities" locales="document.header.languages" km-pre html></km-value-ml>
+                <km-value-ml value="aichiTarget.achievementActivities" locales="document.header.languages" km-pre html></km-value-ml>
             </div><!-- <span ng-include src="'aichiTargetContribution'" onload="target=aichiTarget"></span> --></div>
     </div>
 

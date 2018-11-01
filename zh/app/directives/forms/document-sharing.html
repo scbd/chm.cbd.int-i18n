@@ -6,17 +6,16 @@
             } */
 
         .ngdialog.ngdialog-theme-default .ngdialog-content {
-            width: 60% !important;
+            width: 70% !important;
         }
 
         .tab-pane .content {
             margin: 2%;
         }
-    </style>
-<script type="text/ng-template" id="shareDocumentTemplate.html" trados-translation="true">
-    <h1>{{title}}</h1><br/><div role="tabpanel"><!-- Nav tabs --><ul class="nav nav-tabs" role="tablist">
+    </style>  <script type="text/ng-template" id="shareDocumentTemplate.html" trados-translation="true">
+        <h1>{{title}}</h1><br/><div role="tabpanel"><!-- Nav tabs --><ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a translation-url href="#email" aria-controls="email" role="tab" data-toggle="tab"><span class="sub-header">通过电子邮件发送</span></a></li>
-                <li role="presentation"><a translation-url href="#url" aria-controls="url" role="tab" data-toggle="tab"><span class="sub-header">通过URL发送</span></a></li>
+                <li role="presentation"><a translation-url href="#url" aria-controls="url" role="tab" data-toggle="tab" ng-click="loadDocument()"><span class="sub-header">通过URL发送</span></a></li>
             </ul><!-- Tab panes --><div class="tab-content" style="background:#fff">
                 <div role="tabpanel" class="tab-pane active" id="email">
                     <div class="row">
@@ -25,19 +24,36 @@
                             <hr/>电子邮箱 <br/><input type="text" placeholder="输入邮件" class="form-control" ng-model="document.sharedWith.emails" />
                             <div><span style="font-size: smaller;color: #777575;">用逗号分隔多个电子邮件。 这些用户在查看草稿记录之前必须使用此电子邮件登录到CBD</span></div>
                             <div><span ng-if="status=='creatingLink'"> <i class="fa fa-spin fa-spinner" /> 更新 </span><button type="button" class="btn btn-primary pull-right" ng-click="shareEmail()" ng-disabled="status=='creatingLink'">发送</button>
-                            </div></br></div>
+                            </div><br/></div>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="url">
                     <div class="row">
-                        <div class="content">
+                        <div ng-if="isLoading"><i style="margin-left:40%" class="fa fa-spin fa-spinner"></i> 正在加载...</div>
+                        <div class="content" ng-hide="isLoading">
                             <label>任何有链接的人都可以查看此草稿 </label>
-                            <div style="margin:auto"><a ng-href="#" ng-click="self.createLink()" class="btn btn-primary" ng-if="status!='creatingLink' && !document.sharedWith.link">创建链接</a> <i class="fa fa-spin fa-spinner" ng-if="status=='creatingLink'" /></div>
-                            <div ng-if="document.sharedWith.link && status!='creatingLink'">
-                                <div class="btn-group">
-                                    <div class="input-group" style="max-width:95%">
-                                        <input type="text" id="shareUrl" class="highlight form-control" value="{{::getUrl(document.urlHash)}}" disabled readonly/><span style="cursor:pointer" class="input-group-addon" id="basic-addon2" ng-click="copyUrl()"> <i class="fa fa-copy" /> 复制</span></div>
-                                </div>
+                            <div style="margin:auto" class="pull-right"><a ng-href="#" ng-click="self.createLink()" class="btn btn-primary" ng-if="status!='creatingLink'">创建链接</a> <i class="fa fa-spin fa-spinner" ng-if="status=='creatingLink'"></i></div>
+                            <div ng-if="sharedLinks.length">
+                                <table class="table table-stripped">
+                                    <tr>
+                                        <td>#</td>
+                                        <td>到期/状态</td>
+                                        <td>链接</td>
+                                        <td>创建于</td>
+                                    </tr>
+                                    <tr ng-repeat="link in sharedLinks | orderBy:'meta.createdOn':'desc'">
+                                        <td>{{$index+1}}</td>
+                                        <td>{{link.expiry|formatDateWithTime}} <span ng-if="hasStatus('active', link)"class="label label-success">活性</span> <span ng-if="hasStatus('expired', link)"class="label label-danger">过期</span> <span ng-if="hasStatus('revoked', link)"class="label label-danger">吊销</span></td>
+                                        <td width="80%">
+                                            <div class="btn-group" style="width:100%">
+                                                <div class="input-group" >
+                                                    <input type="text" width="100%" id="shareUrl_{{$index+1}}" class="highlight form-control" value="{{::getUrl(link.urlHash)}}" disabled readonly/><span style="cursor:pointer" class="input-group-addon" id="basic-addon2" ng-click="copyUrl($index+1)"><i class="fa fa-copy"> </i> Copy</span> <span ng-if="hasStatus('active', link)" ng-disabled="link.status=='revokingLink'" style="cursor:pointer" class="input-group-addon" id="basic-addon3" ng-click="revokeLink(link)"><i class="fa fa-spin fa-spinner" ng-if="link.status=='revokingLink'"></i><i class="fa fa-thumbs-down"> </i> Revoke</span></div>
+                                            </div>
+                                        </td>
+                                        <td>{{link.meta.createdOn|formatDateWithTime}}</td>
+                                    </tr>
+                                </table>
+
                             </div>
                         </div>
                     </div>
@@ -48,18 +64,19 @@
 
 
 
-    </script>
-<script type="text/ng-template" id="documentPdfTemplate.html" trados-translation="true">
-    <h1>{{title}}</h1><br/><div role="tabpanel">
+    </script><script type="text/ng-template" id="documentPdfTemplate.html" trados-translation="true">
+        <h1>{{title}}</h1><br/><div role="tabpanel">
             <div class="tab-content" style="background:#fff">
                 <div role="tabpanel" class="tab-pane active" id="email">
                     <div class="row">
                         <div class="content">
-                            <div><a ng-href="{{pdfUrl}}" target="_blank" class="btn btn-primary" ng-if="status!='generatingPDF' && pdfUrl">打開PDF</a></div><span ng-if="status=='generatingPDF'"><div>请等待pdf生成</div><i class="fa fa-spin fa-spinner" /> 正在处理...</span>  
-                            </br>
+                            <div class="alert alert-success" role="alert"><strong><a target="_blank" ng-href="/pdf-links/draft-documents/{{identifier}}" class="btn btn-primary" >打开PDF</a></strong> 生成所有可用语言PDF</div>
+                            <div class="alert alert-info" role="alert">
+                                <div class="btn-group"><a target="_blank" ng-repeat="lang in ['ar', 'fr', 'en', 'es', 'ru', 'zh']" ng-href="/pdf-links/draft-documents/{{identifier}}/{{lang}}" class="btn btn-primary" 
+                                    ng-bind="lang|uppercase"></a></div>生成单独的语言PDF</div> 
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </script>
+    </script></span>

@@ -1,79 +1,172 @@
 ﻿<div class="container">
     <div class="row">
 
-<div class="home-bottom" style="position:relative"><!-- <div class="col-xs-3">
+<div class="home-bottom" style="position:relative">
+    <!-- <div class="col-xs-3">
         <register-facets></register-facets>
-    </div> --><div class="col-xs-12 my_well my_well-white">
+    </div> -->
+    <div class="col-xs-12 my_well my_well-white">
         <div class="top">
-          <p class="alert alert-danger" ng-show="error">{{error}}</p>
+          <p class="alert alert-danger" ng-show="error">
+              {{error}}
+          </p>
 	    	<h1>Request status</h1>
 
 			<table class="table table-striped">
 			  <tr>
-				  <th colspan="2">Demander des informations et un statut</th>
+				  <th colspan="2">
+				  	Request information and status
+				  </th>
 			  </tr>
 			  <tr>
-			  	<td style="width:40%">Num&eacute;ro de demande</td>
-			  	<td style="text-transform:uppercase;white-space:nowrap;">{{formatWID(workflow._id)}}</td>
+			  	<td style="width:40%">Request ID</td>
+			  	<td style="text-transform:uppercase;white-space:nowrap;">
+			  		{{formatWID(workflow._id)}}
+				</td>
 			  </tr>
 			  <tr>
 			  	<td>Request Type</td>
 			  	<td>
-			  		<div ng-switch="workflow.type.name"><span ng-switch-when="publishNationalRecord">Publishing request</span> <span ng-switch-when="publishReferenceRecord">Publishing request</span> <span ng-switch-default>*{{workflow.type.name|uppercase}}</span></div>
+			  		<div ng-switch="workflow.type.name">
+						<span ng-switch-when="publishNationalRecord">Publishing request</span>
+						<span ng-switch-when="publishReferenceRecord">Publishing request</span>
+						<span ng-switch-default>*{{workflow.type.name|uppercase}}</span>
+					</div>
 				</td>
 			  </tr>
 			  <tr>
-			  	<td>Num&eacute;ro d&apos;identification du dossier</td>
-			  	<td><a translation-url    ng-show="workflow.result.documentID||workflow.data.documentID" ng-href="/database/record?documentID={{workflow.result.documentID||workflow.data.documentID}}">{{workflow.result.documentID||workflow.data.documentID}}</a> <span ng-hide="workflow.result.documentID||workflow.data.documentID">[new] {{workflow._id}}</span> <span ng-show="workflow.result.revision">(rev. {{workflow.result.revision}})</span></td>
+			  	<td>Record ID</td>
+			  	<td>
+			  		<a translation-url    ng-show="workflow.result.documentID||workflow.data.documentID" ng-href="/database/record?documentID={{workflow.result.documentID||workflow.data.documentID}}">{{workflow.result.documentID||workflow.data.documentID}}</a>
+			  		<span ng-hide="workflow.result.documentID||workflow.data.documentID">[new] {{workflow._id}}</span>
+			  		<span ng-show="workflow.result.revision">(rev. {{workflow.result.revision}})</span>
+				</td>
 			  </tr>
 			  <tr>
 			  	<td>Description</td>
-			  	<td><strong><span ng-show="workflow.schema==='bbiRequest'">Request for Assistance (BBI)</span> {{workflow.data.metadata.schema|schemaName}}</strong> - <span>{{workflow.data.title | lstring}}</span> <span ng-show="workflow.schema==='bbiRequest'">{{workflow.title | lstring}}</span></td>
+			  	<td>
+					<strong><span ng-show="workflow.schema==='bbiRequest'">Request for Assistance (BBI)</span> {{workflow.data.metadata.schema|schemaName}}</strong>
+					-
+					<span>{{workflow.data.title | lstring}}</span>
+          <span ng-show="workflow.schema==='bbiRequest'">{{workflow.title | lstring}}</span>
+				</td>
 			  </tr>
 			  <tr>
-			  	<td>Statut</td>
-			  	<td><span ng-switch="workflow.state"><span ng-switch-when="running"><i class="fa fa-cog"></i> Pending</span><span ng-switch-when="completed">Completed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-default>*{{workflow.state|uppercase}}</span></span> <span ng-switch="workflow.meta.status" ng-show="workflow.schema==='bbiRequest'"><span ng-switch-when="workflow"><i class="fa fa-cog"></i> Pending</span><span ng-switch-when="public">Completed on {{workflow.meta.modifiedOn|date:&apos;short&apos;}}</span><span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-default>*{{workflow.meta.status|uppercase}}</span></span></td>
+			  	<td>Status</td>
+			  	<td>
+			  		<span ng-switch="workflow.state">
+			  			<span ng-switch-when="running"><i class="fa fa-cog"></i> Pending</span>
+			  			<span ng-switch-when="completed">Completed on {{workflow.closedOn|date:'short'}}</span>
+			  			<span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:'short'}}</span>
+			  			<span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:'short'}}</span>
+			  			<span ng-switch-default>*{{workflow.state|uppercase}}</span>
+					</span>
+          <span ng-switch="workflow.meta.status" ng-show="workflow.schema==='bbiRequest'">
+            <span ng-switch-when="workflow"><i class="fa fa-cog"></i> Pending</span>
+            <span ng-switch-when="public">Completed on {{workflow.meta.modifiedOn|date:'short'}}</span>
+            <span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:'short'}}</span>
+            <span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:'short'}}</span>
+            <span ng-switch-default>*{{workflow.meta.status|uppercase}}</span>
+        </span>
+				</td>
 			  </tr>
 
 			  <tr ng-show="workflow.createdOn">
 			  	<td>Created on</td>
-			  	<td>{{workflow.createdOn|date:&apos;short&apos;}} by {{workflow.createdBy_info.firstName}} {{workflow.createdBy_info.lastName}}</td>
+			  	<td>{{workflow.createdOn|date:'short'}} by {{workflow.createdBy_info.firstName}} {{workflow.createdBy_info.lastName}}</td>
 			  </tr>
 
-			</table><!-- Pending activity(ies) --><table class="table table-striped" ng-show="(workflow.activities|filter:isOpen).length">
+			</table>
+
+
+			<!-- Pending activity(ies) -->
+
+			<table class="table table-striped" ng-show="(workflow.activities|filter:isOpen).length">
 			  <tr>
 			  	<th style="width:40%">Pending activity(ies)</th>
-			  	<th>Statut</th>
+			  	<th>Status</th>
 			  	<th>&nbsp;</th>
 			  </tr>
 
 			  <tr ng-repeat="activity in workflow.activities|filter:isOpen|orderBy:'createdOn'">
 			  	<td>
-					<div ng-show="activity" ng-switch="activity.name"><span ng-switch-when="publishRecord">Approve or Reject record publication</span> <span ng-switch-default>*{{activity.name|uppercase}}</span></div>
+					<div ng-show="activity" ng-switch="activity.name">
+						<span ng-switch-when="publishRecord">Approve or Reject record publication</span>
+						<span ng-switch-default>*{{activity.name|uppercase}}</span>
+					</div>
 			  	</td>
-			  	<td><span ng-switch="activity.name"><span ng-switch-when="publishRecord">Waiting for validation</span><span ng-switch-default>{{activity.name}}*</span></span> <span ng-show="activity.assignedToRule">by {{activity.assignedToRule}}</span> <span ng-hide="activity.assignedToRule"> <span ng-show="activity.assignedTo">by <span ng-repeat="user in activity.assignedTo_info">{{user.firstName}} {{user.lastName}}<span ng-hide="$last">, </span></span><span ng-hide="activity.assignedTo"><em>Not assigned yet</em></span></span></td>
+			  	<td>
 
-			  	<td class="text-right"><a translation-url ng-show="isAssignedToMe(activity)" class="btn btn-info"
-                    ng-href="/management/requests/{{workflow._id}}/{{activity.name}}"  type="button"> <i class="fa fa-edit"></i></button>
+					<span ng-switch="activity.name">
+						<span ng-switch-when="publishRecord">Waiting for validation</span>
+						<span ng-switch-default>{{activity.name}}*</span>
+					</span>
+
+
+
+					<span ng-show="activity.assignedToRule">
+						by {{activity.assignedToRule}}
+					</span>
+
+					<span ng-hide="activity.assignedToRule">
+
+						<span ng-show="activity.assignedTo">
+							by <span ng-repeat="user in activity.assignedTo_info">{{user.firstName}} {{user.lastName}}<span ng-hide="$last">, </span>
+						</span>
+
+						<span ng-hide="activity.assignedTo">
+							<em>Not assigned yet</em>
+						</span>
+					</span>
+
+
+
+			  	</td>
+
+			  	<td class="text-right">
+					<a translation-url ng-show="isAssignedToMe(activity)" class="btn btn-info"
+                    ng-href="/management/requests/{{workflow._id}}/{{activity.name}}"  type="button">
+                    <i class="fa fa-edit"></i></button>
 			  	</td>
 
 			  </tr>
-			</table><!-- Completed activity(ies) --><table class="table table-striped" ng-show="(workflow.activities|filter:isClose).length">
+			</table>
+
+
+			<!-- Completed activity(ies) -->
+
+			<table class="table table-striped" ng-show="(workflow.activities|filter:isClose).length">
 			  <tr>
 			  	<th style="width:40%">Completed activity(ies)</th>
-			  	<th>Statut</th>
+			  	<th>Status</th>
 			  </tr>
 
 			  <tr ng-repeat="activity in workflow.activities|filter:isClose|orderBy:'createdOn'">
 			  	<td>
-					<div ng-show="activity" ng-switch="activity.name"><span ng-switch-when="publishRecord">Approve or Reject record publication</span> <span ng-switch-default>{{activity.name|uppercase}}*</span></div>
+					<div ng-show="activity" ng-switch="activity.name">
+						<span ng-switch-when="publishRecord">Approve or Reject record publication</span>
+						<span ng-switch-default>{{activity.name|uppercase}}*</span>
+					</div>
 			  	</td>
 			  	<td>
-					<div ng-show="activity.completedOn"><span ng-switch="activity.name+'-'+activity.result.action"><span ng-switch-when="publishRecord-approve"><i class="fa fa-check"></i> Approved</span><span ng-switch-when="publishRecord-reject"><i class="fa fa-remove"></i> Rejected</span><span ng-switch-default>{{activity.name+&apos;-&apos;+activity.result.action}}*</span></span> on {{activity.completedOn|date:&apos;short&apos;}} by {{activity.completedBy_info.firstName}} {{activity.completedBy_info.lastName}}</div>
+					<div ng-show="activity.completedOn">
 
-					<div ng-show="activity.canceledOn">Canceled on {{activity.canceledOn|date:&apos;short&apos;}} by {{activity.canceledBy_info.firstName}} {{activity.canceledBy_info.lastName}}</div>
+						<span ng-switch="activity.name+'-'+activity.result.action">
+							<span ng-switch-when="publishRecord-approve"><i class="fa fa-check"></i> Approved</span>
+							<span ng-switch-when="publishRecord-reject"><i class="fa fa-remove"></i> Rejected</span>
+							<span ng-switch-default>{{activity.name+'-'+activity.result.action}}*</span>
+						</span>
 
-					<div ng-show="activity.failedOn">Failed on {{activity.failedOn|date:&apos;short&apos;}}</div>
+						on {{activity.completedOn|date:'short'}} by {{activity.completedBy_info.firstName}} {{activity.completedBy_info.lastName}}
+					</div>
+
+					<div ng-show="activity.canceledOn">
+						Canceled on {{activity.canceledOn|date:'short'}} by {{activity.canceledBy_info.firstName}} {{activity.canceledBy_info.lastName}}
+					</div>
+
+					<div ng-show="activity.failedOn">
+						Failed on {{activity.failedOn|date:'short'}}
+					</div>
 
 			  	</td>
 			  </tr>
@@ -82,7 +175,7 @@
 			<div ng-show="document" class="task-activity t-document md-whiteframe-z1 bg-grey">
 				<div class="btn-group" ng-show="document.header.languages.length>1">
 					<input type="button" class="btn" ng-class="{'btn-default' : options.documentLocale!='*', 'btn-info' :options.documentLocale=='*'}"
-						ng-click="options.documentLocale='*'" value="*" title="dans toutes les langues" />
+						ng-click="options.documentLocale='*'" value="*" title="All languages" />
 					<input type="button" class="btn" ng-class="{'btn-default' : options.documentLocale!=locale, 'btn-info' : options.documentLocale==locale}"
 						ng-repeat="locale in document.header.languages" ng-click="options.documentLocale = locale" value="{{locale | uppercase}}" />
 				</div>

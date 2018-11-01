@@ -33,6 +33,11 @@
 			<div class="col-xs-12" style="left: 40%;"><br> <br> <i class="fa fa-spin fa-3x fa-circle-o-notch" style="color:#1FA65D;"></i> مشروع وثيقة <br> <br></div>
 		</div>
 		<div class="row" style="padding:0px;border: 1px solid #ddd;background:#fff" 
+		 ng-if="status=='error'">
+		 <div class="col-md-12" ng-if="!printMode">
+			 <div class="alert alert-danger" style="margin:20px;"><strong>{{error}}</strong></div> </div>
+		</div>
+		<div class="row" style="padding:0px;border: 1px solid #ddd;background:#fff" 
 		 ng-if="status=='ready'" ng-class="{'no-border':printMode}">
             <div class="col-md-2" ng-if="!printMode">
                 <div class="" style="width:100%;"><br> تمت مشاركة مسودة المستند هذه بواسطة: {{sharedData.sharedBy_Info.firstName}} {{sharedData.sharedBy_Info.lastName}} <br> <br> <br> <br><div class="btn-group" ng-if="!printMode && document.header.languages.length>1">

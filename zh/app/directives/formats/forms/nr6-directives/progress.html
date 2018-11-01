@@ -14,7 +14,7 @@
     </div>
     <div class="panel panel-default progressAssessment" ng-repeat="progressAssessment in document.progressAssessments track by $index">
         <div class="panel-header clearfix">
-            <h3>进度评估 <span ng-if="progressAssessment.nationalTarget">个国家目标 : {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier, locale)}}</span><span ng-if="progressAssessment.aichiTarget">爱知生物多样性目标 : {{::aichiTargets[progressAssessment.aichiTarget.identifier].title[locale]}}</span><div class="pull-right" style="padding-right:10px"><a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#progressAssessment{{$index}}"></a></div>
+            <h3><!-- Progress assessment for --> <span ng-if="progressAssessment.nationalTarget"><!-- national target :  --> {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier, locale)}}</span> <span ng-if="progressAssessment.aichiTarget"><!-- AICHI Biodiversity Target :  --> {{::aichiTargets[progressAssessment.aichiTarget.identifier].title[locale]}}</span><div class="pull-right" style="padding-right:10px"><a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#progressAssessment{{$index}}"></a></div>
             </h3>
         </div>
         <div class="panel-body collapse in" id="progressAssessment{{$index}}">
@@ -27,8 +27,8 @@
                                         ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='public' || targetAssessments[progressAssessment.assessment.identifier].publicRecord">公众</span> <span class="label label-warning pull-right bg-draft" ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='draft'">草案</span> <span class="label label-warning pull-right bg-request" ng-if="targetAssessments[progressAssessment.assessment.identifier]._state_s=='workflow'">等待批准
 </span></div>
                                 <div ng-if="waitForWorkflow.nationalAssessment && waitForWorkflow.nationalAssessment.identifier == progressAssessment.assessment.identifier"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > 正在处理...</span></div>
-                            </div><img ng-if="targetAssessments[progressAssessment.assessment.identifier].progress_s!='69C77387-2D3C-474C-BEA8-30F55D47AFBD'"
-                                ng-src="/app/img/ratings/{{targetAssessments[progressAssessment.assessment.identifier].progress_s}}.png" class="pull-left"></img><div>
+                            </div><img ng-if="progressAssessment.assessment.identifier && targetAssessments[progressAssessment.assessment.identifier].progress_s!='69C77387-2D3C-474C-BEA8-30F55D47AFBD'"
+                                ng-src="/app/img/ratings/{{targetAssessments[progressAssessment.assessment.identifier].progress_s}}.png" class="pull-left" /><div>
                                 <div>
                                     <h3>{{targetAssessments[progressAssessment.assessment.identifier].title|lstring:locale}}</h3>
                                 </div>
