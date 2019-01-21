@@ -121,7 +121,7 @@
 											ou les facteurs de son appauvrissement, les changements dans les conditions socioéconomiques telles que la sensibilisation à la diversité biologique, les changements dans la disponibilité des ressources, les changements aux politiques gouvernementales ou les changements dans le comportement des principaux secteurs d’activités au pays. En ce qui concerne les objectifs quantitatifs,
 											les Parties pourraient envisager de faire rapport sur l’étendue de la réalisation par rapport à la valeur de l’objectif. À titre d’exemple, cette évaluation pourrait être présentée sous forme de pourcentages pour certains types d’objectifs. Les Parties 
 											souhaiteront peut-être également  décrire le processus qu’elles ont utilisé pour évaluer les progrès accomplis dans la réalisation de l’objectif, ainsi que faire rapport sur tout obstacle lié au processus d’évaluation de l’objectif.">
-												<div km-rich-textbox identifier="document.header.identifier" required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -146,7 +146,7 @@
 											<div class="row" ng-show="document.nationalIndicatorsUsed">
 												<div class="col-md-12">
 													<div class="km-control-group" name="nationalIndicators" caption="Veuillez fournir une liste des indicateurs utilisés pour l’évaluation de cet objectif.">
-														<div km-rich-textbox identifier="document.header.identifier" name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
+														<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
 													</div>
 												</div>
 											</div>
@@ -157,7 +157,7 @@
 									<div class="row  bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="documentText" caption="Veuillez décrire tout autre outil ou moyen employé pour évaluer les progrès accomplis" data-container=".assessmentform" data-content="Veuillez décrire les outils et les méthodes que votre pays a utilisés pour évaluer les progrès accomplis dans la réalisation de cet objectif national , par exemple des études de cas, des études théoriques, des opinions d’experts et des consultations des parties prenantes et autres.">
-												<div km-rich-textbox identifier="document.header.identifier" name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -188,7 +188,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" required name="confidenceInfo" caption="Veuillez fournir une explication du niveau de confiance indiqué ci-dessus." data-container=".assessmentform" data-content="Veuillez expliquer pourquoi l’évaluation a reçu la cote de confiance indiquée ci-dessus. Les Parties peuvent offrir des commentaires sur les types d’information ou d’indicateurs utilisés, leur représentativité, leur couverture et leurs limites éventuelles.">
-												<div km-rich-textbox identifier="document.header.identifier" required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -202,7 +202,7 @@
 									<div class="row">
 										<div class="col-md-12" ng-if="isMonitoringNotRequired()">
 											<div class="km-control-group" name="adequacyDescription" caption="Veuillez décrire comment le suivi de l’objectif est assuré et indiquer si un système de suivi est en place" data-container=".assessmentform" data-content="Si vous avez coché une des deux premières cases ci-dessus (c.-à-d., le suivi de cet objectif est adéquat ou le suivi de cet objectif est partiel), veuillez décrire comment le suivi de l’objectif est assuré, y compris des informations sur tout système de suivi pertinent. Votre réponse doit préciser les caractéristiques du système de suivi, les organisations qui en sont responsables, le mode de collecte des informations ou des données, le type de données recueillies et la fréquence de l’actualisation des données.">
-												<div km-rich-textbox identifier="document.header.identifier" name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
 											</div>
 										</div>
 									</div>

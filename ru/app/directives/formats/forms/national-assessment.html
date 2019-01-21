@@ -118,7 +118,7 @@
 										<div class="col-md-12">
 											<div class="km-control-group" name="assessmentText" caption="Дополнительная информация. (Приведите информацию о фактических данных, которые применялись в оценке этой целевой задачи, используя соответствующую информацию, приведенную в разделе II, включая возникавшие препятствия в проведении оценки)."
 															data-container=".assessmentform" data-content="Приведите информацию, обосновывающую сделанный выше выбор. Можно включить информацию об общем воздействии принятых мер, изменении в тенденциях развития и статусе биоразнообразия, изменении в нагрузках на биоразнообразие или в приводных механизмах, вызывающих его утрату, изменении социально-экономических условий, таких как осведомленность о биоразнообразии, об изменении в доступности ресурсов, изменении государственных политик или изменении в поведении основных секторов в стране. Касательно национальных целевых задач количественного характера Стороны, возможно, пожелают изучить вопрос о представлении отчетности о степени выполнения целевой задачи в сопоставлении с контрольным показателем. По определенным типам целевых задач можно, например, использовать процентные доли. Стороны, возможно, также пожелают привести описание процесса, который они использовали для оценки результатов выполнения целевой задачи, а также сообщить о любых возникавших препятствиях в процессе оценки.">
-												<div km-rich-textbox identifier="document.header.identifier" required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -143,7 +143,7 @@
 											<div class="row" ng-show="document.nationalIndicatorsUsed">
 												<div class="col-md-12">
 													<div class="km-control-group" name="nationalIndicators" caption="Просьба привести список индикаторов, использовавшихся для проведения оценки этой целевой задачи.">
-														<div km-rich-textbox identifier="document.header.identifier" name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
+														<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
 													</div>
 												</div>
 											</div>
@@ -154,7 +154,7 @@
 									<div class="row  bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="documentText" caption="Приведите описание любых других инструментов или средств, использовавшихся для оценки прогресса" data-container=".assessmentform" data-content="Просьба привести описание всех инструментов или подходов, которые ваша страна использовала для оценки результатов выполнения настоящей целевой задачи. В их число могут входить, кроме всех прочих, тематические исследования, аналитические исследования, мнения экспертов и консультации с субъектами деятельности.">
-												<div km-rich-textbox identifier="document.header.identifier" name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -185,7 +185,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" required name="confidenceInfo" caption="Объясните отмеченный выше уровень достоверности" data-container=".assessmentform" data-content="Просьба указать, почему оценке присвоен вышеуказанный уровень достоверности. Стороны, возможно, пожелают представить замечания о типах использованной информации или индикаторов, их представительности, охвате и о любых присущих им ограничениях.">
-												<div km-rich-textbox identifier="document.header.identifier" required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -199,7 +199,7 @@
 									<div class="row">
 										<div class="col-md-12" ng-if="isMonitoringNotRequired()">
 											<div class="km-control-group" name="adequacyDescription" caption="Приведите описание способов мониторинга целевой задачи и укажите, внедрена ли система мониторинга" data-container=".assessmentform" data-content="Если по вышеприведенному вопросу выбран один из двух первых ответов (т.е. мониторинг, связанный с настоящей целевой задачей, адекватен или мониторинг, связанный с настоящей целевой задачей, был неполным), просьба описать способ мониторинга целевой задачи, включая информацию обо всех соответствующих системах мониторинга. Вопросы, которые ваша страна, возможно, пожелает включить в свои ответы, будут следующими: характеристики системы мониторинга, организации, отвечающие за нее, способы сбора информации или данных и частота обновления данных.">
-												<div km-rich-textbox identifier="document.header.identifier" name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
 											</div>
 										</div>
 									</div>

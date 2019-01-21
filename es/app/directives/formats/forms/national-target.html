@@ -120,7 +120,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="km-control-group" required name="description" caption="Justificación de la meta nacional" data-container=".nationalTargetForm" data-content="Brinde la justificación de la meta nacional. Esto puede incluir los problemas nacionales que se busca atender con la meta, cómo se relaciona la meta con las Metas de Aichi para la Diversidad Biológica o el Plan Estratégico para la Diversidad Biológica 2011-2020, o las razones por las cuales la meta nacional se diferencia de la Meta o Metas de Aichi para la Diversidad Biológica correspondientes. Tal vez las Partes deseen indicar asimismo si esta meta nacional se relaciona o se vincula con otros procesos internacionales o regionales, como, por ejemplo, otras convenciones relacionadas con la diversidad biológica, las Convenciones de Río u otros acuerdos ambientales multilaterales. Puede que las Partes también deseen hacer comentarios sobre mecanismos nacionales de cumplimiento asociados con la meta. El objetivo de la información que se introduce aquí es brindar el contexto nacional de la meta. Parte de esa información puede estar en la estrategia y plan de acción nacional en materia de biodiversidad de su país.">
-													<div km-rich-textbox identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
+													<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
 												</div>
 											</div>
 										</div>
@@ -172,7 +172,7 @@
 											</div>
 											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="sírvase explicar">
 											
-												<div km-rich-textbox identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -188,7 +188,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" name="relevantInformation" caption="Otra información pertinente (Utilice este campo para brindar cualquier otra información que sea pertinente, como, por ejemplo, el proceso de elaboración y adopción de la meta nacional, los interesados directos que participan y las estrategias y planes en los que se ha incluido esta meta nacional)." data-container=".nationalTargetForm" data-content="Proporcione cualquier otra información pertinente relacionada con la meta nacional que no se haya cubierto en campos anteriores de la plantilla .">
-												<div km-rich-textbox identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>

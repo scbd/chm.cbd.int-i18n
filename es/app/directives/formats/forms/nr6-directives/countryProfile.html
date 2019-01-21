@@ -13,46 +13,70 @@
                 <div class="col-md-12">
                     <div class="km-control-group" name="statusAndTrends" caption="Datos de diversidad biológica Estado y tendencias de la diversidad biológica, incluidos beneficios derivados de la diversidad biológica y los servicios y funciones de los ecosistemas:">
                         <div class="help-block">Revise el texto que aparece actualmente en su Perfil de Diversidad Biol&oacute;gica del Pa&iacute;s publicado en el mecanismo de facilitaci&oacute;n del Convenio y actual&iacute;celo si es necesario.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="statusAndTrends" ng-model="document.biodiversityCountryProfile.statusAndTrends" locales="document.header.languages"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="statusAndTrends" ng-model="document.biodiversityCountryProfile.statusAndTrends" locales="document.header.languages"
                             rows="3"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="km-control-group" name="mainDriversofChange" caption="Principales presiones e impulsores de cambio de la diversidad biológica (directos e indirectos):">
                         <div class="help-block">Revise el texto que aparece actualmente en su Perfil de Diversidad Biol&oacute;gica del Pa&iacute;s publicado en el mecanismo de facilitaci&oacute;n del Convenio y actual&iacute;celo si es necesario.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="mainDriversofChange" ng-model="document.biodiversityCountryProfile.mainDriversofChange" locales="document.header.languages"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="mainDriversofChange" ng-model="document.biodiversityCountryProfile.mainDriversofChange" locales="document.header.languages"
                             rows="3"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="km-control-group" name="nbsapImplementation" caption="Aplicación de la EPANB">
                         <div class="help-block">Revise el texto que aparece actualmente en su Perfil de Diversidad Biol&oacute;gica del Pa&iacute;s publicado en el mecanismo de facilitaci&oacute;n del Convenio y actual&iacute;celo si es necesario.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="nbsapImplementation" ng-model="document.biodiversityCountryProfile.nbsapImplementation" locales="document.header.languages"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nbsapImplementation" ng-model="document.biodiversityCountryProfile.nbsapImplementation" locales="document.header.languages"
                             rows="3"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="km-control-group" name="strategicPlanActions" caption="Medidas generales adoptadas para contribuir a la aplicación del Plan Estratégico para la Diversidad Biológica 2011-2020">
                         <div class="help-block">Revise el texto que aparece actualmente en su Perfil de Diversidad Biol&oacute;gica del Pa&iacute;s publicado en el mecanismo de facilitaci&oacute;n del Convenio y actual&iacute;celo si es necesario.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="strategicPlanActions" ng-model="document.biodiversityCountryProfile.strategicPlanActions" locales="document.header.languages"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="strategicPlanActions" ng-model="document.biodiversityCountryProfile.strategicPlanActions" locales="document.header.languages"
                             rows="3"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="km-control-group" name="supportMechanisms" caption="Mecanismos de apoyo para la aplicación nacional (legislación, financiación, creación de capacidad, coordinación, incorporación, etc.)">
                         <div class="help-block">Revise el texto que aparece actualmente en su Perfil de Diversidad Biol&oacute;gica del Pa&iacute;s publicado en el mecanismo de facilitaci&oacute;n del Convenio y actual&iacute;celo si es necesario.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="supportMechanisms" ng-model="document.biodiversityCountryProfile.supportMechanisms" locales="document.header.languages"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="supportMechanisms" ng-model="document.biodiversityCountryProfile.supportMechanisms" locales="document.header.languages"
                             rows="3"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="km-control-group" name="monitoringReviewingMechanisms" caption="Mecanismos de seguimiento y examen de la aplicación:">
                         <div class="help-block">Revise el texto que aparece actualmente en su Perfil de Diversidad Biol&oacute;gica del Pa&iacute;s publicado en el mecanismo de facilitaci&oacute;n del Convenio y actual&iacute;celo si es necesario.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="monitoringReviewingMechanisms" ng-model="document.biodiversityCountryProfile.monitoringReviewingMechanisms"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="monitoringReviewingMechanisms" ng-model="document.biodiversityCountryProfile.monitoringReviewingMechanisms"
                             locales="document.header.languages" rows="3"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-header">
+            <h3>Additional information</h3>
+        </div>
+        <div class="panel-body" >
+            <div class="row  bottom-spacing">
+                <div class="col-md-12">
+                    <div class="km-control-group">
+                        <div class="help-block">Informaci&oacute;n adicional</div>
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="relevantInformation"
+                         ng-model="document.relevantInformation" locales="document.header.languages" rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group">
+                        <div class="help-block">Sitios web, enlaces web y archivos pertinentes</div>
+                        <div km-link name="relevantDocuments" ng-model="document.relevantDocuments" identifier="document.header.identifier"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

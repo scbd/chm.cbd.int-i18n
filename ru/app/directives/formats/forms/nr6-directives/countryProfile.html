@@ -13,46 +13,70 @@
                 <div class="col-md-12">
                     <div class="km-control-group" name="statusAndTrends" caption="Факты о биоразнообразии: Тенденции развития и статус биоразнообразия, включая выгоды, обеспечиваемые биоразнообразием и экосистемными услугами:">
                         <div class="help-block">Просьба просмотреть текст, размещенный в разделе информации о биоразнообразии вашей страны в механизме посредничества Конвенции, и обновить его по мере необходимости.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="statusAndTrends" ng-model="document.biodiversityCountryProfile.statusAndTrends" locales="document.header.languages"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="statusAndTrends" ng-model="document.biodiversityCountryProfile.statusAndTrends" locales="document.header.languages"
                             rows="3"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="km-control-group" name="mainDriversofChange" caption="Основные нагрузки на биоразнообразие и приводные механизмы, вызывающие его изменение (прямые и косвенные):">
                         <div class="help-block">Просьба просмотреть текст, размещенный в разделе информации о биоразнообразии вашей страны в механизме посредничества Конвенции, и обновить его по мере необходимости.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="mainDriversofChange" ng-model="document.biodiversityCountryProfile.mainDriversofChange" locales="document.header.languages"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="mainDriversofChange" ng-model="document.biodiversityCountryProfile.mainDriversofChange" locales="document.header.languages"
                             rows="3"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="km-control-group" name="nbsapImplementation" caption="Осуществление НСПДСБ:">
                         <div class="help-block">Просьба просмотреть текст, размещенный в разделе информации о биоразнообразии вашей страны в механизме посредничества Конвенции, и обновить его по мере необходимости.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="nbsapImplementation" ng-model="document.biodiversityCountryProfile.nbsapImplementation" locales="document.header.languages"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nbsapImplementation" ng-model="document.biodiversityCountryProfile.nbsapImplementation" locales="document.header.languages"
                             rows="3"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="km-control-group" name="strategicPlanActions" caption="Общие меры, принятые для содействия осуществлению Стратегического плана в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы:">
                         <div class="help-block">Просьба просмотреть текст, размещенный в разделе информации о биоразнообразии вашей страны в механизме посредничества Конвенции, и обновить его по мере необходимости.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="strategicPlanActions" ng-model="document.biodiversityCountryProfile.strategicPlanActions" locales="document.header.languages"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="strategicPlanActions" ng-model="document.biodiversityCountryProfile.strategicPlanActions" locales="document.header.languages"
                             rows="3"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="km-control-group" name="supportMechanisms" caption="Механизмы поддержки национального осуществления (законодательство, финансирование, создание потенциала, координация, актуализация тематики и т.д.)">
                         <div class="help-block">Просьба просмотреть текст, размещенный в разделе информации о биоразнообразии вашей страны в механизме посредничества Конвенции, и обновить его по мере необходимости.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="supportMechanisms" ng-model="document.biodiversityCountryProfile.supportMechanisms" locales="document.header.languages"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="supportMechanisms" ng-model="document.biodiversityCountryProfile.supportMechanisms" locales="document.header.languages"
                             rows="3"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="km-control-group" name="monitoringReviewingMechanisms" caption="Механизмы мониторинга и обзора осуществления:">
                         <div class="help-block">Просьба просмотреть текст, размещенный в разделе информации о биоразнообразии вашей страны в механизме посредничества Конвенции, и обновить его по мере необходимости.</div>
-                        <div km-rich-textbox identifier="document.header.identifier" name="monitoringReviewingMechanisms" ng-model="document.biodiversityCountryProfile.monitoringReviewingMechanisms"
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="monitoringReviewingMechanisms" ng-model="document.biodiversityCountryProfile.monitoringReviewingMechanisms"
                             locales="document.header.languages" rows="3"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-header">
+            <h3>Дополнительная информация</h3>
+        </div>
+        <div class="panel-body" >
+            <div class="row  bottom-spacing">
+                <div class="col-md-12">
+                    <div class="km-control-group">
+                        <div class="help-block">Дополнительная информация</div>
+                        <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="relevantInformation"
+                         ng-model="document.relevantInformation" locales="document.header.languages" rows="3"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="km-control-group">
+                        <div class="help-block">Соответствующие веб-сайты, веб-ссылки и файлы</div>
+                        <div km-link name="relevantDocuments" ng-model="document.relevantDocuments" identifier="document.header.identifier"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

@@ -120,7 +120,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="km-control-group" required name="description" caption="Логическое обоснование национальной целевой задачи" data-container=".nationalTargetForm" data-content="Просьба привести логическое обоснование национальной целевой задачи. Здесь можно упомянуть, какие национальные проблемы призвана разрешить данная целевая задача, как целевая задача соотносится с целевыми задачами по сохранению и устойчивому использованию биоразнообразия, принятыми в Айти, или со Стратегическим планом в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы или причины расхождений между соответствующими целевыми задачами (задачей) по сохранению и устойчивому использованию биоразнообразия, принятыми в Айти, и национальной целевой задачей. Стороны, возможно, пожелают также указать, соотносится ли или связана ли настоящая целевая задача с другими международными или региональными процессами, такими как другие конвенции, связанные с биоразнообразием, Рио-де-Жанейрские конвенции или другие многосторонние экологические соглашения. Стороны, возможно, также пожелают высказаться по поводу каждого из механизмов соблюдения, связанных с целевой задачей. Включенная сюда информация предназначена для придания национального контекста целевой задаче. Часть данной информации может содержаться в национальной стратегии и плане действий по сохранению биоразнообразия вашей страны.">
-													<div km-rich-textbox identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
+													<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
 												</div>
 											</div>
 										</div>
@@ -172,7 +172,7 @@
 											</div>
 											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="просьба пояснить">
 											
-												<div km-rich-textbox identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -188,7 +188,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" name="relevantInformation" caption="Другая существенная информация (Используйте это поле для представления любой другой существенной информации, такой как процесс разработки и принятия национальной целевой задачи, привлечение субъектов деятельности или стратегии и планы, в которые данная целевая задача была включена)." data-container=".nationalTargetForm" data-content="Просьба привести любую другую соответствующую информацию, связанную с национальной целевой задачей, которая не была охвачена в предыдущих полях матрицы.">
-												<div km-rich-textbox identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>

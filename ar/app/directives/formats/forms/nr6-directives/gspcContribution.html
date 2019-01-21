@@ -78,7 +78,7 @@
                     <div class="row" ng-show="document.gspcNationalContribution.hasGSPCTargets">
                         <div class="col-md-12">
                             <div class="km-control-group" name="gspcTargetDescription" caption="يرجى تقديم التفاصيل عن الأهداف المحددة">
-                                <div km-rich-textbox identifier="document.header.identifier" name="gspcTargetDescription" ng-model="document.gspcNationalContribution.gspcTargetDescription" locales="document.header.languages"
+                                <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="gspcTargetDescription" ng-model="document.gspcNationalContribution.gspcTargetDescription" locales="document.header.languages"
                                     rows="3"></div>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                         <div class="col-md-12">
                             <div class="km-control-group" name="plantConservationNetwork" caption="يرجى تقديم معلومات عن أي شبكات فعلية لحفظ النباتات موجودة في بلدك."
                                 data-content="يرجى ذكر أي مجموعات لحفظ النباتات أو شبكات الحدائق النباتية التي تعمل على حفظ النبات في بلدك.">
-                                <div km-rich-textbox identifier="document.header.identifier" name="plantConservationNetwork" ng-model="document.gspcNationalContribution.plantConservationNetwork"
+                                <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="plantConservationNetwork" ng-model="document.gspcNationalContribution.plantConservationNetwork"
                                     locales="document.header.languages" rows="3"></div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                         <div class="col-md-12">
                             <div class="km-control-group" name="implementationMeasures" caption="يرجى وصف التدابير الرئيسية التي اتخذها بلدك لتنفيذ الاستراتيجية العالمية لحفظ النباتات على المستوى الوطني (يمكن أن تبلغ الأطراف عن الإجراءات المتخذة لتنفيذ هذه الأهداف إذا لم تتم تغطيتها في القسم الثاني أو الثالث أو الرابع.)">
                                 <div class="help-block">إذا اعتمد بلدكم أهدافا وطنية أو التزامات مماثلة تتعلق بالأهداف الواردة في الاستراتيجية العالمية لحفظ النبات، يرجى وصف الإجراءات المتخذة وإسهامها في تحقيق الاستراتيجية العالمية لحفظ النبات.</div>
-                                <div km-rich-textbox identifier="document.header.identifier" name="implementationMeasures" ng-model="document.gspcNationalContribution.implementationMeasures" locales="document.header.languages"
+                                <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="implementationMeasures" ng-model="document.gspcNationalContribution.implementationMeasures" locales="document.header.languages"
                                     rows="3"></div>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                     <div class="col-md-12">
                         <div class="km-control-group" name="nationalContributions-GSPC-TARGET-01" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
                             data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: هل هناك نباتات على المستوى الوطني أو الإقليمي تقدم وصفا لأنواع النباتات الموجودة في البلاد؟ هل يتم اتخاذ إجراء بشأن رقمنة النباتات الوطنية/الإقليمية في البلاد? </li><li>؟ هل شاركت أي مؤسسة في بلدك أو تتعاون مع الاتحاد العالمي للقائمة الإلكترونية للنباتات؟ في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان في الرجوع إلى  <a translation-url target='_blank' href='www.worldfloraonline.org'>موقع الاتحاد العالمي للقائمة الإلكترونية للنباتات </a>.">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-01" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-01" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                     <div class="col-md-12">
                         <div class="km-control-group" name="nationalContributions-GSPC-TARGET-02" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
                             data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كم عدد أنواع النباتات التي تم تقييم حالة حفظها باستخدام إما فئات ومعايير الاتحاد الدولي لحماية الطبيعة والموارد الطبيعية 3.1 أو نظام وطني؟ ما هي نسبة النباتات التي تم تقييمها في بلدك؟ كيف استخدمت بيانات تقييمات الحفاظ لتوجيه جهود الحماية؟ في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان في الاستفادة من المعلومات المتاحة من: <a translation-url target='_blank' href='http://www.iucnredlist.org'> : القائمة الحمراء للأنواع للاتحاد الدولي لحماية الطبيعة والموارد الطبيعية </a>, و <a translation-url target='_blank' href='http://www.bgci.org/threat_search.php'>وقاعدة بيانات البحث عن الأنواع المهددة التابعة للمنظمة الدولية لحفظ حدائق النباتات </a> و <a translation-url target='_blank' href='http://www.bgci.org/plant_search.php'>h</a> وقاعدة بيانات البحث عن النباتات .">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-02" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-02" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
                     <div class="col-md-12">
                         <div class="km-control-group" name="nationalContributions-GSPC-TARGET-03" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
                             data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كيف تم إجراء دراسات استقصائية جيدة بشأن التنوع النباتي في بلدك؟ ما هي المناطق التي شملتها هذه الدراسات الاستقصائية؟ ما هو التقدم الذي تم إحرازه منذ عام 2010 لتحسين المعرفة حول أنماط التنوع النباتي؟ ما هي نسب سجلات العينات النباتية الموجودة في المعشبات الوطنية التي تم رقمنتها؟ هل هذه السجلات متاحة لتقييم الحفظ وتخطيط استخدام الأراضي؟ ما هي نسبة النباتات التي تم مراجعتها منذ عام 1970؟ هل تم توثيق أو إتاحة تقنيات الإكثار للمواقع الخارجية ودراسات الحالة بشأن عودة ظهور الأنواع؟ هل تم حصد تقييم الموارد والمبادئ التوجيهية للتفريغ المستدام المتاحة لأنواع النباتات، تجاريا؟">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-03" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-03" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                     <div class="col-md-12">
                         <div class="km-control-group" name="nationalContributions-GSPC-TARGET-04" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
                             data-content="عند الإبلاغ عن التقدم المحرز نحو الهدف 4 من الاستراتيجية العالمية لحفظ النباتات، قد ترغب البلدان في الإحالة المرجعية لاستجابتها المتعلقة بالهدف 11 من أهداف أيشي للتنوع البيولوجي (المناطق المحمية) والهدف 15 (استعادة النظام الإيكولوجي والقدرة على الصمود) الوارد في الجزء الرابع من التقرير الوطني. وإذا تم التعامل مع القضايا التي تناولها الهدف 4 من الاستراتيجية العالمية لحفظ النباتات بما فيه الكفاية في القسم الرابع، فإنه ليست هناك حاجة لتكرار هذه المعلومات هنا.">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-04" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-04" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
 
 في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان في الاستفادة من قاعدة بيانات منطقة النباتات الهامة للحياة  منطقة النباتية على الموقع التالي:
  <a translation-url target='_blank' href='www.plantlife.org.uk/international/wild_plants/IPA/ipa_online_database/'> منطقةالنباتات الهامة للحياة النباتية </a>.">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-05" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-05" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                     <div class="col-md-12">
                         <div class="km-control-group" name="nationalContributions-GSPC-TARGET-06" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
                             data-content="في الإبلاغ عن التقدم المحرز نحو الهدف 6 من الاستراتيجية العالمية لحفظ النباتات، قد ترغب البلدان في الإحالة المرجعية لاستجابتها المتعلقة بالهدف 7 من أهداف أيشي للتنوع البيولوجي (الزراعة المستدامة وتربية الأحياء المائية والغابات) الوارد في الجزء الرابع من التقرير الوطني. وإذا تم التعامل مع القضايا التي تناولها الهدف 6 من الاستراتيجية العالمية لحفظ النباتات بما فيه الكفاية في القسم الرابع، فإنه ليست هناك حاجة لتكرار هذه المعلومات هنا.">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-06" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-06" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -172,7 +172,7 @@
                     <div class="col-md-12">
                         <div class="km-control-group" name="nationalContributions-GSPC-TARGET-07" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
                             data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هي النسبة المئوية للأنواع النباتية المهددة مع ذكر عدد واحد على الأقل من الأنواع في منطقة محمية؟ كم عدد الأنواع المهددة الإضافية التي تم حفظها منذ عام 2010؟ هل تم تحديد المواقع ذات الأولوية للحفاظ على النباتات المهددة وغير المحمية؟ ما التدخلات التي اتخذت لتوسيع المناطق المحمية إلى مواقع تحتوي على تركيزات عالية من النباتات المهددة؟ وعند الإبلاغ عن التقدم المحرز في سبيل تحقيق هذا الهدف، قد ترغب البلدان في  استخدام : <a translation-url target='_blank' href='http://www.bgci.org/threat_search.php'>  قاعدة بيانات البحث عن الأنواع المهددة التابعة لمنظمة حفظ حدائق النباتات</a> و <a translation-url target='_blank' href='http://www.bgci.org/plant_search.php'>h</a> ) قواعد بيانات البحث عن النباتات .">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-07" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-07" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -181,7 +181,7 @@
                     <div class="col-md-12">
                         <div class="km-control-group" name="nationalContributions-GSPC-TARGET-08" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
                             data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: ما هي النسبة المئوية من الأنواع النباتية المهددة التي يتم حفظها خارج الموقع الطبيعي إما في بنوك للبذور أو مجموعات المعيشة في الحدائق النباتية أو المجموعات النباتية الأخرى؟ ما هي النسبة المئوية المتاحة للاستعادة أو أعمال الانتعاش؟ كم عدد الأنواع التي تعد جزءا من برامج الإنعاش النشطة؟ في كم منطقة من المناطق الإيكولوجية المختلفة يجرى إجراء أعمال انتعاش؟ هل يوجد في بلدك أعضاء في تحالف الاستعادة البيئية للحدائق النباتية؟ قد يرغب بلدك أيضا في تقديم إحالة مرجعية إلى دراسات حالة الانتعاش. في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان في الاستفادة من المعلومات المتاحة في: <a translation-url target='_blank' href='http://www.bgci.org/threat_search.php'>: قاعدة بيانات البحث عن الأنواع المهددة </a> و <a translation-url target='_blank' href='http://www.bgci.org/plant_search.php'>وقاعدة بيانات البحث عن النباتات خارج الموقع التابعتين للمنظمة الدولية لحفظ حدائق النباتات</a>  و <a translation-url target='_blank' href='www.erabg.org'>والموقع الإلكتروني لتحالف استعادة البيئة  website</a>.">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-08" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-08" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
 </p>
 								<p> 
 تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: هل يوجد في بلدكم عملية جرد وطنية لمحاصيل الأنواع البرية القريبة النسب وغيرها من الأنواع النباتية الهامة اجتماعيا واقتصاديا (النباتات الطبية والمحاصيل العلفية وأنواع الأشجار المفيدة، وما إلى ذلك)؟ هل يوجد في بلدكم استراتيجية وطنية للحفاظ على المحاصيل البرية القريبة النسب/ النباتات الطبية؟ هل هناك برنامج وطني للموارد الوراثية النباتية للأغذية والزراعة؟ ما هي النسبة المئوية للمحاصيل البرية وغيرها من الأنواع الهامة اجتماعيا واقتصاديا التي يتم حفظها خارج الموقع الطبيعي في بنوك للبذور أو في المجموعات التي تعيش في الحدائق النباتية والمجموعات النباتية الأخرى؟ ما هي النسبة المئوية للمحاصيل البرية وغيرها من الأنواع الهامة اجتماعيا واقتصاديا التي يتم حفظها داخل المناطق المحمية أو من خلال المحافظة على مستوى المزرعة؟ في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان في الاستفادة من المعلومات المقدمة إلى منظمة الأغذية والزراعة من خلال تقريرها الوطني عن عن الحالة الثانية <a translation-url target='_blank' href='http://www.fao.org/agriculture/crops/core-themes/theme/seeds-pgr/sow/sow2/country-reports/en/'> للموارد الوراثية النباتية للأغذية والزراعة في العالم </a>.</p>">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-09" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-09" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -203,7 +203,7 @@
                         <div class="km-control-group" name="nationalContributions-GSPC-TARGET-10" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
                             data-content="عند الإبلاغ عن التقدم المحرز نحو الهدف 10 من الاستراتيجية العالمية لحفظ النباتات، قد ترغب البلدان في الإحالة المرجعية لاستجابتها المتعلقة بالهدف 9 من أهداف أيشي للتنوع البيولوجي (منع الأنواع الغريبة الغازية والتحكم فيها) الوارد في الجزء الرابع من التقرير الوطني. وإذا تم التعامل مع القضايا التي تناولها الهدف 10 من الاستراتيجية العالمية لحفظ النباتات بما فيه الكفاية في القسم الرابع، فإنه ليست هناك حاجة لتكرار هذه المعلومات هنا. تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: هل حدد بلدكم مناطق النباتات الهامة (هذه القضية قد يكون تم تناولها بالفعل كجزء من استجابة بلدكم للهدف 5 من أهداف الاستراتيجية العالمية لحفظ النباتات)؟ كم عدد هذه المناطق التي لديها خطط إدارية تعالج الأنواع الغازية؟ </li>
 													</ul>">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-10" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-10" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -215,7 +215,7 @@
 								<p> عند الإبلاغ عن التقدم المحرز نحو الهدف 11 من الاستراتيجية العالمية لحفظ النباتات، قد ترغب البلدان في الإحالة المرجعية لاستجابتها المتعلقة بالهدف 4 من أهداف أيشي للتنوع البيولوجي (الإنتاج والاستهلاك المستدامان) الوارد في الجزء الرابع من التقرير الوطني. وإذا تم التعامل مع القضايا التي تناولها الهدف 11 من الاستراتيجية العالمية لحفظ النباتات بما فيه الكفاية في القسم الرابع، فإنه ليست هناك حاجة لتكرار هذه المعلومات هنا.</p>
 								<p>  
 في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان أيضا في الاستفادة من المعلومات المتاحة على<a translation-url target='_blank' href='http://www.plants2020.net/target-11'>الموقع الشبكي للنباتات 2020 </a>.</p>">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-11" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-11" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -229,7 +229,7 @@
 </li></ul> </p>
 								<p>
 عند الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان أيضا في الاستفادة من المعلومات المتاحة على <a translation-url target='_blank' href='http://www.plants2020.net/index/'>الموقع الشبكي للنباتات 2020 </a> and <a translation-url target='_blank' href='http://www.fairwild.org'>) ومؤسسة فير وايلد FairWild Standard</a>.</p>">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-12" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-12" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -238,7 +238,7 @@
                     <div class="col-md-12">
                         <div class="km-control-group" name="nationalContributions-GSPC-TARGET-13" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
                             data-content="في الإبلاغ عن التقدم المحرز نحو الهدف 13 من الاستراتيجية العالمية لحفظ النباتات، قد ترغب البلدان في الإحالة المرجعية لاستجابتها المتعلقة بالهدف 18 من أهداف أيشي للتنوع البيولوجي (احترام المعارف التقليدية) الوارد في الجزء الرابع من التقرير الوطني. وإذا تم التعامل مع القضايا التي تناولها الهدف 13 من الاستراتيجية العالمية لحفظ النباتات بما فيه الكفاية في القسم الرابع، فإنه ليست هناك حاجة لتكرار هذه المعلومات هنا.">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-13" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-13" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -247,7 +247,7 @@
                     <div class="col-md-12">
                         <div class="km-control-group" name="nationalContributions-GSPC-TARGET-14" caption="يرجى وصف كيفية مساهمة بلدك وإلى أي حد في تحقيق هذا الهدف من أهداف الاستراتيجية العالمية لحفظ النبات، وقدم موجزا للأدلة المستخدمة لدعم هذا الوصف:"
                             data-content="في الإبلاغ عن التقدم المحرز نحو الهدف 14 من الاستراتيجية العالمية لحفظ النباتات، قد ترغب البلدان في الإحالة المرجعية لاستجابتها المتعلقة بالهدف 1 من أهداف أيشي للتنوع البيولوجي (زيادة الوعي) الوارد في الجزء الرابع من التقرير الوطني. وإذا تم التعامل مع القضايا التي تناولها الهدف 14 من الاستراتيجية العالمية لحفظ النباتات بما فيه الكفاية في القسم الرابع، فإنه ليست هناك حاجة لتكرار هذه المعلومات هنا. وبالنسبة للأنشطة المحددة للنباتات، قد ترغب البلدان أيضا في الاستفادة من قاعدة بيانات البحث عن <a translation-url target='_blank' href='www.bgci.org/garden_search.php'> الأنواع المهددة التابعة منظمة الحفظ الدولي لحدائق النباتات </a>. تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: هل يوجد في بلدكم برامج بشأن علم المواطن التي تشمل جمع بيانات بشأن النباتات؟ هل تقوم الحدائق النباتية الخاص بك بتشغيل البرامج التثقيفية؟ هل هناك منظمات غير حكومية أخرى يرتكز عملها على الطبيعة وتوفر التثقيف غير الرسمي بشأن النباتات؟">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-14" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-14" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -258,7 +258,7 @@
                             data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: كم عدد الجامعات/ الكليات التي توفر التعليم على المستوى الجامعي في مجال علم النباتات/ حفظ النباتات؟ هل تقدم منظمات حفظ النبات التدريب/ الدورات القصيرة وما إلى ذلك لدعم التدريب أثناء الخدمة وتنمية المهارات؟
 </li></ul> 
 في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان أيضا في إجراء اتصالات مع الأعضاء المعنيين في  <a translation-url target='_blank' href='http://www.plants2020.net/gppcpartners/'>Global  الشراكة العالمية لحفظ النبات </a>.">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-15" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-15" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -269,7 +269,7 @@
                             data-content="تتمثل بعض الأسئلة التي قد يرغب بلدك النظر في الرد عليها فيما يلي: هل هناك شبكة وطنية للحدائق النباتية في بلدك؟ هناك شبكة وطنية لحفظ النباتات أو مجتمع نباتية وطني يتناول بنشاط أهداف الاستراتيجية العالمية لحفظ النبات؟
 </li></ul>  
 في الإبلاغ عن التقدم المحرز نحو تحقيق هذا الهدف، قد ترغب البلدان أيضا في الاستفادة من قائمة  شبكات الحدائق النباتية التابعة  <a translation-url target='_blank' href='www.bgci.org/about-us/networks/'> للحفظ الدولي للحدائق النباتي. </a>.">
-                            <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-16" ng-model="target.description" locales="document.header.languages"
+                            <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-16" ng-model="target.description" locales="document.header.languages"
                                 rows="3"></div>
                         </div>
                     </div>
@@ -293,7 +293,7 @@
             <div class="col-md-12">
                 <div class="km-control-group" name="nationalContributions-GSPC-TARGET-Progress-Description" caption="يرجى توضيح التحديد أعلاه:"
                     data-content="يرجى تقديم معلومات إثباتية للاختيار الوارد أعلاه. مثلاً  يمكن أن يشمل ذلك المعلومات المتعلقة بالتأثير العام للتدابير التي اتخذت أو التغيرات التي طرأت على حالة واتجاهات التنوع البيولوجي، والتغيرات في الضغوط على التنوع البيولوجي أو دوافع فقدانه، والتغيرات في الظروف الاجتماعية والاقتصادية، مثل الوعي بالتنوع البيولوجي، والتغيرات في توافر الموارد، والتغيرات في السياسات الحكومية، أو تغييرات في سلوك القطاعات الرئيسية في البلاد. وبالنسبة للأهداف الوطنية التي تعد كمية في الطبيعة، قد ترغب الأطراف أيضا بالنظر في التقارير عن مدى الإنجاز فيما يتعلق بالقيمة المستهدفة. على سبيل المثال، بالنسبة لبعض أنواع من الأهداف، ويمكن أن يتم هذا مع استخدام النسب المئوية. ">
-                    <div km-rich-textbox identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-Progress-Description" ng-model="target.progressDescription" locales="document.header.languages"
+                    <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalContributions-GSPC-TARGET-Progress-Description" ng-model="target.progressDescription" locales="document.header.languages"
                         rows="3">
                     </div>
                 </div>

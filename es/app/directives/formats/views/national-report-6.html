@@ -151,7 +151,7 @@
 						<h3>{{aichiTargets[aichiTarget.identifier].title | lstring:locale}}</h3>
 					</div>
 					<div class="panel-body" collapse="">
-						<div ng-if="aichiTarget.identifier=='AICHI-TARGET-16' && (absNationalReport||absLinkedRecords)">
+						<div ng-if="aichiTarget.identifier=='AICHI-TARGET-16' && (absNationalReport||absLinkedRecords || aichiTarget.linkedRecordsDescription)">
 							<div ng-if="absNationalReport">
 								<div>
 									<label for="">Informe nacional provisional sobre la aplicaci&oacute;n del Protocolo de Nagoya</label><br/> <a translation-url target="_new" ng-href="{{absNationalReport.url_ss[0]}}">{{absNationalReport.uniqueIdentifier_s|uppercase}}</a> {{absNationalReport.title_t}}</div>
@@ -160,12 +160,14 @@
 									<km-value-ml value="aichiTarget.nationalReportDescription" locales="locale" km-pre html></km-value-ml>
 								</div>							
 							</div>
+
+							<div ng-show="aichiTarget.linkedRecordsDescription">
+								<label for="">Descripci&oacute;n de c&oacute;mo y en qu&eacute; medida su pa&iacute;s ha contribuido al logro de esta Meta de Aichi para la Diversidad Biol&oacute;gica</label>
+								<km-value-ml value="aichiTarget.linkedRecordsDescription" locales="locale" km-pre html></km-value-ml>
+							</div>
+
 							<div ng-if="absLinkedRecords">
 
-								<div ng-show="aichiTarget.linkedRecordsDescription">
-									<label for="">Descripci&oacute;n de c&oacute;mo y en qu&eacute; medida su pa&iacute;s ha contribuido al logro de esta Meta de Aichi para la Diversidad Biol&oacute;gica</label>
-									<km-value-ml value="aichiTarget.linkedRecordsDescription" locales="locale" km-pre html></km-value-ml>
-								</div>
 								<label for="">Archivos del ABS Clearing-House</label>
 								<table class="table table-hover">
 									<tbody>
@@ -299,6 +301,27 @@
 						<div ng-show="document.biodiversityCountryProfile.monitoringReviewingMechanisms">
 							<label>Mecanismos de seguimiento y examen de la aplicaci&oacute;n:</label>
 							<km-value-ml value="document.biodiversityCountryProfile.monitoringReviewingMechanisms" locales="locale" km-pre html></km-value-ml>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section" ng-show="document.relevantInformation||document.relevantDocuments">
+			<div class="section-header">
+				<h3>Additional Information</h3>
+			</div>
+			<div class="section-body">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div ng-show="document.relevantInformation">
+							<km-value-ml value="document.relevantInformation" locales="locale" km-pre html></km-value-ml>
+						</div>
+						<div ng-show="document.relevantDocuments">
+							<label>Otras direcciones de sitios web o documentos adjuntos pertinentes</label>
+							<ul class="km-value">
+								<li ng-repeat="item in document.relevantDocuments"><a translation-url target="{{target}}" ng-href="{{item.url}}">{{item.name||item.url}}</a></li>
+							</ul>
 						</div>
 					</div>
 				</div>

@@ -85,7 +85,7 @@
 
 												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/><span ng-class="{'color-litegrey': document.isAichiTarget}"> 加上一个新的国家目标</span></h4>
 
-												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">用 <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >爱知生物多样性目标</a> 作为贵国的国家目标</span></h4>
+												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Use an <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >Aichi Biodiversity Target</a> as your National Target</span></h4>
 
 											</div>
 										</div>
@@ -120,7 +120,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="km-control-group" required name="description" caption="国家目标的建立依据" data-container=".nationalTargetForm" data-content="请提供本项国家目标的理论依据。这其中可包括本项指标试图应对的国家挑战有哪些、本项目标何以与爱知生物多样性目标或2011-2020年生物多样性战略计划相关或者有关爱知生物多样性目标与本项国家目标之间存在差异的原因。各缔约方不妨注明本项国家目标是否与其他国际或区域进程，例如与生物多样性有关的公约、里约三公约或其他多边环境协定相关或相连。各缔约方还不妨就与本项目标相关的任何国家履约机制发表评论意见。此处输入的信息旨在说明本项目标的国家背景。贵国国家生物多样性战略和行动计划可能包含此处录入的部分信息。">
-													<div km-rich-textbox identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
+													<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
 												</div>
 											</div>
 										</div>
@@ -172,7 +172,7 @@
 											</div>
 											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="请解释">
 											
-												<div km-rich-textbox identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -188,7 +188,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" name="relevantInformation" caption="其他相关信息（请在本栏内提供任何其他相关信息，例如制定和通过国家目标的过程、参与其中的利益攸关方或已经本项国家目标纳入其中的战略和计划。）" data-container=".nationalTargetForm" data-content="请提供与本项国家指标有关但未在本模板前面诸栏中注明的任何其他相关信息。">
-												<div km-rich-textbox identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -209,7 +209,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes"><span class="help-block">&ldquo;备注&rdquo;字段供个人参考之用，并仅在编辑记录时方可看到。</span><div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>

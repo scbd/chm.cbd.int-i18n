@@ -120,7 +120,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="km-control-group" required name="description" caption="Fondement de cet objectif national" data-container=".nationalTargetForm" data-content="Veuillez fournir la justification de cet objectif national par exemple les problèmes nationaux que cet objectif tente de corriger, le lien entre cet objectif et les Objectifs d’Aichi pour la biodiversité ou le Plan stratégique 2011-2020 pour la diversité biologique ou les raisons justifiant les différences entre le ou les Objectifs d’Aichi pour la biodiversité pertinent(s) et l’objectif national. Les Parties pourraient aussi indiquer si cet objectif national est en lien avec d’autres processus régionaux ou internationaux, tels que d’autres conventions liées à la diversité biologique, les Conventions de Rio ou d’autres accords multilatéraux sur l’environnement. Les Parties peuvent aussi formuler des observations sur les mécanismes nationaux de conformité associés à l’objectif. L’information saisie dans ce champ a pour but de préciser le contexte national de l’objectif. La stratégie et plans d’action nationaux pour la diversité biologique de votre pays peut contenir une part de cette information.">
-													<div km-rich-textbox identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
+													<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
 												</div>
 											</div>
 										</div>
@@ -172,7 +172,7 @@
 											</div>
 											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="Veuillez expliquer">
 											
-												<div km-rich-textbox identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -188,7 +188,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" name="relevantInformation" caption="Autres informations pertinentes (Utilisez ce champ pour fournir toute autre information pertinente, telle que le processus d’élaboration et d’adoption  des objectifs nationaux, la participation des parties prenantes ou les stratégies et plans dans lesquels cet objectif national est inclus.)" data-container=".nationalTargetForm" data-content="Veuillez indiquer tout autre renseignement pertinent concernant l’objectif national non inclus dans les champs précédents du modèle.">
-												<div km-rich-textbox identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>

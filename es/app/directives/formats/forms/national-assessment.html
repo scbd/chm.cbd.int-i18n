@@ -121,7 +121,7 @@
 											y los impulsores de su pérdida, cambios en las condiciones socioeconómicas, como el grado de conciencia respecto de la diversidad biológica, cambios en la disponibilidad de recursos, cambios en las políticas gubernamentales o cambios en el comportamiento de importantes sectores del país. En el caso de las metas nacionales 
 											tde carácter cuantitativo, las Partes pueden informar también sobre el alcance del logro en relación con el valor fijado como objetivo. Por ejemplo, para algunos tipos de metas esto puede hacerse con el uso de porcentajes. Asimismo, las Partes 
 											tal vez deseen describir el proceso que han utilizado para evaluar los progresos realizados para alcanzar la meta, así como informar sobre los obstáculos relacionados con el proceso de evaluación de la meta.">
-												<div km-rich-textbox identifier="document.header.identifier" required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -146,7 +146,7 @@
 											<div class="row" ng-show="document.nationalIndicatorsUsed">
 												<div class="col-md-12">
 													<div class="km-control-group" name="nationalIndicators" caption="Proporcione una lista de indicadores utilizados para la evaluación de esta meta">
-														<div km-rich-textbox identifier="document.header.identifier" name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
+														<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
 													</div>
 												</div>
 											</div>
@@ -157,7 +157,7 @@
 									<div class="row  bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="documentText" caption="Describa cualquier otra herramienta o método utilizados para evaluar los progresos" data-container=".assessmentform" data-content="Describa las herramientas o enfoques utilizados por su país para evaluar los progresos en el logro de esta meta nacional. Esto puede incluir, entre otras cosas, estudios de casos, estudios teóricos, opiniones de expertos y consultas con interesados directos.">
-												<div km-rich-textbox identifier="document.header.identifier" name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -188,7 +188,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" required name="confidenceInfo" caption="Explique el nivel de confianza indicado anteriormente." data-container=".assessmentform" data-content="Explique por qué se indicó ese nivel de confianza para la evaluación. Las Partes pueden referirse a los tipos de información o indicadores utilizados, su representatividad, alcance, así como cualquier limitación que puedan tener.">
-												<div km-rich-textbox identifier="document.header.identifier" required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -202,7 +202,7 @@
 									<div class="row">
 										<div class="col-md-12" ng-if="isMonitoringNotRequired()">
 											<div class="km-control-group" name="adequacyDescription" caption="Describa cómo se hace el seguimiento de la meta e indique si existe un sistema de seguimiento establecido" data-container=".assessmentform" data-content="Si en la pregunta anterior seleccionó una de las dos primeras respuestas (esto es, el seguimiento relacionado con esta meta es adecuado o el seguimiento relacionado con esta meta es parcial), describa cómo se hace el seguimiento de la meta, incluida información sobre cualquier sistema de seguimiento pertinente. En su respuesta, su país puede incluir, entre otras cuestiones, las características del sistema de seguimiento, las organizaciones que se encargan del seguimiento, la manera en que se recopila la información o los datos, el tipo de datos que se recogen y la frecuencia con la que se actualizan los datos.">
-												<div km-rich-textbox identifier="document.header.identifier" name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
 											</div>
 										</div>
 									</div>

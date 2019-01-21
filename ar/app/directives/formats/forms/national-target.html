@@ -51,7 +51,7 @@
 							<ul class="pagination">
 								<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
 								<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">عام</a></li>
-								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">مراجعة</a></li>
+								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">Review</a></li>
 								<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
 							</ul>
 						</div>
@@ -120,7 +120,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="km-control-group" required name="description" caption="عرض أسباب ألهدف الوطني" data-container=".nationalTargetForm" data-content="المبرر المنطقي للهدف الوطني يمكن أن يشمل هذا على التحديات الوطنية والسعي إلى معالجتها، وكيفية ارتباط الهدف بأهداف أيشي للتنوع البيولوجي أو الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 أو أسباب الاختلافات بين هدف (أهداف) التنوع البيولوجي ذات الصلة بأهداف أيشي والهدف الوطني. وقد ترغب الأطراف أيضا إلى الإشارة إلى ما إذا كان هذا الهدف يرتبط أو يتصل بعمليات دولية أو إقليمية أخرى، مثل الاتفاقيات المتصلة بالتنوع البيولوجي، أو اتفاقيات ريو، أو الاتفاقات البيئية المتعددة الأطراف الأخرى. وقد ترغب الأطراف أيضا في التعليق على أية آليات امتثال وطنية مرتبطة بالهدف. وتهدف المعلومات التي تم إدخالها هنا إلى تقديم إطار وطني لهذا الهدف. وقد تحتوي استراتيجية التنوع البيولوجي وخطط العمل الوطنية الخاصة ببلدك على جزء من هذه المعلومات">
-													<div km-rich-textbox identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
+													<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
 												</div>
 											</div>
 										</div>
@@ -172,7 +172,7 @@
 											</div>
 											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="يرجى التوضيح">
 											
-												<div km-rich-textbox identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -188,7 +188,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" name="relevantInformation" caption="المعلومات الأخرى ذات الصلة (يرجى استخدام هذا الحقل لتقديم أي معلومات أخرى ذات صلة، مثل عملية وضع واعتماد الأهداف الوطنية، وأصحاب المصلحة المشاركين في العملية، أو الاستراتيجيات والخطط التي أدرج فيها هذا الهدف الوطني)." data-container=".nationalTargetForm" data-content="يرجى تقديم أي معلومات أخرى ذات صلة بالهدف الوطني الذي لم يتم تغطيته في الحقول من النموذج.">
-												<div km-rich-textbox identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -209,7 +209,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes"><span class="help-block">الحقل &quot;ملاحظات&quot; للاستخدام الشخصي ويظهر فقط أثناء تحرير السجل.</span><div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>
@@ -238,7 +238,7 @@
 							<ul class="pagination">
 								<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
 								<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">عام</a></li>
-								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">مراجعة</a></li>
+								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">Review</a></li>
 								<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
 							</ul>
 						</div>
