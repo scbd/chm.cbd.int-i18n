@@ -1,4 +1,4 @@
-﻿<div id="sixth-national-report-edit">
+<div id="sixth-national-report-edit">
 	<div id="wrap1">
 		<div class="panel panel-default bg-litegrey">
 			<div class="ngdialog-overlay" ng-if="isDialogLoading" style="z-index: 100">
@@ -20,7 +20,10 @@
 							<div class="col-xs-12"><span class="pull-right"><strong>第六次国家报告用户手册</strong><a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-en.pdf" target="_blank">英语</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-fr.pdf" target="_blank">法国</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-es.pdf" target="_blank">西班牙语</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ru.pdf" target="_blank">俄语</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-zh.pdf" target="_blank">中文</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ar.pdf" target="_blank">阿拉伯</a></span></div>
 						</div>
 						<header >
-
+							<div class="alert alert-danger" ng-if="subRecordErrors.length">
+								<div class="alert  alert-danger">There is mandatory information missing in section I and III records, please update this records before proceeding.</div>
+								<div ng-include="'subRecordsValidationErrors.html'" onload="recordsToValidate=subRecordErrors"></div>
+							</div>
 							<div id="wrap">
 								<div style="display:none;visibility:hidden;height:123px"></div>								
 								<div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
@@ -91,8 +94,8 @@
 												<div class="row" ng-if="document.government">
 													<div class="col-md-12">
 														<div class="km-control-group" name="targetPursued">
-															<input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="true" /> 我国业已根据2011-2020年生物多样性战略计划和爱知生物多样性目标通过了国家生物多样性目标或同等承诺。 <a translation-url info-bar data-content="如果贵国业已为实现各项爱知生物多样性目标或2011-2020年国家生物多样性战略计划其他部分通过了国家生物多样性目标或同等承诺，请勾选此框。"
-															    data-title="CHM幫助：第六次国家报告"></a> <br/> <br/><input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="false" /> 我国尚未通过国家生物多样性目标，现正参照爱知生物多样性目标来报告进展情况。（移至第二部分在第三部分，应将爱知生物多样性目标作为国家目标，用于本报告之目的，并应评估国家范围内这些目标的落实进展。） <a translation-url info-bar data-content="如果贵国（尚）未通过国家生物多样性目标，请勾选此框。在第二部分中，贵国须按照要求将本国的履约措施与爱知生物多样性目标挂钩。在第三部分中，贵国须按照要求评估爱知生物多样性目标实施进展情况。"
+															<input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="true" />我国业已根据2011-2020年生物多样性战略计划和爱知生物多样性目标通过了国家生物多样性目标或同等承诺。 <a translation-url info-bar data-content="如果贵国业已为实现各项爱知生物多样性目标或2011-2020年国家生物多样性战略计划其他部分通过了国家生物多样性目标或同等承诺，请勾选此框。"
+															    data-title="CHM幫助：第六次国家报告"></a> <br/> <br/><input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="false" />我国尚未通过国家生物多样性目标，现正参照爱知生物多样性目标来报告进展情况。（移至第二部分在第三部分，应将爱知生物多样性目标作为国家目标，用于本报告之目的，并应评估国家范围内这些目标的落实进展。） <a translation-url info-bar data-content="如果贵国（尚）未通过国家生物多样性目标，请勾选此框。在第二部分中，贵国须按照要求将本国的履约措施与爱知生物多样性目标挂钩。在第三部分中，贵国须按照要求评估爱知生物多样性目标实施进展情况。"
 															    data-title="CHM幫助：第六次国家报告"><i class="fa fa-info-circle fa-2x"></i></a> <br/> <br/><input type="radio" name="targetPursued" 
 															ng-model="document.notReportingOnNationalTargets" group="targetPursued" 
 															ng-value="true" ng-change="updateNotReportingOnNationalTargets(document.notReportingOnNationalTargets)" />我國已採納國家生物多樣性目標，但選擇使用愛知生物多樣性目標報告進展情況，以供參考。 <a translation-url info-bar data-content="如果貴國已採用國家生物多樣性目標但希望使用愛知生物多樣性目標進行報告，請選擇此選項。選擇此選項後，將出現一個文本框，您可以在其中提供您選擇的說明。"
@@ -130,33 +133,21 @@
 														</div>
 														<div class="row">
 															<div class="col-xs-12">
-															<div drag-to-reorder="document.nationalTargets"><br/><br/> </br><div  ng-repeat="item in document.nationalTargets">
+															<div><br/><br/> </br><div  ng-repeat="item in document.nationalTargets">
 																	
-																	<div class="col-xs-12 col-sm-12 col-md-12" dtr-draggable>
+																	<div class="col-xs-12 col-sm-12 col-md-12">
 
-																		<div class="panel panel-default">
+																		<div class="panel panel-default" id="pnl_{{item.identifier}}">
 																			<div class="panel-header clearfix"><!-- <div class="row"> --> <!-- <div class="col-xs-11">							 --><h3>{{nationalTargets[item.identifier].title|lstring:locale}}<div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a ng-href="#" class="btn" ng-click="movePosition(document.nationalTargets, $index, 'up', 'nationalTarget')"
 																								data-toggle="tooltip" data-placement="top" title="向上移動一個圓角" ng-if="!$first"> <i class="fa fa-level-up" style="font-size:20px"/> </a> <a ng-href="#" class="btn " ng-click="movePosition(document.nationalTargets, $index, 'down', 'nationalTarget')"
 																							data-toggle="tooltip" data-placement="top" title="向下移動一個圓角" ng-if="!$last"> <i class="fa fa-level-down" style="font-size:20px"/> </a></div>
-																					</h3><!-- </div> --> <!-- <div class="col-xs-1">	
-																						<table class="pull-right">
-																							<tr>																				
-																								<td>
-																									<i class="fa fa-arrows"  style="font-size:20px;padding-top:5px;"/>																						
-																								</td>
-																							</tr>
-																							<tr>
-																								<td style="padding-left:5px">
-																									<a info-bar data-content="Targets can be reorderd by click + dragging to new position" data-title="CHM Help: Sixth national report">
-																										<i class="fa fa-info-circle fa-2x"></i>
-																									</a>
-																								</td>
-																							</tr>
-																						</table>
-																					</div>			 --> <!-- </div> --></div>
+																					</h3>
+																					
+																			</div>
 																			<div class="panel-body"><br/><div class="btn-group-xs btn-status" 
 																					ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier || !waitForWorkflow.nationalTarget"><span class="label label-primary pull-right  bg-published"  style="margin-left:5px;"
-																						ng-if="nationalTargets[item.identifier]._state_s=='public' || nationalTargets[item.identifier].publicRecord">Public</span> <span class="label label-warning pull-right  bg-draft" ng-if="nationalTargets[item.identifier]._state_s=='draft'">Draft</span> <span class="label label-warning pull-right  bg-request" ng-if="nationalTargets[item.identifier]._state_s=='workflow'">Waiting for approval</span></div>
+																						ng-if="nationalTargets[item.identifier]._state_s=='public' || nationalTargets[item.identifier].publicRecord">公众</span> <span class="label label-warning pull-right  bg-draft" ng-if="nationalTargets[item.identifier]._state_s=='draft'">草案</span> <span class="label label-warning pull-right  bg-request" ng-if="nationalTargets[item.identifier]._state_s=='workflow'">等待批准
+</span></div>
 																				<div class="btn-status" ng-if="waitForWorkflow.nationalTarget && waitForWorkflow.nationalTarget.identifier == item.identifier"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > 正在处理...</span></div>
 																				<ul>
 																					<li ng-repeat="target in nationalTargets[item.identifier].aichiTargets track by $index" ng-if="!nationalTargets[item.identifier].isAichiTarget && nationalTargets[item.identifier].aichiTargets">{{target}}</li>
@@ -165,7 +156,7 @@
 																				</ul>
 																			</div>
 																			<div class="panel-footer">
-																				<div class="btn-group btn-group-xs" ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier || !waitForWorkflow.nationalTarget"><a translation-url title="查看" ng-if="nationalTargets[item.identifier]._state_s == 'public'" target="_blank" class="btn btn-primary" ng-href="{{nationalTargets[item.identifier].url}}"><i class="fa fa-search"></i> view</a> <a translation-url ng-if="nationalTargets[item.identifier]._state_s=='workflow' " title="已锁定供编辑" target="_blank" class="btn btn-primary" ng-href="/management/requests/{{getWorkflowId(nationalTargets[item.identifier])}}/publishRecord"><i class="fa fa-lock"></i> view status</a><button ng-click="openDialog(nationalTargets[item.identifier],'directives/formats/forms/national-target-dialog','edit-national-target-dialog')" ng-if="nationalTargets[item.identifier]._state_s!='workflow'"
+																				<div class="btn-group btn-group-xs" ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier || !waitForWorkflow.nationalTarget"><a translation-url title="查看" ng-if="nationalTargets[item.identifier]._state_s == 'public'" target="_blank" class="btn btn-primary" ng-href="{{nationalTargets[item.identifier].url}}"><i class="fa fa-search"></i> 查看</a> <a translation-url ng-if="nationalTargets[item.identifier]._state_s=='workflow' " title="已锁定供编辑" target="_blank" class="btn btn-primary" ng-href="/management/requests/{{getWorkflowId(nationalTargets[item.identifier])}}/publishRecord"><i class="fa fa-lock"></i> 查看状态</a><button ng-click="openDialog(nationalTargets[item.identifier],'directives/formats/forms/national-target-dialog','edit-national-target-dialog')" ng-if="nationalTargets[item.identifier]._state_s!='workflow'"
 																						title="编辑" type="button" class="btn btn-primary"><i class="fa fa-edit"></i> 编辑</button>
 																					<button ng-disabled="nationalTargets[item.identifier]._state_s != 'draft' && nationalTargets[item.identifier].assessments.length > 0" ng-hide="nationalTargets[item.identifier]._state_s=='workflow'" title="删除"
 																						type="button" class="btn btn-primary" ng-click="delete(nationalTargets[item.identifier],'nationalTarget', $event)"><i class="fa fa-trash-o"></i> 删除</button>
@@ -250,7 +241,7 @@
 									<div style="font-size:11px;font-weight:bold;text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;margin-bottom:10px;">草案记录</div>
 									<div class="row">     
 										<div class="col-xs-2" class="color-litegrey">称谓：</div> 
-										<div class="col-xs-10" style="font-weight:bold"> {{draftRecordToDelete.title|lstring:locale}}</div>
+										<div class="col-xs-10" style="font-weight:bold">{{draftRecordToDelete.title|lstring:locale}}</div>
 									</div>
 									<div class="row"> 
 										<div class="col-xs-2" class="color-litegrey">摘要</div> 
@@ -267,17 +258,17 @@
 									
 									<div class="row">     
 										<div class="col-xs-2" class="color-litegrey">称谓：</div> 
-										<div class="col-xs-10" style="font-weight:bold"> {{publicRecordToDelete.title|lstring:locale}}</div>
+										<div class="col-xs-10" style="font-weight:bold">{{publicRecordToDelete.title|lstring:locale}}</div>
 									</div>
 									<div class="row"> 
 										<div class="col-xs-2" class="color-litegrey">摘要</div> 
-										<div class="col-xs-10" style="font-weight:bold" > <span ng-bind-html="publicRecordToDelete.summary|lstring:locale"></span></div>
+										<div class="col-xs-10" style="font-weight:bold" ><span ng-bind-html="publicRecordToDelete.summary|lstring:locale"></span></div>
 									</div>
 		
 									<div class="row" style="margin-top:10px;"> 
 										<div class="col-xs-12"><span class="label label-danger" ng-if="hasAssessment">删除国家目标之前，请删除此国家目标的进度评估。</span><button ng-if="!hasAssessment" ng-show="security" type="button" class="btn btn-danger" ng-disabled="deletingRecord"
 											ng-click="deletePublic(publicRecordToDelete)" 
-											data-toggle="tooltip" data-placement="top" title="注意： 所有待定草案都会被删除"><span ng-if="!security.canDelete">请求删除此记录</span> <span ng-if="security.canDelete">删除记录 </span></button> 
+											data-toggle="tooltip" data-placement="top" title="注意：所有待定草案都会被删除"><span ng-if="!security.canDelete">请求删除此记录</span> <span ng-if="security.canDelete">删除记录</span></button> 
 										</div>
 									</div>
 								</div>
@@ -288,10 +279,70 @@
 							</div>
 						</script>
 
-					</div>
-					</div>
+						<script type="text/ng-template" id="subRecordsValidation.html" trados-translation="true">
+							<h1>Sixth national report - Section I, III validations</h1>
+							<hr>
+							<div class="modal-body  bg-white" >
+								<div ng-if="loadingRecords" style="margin-left:45%"><i class="fa fa-spin fa-spinner"></i> 正在加载...</div>
+								<table class="table table-bordered">
+									<tbody>
+										<tr ng-if="!loadingRecords && !validatingRecords && ((recordsToValidate||[]).length<=0 || !hasErrors)">
+											<td >
+												<div class="alert alert-info">There are no records in section I and III which have validation errors, please click the continue button to proceed.</div>
+											</td>
+										</tr>
+										<tr ng-if="!loadingRecords && !validatingRecords && hasErrors">
+											<td>
+												<div class="alert alert-danger">There is mandatory information missing in section I and III records, please update this records before proceeding.</div>
+											</td>
+										</tr>
+										<tr >
+											<td ng-include="'subRecordsValidationErrors.html'"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="ngdialog-buttons">
+								<button type="button" class="ngdialog-button ngdialog-button-primary" ng-if="!validatingRecords && !loadingRecords && hasErrors" ng-click="close()">关闭</button>
+								<button type="button" class="ngdialog-button ngdialog-button-primary" ng-if="!validatingRecords && !loadingRecords && !hasErrors" ng-click="continue()">继续</button>
+							</div>
+						</script>
 
+						<script type="text/ng-template" id="subRecordsValidationErrors.html" trados-translation="true">
+							<table class="table table-bordered">
+								<tr ng-repeat-start="record in recordsToValidate | orderBy:'status'">
+									<td><span ng-if="record.type=='nationalTarget'">Section I : National Target</span> <span ng-if="record.type=='nationalAssessment'">Section III :进展评估</span></td>										
+									<td ng-bind="(record.workingDocumentTitle||record.title)|lstring:locale"></td>
+									<td>
+										<div ng-switch="record.status"><span ng-switch-when="2" class="label label-success">Valid</span><div ng-switch-when="1" ><span class="label label-warning">Invalid</span><button class="btn btn-xs btn-danger" ng-click="record.showErrors=!record.showErrors">Show Errors <span class="badge" ng-bind="record.errors.length"></span></button>
+											</div><span ng-switch-default class="label label-info"><i class="fa fa-spin fa-spinner"></i> Validating...</span></div>
+									</td>
+								</tr>
+								<tr ng-repeat-end ng-if="record.showErrors">
+									<td colspan="3" style="border-top:none">
+										<table class="table table-bordered">
+											<tr ng-repeat="error in record.errors">
+												<td ng-switch="error.property">	
+													<div ng-switch-when="relevantNationalTarget" ><span>请回答国家目标和爱知目标之间的关联性这一部分中的至少一个问题</span></div>
+													<div ng-switch-when="title" ><span>国家目标</span></div>
+													<div ng-switch-when="jurisdiction" ><span>Level of application Please specify the level to which the target applies</span></div>
+													<div ng-switch-when="jurisdictionInfo" ><span>请标明该目标适用的地区</span></div>									
+													<div ng-switch-when="relevantNationalTarget" ><span>爱知生物多样性目标</span></div>
+													<div ng-switch-when="progress" ><span>实施所选目标取得的进展情况分类</span></div>
+													<div ng-switch-when="confidence" ><span>上述评估的置信水平</span></div>
+													<div ng-switch-when="nationalTarget" ><span>目标</span></div>
+													<div ng-switch-default ng-bind="error.code + ':' + error.property "></div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</script>
+					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
+</div>

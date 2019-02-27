@@ -1,4 +1,4 @@
-﻿<div id="sixth-national-report-edit" dir="rtl">
+<div id="sixth-national-report-edit" dir="rtl">
 	<div id="wrap1">
 		<div class="panel panel-default bg-litegrey">
 			<div class="ngdialog-overlay" ng-if="isDialogLoading" style="z-index: 100">
@@ -18,10 +18,12 @@
 					</div><!-- ng-hide="status=='hidden'||status=='loading'"ng-if="status!='hidden' && status!='loading'" --><div  ng-show="status!='hidden' && status!='loading'">
 						<div class="row">
 							<div class="col-xs-12"><span class="pull-right"><strong>دليل المستخدم - التقرير الوطني السادس
-</strong><a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-en.pdf" target="_blank">الإنجليزية</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-fr.pdf" target="_blank">الفرنسية</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-es.pdf" target="_blank">الأسبانية</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ru.pdf" target="_blank">الروسية</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-zh.pdf" target="_blank">الصينية</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ar.pdf" target="_blank">عربى</a></span></div>
 						</div>
 						<header >
-
+							<div class="alert alert-danger" ng-if="subRecordErrors.length">
+								<div class="alert  alert-danger">There is mandatory information missing in section I and III records, please update this records before proceeding.</div>
+								<div ng-include="'subRecordsValidationErrors.html'" onload="recordsToValidate=subRecordErrors"></div>
+							</div>
 							<div id="wrap">
 								<div style="display:none;visibility:hidden;height:123px"></div>								
 								<div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
@@ -92,8 +94,8 @@
 												<div class="row" ng-if="document.government">
 													<div class="col-md-12">
 														<div class="km-control-group" name="targetPursued">
-															<input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="true" /> اعتمد بلدي أهدافا وطنية للتنوع البيولوجي أو التزامات مكافئة بما يتماشى مع الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 وأهداف أيشي. <a translation-url info-bar data-content="ضع علامة في هذه الخانة، إذا اعتمد بلدكم الأهداف الوطنية للتنوع البيولوجي أو ما يكافئها من التزامات تتصل بتحقيق أهداف أيشي للتنوع البيولوجي أو بأجزاء أخرى من الخطة الاستراتيجية للتنوع البيولوجي 2011-2020."
-															    data-title="مساعدة CHM التقرير الوطني السادس"></a> <br/> <br/><input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="false" /> لم يعتمد بلدي أهدافا وطنية للتنوع البيولوجي. وهو يبلغ عن التقدم المحرز باستخدام أهداف أيشي للتنوع البيولوجي كمرجعية انتقل إلى القسم الثاني في القسم الثالث، ولأغراض هذا التقرير، تُستخدم أهداف أيشي للتنوع البيولوجي بوصفها الأهداف الوطنية وينبغي تقييم التقدم نحو تحقيقها في السياق الوطني. <a translation-url info-bar data-content="ضع علامة في هذه الخانة إذا كان بلدكم لم يعتمد (بعد) أهدافا وطنية للتنوع البيولوجي في القسم الثاني سيطلب من بلدكم ربط تدابير التنفيذ بأهداف أيشي للتنوع البيولوجي. في القسم الثالث، فسيطلب من بلدكم تقييم التقدم الوطني نحو بلوغ أهداف أيشي للتنوع البيولوجي."
+															<input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="true" />اعتمد بلدي أهدافا وطنية للتنوع البيولوجي أو التزامات مكافئة بما يتماشى مع الخطة الاستراتيجية للتنوع البيولوجي 2011-2020 وأهداف أيشي. <a translation-url info-bar data-content="ضع علامة في هذه الخانة، إذا اعتمد بلدكم الأهداف الوطنية للتنوع البيولوجي أو ما يكافئها من التزامات تتصل بتحقيق أهداف أيشي للتنوع البيولوجي أو بأجزاء أخرى من الخطة الاستراتيجية للتنوع البيولوجي 2011-2020."
+															    data-title="مساعدة CHM التقرير الوطني السادس"></a> <br/> <br/><input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="false" />لم يعتمد بلدي أهدافا وطنية للتنوع البيولوجي. وهو يبلغ عن التقدم المحرز باستخدام أهداف أيشي للتنوع البيولوجي كمرجعية انتقل إلى القسم الثاني في القسم الثالث، ولأغراض هذا التقرير، تُستخدم أهداف أيشي للتنوع البيولوجي بوصفها الأهداف الوطنية وينبغي تقييم التقدم نحو تحقيقها في السياق الوطني. <a translation-url info-bar data-content="ضع علامة في هذه الخانة إذا كان بلدكم لم يعتمد (بعد) أهدافا وطنية للتنوع البيولوجي في القسم الثاني سيطلب من بلدكم ربط تدابير التنفيذ بأهداف أيشي للتنوع البيولوجي. في القسم الثالث، فسيطلب من بلدكم تقييم التقدم الوطني نحو بلوغ أهداف أيشي للتنوع البيولوجي."
 															    data-title="مساعدة CHM التقرير الوطني السادس"><i class="fa fa-info-circle fa-2x"></i></a> <br/> <br/><input type="radio" name="targetPursued" 
 															ng-model="document.notReportingOnNationalTargets" group="targetPursued" 
 															ng-value="true" ng-change="updateNotReportingOnNationalTargets(document.notReportingOnNationalTargets)" />اعتمد بلدي أهدافاً وطنية للتنوع البيولوجي ولكنه اختار الإبلاغ عن التقدم باستخدام أهداف أيشي للتنوع البيولوجي كمرجع. <a translation-url info-bar data-content="إذا كان بلدك قد اعتمد أهدافًا وطنية للتنوع البيولوجي ولكنه يرغب في الإبلاغ عن استخدام أهداف أيشي للتنوع البيولوجي ، فيرجى تحديد هذا الخيار. عند تحديد هذا الخيار ، سيصبح مربع النص متاحًا حيث يمكنك تقديم شرحًا لاختيارك."
@@ -131,30 +133,17 @@
 														</div>
 														<div class="row">
 															<div class="col-xs-12">
-															<div drag-to-reorder="document.nationalTargets"><br/><br/> </br><div  ng-repeat="item in document.nationalTargets">
+															<div><br/><br/> </br><div  ng-repeat="item in document.nationalTargets">
 																	
-																	<div class="col-xs-12 col-sm-12 col-md-12" dtr-draggable>
+																	<div class="col-xs-12 col-sm-12 col-md-12">
 
-																		<div class="panel panel-default">
+																		<div class="panel panel-default" id="pnl_{{item.identifier}}">
 																			<div class="panel-header clearfix"><!-- <div class="row"> --> <!-- <div class="col-xs-11">							 --><h3>{{nationalTargets[item.identifier].title|lstring:locale}}<div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a ng-href="#" class="btn" ng-click="movePosition(document.nationalTargets, $index, 'up', 'nationalTarget')"
 																								data-toggle="tooltip" data-placement="top" title="تأكيد الحذف" ng-if="!$first"> <i class="fa fa-level-up" style="font-size:20px"/> </a> <a ng-href="#" class="btn " ng-click="movePosition(document.nationalTargets, $index, 'down', 'nationalTarget')"
 																							data-toggle="tooltip" data-placement="top" title="مقياس التنفيذ" ng-if="!$last"> <i class="fa fa-level-down" style="font-size:20px"/> </a></div>
-																					</h3><!-- </div> --> <!-- <div class="col-xs-1">	
-																						<table class="pull-right">
-																							<tr>																				
-																								<td>
-																									<i class="fa fa-arrows"  style="font-size:20px;padding-top:5px;"/>																						
-																								</td>
-																							</tr>
-																							<tr>
-																								<td style="padding-left:5px">
-																									<a info-bar data-content="Targets can be reorderd by click + dragging to new position" data-title="CHM Help: Sixth national report">
-																										<i class="fa fa-info-circle fa-2x"></i>
-																									</a>
-																								</td>
-																							</tr>
-																						</table>
-																					</div>			 --> <!-- </div> --></div>
+																					</h3>
+																					
+																			</div>
 																			<div class="panel-body"><br/><div class="btn-group-xs btn-status" 
 																					ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier || !waitForWorkflow.nationalTarget"><span class="label label-primary pull-right  bg-published"  style="margin-left:5px;"
 																						ng-if="nationalTargets[item.identifier]._state_s=='public' || nationalTargets[item.identifier].publicRecord">عام</span> <span class="label label-warning pull-right  bg-draft" ng-if="nationalTargets[item.identifier]._state_s=='draft'">مسودة</span> <span class="label label-warning pull-right  bg-request" ng-if="nationalTargets[item.identifier]._state_s=='workflow'">بانتظار الموافقة
@@ -252,7 +241,7 @@
 									<div style="font-size:11px;font-weight:bold;text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;margin-bottom:10px;">مسودة سجل</div>
 									<div class="row">     
 										<div class="col-xs-2" class="color-litegrey">اللقب:</div> 
-										<div class="col-xs-10" style="font-weight:bold"> {{draftRecordToDelete.title|lstring:locale}}</div>
+										<div class="col-xs-10" style="font-weight:bold">{{draftRecordToDelete.title|lstring:locale}}</div>
 									</div>
 									<div class="row"> 
 										<div class="col-xs-2" class="color-litegrey">ملخص:</div> 
@@ -269,17 +258,17 @@
 									
 									<div class="row">     
 										<div class="col-xs-2" class="color-litegrey">عنوان:</div> 
-										<div class="col-xs-10" style="font-weight:bold"> {{publicRecordToDelete.title|lstring:locale}}</div>
+										<div class="col-xs-10" style="font-weight:bold">{{publicRecordToDelete.title|lstring:locale}}</div>
 									</div>
 									<div class="row"> 
 										<div class="col-xs-2" class="color-litegrey">ملخص:</div> 
-										<div class="col-xs-10" style="font-weight:bold" > <span ng-bind-html="publicRecordToDelete.summary|lstring:locale"></span></div>
+										<div class="col-xs-10" style="font-weight:bold" ><span ng-bind-html="publicRecordToDelete.summary|lstring:locale"></span></div>
 									</div>
 		
 									<div class="row" style="margin-top:10px;"> 
 										<div class="col-xs-12"><span class="label label-danger" ng-if="hasAssessment">يرجى حذف تقييم التقدم المحرز لهذا الهدف الوطني قبل حذف الهدف الوطني.</span><button ng-if="!hasAssessment" ng-show="security" type="button" class="btn btn-danger" ng-disabled="deletingRecord"
 											ng-click="deletePublic(publicRecordToDelete)" 
-											data-toggle="tooltip" data-placement="top" title="ملاحظة: أي مسودة معلقة ستحذف أيضًا"><span ng-if="!security.canDelete">طلب حذف هذا السجل</span> <span ng-if="security.canDelete">حذف السجل </span></button> 
+											data-toggle="tooltip" data-placement="top" title="ملاحظة: أي مسودة معلقة ستحذف أيضًا"><span ng-if="!security.canDelete">طلب حذف هذا السجل</span> <span ng-if="security.canDelete">حذف السجل</span></button> 
 										</div>
 									</div>
 								</div>
@@ -290,10 +279,70 @@
 							</div>
 						</script>
 
-					</div>
-					</div>
+						<script type="text/ng-template" id="subRecordsValidation.html" trados-translation="true">
+							<h1 dir="rtl">Sixth national report - Section I, III validations</h1>
+							<hr>
+							<div class="modal-body  bg-white"  dir="rtl">
+								<div ng-if="loadingRecords" style="margin-left:45%"><i class="fa fa-spin fa-spinner" dir="rtl"></i> Loading...</div>
+								<table class="table table-bordered">
+									<tbody>
+										<tr ng-if="!loadingRecords && !validatingRecords && ((recordsToValidate||[]).length<=0 || !hasErrors)">
+											<td >
+												<div class="alert alert-info">There are no records in section I and III which have validation errors, please click the continue button to proceed.</div>
+											</td>
+										</tr>
+										<tr ng-if="!loadingRecords && !validatingRecords && hasErrors">
+											<td>
+												<div class="alert alert-danger">There is mandatory information missing in section I and III records, please update this records before proceeding.</div>
+											</td>
+										</tr>
+										<tr >
+											<td ng-include="'subRecordsValidationErrors.html'"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="ngdialog-buttons" dir="rtl">
+								<button type="button" class="ngdialog-button ngdialog-button-primary" ng-if="!validatingRecords && !loadingRecords && hasErrors" ng-click="close()">إغلاق</button>
+								<button type="button" class="ngdialog-button ngdialog-button-primary" ng-if="!validatingRecords && !loadingRecords && !hasErrors" ng-click="continue()">متابعة</button>
+							</div>
+						</script>
 
+						<script type="text/ng-template" id="subRecordsValidationErrors.html" trados-translation="true">
+							<table class="table table-bordered" dir="rtl">
+								<tr ng-repeat-start="record in recordsToValidate | orderBy:'status'">
+									<td><span ng-if="record.type=='nationalTarget'" dir="rtl">Section I : National Target</span> <span ng-if="record.type=='nationalAssessment'" dir="rtl">Section III : تقييم التقدم</span></td>										
+									<td ng-bind="(record.workingDocumentTitle||record.title)|lstring:locale"></td>
+									<td>
+										<div ng-switch="record.status"><span ng-switch-when="2" class="label label-success">Valid</span><div ng-switch-when="1" ><span class="label label-warning">Invalid</span><button class="btn btn-xs btn-danger" ng-click="record.showErrors=!record.showErrors">Show Errors <span class="badge" ng-bind="record.errors.length"></span></button>
+											</div><span ng-switch-default class="label label-info"><i class="fa fa-spin fa-spinner"></i> Validating...</span></div>
+									</td>
+								</tr>
+								<tr ng-repeat-end ng-if="record.showErrors">
+									<td colspan="3" style="border-top:none">
+										<table class="table table-bordered">
+											<tr ng-repeat="error in record.errors">
+												<td ng-switch="error.property">	
+													<div ng-switch-when="relevantNationalTarget" ><span>يرجى الإجابة على سؤال واحد على الأقل في القسم حول أهمية الأهداف الوطنية بالنسبة لأهداف أيشي للتنوع البيولوجي</span></div>
+													<div ng-switch-when="title" ><span>الهدف الوطني</span></div>
+													<div ng-switch-when="jurisdiction" ><span>Level of application Please specify the level to which the target applies</span></div>
+													<div ng-switch-when="jurisdictionInfo" ><span>يرجى الإشارة الى المنطقة المعنية بالمستوى المختار من تنفيذ</span></div>									
+													<div ng-switch-when="relevantNationalTarget" ><span>أهداف أيشي للتنوع البيولوجي</span></div>
+													<div ng-switch-when="progress" ><span>صنّف التقدم المحرز نحو تنفيذ الهدف المحدد</span></div>
+													<div ng-switch-when="confidence" ><span>مستوى الثقة للتقييم أعلاه</span></div>
+													<div ng-switch-when="nationalTarget" ><span>الهدف:</span></div>
+													<div ng-switch-default ng-bind="error.code + ':' + error.property "></div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</script>
+					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
+</div>

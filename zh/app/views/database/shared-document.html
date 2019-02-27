@@ -1,31 +1,7 @@
 ﻿
 <div style="margin-left:10%;margin-right:10%">
 
-    <style>        
-
-        .title-bar {
-            min-height: 50px;
-            background: #fff;
-            border-bottom: 1px solid #ddd;
-            text-align: center;
-            padding-top: 10px;
-        }
-        #viewPdf{
-            position: inherit!important;            
-        }
-		.no-border{
-			border:0px!important;
-		}
-		.loading-info {
-			left: 50%;
-			top: 50%;
-			z-index: 1;
-			border: 16px solid #f3f3f3;
-		}
-		.width-100{
-			width:100%!important;
-		}
-	</style><br/><div class="row">
+    <style>.title-bar { min-height:50px; background:#fff; border-bottom:1px solid #ddd; text-align: center; padding-top:10px; } #viewPdf{ position: inherit!important; } .no-border{ border:0px!important; } .loading-info { left:50%; top:50%; z-index:1; border:16px solid #f3f3f3; } .width-100{ width:100%!important; }</style><br/><div class="row">
         <div class="row" style="border: 1px solid #ddd; border-bottom:0px;" ng-if="!printMode">
             <div class="title-bar" >文档草案</div>
 		</div>
@@ -35,7 +11,7 @@
 		<div class="row" style="padding:0px;border: 1px solid #ddd;background:#fff" 
 		 ng-if="status=='error'">
 		 <div class="col-md-12" ng-if="!printMode">
-			 <div class="alert alert-danger" style="margin:20px;"><strong>{{error}}</strong></div> </div>
+			 <div class="alert alert-danger" style="margin:20px;"><strong>{{error}}</strong></div></div>
 		</div>
 		<div class="row" style="padding:0px;border: 1px solid #ddd;background:#fff" 
 		 ng-if="status=='ready'" ng-class="{'no-border':printMode}">
@@ -59,7 +35,7 @@
 							<div class="col-xs-12 ">	
 									<div class="pull-right record-Options-div" 
 									style="position: relative; top:210px" ng-if="printMode">文档状态 <span class="label label-warning">草案</span> 生成于 <span class="date">{{ currentDate | formatDateWithTime}}</span></div>
-								<view-form-loader link-target="_new" document="document" locale="options.locale"></view-form-loader>
+								<view-form-loader link-target="_blank" document="document" locale="options.locale"></view-form-loader>
 							</div>
 						</div>
 					</div>                       

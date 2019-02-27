@@ -34,7 +34,7 @@
 			  </tr>
 			  <tr>
 			  	<td>Status</td>
-			  	<td><span ng-switch="workflow.state" ng-show="workflow.schema!=='bbiRequest'"><span ng-switch-when="running"><i class="fa fa-cog"></i> Pending</span><span ng-switch-when="completed">Completed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-default>*{{workflow.state|uppercase}}</span></span> <span ng-switch="workflow.meta.status" ng-show="workflow.schema==='bbiRequest'"><span ng-switch-when="workflow"><i class="fa fa-cog"></i> Pending</span><span ng-switch-when="public">Completed on {{workflow.meta.modifiedOn|date:&apos;short&apos;}}</span><span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-default>*{{workflow.meta.status|uppercase}}</span></span></td>
+			  	<td><span ng-switch="workflow.state" ng-show="workflow.schema!=='bbiRequest'"><span ng-switch-when="running"><i class="fa fa-cog"></i> Pending</span> <span ng-switch-when="completed">Completed on {{workflow.closedOn|date:&apos;short&apos;}}</span> <span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span> <span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span> <span ng-switch-default>*{{workflow.state|uppercase}}</span></span> <span ng-switch="workflow.meta.status" ng-show="workflow.schema==='bbiRequest'"><span ng-switch-when="workflow"><i class="fa fa-cog"></i> Pending</span> <span ng-switch-when="public">Completed on {{workflow.meta.modifiedOn|date:&apos;short&apos;}}</span> <span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span> <span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span> <span ng-switch-default>*{{workflow.meta.status|uppercase}}</span></span></td>
 			  </tr>
 
 			  <tr ng-show="workflow.createdOn">
@@ -43,7 +43,7 @@
 			  </tr>
         <tr ng-show="workflow.meta.modifiedOn">
 			  	<td>Created on</td>
-			  	<td>{{workflow.meta.modifiedOn|date:&apos;short&apos;}} </td>
+			  	<td>{{workflow.meta.modifiedOn|date:&apos;short&apos;}}</td>
 			  </tr>
 			</table>
 
@@ -51,13 +51,13 @@
 			<div ng-hide="activity.closedOn || workflow.meta.status==='public'">
 				<div ng-if="activity.name=='publishRecord' || activity.name=='deleteRecord'"><span ng-hide="activity.closedOn"><div ng-show="isAssignedToMe(activity)" class="text-right" >
 
-							<button ng-hide="activity.schema==='bbiRequest'" type="button" class="btn btn-warning"  data-toggle="modal" data-target="#rejectModal"><i class="fa fa-remove"></i> طلب التغييرات » </button><a translation-url type="button" class="btn btn-default bg-draft" ng-if="activity.name=='publishRecord'"
+							<button ng-hide="activity.schema==='bbiRequest'" type="button" class="btn btn-warning"  data-toggle="modal" data-target="#rejectModal"><i class="fa fa-remove"></i> طلب التغييرات »</button><a translation-url type="button" class="btn btn-default bg-draft" ng-if="activity.name=='publishRecord'"
 								ng-href="/submit/{{onlineReportingURL(workflow.data.metadata.schema)}}{{workflow.data.metadata.schema || activity.schema}}/{{workflow.data.identifier || workflow._id}}?workflowId={{workflow._id}}"><i class="fa fa-edit"></i> تعديل</a><button type="button" class="btn btn-default bg-published" ng-click="updateActivity({ action : 'approve' })"><i class="fa fa-check"></i> الموافقة »</button>
 						</div>
 
 						<h4 ng-hide="isAssignedToMe(activity)">
 
-                            <p class="alert alert-info">Waiting for one of the users below to approve or reject this request. </br></br> <em ng-if="activity.schema==='bbiRequest'"> BBI Administration Team</em> <em ng-repeat="user in activity.assignedTo_info">{{user.firstName}} {{user.lastName}}</br></em></p>
+                            <p class="alert alert-info">Waiting for one of the users below to approve or reject this request. </br></br> <em ng-if="activity.schema==='bbiRequest'">BBI Administration Team</em> <em ng-repeat="user in activity.assignedTo_info">{{user.firstName}} {{user.lastName}}</br></em></p>
 						</h4></span></div>
 			</div>
 
@@ -65,9 +65,9 @@
 				<p class="alert alert-danger" style="margin-top:0px;border-radius:0px"><i class="fa fa-info" /> The following record(s) referenced should be made public before approving this record else that information will not be displayed to general public!</p>
 					<table class="table table-striped">
 							<tr>
-									<th class="color-litegrey" > المخطط</th>
-									<th class="color-litegrey" > الوظيفة</th>
-									<th class="color-litegrey" > الدولة</th>
+									<th class="color-litegrey" >المخطط</th>
+									<th class="color-litegrey" >الوظيفة</th>
+									<th class="color-litegrey" >الدولة</th>
 							</tr>
 							<tbody ng-repeat="document in pendingStatusRecords | orderBy:'schema'" style="font-size:12px;">
 									<tr>
@@ -79,7 +79,7 @@
 							</tbody>
 					</table>
 			</div>
-			<div ng-show="activity.completedOn"><span ng-show="activity" ng-switch="activity.result.action"><span ng-switch-when="approve"><i class="fa fa-check"></i> Approved</span><span ng-switch-when="reject"><i class="fa fa-remove"></i> Rejected</span></span> <span ng-hide="activity"><i class="fa fa-check"></i> Completed</span> on {{activity.completedOn|date:&apos;short&apos;}} by {{activity.completedBy_info.firstName}} {{activity.completedBy_info.lastName}}</div>
+			<div ng-show="activity.completedOn"><span ng-show="activity" ng-switch="activity.result.action"><span ng-switch-when="approve"><i class="fa fa-check"></i> Approved</span> <span ng-switch-when="reject"><i class="fa fa-remove"></i> Rejected</span></span> <span ng-hide="activity"><i class="fa fa-check"></i> Completed</span> on {{activity.completedOn|date:&apos;short&apos;}} by {{activity.completedBy_info.firstName}} {{activity.completedBy_info.lastName}}</div>
 
 			<div ng-show="activity.canceledOn">Canceled on {{activity.canceledOn|date:&apos;short&apos;}} by {{activity.canceledBy_info.firstName}} {{activity.canceledBy_info.lastName}}</div>
 
@@ -95,8 +95,7 @@
 					<input type="button" class="btn" ng-class="{'btn-default' : options.documentLocale!=locale, 'btn-info' : options.documentLocale==locale}"
 					 ng-repeat="locale in document.header.languages" ng-click="options.documentLocale = locale" value="{{locale | uppercase}}" />
 				</div>
-				<view-form-loader document="document" hide-buttons="true" link-target="_new
-				" locale="options.documentLocale"></view-form-loader>
+				<view-form-loader document="document" hide-buttons="true" link-target="_blank" locale="options.documentLocale"></view-form-loader>
 			</div>
 
   		</div>
@@ -118,33 +117,12 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">إلغاء</button>
-					<button type="button" class="btn btn-warning" data-dismiss="modal" ng-disabled="rejectForm.reason.$error.required" ng-click="updateActivity({ action : 'reject', reason: rejectReason })"><i class="fa fa-remove"></i> طلب التغييرات » </button>
+					<button type="button" class="btn btn-warning" data-dismiss="modal" ng-disabled="rejectForm.reason.$error.required" ng-click="updateActivity({ action : 'reject', reason: rejectReason })"><i class="fa fa-remove"></i> طلب التغييرات »</button>
 	      </div>
 	    </div><!-- /.modal-content --></div><!-- /.modal-dialog --></div><!-- /.modal --></form>
 
 </div>
 
-<style>
-.t-document {
-  position: relative;
-  padding: 45px 15px 15px;
-  margin: 0 -15px 15px;
-  border-color: #e5e5e5 #eee #eee;
-  border-style: solid;
-  border-width: 1px 1px;
-}
-/* Echo out a label for the example */
-.t-document:after {
-  content: "Document to approve";
-  position: absolute;
-  top:  15px;
-  left: 15px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #bbb;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-</style>
+<style>.t-document { position: relative; padding: 45px 15px 15px; margin: 0 -15px 15px; border-color: #e5e5e5 #eee #eee; border-style: solid; border-width: 1px 1px; } /* Echo out a label for the example */ .t-document:after { content: &quot;Document to approve&quot;; position: absolute; top: 15px; left: 15px; font-size: 12px; font-weight: bold; color: #bbb; text-transform: uppercase; letter-spacing: 1px; }</style>
 </div>
 </div>

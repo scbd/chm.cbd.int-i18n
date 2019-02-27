@@ -32,7 +32,7 @@
 			  </tr>
 			  <tr>
 			  	<td>状态</td>
-			  	<td><span ng-switch="workflow.state"><span ng-switch-when="running"><i class="fa fa-cog"></i> Pending</span><span ng-switch-when="completed">Completed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-default>*{{workflow.state|uppercase}}</span></span> <span ng-switch="workflow.meta.status" ng-show="workflow.schema==='bbiRequest'"><span ng-switch-when="workflow"><i class="fa fa-cog"></i> Pending</span><span ng-switch-when="public">Completed on {{workflow.meta.modifiedOn|date:&apos;short&apos;}}</span><span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span><span ng-switch-default>*{{workflow.meta.status|uppercase}}</span></span></td>
+			  	<td><span ng-switch="workflow.state"><span ng-switch-when="running"><i class="fa fa-cog"></i> Pending</span> <span ng-switch-when="completed">Completed on {{workflow.closedOn|date:&apos;short&apos;}}</span> <span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span> <span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span> <span ng-switch-default>*{{workflow.state|uppercase}}</span></span> <span ng-switch="workflow.meta.status" ng-show="workflow.schema==='bbiRequest'"><span ng-switch-when="workflow"><i class="fa fa-cog"></i> Pending</span> <span ng-switch-when="public">Completed on {{workflow.meta.modifiedOn|date:&apos;short&apos;}}</span> <span ng-switch-when="canceled"><i class="fa fa-remove-circle"></i> Canceled on {{workflow.closedOn|date:&apos;short&apos;}}</span> <span ng-switch-when=""><i class="fa fa-exclamation"></i> Failed on {{workflow.closedOn|date:&apos;short&apos;}}</span> <span ng-switch-default>*{{workflow.meta.status|uppercase}}</span></span></td>
 			  </tr>
 
 			  <tr ng-show="workflow.createdOn">
@@ -51,7 +51,7 @@
 			  	<td>
 					<div ng-show="activity" ng-switch="activity.name"><span ng-switch-when="publishRecord">Approve or Reject record publication</span> <span ng-switch-default>*{{activity.name|uppercase}}</span></div>
 			  	</td>
-			  	<td><span ng-switch="activity.name"><span ng-switch-when="publishRecord">Waiting for validation</span><span ng-switch-default>{{activity.name}}*</span></span> <span ng-show="activity.assignedToRule">by {{activity.assignedToRule}}</span> <span ng-hide="activity.assignedToRule"> <span ng-show="activity.assignedTo">by <span ng-repeat="user in activity.assignedTo_info">{{user.firstName}} {{user.lastName}}<span ng-hide="$last">, </span></span><span ng-hide="activity.assignedTo"><em>Not assigned yet</em></span></span></td>
+			  	<td><span ng-switch="activity.name"><span ng-switch-when="publishRecord">Waiting for validation</span> <span ng-switch-default>{{activity.name}}*</span></span> <span ng-show="activity.assignedToRule">by {{activity.assignedToRule}}</span> <span ng-hide="activity.assignedToRule"> <span ng-show="activity.assignedTo">by <span ng-repeat="user in activity.assignedTo_info">{{user.firstName}} {{user.lastName}}<span ng-hide="$last">,</span></span> <span ng-hide="activity.assignedTo"><em>Not assigned yet</em></span></span></td>
 
 			  	<td class="text-right"><a translation-url ng-show="isAssignedToMe(activity)" class="btn btn-info"
                     ng-href="/management/requests/{{workflow._id}}/{{activity.name}}"  type="button"> <i class="fa fa-edit"></i></button>
@@ -69,7 +69,7 @@
 					<div ng-show="activity" ng-switch="activity.name"><span ng-switch-when="publishRecord">Approve or Reject record publication</span> <span ng-switch-default>{{activity.name|uppercase}}*</span></div>
 			  	</td>
 			  	<td>
-					<div ng-show="activity.completedOn"><span ng-switch="activity.name+'-'+activity.result.action"><span ng-switch-when="publishRecord-approve"><i class="fa fa-check"></i> Approved</span><span ng-switch-when="publishRecord-reject"><i class="fa fa-remove"></i> Rejected</span><span ng-switch-default>{{activity.name+&apos;-&apos;+activity.result.action}}*</span></span> on {{activity.completedOn|date:&apos;short&apos;}} by {{activity.completedBy_info.firstName}} {{activity.completedBy_info.lastName}}</div>
+					<div ng-show="activity.completedOn"><span ng-switch="activity.name+'-'+activity.result.action"><span ng-switch-when="publishRecord-approve"><i class="fa fa-check"></i> Approved</span> <span ng-switch-when="publishRecord-reject"><i class="fa fa-remove"></i> Rejected</span> <span ng-switch-default>{{activity.name+&apos;-&apos;+activity.result.action}}*</span></span> on {{activity.completedOn|date:&apos;short&apos;}} by {{activity.completedBy_info.firstName}} {{activity.completedBy_info.lastName}}</div>
 
 					<div ng-show="activity.canceledOn">Canceled on {{activity.canceledOn|date:&apos;short&apos;}} by {{activity.canceledBy_info.firstName}} {{activity.canceledBy_info.lastName}}</div>
 
@@ -86,7 +86,7 @@
 					<input type="button" class="btn" ng-class="{'btn-default' : options.documentLocale!=locale, 'btn-info' : options.documentLocale==locale}"
 						ng-repeat="locale in document.header.languages" ng-click="options.documentLocale = locale" value="{{locale | uppercase}}" />
 				</div>
-				<view-form-loader document="document" hide-buttons="true" link-target="_new" locale="options.documentLocale"></view-form-loader>
+				<view-form-loader document="document" hide-buttons="true" link-target="_blank" locale="options.documentLocale"></view-form-loader>
 			</div>
 
   		</div>
@@ -94,27 +94,6 @@
 
 </div>
 
-<style>
-.t-document {
-  position: relative;
-  padding: 45px 15px 15px;
-  margin: 0 -15px 15px;
-  border-color: #e5e5e5 #eee #eee;
-  border-style: solid;
-  border-width: 1px 1px;
-}
-/* Echo out a label for the example */
-.t-document:after {
-  content: "Document to approve";
-  position: absolute;
-  top:  15px;
-  left: 15px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #bbb;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-</style>
+<style>.t-document { position: relative; padding:45px 15px 15px; margin:0 -15px 15px; border-color:#e5e5e5 #eee #eee; border-style: solid; border-width:1px 1px; } /* Echo out a label for the example */ .t-document:after { content:&quot;Document to approve&quot;; position: absolute; top:15px; left:15px; font-size:12px; font-weight: bold; color:#bbb; text-transform: uppercase; letter-spacing:1px; }</style>
 </div>
 </div>

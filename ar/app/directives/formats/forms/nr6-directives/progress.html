@@ -12,7 +12,8 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default progressAssessment" ng-repeat="progressAssessment in document.progressAssessments track by $index">
+    <div class="panel panel-default progressAssessment" ng-repeat="progressAssessment in document.progressAssessments track by $index"
+    id="pnl_{{progressAssessment.assessment.identifier}}">
         <div class="panel-header clearfix">
             <h3><!-- Progress assessment for --> <span ng-if="progressAssessment.nationalTarget"><!-- national target :  --> {{getNationalTargetTitle(progressAssessment.nationalTarget.identifier, locale)}}</span> <span ng-if="progressAssessment.aichiTarget"><!-- AICHI Biodiversity Target :  --> {{::aichiTargets[progressAssessment.aichiTarget.identifier].title[locale]}}</span><div class="pull-right" style="padding-right:10px"><a translation-url ng-href="#" data-toggle="collapse" class="collapse-icon" data-target="#progressAssessment{{$index}}"></a></div>
             </h3>

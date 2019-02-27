@@ -7,7 +7,7 @@
 		<div class="blockRegion" ng-if="isLoadingTargets||isLoadingAssessments">
 			<div class="inverted dimmer active">
 				<div class="center">
-					<div class="medium loader"><i class="fa fa-spin fa-cog" /> قيد التحميل </div>					
+					<div class="medium loader"><i class="fa fa-spin fa-cog" /> قيد التحميل</div>					
 				</div>
 			</div>
 		</div>
@@ -154,7 +154,7 @@
 						<div ng-if="aichiTarget.identifier=='AICHI-TARGET-16' && (absNationalReport||absLinkedRecords || aichiTarget.linkedRecordsDescription)">
 							<div ng-if="absNationalReport">
 								<div>
-									<label for="">التقرير الوطني المؤقت بشأن تنفيذ بروتوكول ناغويا</label><br/> <a translation-url target="_new" ng-href="{{absNationalReport.url_ss[0]}}">{{absNationalReport.uniqueIdentifier_s|uppercase}}</a> {{absNationalReport.title_t}}</div>
+									<label for="">التقرير الوطني المؤقت بشأن تنفيذ بروتوكول ناغويا</label><br/> <a translation-url target="_blank" ng-href="{{absNationalReport.url_ss[0]}}">{{absNationalReport.uniqueIdentifier_s|uppercase}}</a> {{absNationalReport.title_t}}</div>
 								<div ng-show="aichiTarget.nationalReportDescription">
 									<label for="">معلومات ذات صلة إضافية لم تدرج في التقرير الوطني المؤقت</label>
 									<km-value-ml value="aichiTarget.nationalReportDescription" locales="locale" km-pre html></km-value-ml>
@@ -172,7 +172,7 @@
 								<table class="table table-hover">
 									<tbody>
 										<tr ng-repeat="item in absLinkedRecords">
-											<td class="ng-binding"><a translation-url target="_new" ng-href="{{item.url_ss[0]}}">{{item.uniqueIdentifier_s|uppercase}}</a> {{item.title_t|lstring:locale}}</td>											
+											<td class="ng-binding"><a translation-url target="_blank" ng-href="{{item.url_ss[0]}}">{{item.uniqueIdentifier_s|uppercase}}</a> {{item.title_t|lstring:locale}}</td>											
 											</td>
 										</tr>
 									</tbody>
@@ -181,7 +181,7 @@
 							</div>
 						</div>
 						<div ng-if="aichiTarget.identifier=='AICHI-TARGET-20' && resourceMobilisationReport">
-							<label for="">إطار إعداد التقارير المالية</label><br/> <a translation-url target="_new" ng-href="{{resourceMobilisationReport.url_ss[0]}}">{{resourceMobilisationReport.url_ss[0]}}</a> {{resourceMobilisationReport.title_t}}</div>
+							<label for="">إطار إعداد التقارير المالية</label><br/> <a translation-url target="_blank" ng-href="{{resourceMobilisationReport.url_ss[0]}}">{{resourceMobilisationReport.url_ss[0]}}</a> {{resourceMobilisationReport.title_t}}</div>
 						<div ng-show="aichiTarget.description">
 							<label>صف كيف وإلى أي مدى ساهم بلدك  في تحقيق هذا الهدف من اهداف أيشي للتنوع البيولوجي</label>
 							<km-value-ml value="aichiTarget.description" locales="locale" km-pre html></km-value-ml>

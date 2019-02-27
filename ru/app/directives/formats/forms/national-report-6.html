@@ -1,4 +1,4 @@
-﻿<div id="sixth-national-report-edit">
+<div id="sixth-national-report-edit">
 	<div id="wrap1">
 		<div class="panel panel-default bg-litegrey">
 			<div class="ngdialog-overlay" ng-if="isDialogLoading" style="z-index: 100">
@@ -20,7 +20,10 @@
 							<div class="col-xs-12"><span class="pull-right"><strong>Руководство пользователя шестого национального отчета</strong><a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-en.pdf" target="_blank">английский</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-fr.pdf" target="_blank">Французский</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-es.pdf" target="_blank">испанский</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ru.pdf" target="_blank">русский</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-zh.pdf" target="_blank">Китайский</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ar.pdf" target="_blank">арабский</a></span></div>
 						</div>
 						<header >
-
+							<div class="alert alert-danger" ng-if="subRecordErrors.length">
+								<div class="alert  alert-danger">There is mandatory information missing in section I and III records, please update this records before proceeding.</div>
+								<div ng-include="'subRecordsValidationErrors.html'" onload="recordsToValidate=subRecordErrors"></div>
+							</div>
 							<div id="wrap">
 								<div style="display:none;visibility:hidden;height:123px"></div>								
 								<div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
@@ -49,7 +52,7 @@
 												<div class="col-xs-6" >
 
 													<div style="display:inline;text-transform: uppercase;font-weight: 500;font-size:12px;">Переключить язык сайта:</div>
-													<locale-header style="display:inline;position: inherit;" class="locale-header btn-thin" id="MyLocale"></locale-header>|<div style="display:inline;text-transform: uppercase;font-weight: 500;font-size:12px;">Submit in other language(s):</div><span style="display:inline;" km-form-languages ng-model="document.header.languages" class="btn-thin"></span></div>
+													<locale-header style="display:inline;position: inherit;" class="locale-header btn-thin" id="MyLocale"></locale-header>|<div style="display:inline;text-transform: uppercase;font-weight: 500;font-size:12px;">Представить на другом(-их) языке(-ах):</div><span style="display:inline;" km-form-languages ng-model="document.header.languages" class="btn-thin"></span></div>
 												<div class="col-xs-6 text-right"><span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)"
 													    on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)"
 														on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"
@@ -91,8 +94,8 @@
 												<div class="row" ng-if="document.government">
 													<div class="col-md-12">
 														<div class="km-control-group" name="targetPursued">
-															<input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="true" /> Моя страна приняла национальные целевые задачи в области биоразнообразия или взяла эквивалентные обязательства в соответствии со Стратегическим планом в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы и целевыми задачами по сохранению и устойчивому использованию биоразнообразия, принятыми в Айти. <a translation-url info-bar data-content="Отметьте &ldquo;галочкой&rdquo; это окно, если ваша страна приняла национальные целевые задачи в области биоразнообразия или эквивалентные обязательства, связанные с выполнением целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, или других частей Стратегического плана в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы."
-															    data-title="Справка CHM: Шестой национальный доклад"></a> <br/> <br/><input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="false" /> Моя страна не ставила национальных целевых задач в области биоразнообразия и представляет отчетность о результатах, используя как эталон целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти. (Переходите к разделу II. В разделе III целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти, следует рассматривать для целей настоящего доклада как национальные целевые задачи и проводить оценку результатов их выполнения в национальном контексте). <a translation-url info-bar data-content="Отметьте &ldquo;ггалочкой&rdquo; это окно, если ваша страна не приняла (еще) национальных целевых задач в области биоразнообразия. В разделе II вашей стране будет предложено связать свои меры осуществления с целевыми задачами по сохранению и устойчивому использованию биоразнообразия, принятыми в Айти. В разделе III вашей стране будет предложено провести оценку национальных результатов осуществления целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти."
+															<input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="true" />Моя страна приняла национальные целевые задачи в области биоразнообразия или взяла эквивалентные обязательства в соответствии со Стратегическим планом в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы и целевыми задачами по сохранению и устойчивому использованию биоразнообразия, принятыми в Айти. <a translation-url info-bar data-content="Отметьте &ldquo;галочкой&rdquo; это окно, если ваша страна приняла национальные целевые задачи в области биоразнообразия или эквивалентные обязательства, связанные с выполнением целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, или других частей Стратегического плана в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы."
+															    data-title="Справка CHM: Шестой национальный доклад"></a> <br/> <br/><input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="false" />Моя страна не ставила национальных целевых задач в области биоразнообразия и представляет отчетность о результатах, используя как эталон целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти. (Переходите к разделу II. В разделе III целевые задачи по сохранению и устойчивому использованию биоразнообразия, принятые в Айти, следует рассматривать для целей настоящего доклада как национальные целевые задачи и проводить оценку результатов их выполнения в национальном контексте). <a translation-url info-bar data-content="Отметьте &ldquo;ггалочкой&rdquo; это окно, если ваша страна не приняла (еще) национальных целевых задач в области биоразнообразия. В разделе II вашей стране будет предложено связать свои меры осуществления с целевыми задачами по сохранению и устойчивому использованию биоразнообразия, принятыми в Айти. В разделе III вашей стране будет предложено провести оценку национальных результатов осуществления целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти."
 															    data-title="Справка CHM: Шестой национальный доклад"><i class="fa fa-info-circle fa-2x"></i></a> <br/> <br/><input type="radio" name="targetPursued" 
 															ng-model="document.notReportingOnNationalTargets" group="targetPursued" 
 															ng-value="true" ng-change="updateNotReportingOnNationalTargets(document.notReportingOnNationalTargets)" />Моя страна приняла национальные целевые показатели в области биоразнообразия, но решает сообщить о достигнутом прогрессе с использованием целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, для справки. <a translation-url info-bar data-content="Если ваша страна приняла национальные целевые показатели в области биоразнообразия, но желает сообщить об этом с помощью целевых задач по сохранению биоразнообразия в Айти, выберите этот вариант. После выбора этой опции появится текстовое поле, в котором вы можете предоставить объяснение по вашему выбору."
@@ -130,33 +133,20 @@
 														</div>
 														<div class="row">
 															<div class="col-xs-12">
-															<div drag-to-reorder="document.nationalTargets"><br/><br/> </br><div  ng-repeat="item in document.nationalTargets">
+															<div><br/><br/> </br><div  ng-repeat="item in document.nationalTargets">
 																	
-																	<div class="col-xs-12 col-sm-12 col-md-12" dtr-draggable>
+																	<div class="col-xs-12 col-sm-12 col-md-12">
 
-																		<div class="panel panel-default">
+																		<div class="panel panel-default" id="pnl_{{item.identifier}}">
 																			<div class="panel-header clearfix"><!-- <div class="row"> --> <!-- <div class="col-xs-11">							 --><h3>{{nationalTargets[item.identifier].title|lstring:locale}}<div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a ng-href="#" class="btn" ng-click="movePosition(document.nationalTargets, $index, 'up', 'nationalTarget')"
 																								data-toggle="tooltip" data-placement="top" title="Перенести одно измерение вверх" ng-if="!$first"> <i class="fa fa-level-up" style="font-size:20px"/> </a> <a ng-href="#" class="btn " ng-click="movePosition(document.nationalTargets, $index, 'down', 'nationalTarget')"
 																							data-toggle="tooltip" data-placement="top" title="Перенести одну потерю вниз" ng-if="!$last"> <i class="fa fa-level-down" style="font-size:20px"/> </a></div>
-																					</h3><!-- </div> --> <!-- <div class="col-xs-1">	
-																						<table class="pull-right">
-																							<tr>																				
-																								<td>
-																									<i class="fa fa-arrows"  style="font-size:20px;padding-top:5px;"/>																						
-																								</td>
-																							</tr>
-																							<tr>
-																								<td style="padding-left:5px">
-																									<a info-bar data-content="Targets can be reorderd by click + dragging to new position" data-title="CHM Help: Sixth national report">
-																										<i class="fa fa-info-circle fa-2x"></i>
-																									</a>
-																								</td>
-																							</tr>
-																						</table>
-																					</div>			 --> <!-- </div> --></div>
+																					</h3>
+																					
+																			</div>
 																			<div class="panel-body"><br/><div class="btn-group-xs btn-status" 
 																					ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier || !waitForWorkflow.nationalTarget"><span class="label label-primary pull-right  bg-published"  style="margin-left:5px;"
-																						ng-if="nationalTargets[item.identifier]._state_s=='public' || nationalTargets[item.identifier].publicRecord">Public</span> <span class="label label-warning pull-right  bg-draft" ng-if="nationalTargets[item.identifier]._state_s=='draft'">Draft</span> <span class="label label-warning pull-right  bg-request" ng-if="nationalTargets[item.identifier]._state_s=='workflow'">Waiting for approval</span></div>
+																						ng-if="nationalTargets[item.identifier]._state_s=='public' || nationalTargets[item.identifier].publicRecord">Общественная</span> <span class="label label-warning pull-right  bg-draft" ng-if="nationalTargets[item.identifier]._state_s=='draft'">Черновик</span> <span class="label label-warning pull-right  bg-request" ng-if="nationalTargets[item.identifier]._state_s=='workflow'">Ожидание одобрения</span></div>
 																				<div class="btn-status" ng-if="waitForWorkflow.nationalTarget && waitForWorkflow.nationalTarget.identifier == item.identifier"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > Обработка...</span></div>
 																				<ul>
 																					<li ng-repeat="target in nationalTargets[item.identifier].aichiTargets track by $index" ng-if="!nationalTargets[item.identifier].isAichiTarget && nationalTargets[item.identifier].aichiTargets">{{target}}</li>
@@ -165,7 +155,7 @@
 																				</ul>
 																			</div>
 																			<div class="panel-footer">
-																				<div class="btn-group btn-group-xs" ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier || !waitForWorkflow.nationalTarget"><a translation-url title="Просмотр" ng-if="nationalTargets[item.identifier]._state_s == 'public'" target="_blank" class="btn btn-primary" ng-href="{{nationalTargets[item.identifier].url}}"><i class="fa fa-search"></i> view</a> <a translation-url ng-if="nationalTargets[item.identifier]._state_s=='workflow' " title="Заблокировано для редактирования" target="_blank" class="btn btn-primary" ng-href="/management/requests/{{getWorkflowId(nationalTargets[item.identifier])}}/publishRecord"><i class="fa fa-lock"></i> view status</a><button ng-click="openDialog(nationalTargets[item.identifier],'directives/formats/forms/national-target-dialog','edit-national-target-dialog')" ng-if="nationalTargets[item.identifier]._state_s!='workflow'"
+																				<div class="btn-group btn-group-xs" ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier || !waitForWorkflow.nationalTarget"><a translation-url title="Просмотр" ng-if="nationalTargets[item.identifier]._state_s == 'public'" target="_blank" class="btn btn-primary" ng-href="{{nationalTargets[item.identifier].url}}"><i class="fa fa-search"></i> Просмотр</a> <a translation-url ng-if="nationalTargets[item.identifier]._state_s=='workflow' " title="Заблокировано для редактирования" target="_blank" class="btn btn-primary" ng-href="/management/requests/{{getWorkflowId(nationalTargets[item.identifier])}}/publishRecord"><i class="fa fa-lock"></i> Статус просмотра</a><button ng-click="openDialog(nationalTargets[item.identifier],'directives/formats/forms/national-target-dialog','edit-national-target-dialog')" ng-if="nationalTargets[item.identifier]._state_s!='workflow'"
 																						title="Редактировать" type="button" class="btn btn-primary"><i class="fa fa-edit"></i> Редактировать</button>
 																					<button ng-disabled="nationalTargets[item.identifier]._state_s != 'draft' && nationalTargets[item.identifier].assessments.length > 0" ng-hide="nationalTargets[item.identifier]._state_s=='workflow'" title="Удалить"
 																						type="button" class="btn btn-primary" ng-click="delete(nationalTargets[item.identifier],'nationalTarget', $event)"><i class="fa fa-trash-o"></i> Удалить</button>
@@ -250,7 +240,7 @@
 									<div style="font-size:11px;font-weight:bold;text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;margin-bottom:10px;">ЧЕРНОВИК</div>
 									<div class="row">     
 										<div class="col-xs-2" class="color-litegrey">Название:</div> 
-										<div class="col-xs-10" style="font-weight:bold"> {{draftRecordToDelete.title|lstring:locale}}</div>
+										<div class="col-xs-10" style="font-weight:bold">{{draftRecordToDelete.title|lstring:locale}}</div>
 									</div>
 									<div class="row"> 
 										<div class="col-xs-2" class="color-litegrey">Резюме:</div> 
@@ -267,17 +257,17 @@
 									
 									<div class="row">     
 										<div class="col-xs-2" class="color-litegrey">Название:</div> 
-										<div class="col-xs-10" style="font-weight:bold"> {{publicRecordToDelete.title|lstring:locale}}</div>
+										<div class="col-xs-10" style="font-weight:bold">{{publicRecordToDelete.title|lstring:locale}}</div>
 									</div>
 									<div class="row"> 
 										<div class="col-xs-2" class="color-litegrey">Резюме:</div> 
-										<div class="col-xs-10" style="font-weight:bold" > <span ng-bind-html="publicRecordToDelete.summary|lstring:locale"></span></div>
+										<div class="col-xs-10" style="font-weight:bold" ><span ng-bind-html="publicRecordToDelete.summary|lstring:locale"></span></div>
 									</div>
 		
 									<div class="row" style="margin-top:10px;"> 
 										<div class="col-xs-12"><span class="label label-danger" ng-if="hasAssessment">Пожалуйста, удалите оценку прогресса для этой национальной цели перед удалением национальной цели.</span><button ng-if="!hasAssessment" ng-show="security" type="button" class="btn btn-danger" ng-disabled="deletingRecord"
 											ng-click="deletePublic(publicRecordToDelete)" 
-											data-toggle="tooltip" data-placement="top" title="Примечание: также будут удалены любые находящиеся на утверждении черновики"><span ng-if="!security.canDelete">Запрос на удаление данной записи</span> <span ng-if="security.canDelete">Удалить запись </span></button> 
+											data-toggle="tooltip" data-placement="top" title="Примечание: также будут удалены любые находящиеся на утверждении черновики"><span ng-if="!security.canDelete">Запрос на удаление данной записи</span> <span ng-if="security.canDelete">Удалить запись</span></button> 
 										</div>
 									</div>
 								</div>
@@ -288,10 +278,70 @@
 							</div>
 						</script>
 
-					</div>
-					</div>
+						<script type="text/ng-template" id="subRecordsValidation.html" trados-translation="true">
+							<h1>Sixth national report - Section I, III validations</h1>
+							<hr>
+							<div class="modal-body  bg-white" >
+								<div ng-if="loadingRecords" style="margin-left:45%"><i class="fa fa-spin fa-spinner"></i> Загрузка ....</div>
+								<table class="table table-bordered">
+									<tbody>
+										<tr ng-if="!loadingRecords && !validatingRecords && ((recordsToValidate||[]).length<=0 || !hasErrors)">
+											<td >
+												<div class="alert alert-info">There are no records in section I and III which have validation errors, please click the continue button to proceed.</div>
+											</td>
+										</tr>
+										<tr ng-if="!loadingRecords && !validatingRecords && hasErrors">
+											<td>
+												<div class="alert alert-danger">There is mandatory information missing in section I and III records, please update this records before proceeding.</div>
+											</td>
+										</tr>
+										<tr >
+											<td ng-include="'subRecordsValidationErrors.html'"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="ngdialog-buttons">
+								<button type="button" class="ngdialog-button ngdialog-button-primary" ng-if="!validatingRecords && !loadingRecords && hasErrors" ng-click="close()">Закрыть</button>
+								<button type="button" class="ngdialog-button ngdialog-button-primary" ng-if="!validatingRecords && !loadingRecords && !hasErrors" ng-click="continue()">Продолжение</button>
+							</div>
+						</script>
 
+						<script type="text/ng-template" id="subRecordsValidationErrors.html" trados-translation="true">
+							<table class="table table-bordered">
+								<tr ng-repeat-start="record in recordsToValidate | orderBy:'status'">
+									<td><span ng-if="record.type=='nationalTarget'">Section I : National Target</span> <span ng-if="record.type=='nationalAssessment'">Section III : Оценивание прогресса</span></td>										
+									<td ng-bind="(record.workingDocumentTitle||record.title)|lstring:locale"></td>
+									<td>
+										<div ng-switch="record.status"><span ng-switch-when="2" class="label label-success">Valid</span><div ng-switch-when="1" ><span class="label label-warning">Invalid</span><button class="btn btn-xs btn-danger" ng-click="record.showErrors=!record.showErrors">Show Errors <span class="badge" ng-bind="record.errors.length"></span></button>
+											</div><span ng-switch-default class="label label-info"><i class="fa fa-spin fa-spinner"></i> Validating...</span></div>
+									</td>
+								</tr>
+								<tr ng-repeat-end ng-if="record.showErrors">
+									<td colspan="3" style="border-top:none">
+										<table class="table table-bordered">
+											<tr ng-repeat="error in record.errors">
+												<td ng-switch="error.property">	
+													<div ng-switch-when="relevantNationalTarget" ><span>Ответьте хотя бы на один вопрос об актуальности национальных целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти</span></div>
+													<div ng-switch-when="title" ><span>Национальные целевые задачи</span></div>
+													<div ng-switch-when="jurisdiction" ><span>Level of application Please specify the level to which the target applies</span></div>
+													<div ng-switch-when="jurisdictionInfo" ><span>Пожалуйста, укажите область для выбранного уровня заявления</span></div>									
+													<div ng-switch-when="relevantNationalTarget" ><span>Айтинские целевые задачи по биоразнообразию</span></div>
+													<div ng-switch-when="progress" ><span>Степень прогресса в реализации выбранной целевой задачи</span></div>
+													<div ng-switch-when="confidence" ><span>Уровень достоверности вышеприведенной оценки</span></div>
+													<div ng-switch-when="nationalTarget" ><span>Целевая задача</span></div>
+													<div ng-switch-default ng-bind="error.code + ':' + error.property "></div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</script>
+					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
+</div>
