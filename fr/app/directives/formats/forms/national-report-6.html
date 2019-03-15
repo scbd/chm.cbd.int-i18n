@@ -1,4 +1,4 @@
-<div id="sixth-national-report-edit">
+﻿<div id="sixth-national-report-edit">
 	<div id="wrap1">
 		<div class="panel panel-default bg-litegrey">
 			<div class="ngdialog-overlay" ng-if="isDialogLoading" style="z-index: 100">
@@ -17,7 +17,7 @@
 					<div class="alert alert-danger" ng-show="hasError()" id="errorSection"><strong>Une erreur est survenue...</strong><div>{{error}}</div>
 					</div><!-- ng-hide="status=='hidden'||status=='loading'"ng-if="status!='hidden' && status!='loading'" --><div  ng-show="status!='hidden' && status!='loading'">
 						<div class="row">
-							<div class="col-xs-12"><span class="pull-right"><strong>Sixi&egrave;me manuel d&apos;utilisation du rapport national</strong><a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-en.pdf" target="_blank">Anglais</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-fr.pdf" target="_blank">Fran&ccedil;ais</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-es.pdf" target="_blank">Espanol</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ru.pdf" target="_blank">Russe</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-zh.pdf" target="_blank">Chinois</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ar.pdf" target="_blank">Arabe</a></span></div>
+							<div class="col-xs-12"><span class="pull-right"><strong>Sixth national report user manual</strong> <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-en.pdf" target="_blank">English</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-fr.pdf" target="_blank">French</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-es.pdf" target="_blank">Spanish</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ru.pdf" target="_blank">Russian</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-zh.pdf" target="_blank">Chinese</a> | <a href="https://www.cbd.int/chm/doc/chm-latest-guide-online-reporting-ar.pdf" target="_blank">Arabic</a></span></div>
 						</div>
 						<header >
 							<div class="alert alert-danger" ng-if="subRecordErrors.length">
@@ -44,6 +44,7 @@
 														<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">Examen</a></li>
 														<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="switchTab('next')">&raquo;</a></li>
 													</ul>
+													<button class="btn btn-sm btn-danger pull-right" style="margin-top:20px;margin-left:50px" ng-click="validateSubRecords()">Validate sub records</button>
 													<div  km-document-validation ng-model="warningsReport" ng-if="(document.nationalContribution && document.nationalContribution.aichiTarget16.nationalReport
 															&& !document.nationalContribution.aichiTarget16.nationalReportDescription)
 															&& warningsReport && warningsReport.warnings"></div>
@@ -148,14 +149,26 @@
 																					ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier || !waitForWorkflow.nationalTarget"><span class="label label-primary pull-right  bg-published"  style="margin-left:5px;"
 																						ng-if="nationalTargets[item.identifier]._state_s=='public' || nationalTargets[item.identifier].publicRecord">Publique</span> <span class="label label-warning pull-right  bg-draft" ng-if="nationalTargets[item.identifier]._state_s=='draft'">Brouillon</span> <span class="label label-warning pull-right  bg-request" ng-if="nationalTargets[item.identifier]._state_s=='workflow'">en attente d&apos;approbation</span></div>
 																				<div class="btn-status" ng-if="waitForWorkflow.nationalTarget && waitForWorkflow.nationalTarget.identifier == item.identifier"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > En cours...</span></div>
-																				<ul>
+																				<ul ng-if="!nationalTargets[item.identifier].showRecord">
 																					<li ng-repeat="target in nationalTargets[item.identifier].aichiTargets track by $index" ng-if="!nationalTargets[item.identifier].isAichiTarget && nationalTargets[item.identifier].aichiTargets">{{target}}</li>
 																					<li ng-repeat="target in nationalTargets[item.identifier].otherAichiTargets track by $index" ng-if="nationalTargets[item.identifier].otherAichiTargets">{{target}}</li>
 																					
 																				</ul>
+																				<div ng-if="nationalTargets[item.identifier].showRecord" id="recordDetails_{{item.identifier}}">
+																					<div class="full-record-div">
+																						<div style="margin:0 50%" ng-if="nationalTargets[item.identifier].showRecordLoading"><i class="fa fa-spinner fa-spin"></i>Chargement en cours...</div>
+																						<view-national-target ng-model="nationalTargets[item.identifier].document" locale="locale" header="false" link-target="_blank"></view-national-target>
+																					</div>
+																				</div>
 																			</div>
 																			<div class="panel-footer">
-																				<div class="btn-group btn-group-xs" ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier || !waitForWorkflow.nationalTarget"><a translation-url title="Vue" ng-if="nationalTargets[item.identifier]._state_s == 'public'" target="_blank" class="btn btn-primary" ng-href="{{nationalTargets[item.identifier].url}}"><i class="fa fa-search"></i> vue</a> <a translation-url ng-if="nationalTargets[item.identifier]._state_s=='workflow' " title="Verrouill&eacute; pour l&rsquo;&eacute;dition" target="_blank" class="btn btn-primary" ng-href="/management/requests/{{getWorkflowId(nationalTargets[item.identifier])}}/publishRecord"><i class="fa fa-lock"></i> Afficher le statut</a><button ng-click="openDialog(nationalTargets[item.identifier],'directives/formats/forms/national-target-dialog','edit-national-target-dialog')" ng-if="nationalTargets[item.identifier]._state_s!='workflow'"
+																				<div class="btn-group btn-group-xs" ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier || !waitForWorkflow.nationalTarget">
+																					<button title="Show full details" type="button" class="btn btn-primary" 
+																						ng-click="showRecord(nationalTargets[item.identifier], 'national-target')"
+																						ng-if="!nationalTargets[item.identifier].showRecord"><i class="fa fa-search"></i> Show full details</button>
+																					<button title="Show full details" type="button" class="btn btn-primary" 
+																						ng-click="showRecord(nationalTargets[item.identifier], 'national-target')"
+																						ng-if="nationalTargets[item.identifier].showRecord"><i class="fa fa-eye-slash"></i> Hide full details</button><a translation-url ng-if="nationalTargets[item.identifier]._state_s=='workflow' " title="Verrouill&eacute; pour l&rsquo;&eacute;dition" target="_blank" class="btn btn-primary" ng-href="/management/requests/{{getWorkflowId(nationalTargets[item.identifier])}}/publishRecord"><i class="fa fa-lock"></i> view status</a><button ng-click="openDialog(nationalTargets[item.identifier],'directives/formats/forms/national-target-dialog','edit-national-target-dialog')" ng-if="nationalTargets[item.identifier]._state_s!='workflow'"
 																						title="Modifier" type="button" class="btn btn-primary"><i class="fa fa-edit"></i> Modifier</button>
 																					<button ng-disabled="nationalTargets[item.identifier]._state_s != 'draft' && nationalTargets[item.identifier].assessments.length > 0" ng-hide="nationalTargets[item.identifier]._state_s=='workflow'" title="Supprimer"
 																						type="button" class="btn btn-primary" ng-click="delete(nationalTargets[item.identifier],'nationalTarget', $event)"><i class="fa fa-trash-o"></i> Supprimer</button>
@@ -283,7 +296,7 @@
 							<hr>
 							<div class="modal-body  bg-white" >
 								<div ng-if="loadingRecords" style="margin-left:45%"><i class="fa fa-spin fa-spinner"></i> Loading...</div>
-								<table class="table table-bordered">
+								<table class="table table-bordered" ng-if="!fetchError">
 									<tbody>
 										<tr ng-if="!loadingRecords && !validatingRecords && ((recordsToValidate||[]).length<=0 || !hasErrors)">
 											<td >
@@ -300,6 +313,7 @@
 										</tr>
 									</tbody>
 								</table>
+								<div ng-if="fetchError" class="alert alert-danger" ng-bind="fetchError"></div>
 							</div>
 							<div class="ngdialog-buttons">
 								<button type="button" class="ngdialog-button ngdialog-button-primary" ng-if="!validatingRecords && !loadingRecords && hasErrors" ng-click="close()">Fermer</button>
@@ -319,17 +333,18 @@
 								</tr>
 								<tr ng-repeat-end ng-if="record.showErrors">
 									<td colspan="3" style="border-top:none">
-										<table class="table table-bordered">
+										<table class="table table-bordered" style="background-color: #eee;">
 											<tr ng-repeat="error in record.errors">
+												<td style="max-width:75px"><span>Ce champ est obligatoire</span></td>
 												<td ng-switch="error.property">	
-													<div ng-switch-when="relevantNationalTarget" ><span>Veuillez r&eacute;pondre au moins &agrave; une question concernant la pertinence des objectifs nationaux de la section Objectifs Aichi</span></div>
-													<div ng-switch-when="title" ><span>Objectifs nationaux</span></div>
-													<div ng-switch-when="jurisdiction" ><span>Level of application Please specify the level to which the target applies</span></div>
-													<div ng-switch-when="jurisdictionInfo" ><span>Veuillez indiquer la zone concern&eacute;e pour le niveau d&apos;application choisi</span></div>									
-													<div ng-switch-when="relevantNationalTarget" ><span>Objectifs d&apos;Aichi pour la biodiversit&eacute;</span></div>
-													<div ng-switch-when="progress" ><span>Taux de progr&egrave;s vers la mise en &oelig;uvre de l&apos;objectif  s&eacute;lectionn&eacute;</span></div>
-													<div ng-switch-when="confidence" ><span>Niveau de confiance de l&rsquo;&eacute;valuation ci-dessus</span></div>
-													<div ng-switch-when="nationalTarget" ><span>Objectif</span></div>
+													<div ng-switch-when="relevantNationalTarget" >Veuillez r&eacute;pondre au moins &agrave; une question concernant la pertinence des objectifs nationaux de la section Objectifs Aichi</div>
+													<div ng-switch-when="title" >Objectifs nationaux</div>
+													<div ng-switch-when="jurisdiction" >Level of application Please specify the level to which the target applies</div>
+													<div ng-switch-when="jurisdictionInfo" >Veuillez indiquer la zone concern&eacute;e pour le niveau d&apos;application choisi</div>									
+													<div ng-switch-when="relevantNationalTarget" >Objectifs d&apos;Aichi pour la biodiversit&eacute;</div>
+													<div ng-switch-when="progress" >Taux de progr&egrave;s vers la mise en &oelig;uvre de l&apos;objectif  s&eacute;lectionn&eacute;</div>
+													<div ng-switch-when="confidence" >Niveau de confiance de l&rsquo;&eacute;valuation ci-dessus</div>
+													<div ng-switch-when="nationalTarget" >Objectif</div>
 													<div ng-switch-default ng-bind="error.code + ':' + error.property "></div>
 												</td>
 											</tr>
