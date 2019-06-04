@@ -104,8 +104,9 @@
 																<div class="col-md-12">
 																	<div class="km-control-group" name="notReportingOnNationalTargetsReason" 
 																	caption="请提供你的国家为什么采用爱知生物多样性目标报告，而不是国家目标来报告的信息。">
-																		<div km-textbox-ml name="notReportingOnNationalTargetsReason" ng-model="document.notReportingOnNationalTargetsReason" locales="document.header.languages"
-																			rows="3"></div>
+																	
+																		<div km-rich-textbox on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" rows="3"
+																			name="notReportingOnNationalTargetsReason" ng-model="document.notReportingOnNationalTargetsReason" locales="document.header.languages"></div>
 																	</div>
 																</div>
 															</div>

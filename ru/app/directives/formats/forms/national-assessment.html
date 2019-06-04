@@ -1,29 +1,5 @@
 ﻿<div>
-	<style>
-		.panel-header,
-		.section .section-header {
-			border-bottom: 1px solid #ddd;
-			padding-left: 10px;
-		}
-		
-		.help-block {
-			text-align: justify;
-		}
-		
-		.panelMain .panel-body {
-			padding: 0px
-		}
-		
-		.mainHeading,
-		.section .section-body,
-		.panel-body {
-			padding: 15px!important;
-		}
-		
-		.assessmentform .webui-popover {
-			z-index: 9999;
-		}
-	</style>
+	<style>.panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; } .assessmentform .webui-popover { z-index: 9999; }</style>
 	<div class="panel panel-default bg-litegrey">
 		<div class="panel-header bg-darkgrey">
 			<h2 style="margin-top:0px;color:#fff">Отчетность онлайн оценка результативности<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
@@ -118,7 +94,7 @@
 										<div class="col-md-12">
 											<div class="km-control-group" name="assessmentText" caption="Дополнительная информация. (Приведите информацию о фактических данных, которые применялись в оценке этой целевой задачи, используя соответствующую информацию, приведенную в разделе II, включая возникавшие препятствия в проведении оценки)."
 															data-container=".assessmentform" data-content="Приведите информацию, обосновывающую сделанный выше выбор. Можно включить информацию об общем воздействии принятых мер, изменении в тенденциях развития и статусе биоразнообразия, изменении в нагрузках на биоразнообразие или в приводных механизмах, вызывающих его утрату, изменении социально-экономических условий, таких как осведомленность о биоразнообразии, об изменении в доступности ресурсов, изменении государственных политик или изменении в поведении основных секторов в стране. Касательно национальных целевых задач количественного характера Стороны, возможно, пожелают изучить вопрос о представлении отчетности о степени выполнения целевой задачи в сопоставлении с контрольным показателем. По определенным типам целевых задач можно, например, использовать процентные доли. Стороны, возможно, также пожелают привести описание процесса, который они использовали для оценки результатов выполнения целевой задачи, а также сообщить о любых возникавших препятствиях в процессе оценки.">
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -135,7 +111,7 @@
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="nationalIndicatorsUsed" caption="Используются ли в вашей стране показатели для оценивания прогресса в достижении этой национальной целевой задачи?" data-container=".assessmentform" data-content="Просьба сообщить обо всех индикаторах, использовавшихся для оценки результатов выполнения данной целевой задачи. Такие индикаторы могут включать те, что приведены в национальных стратегиях и планах действий по сохранению биоразнообразия вашей страны, или те, что были разработаны для других процессов. В решении XIII/28 Конференция Сторон Конвенции о биологическом разнообразии приветствовала список общих и конкретных индикаторов для Стратегического плана в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы. Изучая результаты достижения национальных целевых задач вашей страны, вы, возможно, пожелаете использовать этот список индикаторов, если это уместно. Более подробную информацию об индикаторах, включая инструменты для разработки национальных индикаторов, можно получить в  
-										<a translation-url href='http://www.bipindicators.net/' target='_new '>Партнерстве по индикаторам биоразнообразия </a> и в <a translation-url href='http://geobon.org/ ' target='_new '>Группе по наблюдению Земли Сети наблюдения за биоразнообразием </a>.">
+										&lt;a translation-url href=&apos;http://www.bipindicators.net/&apos; target=&apos;_new &apos;&gt;Партнерстве по индикаторам биоразнообразия &lt;/a&gt; и в &lt;a translation-url href=&apos;http://geobon.org/ &apos; target=&apos;_new &apos;&gt;Группе по наблюдению Земли Сети наблюдения за биоразнообразием &lt;/a&gt;.">
 
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed, 'btn-default': document.nationalIndicatorsUsed==false}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=true">Да</button>
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed==false, 'btn-default': document.nationalIndicatorsUsed}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=false">Нет</button>
@@ -143,7 +119,7 @@
 											<div class="row" ng-show="document.nationalIndicatorsUsed">
 												<div class="col-md-12">
 													<div class="km-control-group" name="nationalIndicators" caption="Просьба привести список индикаторов, использовавшихся для проведения оценки этой целевой задачи.">
-														<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
+														<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
 													</div>
 												</div>
 											</div>
@@ -154,7 +130,7 @@
 									<div class="row  bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="documentText" caption="Приведите описание любых других инструментов или средств, использовавшихся для оценки прогресса" data-container=".assessmentform" data-content="Просьба привести описание всех инструментов или подходов, которые ваша страна использовала для оценки результатов выполнения настоящей целевой задачи. В их число могут входить, кроме всех прочих, тематические исследования, аналитические исследования, мнения экспертов и консультации с субъектами деятельности.">
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -185,7 +161,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" required name="confidenceInfo" caption="Объясните отмеченный выше уровень достоверности" data-container=".assessmentform" data-content="Просьба указать, почему оценке присвоен вышеуказанный уровень достоверности. Стороны, возможно, пожелают представить замечания о типах использованной информации или индикаторов, их представительности, охвате и о любых присущих им ограничениях.">
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -199,7 +175,7 @@
 									<div class="row">
 										<div class="col-md-12" ng-if="isMonitoringNotRequired()">
 											<div class="km-control-group" name="adequacyDescription" caption="Приведите описание способов мониторинга целевой задачи и укажите, внедрена ли система мониторинга" data-container=".assessmentform" data-content="Если по вышеприведенному вопросу выбран один из двух первых ответов (т.е. мониторинг, связанный с настоящей целевой задачей, адекватен или мониторинг, связанный с настоящей целевой задачей, был неполным), просьба описать способ мониторинга целевой задачи, включая информацию обо всех соответствующих системах мониторинга. Вопросы, которые ваша страна, возможно, пожелает включить в свои ответы, будут следующими: характеристики системы мониторинга, организации, отвечающие за нее, способы сбора информации или данных и частота обновления данных.">
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
 											</div>
 										</div>
 									</div>

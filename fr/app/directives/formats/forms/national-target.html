@@ -1,25 +1,5 @@
 ﻿<div >
-	<style>
-		.panel-header,
-		.section .section-header {
-			border-bottom: 1px solid #ddd;
-			padding-left: 10px;
-		}
-		
-		.help-block {
-			text-align: justify;
-		}
-		
-		.panelMain .panel-body {
-			padding: 0px
-		}
-		
-		.mainHeading,
-		.section .section-body,
-		.panel-body {
-			padding: 15px!important;
-		}
-	</style>
+	<style>.panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; }</style>
 	<div class="panel panel-default bg-litegrey">
 		<div class="panel-header bg-darkgrey">
 			<h2 style="margin-top:0px;color:#fff">Rapports en ligne: Objectifs nationaux<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
@@ -81,11 +61,11 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" required name="isAichiTarget" caption="Type d'objectif">
+											<div class="km-control-group" required name="isAichiTarget" caption="Type d&apos;objectif">
 
-												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/><span ng-class="{'color-litegrey': document.isAichiTarget}"> Cr&eacute;er un nouvel objectif national</span></h4>
+												<h4><input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/><span ng-class="{'color-litegrey': document.isAichiTarget}">Cr&eacute;er un nouvel objectif national</span></h4>
 
-												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Use an <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >Aichi Biodiversity Target</a> as your National Target</span></h4>
+												<h4><input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Utiliser un en tant qu&apos;objectif national <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >objectif d&apos;Aichi pour la biodiversit&eacute;</a> en tant qu&apos;objectif national</span></h4>
 
 											</div>
 										</div>
@@ -95,14 +75,14 @@
 
 										<div class="row bottom-spacing">
 											<div class="col-md-12">
-												<div class="km-control-group" required name="aichiTargets" caption="Objectifs d'Aichi pour la biodiversité">
-													<div km-select required name="aichiTargets" ng-model="selectedAichi.target" placeholder="Veuillez sélectionner un objectifs d'Aichi pour la biodiversité" watch-items items="options.aichiTargetsFiltered"></div>
+												<div class="km-control-group" required name="aichiTargets" caption="Objectifs d&apos;Aichi pour la biodiversit&eacute;">
+													<div km-select required name="aichiTargets" ng-model="selectedAichi.target" placeholder="Veuillez s&eacute;lectionner un objectifs d&apos;Aichi pour la biodiversit&eacute;" watch-items items="options.aichiTargetsFiltered"></div>
 												</div>
 											</div>
 
 											<div class="col-md-12">
-												<div class="km-control-group" name="otherAichiTargets" caption="Objectifs d'Aichi pour la biodiversité">
-													<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Veuillez sélectionner une sous-objectifs d’Aichi d’Aichi pour la biodiversité" watch-items items="options.aichiSubTargets"></div>
+												<div class="km-control-group" name="otherAichiTargets" caption="Objectifs d&apos;Aichi pour la biodiversit&eacute;">
+													<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Veuillez s&eacute;lectionner une sous-objectifs d&rsquo;Aichi d&rsquo;Aichi pour la biodiversit&eacute;" watch-items items="options.aichiSubTargets"></div>
 												</div>
 											</div>
 										</div>
@@ -111,7 +91,7 @@
 									<div ng-show="!document.isAichiTarget">
 										<div class="row">
 											<div class="col-md-12">
-												<div class="km-control-group" required name="title" caption="Objectifs nationaux" data-container=".nationalTargetForm" data-content=" Veuillez inscrire le libellé de l’objectif national de votre pays dans une des six langues officielles des Nations Unies. Veuillez fournir le libellé complet de l’objectif national et son numéro, s’il en a un. Ce champ ainsi que les autres champs de cette page doivent être remplis pour chaque objectif national de votre pays.">
+												<div class="km-control-group" required name="title" caption="Objectifs nationaux" data-container=".nationalTargetForm" data-content="Veuillez inscrire le libell&eacute; de l&rsquo;objectif national de votre pays dans une des six langues officielles des Nations Unies. Veuillez fournir le libell&eacute; complet de l&rsquo;objectif national et son num&eacute;ro, s&rsquo;il en a un. Ce champ ainsi que les autres champs de cette page doivent &ecirc;tre remplis pour chaque objectif national de votre pays.">
 													<div km-textbox-ml required name="title" ng-model="document.title" locales="document.header.languages"></div>
 												</div>
 											</div>
@@ -119,8 +99,8 @@
 
 										<div class="row">
 											<div class="col-md-12">
-												<div class="km-control-group" required name="description" caption="Fondement de cet objectif national" data-container=".nationalTargetForm" data-content="Veuillez fournir la justification de cet objectif national par exemple les problèmes nationaux que cet objectif tente de corriger, le lien entre cet objectif et les Objectifs d’Aichi pour la biodiversité ou le Plan stratégique 2011-2020 pour la diversité biologique ou les raisons justifiant les différences entre le ou les Objectifs d’Aichi pour la biodiversité pertinent(s) et l’objectif national. Les Parties pourraient aussi indiquer si cet objectif national est en lien avec d’autres processus régionaux ou internationaux, tels que d’autres conventions liées à la diversité biologique, les Conventions de Rio ou d’autres accords multilatéraux sur l’environnement. Les Parties peuvent aussi formuler des observations sur les mécanismes nationaux de conformité associés à l’objectif. L’information saisie dans ce champ a pour but de préciser le contexte national de l’objectif. La stratégie et plans d’action nationaux pour la diversité biologique de votre pays peut contenir une part de cette information.">
-													<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
+												<div class="km-control-group" required name="description" caption="Fondement de cet objectif national" data-container=".nationalTargetForm" data-content="Veuillez fournir la justification de cet objectif national par exemple les probl&egrave;mes nationaux que cet objectif tente de corriger, le lien entre cet objectif et les Objectifs d&rsquo;Aichi pour la biodiversit&eacute; ou le Plan strat&eacute;gique 2011-2020 pour la diversit&eacute; biologique ou les raisons justifiant les diff&eacute;rences entre le ou les Objectifs d&rsquo;Aichi pour la biodiversit&eacute; pertinent(s) et l&rsquo;objectif national. Les Parties pourraient aussi indiquer si cet objectif national est en lien avec d&rsquo;autres processus r&eacute;gionaux ou internationaux, tels que d&rsquo;autres conventions li&eacute;es &agrave; la diversit&eacute; biologique, les Conventions de Rio ou d&rsquo;autres accords multilat&eacute;raux sur l&rsquo;environnement. Les Parties peuvent aussi formuler des observations sur les m&eacute;canismes nationaux de conformit&eacute; associ&eacute;s &agrave; l&rsquo;objectif. L&rsquo;information saisie dans ce champ a pour but de pr&eacute;ciser le contexte national de l&rsquo;objectif. La strat&eacute;gie et plans d&rsquo;action nationaux pour la diversit&eacute; biologique de votre pays peut contenir une part de cette information.">
+													<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
 												</div>
 											</div>
 										</div>
@@ -128,13 +108,13 @@
 										<div class="row bottom-spacing">
 											<div class="col-md-11 ">
 												<div class="help-block"></div>
-												<div class="km-control-group" required name="jurisdiction" caption="Niveau d’application (Veuillez préciser le niveau auquel s’applique l’objectif) :" data-container=".nationalTargetForm" data-content="Veuillez indiquer le niveau administratif auquel l’objectif de votre pays s’applique. Dans la plupart des cas, le pays fixe les objectifs nationaux. Par contre, dans certains pays, l’objectif peut être infranational (c.-à-d., État, province ou ville). De plus, certains pays adoptent des objectifs régionaux (c.-à-d., plusieurs pays) en tant objectifs nationaux. Les Parties qui sont membres d’une organisation d’intégration régionale qui est aussi Partie à la Convention sur la diversité biologique ne doivent pas inclure les objectifs régionaux dans leur rapport, à moins que les objectifs nationaux convenus ne soient identiques.">
-													<div km-select name="jurisdiction" ng-model="document.jurisdiction" placeholder="Sélectionnez le niveau d'application" watch-items items="options.jurisdictions"></div>
+												<div class="km-control-group" required name="jurisdiction" caption="Niveau d&rsquo;application (Veuillez pr&eacute;ciser le niveau auquel s&rsquo;applique l&rsquo;objectif) :" data-container=".nationalTargetForm" data-content="Veuillez indiquer le niveau administratif auquel l&rsquo;objectif de votre pays s&rsquo;applique. Dans la plupart des cas, le pays fixe les objectifs nationaux. Par contre, dans certains pays, l&rsquo;objectif peut &ecirc;tre infranational (c.-&agrave;-d., &Eacute;tat, province ou ville). De plus, certains pays adoptent des objectifs r&eacute;gionaux (c.-&agrave;-d., plusieurs pays) en tant objectifs nationaux. Les Parties qui sont membres d&rsquo;une organisation d&rsquo;int&eacute;gration r&eacute;gionale qui est aussi Partie &agrave; la Convention sur la diversit&eacute; biologique ne doivent pas inclure les objectifs r&eacute;gionaux dans leur rapport, &agrave; moins que les objectifs nationaux convenus ne soient identiques.">
+													<div km-select name="jurisdiction" ng-model="document.jurisdiction" placeholder="S&eacute;lectionnez le niveau d&apos;application" watch-items items="options.jurisdictions"></div>
 												</div>
 											</div>
 											<div class="col-md-12" ng-show="isJurisdictionSubNational()">
 												<div class="help-block"></div>
-												<div class="km-control-group" required name="jurisdictionInfo" caption="Veuillez indiquer la zone concernée pour le niveau d'application choisi">
+												<div class="km-control-group" required name="jurisdictionInfo" caption="Veuillez indiquer la zone concern&eacute;e pour le niveau d&apos;application choisi">
 													<div km-textbox-ml name="jurisdictionInfo" ng-model="document.jurisdictionInfo" locales="document.header.languages" placeholder=""></div>
 												</div>
 											</div>
@@ -154,25 +134,25 @@
 
 											<div class="help-block">Liens entre les objectifs nationaux et les Objectifs d&rsquo;Aichi pour la biodiversit&eacute; Il n&apos;est pas n&eacute;cessaire d&apos;entrer cette information si votre pays fait rapport sur les objectifs d&apos;Aichi pour la biodiversit&eacute;.</div>
 
-											<div class="km-control-group" name="aichiTargets" caption="Principaux Objectifs d’Aichi pour la biodiversité correspondants (Note : Veuillez sélectionner un ou plusieurs Objectifs d’Aichi auxquels votre objectif national est totalement ou partiellement lié. Les parties peuvent sélectionner une cible entière ou un composant cible)" data-container=".nationalTargetForm" data-content="Veuillez indiquer, s’il y a lieu, le ou les Objectifs d’Aichi pour la biodiversité auxquels l’objectif national de votre pays est le plus étroitement lié. La formulation de votre objectif national peut le relier à plusieurs Objectifs d’Aichi pour la biodiversité ou éléments de ceux-ci. Certaines Parties peuvent avoir effectué ce type de correspondance lors de leur cinquième rapport national et/ou dans leur stratégie et plans d’action nationaux pour la diversité biologique.">
-												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="Veuillez sélectionner les principaux objectifs d'Aichi pour la biodiversité" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
+											<div class="km-control-group" name="aichiTargets" caption="Principaux Objectifs d&rsquo;Aichi pour la biodiversit&eacute; correspondants (Note : Veuillez s&eacute;lectionner un ou plusieurs Objectifs d&rsquo;Aichi auxquels votre objectif national est totalement ou partiellement li&eacute;. Les parties peuvent s&eacute;lectionner une cible enti&egrave;re ou un composant cible)" data-container=".nationalTargetForm" data-content="Veuillez indiquer, s&rsquo;il y a lieu, le ou les Objectifs d&rsquo;Aichi pour la biodiversit&eacute; auxquels l&rsquo;objectif national de votre pays est le plus &eacute;troitement li&eacute;. La formulation de votre objectif national peut le relier &agrave; plusieurs Objectifs d&rsquo;Aichi pour la biodiversit&eacute; ou &eacute;l&eacute;ments de ceux-ci. Certaines Parties peuvent avoir effectu&eacute; ce type de correspondance lors de leur cinqui&egrave;me rapport national et/ou dans leur strat&eacute;gie et plans d&rsquo;action nationaux pour la diversit&eacute; biologique.">
+												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="Veuillez s&eacute;lectionner les principaux objectifs d&apos;Aichi pour la biodiversit&eacute;" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>
 
 										<div class="col-md-12">
-											<div class="km-control-group" name="otherAichiTargets" caption="Autres Objectifs d’Aichi pour la biodiversité correspondants (veuillez sélectionner un ou plusieurs Objectifs d’Aichi pour la biodiversité auxquels votre objectif national est indirectement lié.)" data-container=".nationalTargetForm" data-content=" Veuillez indiquer, s’il y a lieu, le ou les Objectifs d’Aichi pour la biodiversité auxquels l’objectif national de votre pays est indirectement ou en partie relié. Les Objectifs d’Aichi pour la biodiversité sont d’une telle ampleur et touchent à tellement de sujets que l’objectif national de votre pays peut être indirectement lié à un ou plusieurs Objectifs d’Aichi pour la biodiversité Certaines Parties peuvent avoir effectué ce type de correspondance lors de leur cinquième rapport national et/ou dans leur stratégie et plans d’action nationaux pour la diversité biologique.">
-												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Veuillez sélectionner d'autres cibles ou objectifs cibles d'Aichi relatifs à la biodiversité" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
+											<div class="km-control-group" name="otherAichiTargets" caption="Autres Objectifs d&rsquo;Aichi pour la biodiversit&eacute; correspondants (veuillez s&eacute;lectionner un ou plusieurs Objectifs d&rsquo;Aichi pour la biodiversit&eacute; auxquels votre objectif national est indirectement li&eacute;.)" data-container=".nationalTargetForm" data-content="Veuillez indiquer, s&rsquo;il y a lieu, le ou les Objectifs d&rsquo;Aichi pour la biodiversit&eacute; auxquels l&rsquo;objectif national de votre pays est indirectement ou en partie reli&eacute;. Les Objectifs d&rsquo;Aichi pour la biodiversit&eacute; sont d&rsquo;une telle ampleur et touchent &agrave; tellement de sujets que l&rsquo;objectif national de votre pays peut &ecirc;tre indirectement li&eacute; &agrave; un ou plusieurs Objectifs d&rsquo;Aichi pour la biodiversit&eacute; Certaines Parties peuvent avoir effectu&eacute; ce type de correspondance lors de leur cinqui&egrave;me rapport national et/ou dans leur strat&eacute;gie et plans d&rsquo;action nationaux pour la diversit&eacute; biologique.">
+												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Veuillez s&eacute;lectionner d&apos;autres cibles ou objectifs cibles d&apos;Aichi relatifs &agrave; la biodiversit&eacute;" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>							
 										
 										<div class="col-md-12" ng-hide="document.aichiTargets && document.aichiTargets.length>0 || document.otherAichiTargets && document.otherAichiTargets.length>0">
 											<div class="checkbox">
 												<label>
-													<input type="checkbox"  ng-model="document.noOtherAichiTargets"/> L&rsquo;objectif national n&rsquo;a pas d&rsquo;Objectif d&rsquo;Aichi pour la biodiversit&eacute; correspondant ou a trait &agrave; d&rsquo;autres parties du Plan strat&eacute;gique pour la diversit&eacute; biologique <span info-bar data-container=".nationalTargetForm" data-content="si l&rsquo;objectif national de votre pays n&rsquo;est pas li&eacute; &agrave; un Objectif d&apos;Aichi pour la biodiversit&eacute;, et expliquez comment cet objectif est li&eacute; au Plan strat&eacute;gique 2011-2020 pour la diversit&eacute; biologique ou &agrave; d&rsquo;autres questions abord&eacute;es au titre de la Convention sur la diversit&eacute; biologique. Par exemple, l&rsquo;objectif national peut &ecirc;tre li&eacute; &agrave; la vision ou la mission du Plan strat&eacute;gique 2011-2020 pour la diversit&eacute; biologique ou &agrave; un de ses objectifs strat&eacute;giques. Ou encore, l&rsquo;objectif national peut &ecirc;tre li&eacute; &agrave; un des objectifs de la Convention ou &agrave; un de ses programmes de travail."></span></label>
+													<input type="checkbox"  ng-model="document.noOtherAichiTargets"/>L&rsquo;objectif national n&rsquo;a pas d&rsquo;Objectif d&rsquo;Aichi pour la biodiversit&eacute; correspondant ou a trait &agrave; d&rsquo;autres parties du Plan strat&eacute;gique pour la diversit&eacute; biologique <span info-bar data-container=".nationalTargetForm" data-content="si l&rsquo;objectif national de votre pays n&rsquo;est pas li&eacute; &agrave; un Objectif d&apos;Aichi pour la biodiversit&eacute;, et expliquez comment cet objectif est li&eacute; au Plan strat&eacute;gique 2011-2020 pour la diversit&eacute; biologique ou &agrave; d&rsquo;autres questions abord&eacute;es au titre de la Convention sur la diversit&eacute; biologique. Par exemple, l&rsquo;objectif national peut &ecirc;tre li&eacute; &agrave; la vision ou la mission du Plan strat&eacute;gique 2011-2020 pour la diversit&eacute; biologique ou &agrave; un de ses objectifs strat&eacute;giques. Ou encore, l&rsquo;objectif national peut &ecirc;tre li&eacute; &agrave; un des objectifs de la Convention ou &agrave; un de ses programmes de travail."></span></label>
 											</div>
 											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="Veuillez expliquer">
 											
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -187,15 +167,15 @@
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="relevantInformation" caption="Autres informations pertinentes (Utilisez ce champ pour fournir toute autre information pertinente, telle que le processus d’élaboration et d’adoption  des objectifs nationaux, la participation des parties prenantes ou les stratégies et plans dans lesquels cet objectif national est inclus.)" data-container=".nationalTargetForm" data-content="Veuillez indiquer tout autre renseignement pertinent concernant l’objectif national non inclus dans les champs précédents du modèle.">
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
+											<div class="km-control-group" name="relevantInformation" caption="Autres informations pertinentes (Utilisez ce champ pour fournir toute autre information pertinente, telle que le processus d&rsquo;&eacute;laboration et d&rsquo;adoption  des objectifs nationaux, la participation des parties prenantes ou les strat&eacute;gies et plans dans lesquels cet objectif national est inclus.)" data-container=".nationalTargetForm" data-content="Veuillez indiquer tout autre renseignement pertinent concernant l&rsquo;objectif national non inclus dans les champs pr&eacute;c&eacute;dents du mod&egrave;le.">
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="relevantDocuments" caption="Sites Internet, liens Internet et fichiers pertinents. (Veuillez utiliser ce champ pour indiquer des sites et liens Internet ou documents qui permettent d’accéder à de plus amples informations concernant cet objectif national." data-container=".nationalTargetForm" data-content="Veuillez inclure, selon qu’il convient, tout document ou lien (dans n’importe quelle langue) vers des informations supplémentaires concernant l’objectif national. ">
+											<div class="km-control-group" name="relevantDocuments" caption="Sites Internet, liens Internet et fichiers pertinents. (Veuillez utiliser ce champ pour indiquer des sites et liens Internet ou documents qui permettent d&rsquo;acc&eacute;der &agrave; de plus amples informations concernant cet objectif national." data-container=".nationalTargetForm" data-content="Veuillez inclure, selon qu&rsquo;il convient, tout document ou lien (dans n&rsquo;importe quelle langue) vers des informations suppl&eacute;mentaires concernant l&rsquo;objectif national.">
 												<div km-link name="relevantDocuments" ng-model="document.relevantDocuments" identifier="document.header.identifier"></div>
 											</div>
 										</div>

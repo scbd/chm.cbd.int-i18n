@@ -1,0 +1,61 @@
+﻿<div ng-cloak style="background:#fff">
+	<div ng-include="'/app/directives/formats/views/print-header.html'" ng-if="printMode"></div><!-- <link href="/app/css/print-friendly.css" rel="stylesheet"  ng-if="printMode"> --><style  ng-if="printMode">.km-pre{ word-break: normal; word-wrap: normal; /* white-space: normal; */ text-align:justify!important } /* #schemaView { display: block !important; } @page { @bottom-center { content: counter(page); } } .col-xs-12, .col-md-12 { float: none!important; } .km-value, .km-value-ml-html{ text-align: justify!important; } */</style>
+	<div ng-if="printMode && internalDocument.header.schema=='nationalReport6'">
+		<div ng-include="'/app/directives/formats/views/directives/toc-national-report-6.html'"></div>		
+	</div>
+	<div class="md-whiteframe-z1 bg-grey" style="padding:10px;">
+		<div ng-show="errorNotFound">
+			<h1 style="font-size:60px;font-weight:bold">Извините...</h1>
+			<h1>Looks like the record you are looking for doesn&apos;t exist anymore. Sorry about that.</h1>
+			<h1>If you need help, please contact us using the Live Help Desk button at the bottom right.</h1>
+		</div>
+
+		<div class="alert alert-danger" ng-show="!errorNotFound && error"><strong>Произошла ошибка...</strong><div>{{error}}</div>
+		</div>
+
+		<div ng-show="!error && internalDocument">
+
+			<div id="history-placeholder"></div>
+			<div ng-hide="hideButtons=='true'" style="float:right;margin-top:5px;" class="control-buttons">
+
+				<div class="btn-group btn-group-sm" ng-show="internalDocumentInfo.workingDocumentLock">
+					<button type="button" class="btn btn-default"><i class="fa fa-lock"></i></button>
+				</div>
+
+				<div class="btn-group btn-group-sm"><a ng-if="internalDocumentInfo.documentID" 
+						href="/pdf/documents/{{internalDocumentInfo.type}}/{{internalDocumentInfo.documentID}}/{{internalDocumentInfo.revision}}" 
+						target="_blank" class="btn btn-default">PDF <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a> <a ng-if="showDraftPdf" 
+						href="/pdf/draft-documents/{{$parent.document.header.schema}}-{{$parent.document.government.identifier}}/{{draftPdfCode}}" 
+						target="_blank" class="btn btn-default">PDF <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a><button data-toggle="tooltip" title="Распечатать" title="Распечатать" type="button" class="btn btn-default" ng-click="print()">Распечатать <i class="fa fa-spin fa-spinner" ng-if="printing" /> <i class="fa fa-print" aria-hidden="true" ng-if="!printing"></i></button>				
+					<button data-toggle="tooltip" title="Редактировать" ng-show="user().isAuthenticated" ng-disabled="!canEdit()   || internalDocumentInfo.workingDocumentLock" title="Редактировать"     
+					       type="button" class="btn btn-default" ng-click="edit(record)">Редактировать <i class="fa fa-edit"></i></button>
+					<button data-toggle="tooltip" title="Удалить" ng-show="user().isAuthenticated" ng-disabled="!canDelete() || internalDocumentInfo.workingDocumentLock" title="Удалить"    
+					      type="button" class="btn btn-default" ng-click="delete(record)">Удалить <i class="fa fa-trash-o"></i></button>
+				</div><br/></div>
+			<div id="schemaView">
+				<h1>{{internalDocument.header.schema | schemaName}}</h1>
+
+				<div ng-show="showAcknowledgement" class="acknowledgement">
+					<div class="alert alert-success alert-dismissable">
+						<table width="100%">
+							<tr>
+								<td><i class="fa fa-check"></i> <strong>Published!</strong> Your record has been saved.</td>
+								<td style="text-align:right"><a translation-url class="btn btn-success" href="/management/national-reporting?country={{internalDocument.government.identifier|uppercase}}">Continue to National Reporting &raquo;</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<document-date ng-if="internalDocument"></document-date>
+				
+				<div class="btn-group" ng-if="!printMode && (!document && internalDocument.header.languages.length>1)">
+					<input type="button" class="btn" ng-class="{'btn-default' : options.locale!='*', 'btn-info' :options.locale=='*'}"
+					ng-click="options.locale='*'" value="*" title="Все языки" />
+					<input type="button" class="btn" ng-class="{'btn-default' : options.locale!=locale, 'btn-info' :options.locale==locale}"
+						ng-repeat="locale in internalDocument.header.languages" ng-click="options.locale = locale" value="{{locale | uppercase}}"
+						title="{{locale|languageLongName}}" />
+				</div>
+				<div id="form-placeholder"></div>
+			</div>
+		</div>
+	</div>
+</div>

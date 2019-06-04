@@ -104,8 +104,9 @@
 																<div class="col-md-12">
 																	<div class="km-control-group" name="notReportingOnNationalTargetsReason" 
 																	caption="Veuillez fournir des informations sur les raisons pour lesquelles votre pays choisit de signaler les progr&egrave;s r&eacute;alis&eacute;s en utilisant les objectifs d&apos;Aichi pour la biodiversit&eacute; et non ses objectifs nationaux.">
-																		<div km-textbox-ml name="notReportingOnNationalTargetsReason" ng-model="document.notReportingOnNationalTargetsReason" locales="document.header.languages"
-																			rows="3"></div>
+																	
+																		<div km-rich-textbox on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" rows="3"
+																			name="notReportingOnNationalTargetsReason" ng-model="document.notReportingOnNationalTargetsReason" locales="document.header.languages"></div>
 																	</div>
 																</div>
 															</div>

@@ -104,8 +104,9 @@
 																<div class="col-md-12">
 																	<div class="km-control-group" name="notReportingOnNationalTargetsReason" 
 																	caption="Пожалуйста поясните, почему ваша страна предпочитает предоставить информацию о прогрессе в выполнении целевых задач по биоразнообразию, принятых в Айти, а не целевых задач по биоразнообразию, принятых на национальном уровне.">
-																		<div km-textbox-ml name="notReportingOnNationalTargetsReason" ng-model="document.notReportingOnNationalTargetsReason" locales="document.header.languages"
-																			rows="3"></div>
+																	
+																		<div km-rich-textbox on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" rows="3"
+																			name="notReportingOnNationalTargetsReason" ng-model="document.notReportingOnNationalTargetsReason" locales="document.header.languages"></div>
 																	</div>
 																</div>
 															</div>

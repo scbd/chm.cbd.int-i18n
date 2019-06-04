@@ -104,8 +104,9 @@
 																<div class="col-md-12">
 																	<div class="km-control-group" name="notReportingOnNationalTargetsReason" 
 																	caption="Proporcione informaci&oacute;n sobre por qu&eacute; su pa&iacute;s est&aacute; eligiendo reportar utilizando las Metas de Aichi de Biodiversidad y no las metas nacionales.">
-																		<div km-textbox-ml name="notReportingOnNationalTargetsReason" ng-model="document.notReportingOnNationalTargetsReason" locales="document.header.languages"
-																			rows="3"></div>
+																	
+																		<div km-rich-textbox on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" rows="3"
+																			name="notReportingOnNationalTargetsReason" ng-model="document.notReportingOnNationalTargetsReason" locales="document.header.languages"></div>
 																	</div>
 																</div>
 															</div>

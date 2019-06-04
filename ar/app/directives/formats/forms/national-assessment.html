@@ -1,32 +1,8 @@
 ﻿<div dir="rtl">
-	<style>
-		.panel-header,
-		.section .section-header {
-			border-bottom: 1px solid #ddd;
-			padding-left: 10px;
-		}
-		
-		.help-block {
-			text-align: justify;
-		}
-		
-		.panelMain .panel-body {
-			padding: 0px
-		}
-		
-		.mainHeading,
-		.section .section-body,
-		.panel-body {
-			padding: 15px!important;
-		}
-		
-		.assessmentform .webui-popover {
-			z-index: 9999;
-		}
-	</style>
+	<style>.panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; } .assessmentform .webui-popover { z-index: 9999; }</style>
 	<div class="panel panel-default bg-litegrey">
 		<div class="panel-header bg-darkgrey">
-			<h2 style="margin-top:0px;color:#fff">الإبلاغ إلكترونيا تقييم العوائق<i ng-show="status=='loading'" class="fa fa-spinner fa-spin" dir="rtl"></i></h2>
+			<h2 style="margin-top:0px;color:#fff">الإبلاغ إلكترونيا تقييم العوائق<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
 		</div>
 		<div class="panel-body">
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey assessmentform">
@@ -118,7 +94,7 @@
 										<div class="col-md-12">
 											<div class="km-control-group" name="assessmentText" caption="معلومات إضافية (يرجى تقديم معلومات عن الأدلة المستخدمة في تقييم هذا الهدف، استنادا إلى المعلومات ذات الصلة الواردة في القسم الثاني، بما في ذلك، العقبات القائمة أمام إجراء التقييم)."
 															data-container=".assessmentform" data-content="يرجى تقديم معلومات إثباتية للاختيار الوارد أعلاه. ويمكن أن يشمل ذلك المعلومات المتعلقة بالتأثير العام للتدابير التي اتخذت أو التغيرات التي طرأت على حالة واتجاهات التنوع البيولوجي، والتغيرات في الضغوط على التنوع البيولوجي أو دوافع فقدانه، والتغيرات في الظروف الاجتماعية والاقتصادية، مثل الوعي بالتنوع البيولوجي، والتغيرات في توافر الموارد، والتغيرات في السياسات الحكومية، أو تغييرات في سلوك القطاعات الرئيسية في البلاد. بالنسبة للأهداف الوطنية التي تعد كمية في الطبيعة، قد ترغب الأطراف أيضا بالنظر في التقارير عن مدى الإنجاز فيما يتعلق بالقيمة المستهدفة. على سبيل المثال، بالنسبة لبعض أنواع من الأهداف، ويمكن أن يتم هذا مع استخدام النسب المئوية. وقد ترغب الأطراف أيضا في وصف العملية التي استخدمتها في تقييم التقدم المحرز نحو تحقيق الهدف، فضلا عن الإبلاغ عن أي عوائق تتعلق بعملية تقييم الهدف.">
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" required name="assessmentText" ng-model="document.assessmentText" rows="10" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -135,7 +111,7 @@
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="nationalIndicatorsUsed" caption="هل استخدم بلدك أي مؤشرات لتقييم التقدم المحرز نحو تحقيق هذا الهدف الوطني?" data-container=".assessmentform" data-content="يرجى الإشارة إلى أي من المؤشرات المستخدمة لتقييم التقدم المحرز نحو تحقيق هذا الهدف. . ويمكن أن تشمل هذه المؤشرات الواردة في الاستراتيجيات وخطط العمل الوطنية للتنوع البيولوجي الخاصة ببلدك أو المؤشرات التي وضعت لعمليات أخرى. وفي المقرر 13/28 رحب مؤتمر الأطراف في اتفاقية التنوع البيولوجي بقائمة المؤشرات العامة والمحددة للخطة الاستراتيجية للتنوع البيولوجي 2011-2020. وفي تقييم التقدم المحرز نحو تحقيق الأهداف الوطنية لبلدك، قد ترغب في الاستفادة من هذه القائمة من المؤشرات، إذا كان ذلك مناسبا. ولمزيد من المعلومات عن المؤشرات، بما في ذلك أدوات لوضع المؤشرات الوطنية، يرجى الاطلاع على موقع   
-										<a translation-url href='http://www.bipindicators.net/' target='_new '> شراكة مؤشرات التنوع البيولوجي </a> و <a translation-url href='http://geobon.org/ ' target='_new '>شبكة رصد التنوع البيولوجي التابعة للفريق المعني برصد الأرض </a>.">
+										&lt;a translation-url href=&apos;http://www.bipindicators.net/&apos; target=&apos;_new &apos;&gt; شراكة مؤشرات التنوع البيولوجي &lt;/a&gt; و &lt;a translation-url href=&apos;http://geobon.org/ &apos; target=&apos;_new &apos;&gt;شبكة رصد التنوع البيولوجي التابعة للفريق المعني برصد الأرض &lt;/a&gt;.">
 
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed, 'btn-default': document.nationalIndicatorsUsed==false}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=true">نعم</button>
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed==false, 'btn-default': document.nationalIndicatorsUsed}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=false">لا</button>
@@ -143,7 +119,7 @@
 											<div class="row" ng-show="document.nationalIndicatorsUsed">
 												<div class="col-md-12">
 													<div class="km-control-group" name="nationalIndicators" caption="يرجى تقديم قائمة بالمؤشرات المستخدمة لتقييم هذا الهدف">
-														<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
+														<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="nationalIndicators" ng-model="document.nationalIndicators" locales="document.header.languages" rows="3"></div>
 													</div>
 												</div>
 											</div>
@@ -154,7 +130,7 @@
 									<div class="row  bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="documentText" caption="يرجى وصف أي أدوات أو وسائل أخرى تستخدم لتقييم التقدم" data-container=".assessmentform" data-content="يرجى وصف أي أدوات أو نهج استخدمها بلدكم لتقييم التقدم المحرز نحو هذا الهدف الوطني. ويمكن أن يشمل دراسات الحالة، والدراسات المكتبية، وآراء الخبراء، والمشاورات مع أصحاب المصلحة، من بين أمور أخرى.">
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -185,7 +161,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" required name="confidenceInfo" caption="يرجى تقديم توضيح لمستوى الثقة المشار إليه أعلاه" data-container=".assessmentform" data-content="يرجى وصف لماذا تم إعطاء تقييم مستوى الثقة المحدد أعلاه. قد ترغب الأطراف في التعليق على أنواع المعلومات أو المؤشرات المستخدمة، وتمثيلها، وتغطيتها، وأي قيود قد تكون لديها.">
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" required name="confidenceInfo" rows="6" ng-model="document.confidenceInfo" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
@@ -199,7 +175,7 @@
 									<div class="row">
 										<div class="col-md-12" ng-if="isMonitoringNotRequired()">
 											<div class="km-control-group" name="adequacyDescription" caption="يرجى وصف كيفية رصد الهدف والإشارة إلى إذا ما كان هناك نظام قائم للرصد." data-container=".assessmentform" data-content="إذا تم اختيار أحد الأجوبة عن السؤالين الأول والثاني في السؤال الوارد أعلاه (مثل، الرصد المتعلق بهذا الهدف غير كاف أو الرصد المتعلق بهذا الهدف هو جزئي)، يرجى وصف كيفية رصد الهدف، بما في ذلك المعلومات المتعلقة بأي نظم رصد ذات صلة. ومن بين المسائل التي قد يرغب بلدك إدراجها في ردها هي: خصائص نظام الرصد، والمنظمات المسؤولة عن ذلك، وكيف يتم جمع المعلومات أو البيانات، ونوع البيانات التي يتم جمعها وكيف يتم تحديث البيانات في كثير من الأحيان.">
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="adequacyDescription" ng-model="document.adequacyDescription" locales="document.header.languages" rows="3"></div>
 											</div>
 										</div>
 									</div>

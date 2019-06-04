@@ -1,25 +1,5 @@
 ﻿<div >
-	<style>
-		.panel-header,
-		.section .section-header {
-			border-bottom: 1px solid #ddd;
-			padding-left: 10px;
-		}
-		
-		.help-block {
-			text-align: justify;
-		}
-		
-		.panelMain .panel-body {
-			padding: 0px
-		}
-		
-		.mainHeading,
-		.section .section-body,
-		.panel-body {
-			padding: 15px!important;
-		}
-	</style>
+	<style>.panel-header, .section .section-header { border-bottom:1px solid #ddd; padding-left:10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding:0px } .mainHeading, .section .section-body, .panel-body { padding:15px!important; }</style>
 	<div class="panel panel-default bg-litegrey">
 		<div class="panel-header bg-darkgrey">
 			<h2 style="margin-top:0px;color:#fff">在线报告：国家目标<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
@@ -83,9 +63,9 @@
 										<div class="col-md-12">
 											<div class="km-control-group" required name="isAichiTarget" caption="目标类型">
 
-												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/><span ng-class="{'color-litegrey': document.isAichiTarget}"> 加上一个新的国家目标</span></h4>
+												<h4><input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/><span ng-class="{'color-litegrey': document.isAichiTarget}">加上一个新的国家目标</span></h4>
 
-												<h4> <input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Use an <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >Aichi Biodiversity Target</a> as your National Target</span></h4>
+												<h4><input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">用 <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >爱知生物多样性目标</a> 作为贵国的国家目标</span></h4>
 
 											</div>
 										</div>
@@ -111,7 +91,7 @@
 									<div ng-show="!document.isAichiTarget">
 										<div class="row">
 											<div class="col-md-12">
-												<div class="km-control-group" required name="title" caption="国家目标" data-container=".nationalTargetForm" data-content=" 请用联合国六种正式语文中的任意一种输入表述贵国所述国家目标。请录入本项国家目标的完整措辞，如果本项指标设有号码，请一并输入。贵国各项国家目标相关信息应逐一填写至本栏以及本部分其余各栏。">
+												<div class="km-control-group" required name="title" caption="国家目标" data-container=".nationalTargetForm" data-content="请用联合国六种正式语文中的任意一种输入表述贵国所述国家目标。请录入本项国家目标的完整措辞，如果本项指标设有号码，请一并输入。贵国各项国家目标相关信息应逐一填写至本栏以及本部分其余各栏。">
 													<div km-textbox-ml required name="title" ng-model="document.title" locales="document.header.languages"></div>
 												</div>
 											</div>
@@ -120,7 +100,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="km-control-group" required name="description" caption="国家目标的建立依据" data-container=".nationalTargetForm" data-content="请提供本项国家目标的理论依据。这其中可包括本项指标试图应对的国家挑战有哪些、本项目标何以与爱知生物多样性目标或2011-2020年生物多样性战略计划相关或者有关爱知生物多样性目标与本项国家目标之间存在差异的原因。各缔约方不妨注明本项国家目标是否与其他国际或区域进程，例如与生物多样性有关的公约、里约三公约或其他多边环境协定相关或相连。各缔约方还不妨就与本项目标相关的任何国家履约机制发表评论意见。此处输入的信息旨在说明本项目标的国家背景。贵国国家生物多样性战略和行动计划可能包含此处录入的部分信息。">
-													<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
+													<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
 												</div>
 											</div>
 										</div>
@@ -160,7 +140,7 @@
 										</div>
 
 										<div class="col-md-12">
-											<div class="km-control-group" name="otherAichiTargets" caption="其他相关爱知生物多样性目标（请选择本项国家目标与之间接相关的一项或多项爱知生物多样性目标）。" data-container=".nationalTargetForm" data-content=" 如适用，请指明贵国本项国家目标与之间接或部分相关的爱知生物多样性目标。鉴于爱知生物多样性目标及其所涉问题覆盖面广，贵国本项国家目标可能会与一项或几项爱知生物多样性目标间接相关。一些缔约方可能已经在其第五次国家报告中和（或）在其国家生物多样性战略和行动计划中进行这类关联连接。">
+											<div class="km-control-group" name="otherAichiTargets" caption="其他相关爱知生物多样性目标（请选择本项国家目标与之间接相关的一项或多项爱知生物多样性目标）。" data-container=".nationalTargetForm" data-content="如适用，请指明贵国本项国家目标与之间接或部分相关的爱知生物多样性目标。鉴于爱知生物多样性目标及其所涉问题覆盖面广，贵国本项国家目标可能会与一项或几项爱知生物多样性目标间接相关。一些缔约方可能已经在其第五次国家报告中和（或）在其国家生物多样性战略和行动计划中进行这类关联连接。">
 												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="请选择其他相关的爱知生物多样性目标或目标组成部分" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>							
@@ -168,11 +148,11 @@
 										<div class="col-md-12" ng-hide="document.aichiTargets && document.aichiTargets.length>0 || document.otherAichiTargets && document.otherAichiTargets.length>0">
 											<div class="checkbox">
 												<label>
-													<input type="checkbox"  ng-model="document.noOtherAichiTargets"/> 国家目标没有对应的爱知生物多样性目标或者与《生物多样性战略计划》的其他部分相关 <span info-bar data-container=".nationalTargetForm" data-content="如果本项国家目标与任何一项爱知生物多样性目标都不相关，请提供信息说明本项目标何以与2011-2020年生物多样性战略计划或与在《生物多样性公约》范围内讨论的其他问题相关联。例如，本项国家目标可能会与战略计划的愿景或使命或者与其某一项战略目标相关联。又抑或是可能与《公约》某一个目标或与其某一项工作方案相关联。"></span></label>
+													<input type="checkbox"  ng-model="document.noOtherAichiTargets"/>国家目标没有对应的爱知生物多样性目标或者与《生物多样性战略计划》的其他部分相关 <span info-bar data-container=".nationalTargetForm" data-content="如果本项国家目标与任何一项爱知生物多样性目标都不相关，请提供信息说明本项目标何以与2011-2020年生物多样性战略计划或与在《生物多样性公约》范围内讨论的其他问题相关联。例如，本项国家目标可能会与战略计划的愿景或使命或者与其某一项战略目标相关联。又抑或是可能与《公约》某一个目标或与其某一项工作方案相关联。"></span></label>
 											</div>
 											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="请解释">
 											
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
 											</div>
 										</div>
 									</div>
@@ -188,14 +168,14 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="km-control-group" name="relevantInformation" caption="其他相关信息（请在本栏内提供任何其他相关信息，例如制定和通过国家目标的过程、参与其中的利益攸关方或已经本项国家目标纳入其中的战略和计划。）" data-container=".nationalTargetForm" data-content="请提供与本项国家指标有关但未在本模板前面诸栏中注明的任何其他相关信息。">
-												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
+												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
 											</div>
 										</div>
 									</div>
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="relevantDocuments" caption="相关网站、网页链接和文件（请在本栏中注明可供进一步了解该目标相关信息的任何相关网站、网页链接或文件）。" data-container=".nationalTargetForm" data-content="请酌情包括可供进一步了解本项国家目标相关信息的任何相关网站、网页链接或文件（无论其使用何种语文）。 ">
+											<div class="km-control-group" name="relevantDocuments" caption="相关网站、网页链接和文件（请在本栏中注明可供进一步了解该目标相关信息的任何相关网站、网页链接或文件）。" data-container=".nationalTargetForm" data-content="请酌情包括可供进一步了解本项国家目标相关信息的任何相关网站、网页链接或文件（无论其使用何种语文）。">
 												<div km-link name="relevantDocuments" ng-model="document.relevantDocuments" identifier="document.header.identifier"></div>
 											</div>
 										</div>
