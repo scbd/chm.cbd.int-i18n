@@ -1,5 +1,5 @@
 ﻿<div>
-	<style>.panel-header, .section .section-header { border-bottom:1px solid #ddd; padding-left:10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding:0px } .mainHeading, .section .section-body, .panel-body { padding:15px!important; } .assessmentform .webui-popover { z-index:9999; }</style>
+	<style> .panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; } .assessmentform .webui-popover { z-index: 9999; } </style>
 	<div class="panel panel-default bg-litegrey">
 		<div class="panel-header bg-darkgrey">
 			<h2 style="margin-top:0px;color:#fff">在线报告：评估进展<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
@@ -114,7 +114,7 @@
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="nationalIndicatorsUsed" caption="贵国使用指标评估该国家目标的进展吗？" data-container=".assessmentform" data-content="请注明为评估本目标落实进展所使用的指标。这些指标可以包括贵国国家生物多样性战略和行动计划所含指标或为其他进程制定的指标。生物多样性公约缔约方大会在第XIII/28号决定中对2011-2020年生物多样性战略计划一般和具体指标清单表示欢迎。贵国在评估本国目标的落实进展时，可以酌情使用这份指标清单。欲进一步了解这些指标，包括国家指标制定工具，可查阅
-										&lt;a translation-url href=&apos;http://www.bipindicators.net/&apos; target=&apos;_new &apos;&gt;生物多样性指标伙伴关系&lt;/a&gt; 和 &lt;a translation-url href=&apos;http://geobon.org/ &apos; target=&apos;_new &apos;&gt;地球观测组织生物多样性观测网络&lt;/a&gt;.。">
+										<a translation-url href='http://www.bipindicators.net/' target='_new '>生物多样性指标伙伴关系</a> 和 <a translation-url href='http://geobon.org/ ' target='_new '>地球观测组织生物多样性观测网络</a>.。">
 
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed, 'btn-default': document.nationalIndicatorsUsed==false}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=true">是</button>
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed==false, 'btn-default': document.nationalIndicatorsUsed}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=false">否</button>
@@ -201,7 +201,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">The field “Notes” is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>

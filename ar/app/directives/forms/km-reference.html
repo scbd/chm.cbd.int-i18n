@@ -1,0 +1,73 @@
+﻿<div dir="rtl">
+	<div class="reference-select">
+		<table class="table table-hover">
+			<tr ng-repeat="reference in references track by $index">
+				<td>
+					<div ng-show="!reference.__loading && !reference.__errorCode">
+						<div><strong dir="rtl">{{reference.title | lstring}}</strong><div ng-bind-html="reference.summary | lstring"></div>
+					</div>
+
+					<div ng-show="reference.__loading">قيد التحميل...</div>
+
+					<div ng-show="reference.__errorCode">
+						<div ng-switch="reference.__errorCode">
+							<div ng-switch-when="404" class="alert alert-warning"><strong>السجل غير موجود</strong> {{reference.identifier}}</div>
+							<div ng-switch-default class="alert alert-danger"><strong>خطأ في تحميل السجل</strong> {{reference.identifier}}<div>{{reference.__error}}<div>
+							</div>
+						</div>
+					</div>
+				</td>
+				<td style="text-align:end">
+					<button type="button" title="إزالة" class="btn btn-default" ng-click="remove(reference)"><i class="fa fa-trash-o"></i></button>
+				</td>
+			</tr>
+		</table>
+		</div>
+
+		<button type="button" class="btn btn-default" ng-show="multiple" ng-disabled="disabled" ng-click="addReference()">إضافة مرجع</button>
+		<button type="button" class="btn btn-default" ng-hide="multiple" ng-disabled="disabled" ng-click="addReference()">تحديد مرجع...</button>
+	</div><!--Reference Editor--><div id="editReference" class="modal fade" data-backdrop="static" dir="rtl">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>تحديد مرجع</h3>
+				</div>
+				<div class="modal-body" style="max-height:400px;overflow-y:auto">					
+					<table class="table table-hover">
+						<tr ng-repeat="reference in editor.references | filter:editor.search | filter:editor.filterExcludeSelected | orderBy:editor.sortReference">
+							<td><!-- <input type="radio" name="km-reference" ng-model="reference.__checked" ng-if="!multiple" 
+								ng-value="true"/> ng-if="multiple"--><input type="checkbox" ng-model="reference.__checked" />
+							</td>
+							<td class="reference-summary-cell">
+								<div><strong>{{reference.title | lstring}}</strong><div ng-bind-html="reference.summary | lstring"></div>
+							</td>
+						</tr>
+
+						<tr ng-show="editor.references.length==0">
+							<td colspan="2">ليس هناك سجلات.</td>
+						</tr>
+
+						<tr ng-show="isLoading">
+							<td colspan="2"><i class="fa fa-spin fa-spinner"></i> قيد التحميل...</td>
+						</tr>
+					</table>
+
+				</div>
+				<div class="modal-footer">
+
+					<div class="row">
+
+					<div class="col-sm-8">
+						<input class="form-control" type="text" ng-model="editor.search" placeholder="بحث" />
+					</div>
+
+					<div class="col-sm-4" style="text-align:right">
+						<button type="button"  class="btn btn-default" ng-click="editor.close()">إلغاء</button>
+						<button type="button"  class="btn btn-primary" ng-click="editor.save()" >حفظ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -5,15 +5,17 @@
 	<div ng-show="report">
 		<div ng-show="isValid()" class="alert alert-success">
 			<h2>المستند صالح ويمكن الآن نشره</h2>
-			<h4 class="color-darkgrey"> يرجى مراجعة المستند الخاص بكم قبل النشر. كل مستند تمّ نشره سيكون متوفراً للجميع</h4>
+			<h4 class="color-darkgrey">يرجى مراجعة المستند الخاص بكم قبل النشر. كل مستند تمّ نشره سيكون متوفراً للجميع</h4>
 		</div>
 
 
 		<div ng-show="hasErrors()" class="alert alert-warning">
 			<h2 class="color-red">مستندكم يحتوي على أخطاء</h2>
-			<h4 class="color-darkgrey"> يجب تصحيح جميع الأخطاء قبل أن يتم نشر هذا المستند.</h4>
+			<h4 class="color-darkgrey">يجب تصحيح جميع الأخطاء قبل أن يتم نشر هذا المستند.</h4>
 			<ul>
-				<li ng-repeat="error in report.errors" title="{{error.parameters}}">{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a></li>
+				<li ng-repeat="error in report.errors" title="{{error.parameters}}">{{getTranslation(error.code, error.property, error.parameters)}} /<ul ng-if="error.properties">
+						<li ng-repeat="property in error.properties" title="{{error.parameters}}"><a translation-url href="#" ng-click="jumpTo(property)">{{getLabel(property)}}</a></li>
+					</ul><span ng-if="!error.properties"><a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a></span></li>
 			</ul>
 		</div>
 

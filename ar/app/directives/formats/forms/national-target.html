@@ -1,5 +1,5 @@
 ﻿<div  dir="rtl">
-	<style>.panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; }</style>
+	<style> .panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; } </style>
 	<div class="panel panel-default bg-litegrey">
 		<div class="panel-header bg-darkgrey">
 			<h2 style="margin-top:0px;color:#fff">الإبلاغ إلكترونيا الهدف الوطني<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
@@ -14,7 +14,7 @@
 					</div>
 				</div>
 
-				<div class="row" style="padding:15px;" ng-show="status=='loading'">قيد التحميل ...</div>
+				<div class="row" style="padding:15px;" ng-show="status=='loading'">Loading...</div>
 
 				<div ng-hide="status=='hidden'||status=='loading'">
 
@@ -47,7 +47,7 @@
 								<div class="panel-body">
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" required name="government" caption="الدولة">
+											<div class="km-control-group" required name="government" caption="البلد">
 												<div km-select ng-disabled="!!defaultGovernment()" required name="government" ng-model="document.government" placeholder="يرجى اختيار البلد..." watch-items items="options.countries"></div>
 											</div>
 										</div>
@@ -189,7 +189,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">الحقل "ملاحظات" للاستخدام الشخصي ويظهر فقط أثناء تحرير السجل.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>

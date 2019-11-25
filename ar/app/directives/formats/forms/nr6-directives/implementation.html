@@ -1,12 +1,12 @@
 ﻿<div class="edit-implementation-measure" dir="rtl">
-    <style>.webui-popover { z-index: 19999; }</style>   
+    <style> .webui-popover { z-index: 19999; } </style>   
     <div class="panel panel-default">
         <div class="panel-header">
             <h3>القسم الثاني تدابير التنفيذ وفعاليتها، والعقبات المرتبطة بها، والاحتياجات العلمية والتقنية اللازمة لتحقيق الأهداف الوطنية</h3>
         </div>
         <div class="panel-body">
             <div class="row  bottom-spacing">
-                <div class="col-md-12"><span class="help-block">باستخدام النموذج أدناه، يرجى الإبلاغ عن التدابير الرئيسية التي اتخذها بلدك لتنفيذ استراتيجيتها وخطة عملها الوطنية للتنوع البيولوجي. ويرجى أيضا تقديم تقييم لمدى فعالية هذه التدابير. وينبغي تكرار النموذج لكل تدبير مبلغ عنه. <a translation-url info-bar data-content="يتمثل الهدف من هذا القسم من التقرير الوطني السادس في جمع معلومات عن التدابير الرئيسية التي اتخذتها البلدان لتنفيذ استراتيجياتها وخطط عملها الوطنية للتنوع البيولوجي وتحقيق أهدافها الوطنية. يسعى هذا القسم من المبادئ التوجيهية للإبلاغ للحصول على المعلومات بشأن &lt;ul&gt;&lt;li&gt;  (أ) فعالية التدابير المتخذة &lt;/li&gt;&lt;li&gt;  (ب) أية عقبات تم تحديدها أو الاحتياجات العلمية والتقنية التي ينبغي معالجتها و  &lt;/li&gt;&lt;li&gt; (ج) أية احتياجات لدعم التنفيذ.  &lt;/li&gt;&lt;/ul&gt; . وإنه ليس من الضروري سرد كافة التدابير الفردية التي تم اتخاذها. وينبغي للبلدان أن تقتصر الإبلاغ على تلك التدابير التي هي ذات أهمية وطنية. . وعلاوة على ذلك، قد ترغب الأطراف في الجمع بين أنواع أو فئات مماثلة من التدابير في مدخل واحد في التقرير الوطني من أجل تبسيط عملية الإبلاغ."
+                <div class="col-md-12"><span class="help-block">باستخدام النموذج أدناه، يرجى الإبلاغ عن التدابير الرئيسية التي اتخذها بلدك لتنفيذ استراتيجيتها وخطة عملها الوطنية للتنوع البيولوجي. ويرجى أيضا تقديم تقييم لمدى فعالية هذه التدابير. وينبغي تكرار النموذج لكل تدبير مبلغ عنه. <a translation-url info-bar data-content="يتمثل الهدف من هذا القسم من التقرير الوطني السادس في جمع معلومات عن التدابير الرئيسية التي اتخذتها البلدان لتنفيذ استراتيجياتها وخطط عملها الوطنية للتنوع البيولوجي وتحقيق أهدافها الوطنية. يسعى هذا القسم من المبادئ التوجيهية للإبلاغ للحصول على المعلومات بشأن <ul><li>  (أ) فعالية التدابير المتخذة </li><li>  (ب) أية عقبات تم تحديدها أو الاحتياجات العلمية والتقنية التي ينبغي معالجتها و  </li><li> (ج) أية احتياجات لدعم التنفيذ.  </li></ul> . وإنه ليس من الضروري سرد كافة التدابير الفردية التي تم اتخاذها. وينبغي للبلدان أن تقتصر الإبلاغ على تلك التدابير التي هي ذات أهمية وطنية. . وعلاوة على ذلك، قد ترغب الأطراف في الجمع بين أنواع أو فئات مماثلة من التدابير في مدخل واحد في التقرير الوطني من أجل تبسيط عملية الإبلاغ."
                             data-title="مساعدة CHM التقرير الوطني السادس"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
                 <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.implementationMeasure')">افتح كل شيء <i class="fa  fa-arrow-circle-o-up" /></a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.implementationMeasure')">إغلاق كل شيء <i class="fa  fa-arrow-circle-o-down" /> </a><button type="button" class="btn btn-primary pull-right" ng-click="addImplementationMeasure()">إضافة تدابير</button>
                 </div>
@@ -66,7 +66,7 @@
                         <km-value-ml value="implementationMeasure.otherRelevantInformation" locales="document.header.languages" km-pre html></km-value-ml>
                     </div>
                     <div ng-show="implementationMeasure.otherRelevantDocuments">
-                        <label>عنوان لموقع إنترنت أو وثائق مرفقة أخرى ذات صلة</label>
+                        <label>Other relevant website address or attached documents</label>
                         <div class="km-value">
                             <div ng-repeat="item in implementationMeasure.otherRelevantDocuments"><a translation-url target="_blank" ng-href="{{item.url}}">{{item.name||item.url}}</a> <span ng-if="item.tag">({{item.tag}})</span></div>
                         </div>
@@ -124,7 +124,7 @@
             </div>
             <div class="col-md-12">
                 <div class="km-control-group" name="implementationMeasureAssessmentDescription" caption="يرجى توضيح سبب الاختيار والإشارة إن أمكن إلى الأدوات أو المنهجية المستخدمة لتقييم الفاعلية"
-                    data-content="يرجى تقديم معلومات إثباتية للاختيار الوارد أعلاه بشأن فعالية هذا الإجراء. على سبيل المثال، يمكن أن يشمل ذلك المعلومات المتعلقة بالتغيرات التي طرأت على حالة واتجاهات التنوع البيولوجي أو تغيرات الضغوط على التنوع البيولوجي أو دوافع فقدانه. . ويمكن أن تشمل أيضا التغيرات في الظروف الاجتماعية والاقتصادية، مثل الوعي بالتنوع البيولوجي، والتغيرات في توافر الموارد، والتغيرات في السياسات الحكومية، أو تغييرات في سلوك القطاعات الرئيسية في البلاد.&lt;/br&gt; 
+                    data-content="يرجى تقديم معلومات إثباتية للاختيار الوارد أعلاه بشأن فعالية هذا الإجراء. على سبيل المثال، يمكن أن يشمل ذلك المعلومات المتعلقة بالتغيرات التي طرأت على حالة واتجاهات التنوع البيولوجي أو تغيرات الضغوط على التنوع البيولوجي أو دوافع فقدانه. . ويمكن أن تشمل أيضا التغيرات في الظروف الاجتماعية والاقتصادية، مثل الوعي بالتنوع البيولوجي، والتغيرات في توافر الموارد، والتغيرات في السياسات الحكومية، أو تغييرات في سلوك القطاعات الرئيسية في البلاد.</br> 
 وعند الإبلاغ عن هذه المسألة، ينبغي للأطراف أن يضعوا في اعتبارهم الفقرة 29 من المقرر 13/1 التي تشجع الأطراف على إجراء تقييمات لفعالية التدابير المتخذة من أجل تنفيذ الخطة الاستراتيجية للتنوع البيولوجي 2011-2020، لتوثيق الخبرات، بما في ذلك المنهجيات المستخدمة، وتحديد الدروس المستفادة، وتوفير هذه المعلومات إلى الأمين التنفيذي، بما في ذلك من خلال التقرير الوطني السادس وآلية غرفة تبادل المعلومات.">
                     <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="implementationMeasureAssessmentDescription" ng-model="implementationMeasure.assessmentDescription"
                         locales="document.header.languages" rows="3"></div>

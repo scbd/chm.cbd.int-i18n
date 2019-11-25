@@ -1,8 +1,8 @@
 ﻿<div >
-	<style>.panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; }</style>
+	<style> .panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; } </style>
 	<div class="panel panel-default bg-litegrey">
 		<div class="panel-header bg-darkgrey">
-			<h2 style="margin-top:0px;color:#fff">Presentaci&oacute;n de Informes en L&iacute;nea Metas nacionales<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
+			<h2 style="margin-top:0px;color:#fff">Presentación de Informes en Línea Metas nacionales<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
 		</div>
 		<div class="panel-body">
 			<md-content style="padding:5px;overflow: visible;" class="bg-litegrey nationalTargetForm">		
@@ -31,7 +31,7 @@
 							<ul class="pagination">
 								<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
 								<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">General</a></li>
-								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">Revisi&oacute;n</a></li>
+								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">Revisión</a></li>
 								<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
 							</ul>
 						</div>
@@ -42,13 +42,13 @@
 						<div km-tab="general">
 							<div class="panel panel-default panelMain">
 								<div class="panel-header">
-									<h3>Informaci&oacute;n general</h3>
+									<h3>Información general</h3>
 								</div>
 								<div class="panel-body">
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" required name="government" caption="Pa&iacute;s">
-												<div km-select ng-disabled="!!defaultGovernment()" required name="government" ng-model="document.government" placeholder="Seleccione un pa&iacute;s" watch-items items="options.countries"></div>
+											<div class="km-control-group" required name="government" caption="País">
+												<div km-select ng-disabled="!!defaultGovernment()" required name="government" ng-model="document.government" placeholder="Seleccione un país" watch-items items="options.countries"></div>
 											</div>
 										</div>
 									</div>
@@ -56,7 +56,7 @@
 							</div>
 							<div class="panel panel-default panelMain">
 								<div class="panel-header">
-									<h3>Informaci&oacute;n sobre las metas que se procura alcanzar a nivel nacional</h3>
+									<h3>Información sobre las metas que se procura alcanzar a nivel nacional</h3>
 								</div>
 								<div class="panel-body">
 									<div class="row">
@@ -65,24 +65,24 @@
 
 												<h4><input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="false"/><span ng-class="{'color-litegrey': document.isAichiTarget}">Crear una nueva Meta Nacional.</span></h4>
 
-												<h4><input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Usar una  <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >Meta de Aichi para la Diversidad Biol&oacute;gica</a> como su Meta Nacional</span></h4>
+												<h4><input type="radio" name="type" ng-model="document.isAichiTarget" ng-value="true"/><span ng-class="{'color-litegrey': !document.isAichiTarget}">Usar una  <a translation-url href="https://www.cbd.int/sp/targets/rationale/" target="_new" >Meta de Aichi para la Diversidad Biológica</a> como su Meta Nacional</span></h4>
 
 											</div>
 										</div>
 									</div>
 									<div ng-show="document.isAichiTarget">
-										<legend>Metas de Aichi para la diversidad biol&oacute;gica</legend>
+										<legend>Metas de Aichi para la diversidad biológica</legend>
 
 										<div class="row bottom-spacing">
 											<div class="col-md-12">
-												<div class="km-control-group" required name="aichiTargets" caption="Metas de Aichi para la diversidad biol&oacute;gica">
-													<div km-select required name="aichiTargets" ng-model="selectedAichi.target" placeholder="Por favor seleccione una Meta de Aichi para la Diversidad Biol&oacute;gica." watch-items items="options.aichiTargetsFiltered"></div>
+												<div class="km-control-group" required name="aichiTargets" caption="Metas de Aichi para la diversidad biológica">
+													<div km-select required name="aichiTargets" ng-model="selectedAichi.target" placeholder="Por favor seleccione una Meta de Aichi para la Diversidad Biológica." watch-items items="options.aichiTargetsFiltered"></div>
 												</div>
 											</div>
 
 											<div class="col-md-12">
-												<div class="km-control-group" name="otherAichiTargets" caption="- Metas de Aichi para la diversidad biol&oacute;gica">
-													<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Por favor seleccione Submetas de Aichi para la Diversidad Biol&oacute;gica" watch-items items="options.aichiSubTargets"></div>
+												<div class="km-control-group" name="otherAichiTargets" caption="- Metas de Aichi para la diversidad biológica">
+													<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Por favor seleccione Submetas de Aichi para la Diversidad Biológica" watch-items items="options.aichiSubTargets"></div>
 												</div>
 											</div>
 										</div>
@@ -91,7 +91,7 @@
 									<div ng-show="!document.isAichiTarget">
 										<div class="row">
 											<div class="col-md-12">
-												<div class="km-control-group" required name="title" caption="Metas nacionales" data-container=".nationalTargetForm" data-content="Introduzca el texto de la meta nacional de su pa&iacute;s en uno de los seis idiomas oficiales de las Naciones Unidas. Transcriba el texto completo de la meta nacional, incluido el n&uacute;mero de meta, si tiene. Este campo y los campos restantes de esta secci&oacute;n deben completarse para cada una de las metas nacionales de su pa&iacute;s.">
+												<div class="km-control-group" required name="title" caption="Metas nacionales" data-container=".nationalTargetForm" data-content="Introduzca el texto de la meta nacional de su país en uno de los seis idiomas oficiales de las Naciones Unidas. Transcriba el texto completo de la meta nacional, incluido el número de meta, si tiene. Este campo y los campos restantes de esta sección deben completarse para cada una de las metas nacionales de su país.">
 													<div km-textbox-ml required name="title" ng-model="document.title" locales="document.header.languages"></div>
 												</div>
 											</div>
@@ -99,7 +99,7 @@
 
 										<div class="row">
 											<div class="col-md-12">
-												<div class="km-control-group" required name="description" caption="Justificaci&oacute;n de la meta nacional" data-container=".nationalTargetForm" data-content="Brinde la justificaci&oacute;n de la meta nacional. Esto puede incluir los problemas nacionales que se busca atender con la meta, c&oacute;mo se relaciona la meta con las Metas de Aichi para la Diversidad Biol&oacute;gica o el Plan Estrat&eacute;gico para la Diversidad Biol&oacute;gica 2011-2020, o las razones por las cuales la meta nacional se diferencia de la Meta o Metas de Aichi para la Diversidad Biol&oacute;gica correspondientes. Tal vez las Partes deseen indicar asimismo si esta meta nacional se relaciona o se vincula con otros procesos internacionales o regionales, como, por ejemplo, otras convenciones relacionadas con la diversidad biol&oacute;gica, las Convenciones de R&iacute;o u otros acuerdos ambientales multilaterales. Puede que las Partes tambi&eacute;n deseen hacer comentarios sobre mecanismos nacionales de cumplimiento asociados con la meta. El objetivo de la informaci&oacute;n que se introduce aqu&iacute; es brindar el contexto nacional de la meta. Parte de esa informaci&oacute;n puede estar en la estrategia y plan de acci&oacute;n nacional en materia de biodiversidad de su pa&iacute;s.">
+												<div class="km-control-group" required name="description" caption="Justificación de la meta nacional" data-container=".nationalTargetForm" data-content="Brinde la justificación de la meta nacional. Esto puede incluir los problemas nacionales que se busca atender con la meta, cómo se relaciona la meta con las Metas de Aichi para la Diversidad Biológica o el Plan Estratégico para la Diversidad Biológica 2011-2020, o las razones por las cuales la meta nacional se diferencia de la Meta o Metas de Aichi para la Diversidad Biológica correspondientes. Tal vez las Partes deseen indicar asimismo si esta meta nacional se relaciona o se vincula con otros procesos internacionales o regionales, como, por ejemplo, otras convenciones relacionadas con la diversidad biológica, las Convenciones de Río u otros acuerdos ambientales multilaterales. Puede que las Partes también deseen hacer comentarios sobre mecanismos nacionales de cumplimiento asociados con la meta. El objetivo de la información que se introduce aquí es brindar el contexto nacional de la meta. Parte de esa información puede estar en la estrategia y plan de acción nacional en materia de biodiversidad de su país.">
 													<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" required name="description" ng-model="document.description" rows="5" locales="document.header.languages" placeholder=""></div>
 												</div>
 											</div>
@@ -108,13 +108,13 @@
 										<div class="row bottom-spacing">
 											<div class="col-md-11 ">
 												<div class="help-block"></div>
-												<div class="km-control-group" required name="jurisdiction" caption="Nivel de aplicaci&oacute;n (Especifique a qu&eacute; nivel se aplica la meta):" data-container=".nationalTargetForm" data-content="Indique el nivel administrativo al que corresponde la meta de su pa&iacute;s. En la mayor&iacute;a de los casos, los pa&iacute;ses fijar&aacute;n metas de alcance nacional. Pero, en algunos pa&iacute;ses, las metas pueden ser subnacionales (es decir, de alcance estatal, provincial o de ciudad). Adem&aacute;s, algunos pa&iacute;ses pueden haber adoptado metas de nivel regional (es decir, de varios pa&iacute;ses) como sus metas nacionales. Las Partes que adem&aacute;s son miembros de una organizaci&oacute;n de integraci&oacute;n regional que tambi&eacute;n es Parte en el Convenio no deben informar sobre metas regionales acordadas en ese contexto a menos que las metas nacionales acordadas sean las mismas.">
-													<div km-select name="jurisdiction" ng-model="document.jurisdiction" placeholder="Seleccione el nivel de implementaci&oacute;n" watch-items items="options.jurisdictions"></div>
+												<div class="km-control-group" required name="jurisdiction" caption="Nivel de aplicación (Especifique a qué nivel se aplica la meta):" data-container=".nationalTargetForm" data-content="Indique el nivel administrativo al que corresponde la meta de su país. En la mayoría de los casos, los países fijarán metas de alcance nacional. Pero, en algunos países, las metas pueden ser subnacionales (es decir, de alcance estatal, provincial o de ciudad). Además, algunos países pueden haber adoptado metas de nivel regional (es decir, de varios países) como sus metas nacionales. Las Partes que además son miembros de una organización de integración regional que también es Parte en el Convenio no deben informar sobre metas regionales acordadas en ese contexto a menos que las metas nacionales acordadas sean las mismas.">
+													<div km-select name="jurisdiction" ng-model="document.jurisdiction" placeholder="Seleccione el nivel de implementación" watch-items items="options.jurisdictions"></div>
 												</div>
 											</div>
 											<div class="col-md-12" ng-show="isJurisdictionSubNational()">
 												<div class="help-block"></div>
-												<div class="km-control-group" required name="jurisdictionInfo" caption="Indique el &aacute;rea relacionada para el nivel de implementaci&oacute;n seleccionado">
+												<div class="km-control-group" required name="jurisdictionInfo" caption="Indique el área relacionada para el nivel de implementación seleccionado">
 													<div km-textbox-ml name="jurisdictionInfo" ng-model="document.jurisdictionInfo" locales="document.header.languages" placeholder=""></div>
 												</div>
 											</div>
@@ -124,33 +124,33 @@
 							</div>
 							<div class="panel panel-default panelMain" ng-if="!document.isAichiTarget">
 								<div class="panel-header" name="">
-									<label for="relevantNationalTarget" style="width:0px;height:0px;display:inline"><span style="display:none">Por favor conteste al menos una pregunta relevante a las Metas de Aichi para la Diversidad Biol&oacute;gica.</span></label>
-									<h3>Pertinencia de las metas nacionales en relaci&oacute;n con las Metas de Aichi para la Diversidad Biol&oacute;gica</h3>
+									<label for="relevantNationalTarget" style="width:0px;height:0px;display:inline"><span style="display:none">Por favor conteste al menos una pregunta relevante a las Metas de Aichi para la Diversidad Biológica.</span></label>
+									<h3>Pertinencia de las metas nacionales en relación con las Metas de Aichi para la Diversidad Biológica</h3>
 								</div>
 								<div class="panel-body">
 
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
 
-											<div class="help-block">V&iacute;nculos entre los objetivos nacionales y las metas de Aichi para la Diversidad Biol&oacute;gica (Nota: No es necesario ingresar esta informaci&oacute;n si su pa&iacute;s informa en contra de las Metas de Aichi para la Diversidad Biol&oacute;gica).</div>
+											<div class="help-block">Vínculos entre los objetivos nacionales y las metas de Aichi para la Diversidad Biológica (Nota: No es necesario ingresar esta información si su país informa en contra de las Metas de Aichi para la Diversidad Biológica).</div>
 
-											<div class="km-control-group" name="aichiTargets" caption="Principales Metas de Aichi para la Diversidad Biol&oacute;gica relacionadas (Seleccione una o m&aacute;s Metas de Aichi para la Diversidad Biol&oacute;gica con las que se relaciona su meta nacional parcial o totalmente. Las partes pueden seleccionar un objetivo completo o un componente de destino)" data-container=".nationalTargetForm" data-content="Si corresponde, indique la Meta o Metas de Aichi para la Diversidad Biol&oacute;gica con las que se relaciona m&aacute;s directamente la meta nacional de su pa&iacute;s. Seg&uacute;n c&oacute;mo est&eacute; formulada la meta nacional de su pa&iacute;s, es posible que se relacione directamente con varias Metas de Aichi para la Diversidad Biol&oacute;gica o con componentes de ellas. Algunas Partes pueden haber optado por este tipo de configuraci&oacute;n en sus quintos informes nacionales o en sus estrategias y planes de acci&oacute;n nacionales en materia de biodiversidad.">
-												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="Por favor seleccione las Metas de Aichi para la Diversidad Biol&oacute;gica principales." watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
+											<div class="km-control-group" name="aichiTargets" caption="Principales Metas de Aichi para la Diversidad Biológica relacionadas (Seleccione una o más Metas de Aichi para la Diversidad Biológica con las que se relaciona su meta nacional parcial o totalmente. Las partes pueden seleccionar un objetivo completo o un componente de destino)" data-container=".nationalTargetForm" data-content="Si corresponde, indique la Meta o Metas de Aichi para la Diversidad Biológica con las que se relaciona más directamente la meta nacional de su país. Según cómo esté formulada la meta nacional de su país, es posible que se relacione directamente con varias Metas de Aichi para la Diversidad Biológica o con componentes de ellas. Algunas Partes pueden haber optado por este tipo de configuración en sus quintos informes nacionales o en sus estrategias y planes de acción nacionales en materia de biodiversidad.">
+												<div km-select name="aichiTargets" multiple ng-model="document.aichiTargets" placeholder="Por favor seleccione las Metas de Aichi para la Diversidad Biológica principales." watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>
 
 										<div class="col-md-12">
-											<div class="km-control-group" name="otherAichiTargets" caption="Otras Metas de Aichi para la Diversidad Biol&oacute;gica relacionadas (Seleccione una o m&aacute;s Metas de Aichi para la Diversidad Biol&oacute;gica con las que se relaciona indirectamente la meta nacional)." data-container=".nationalTargetForm" data-content="Si corresponde, indique la Meta o Metas de Aichi para la Diversidad Biol&oacute;gica con las que se relaciona indirecta o parcialmente la meta nacional de su pa&iacute;s. Dada la amplitud de las Metas de Aichi para la Diversidad Biol&oacute;gica y los temas que abordan, la meta nacional de su pa&iacute;s puede estar indirectamente relacionada con una o varias Metas de Aichi para la Diversidad Biol&oacute;gica. Algunas Partes pueden haber optado por este tipo de configuraci&oacute;n en sus quintos informes nacionales o en sus estrategias y planes de acci&oacute;n nacionales en materia de biodiversidad.">
-												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Seleccione otras Metas de Aichi para la Diversidad Biol&oacute;gica o componentes Target" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
+											<div class="km-control-group" name="otherAichiTargets" caption="Otras Metas de Aichi para la Diversidad Biológica relacionadas (Seleccione una o más Metas de Aichi para la Diversidad Biológica con las que se relaciona indirectamente la meta nacional)." data-container=".nationalTargetForm" data-content="Si corresponde, indique la Meta o Metas de Aichi para la Diversidad Biológica con las que se relaciona indirecta o parcialmente la meta nacional de su país. Dada la amplitud de las Metas de Aichi para la Diversidad Biológica y los temas que abordan, la meta nacional de su país puede estar indirectamente relacionada con una o varias Metas de Aichi para la Diversidad Biológica. Algunas Partes pueden haber optado por este tipo de configuración en sus quintos informes nacionales o en sus estrategias y planes de acción nacionales en materia de biodiversidad.">
+												<div km-select name="otherAichiTargets" multiple ng-model="document.otherAichiTargets" placeholder="Seleccione otras Metas de Aichi para la Diversidad Biológica o componentes Target" watch-items items="options.aichiTargets" ng-disabled="isTypeAichiTarget()"></div>
 											</div>
 										</div>							
 										
 										<div class="col-md-12" ng-hide="document.aichiTargets && document.aichiTargets.length>0 || document.otherAichiTargets && document.otherAichiTargets.length>0">
 											<div class="checkbox">
 												<label>
-													<input type="checkbox"  ng-model="document.noOtherAichiTargets"/>La meta nacional no tiene una Meta de Aichi para la Diversidad Biol&oacute;gica correspondiente o bien se relaciona con otras partes del Plan Estrat&eacute;gico para la Diversidad Biol&oacute;gica <span info-bar data-container=".nationalTargetForm" data-content="Marque esta casilla si la meta nacional no est&aacute; relacionada con ninguna Meta de Aichi para la Diversidad Biol&oacute;gica y brinde informaci&oacute;n que indique c&oacute;mo se relaciona la meta con el Plan Estrat&eacute;gico para la Diversidad Biol&oacute;gica 2011-2020 u otros temas abordados en el marco del Convenio sobre la Diversidad Biol&oacute;gica. Por ejemplo, la meta nacional puede ser pertinente para la Visi&oacute;n o la Misi&oacute;n del Plan Estrat&eacute;gico para la Diversidad Biol&oacute;gica o para uno de sus objetivos estrat&eacute;gicos. Alternativamente, la meta nacional puede relacionarse con uno de los objetivos del Convenio o con uno de sus programas de trabajo."></span></label>
+													<input type="checkbox"  ng-model="document.noOtherAichiTargets"/>La meta nacional no tiene una Meta de Aichi para la Diversidad Biológica correspondiente o bien se relaciona con otras partes del Plan Estratégico para la Diversidad Biológica <span info-bar data-container=".nationalTargetForm" data-content="Marque esta casilla si la meta nacional no está relacionada con ninguna Meta de Aichi para la Diversidad Biológica y brinde información que indique cómo se relaciona la meta con el Plan Estratégico para la Diversidad Biológica 2011-2020 u otros temas abordados en el marco del Convenio sobre la Diversidad Biológica. Por ejemplo, la meta nacional puede ser pertinente para la Visión o la Misión del Plan Estratégico para la Diversidad Biológica o para uno de sus objetivos estratégicos. Alternativamente, la meta nacional puede relacionarse con uno de los objetivos del Convenio o con uno de sus programas de trabajo."></span></label>
 											</div>
-											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="s&iacute;rvase explicar">
+											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="sírvase explicar">
 											
 												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="noOtherAichiTargetsDescription" ng-model="document.noOtherAichiTargetsDescription" rows="3" locales="document.header.languages" placeholder=""></div>
 											</div>
@@ -160,14 +160,14 @@
 							</div>
 							<div class="panel panel-default panelMain">
 								<div class="panel-header">
-									<h3>Documentos e informaci&oacute;n pertinentes</h3>
+									<h3>Documentos e información pertinentes</h3>
 								</div>
 								<div class="panel-body">
 									<div class="help-block">Si es posible, por favor adjunte los documentos pertinentes en los que dicha meta se incluya y pueda ser hallada.</div>
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="relevantInformation" caption="Otra informaci&oacute;n pertinente (Utilice este campo para brindar cualquier otra informaci&oacute;n que sea pertinente, como, por ejemplo, el proceso de elaboraci&oacute;n y adopci&oacute;n de la meta nacional, los interesados directos que participan y las estrategias y planes en los que se ha incluido esta meta nacional)." data-container=".nationalTargetForm" data-content="Proporcione cualquier otra informaci&oacute;n pertinente relacionada con la meta nacional que no se haya cubierto en campos anteriores de la plantilla .">
+											<div class="km-control-group" name="relevantInformation" caption="Otra información pertinente (Utilice este campo para brindar cualquier otra información que sea pertinente, como, por ejemplo, el proceso de elaboración y adopción de la meta nacional, los interesados directos que participan y las estrategias y planes en los que se ha incluido esta meta nacional)." data-container=".nationalTargetForm" data-content="Proporcione cualquier otra información pertinente relacionada con la meta nacional que no se haya cubierto en campos anteriores de la plantilla .">
 												<div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
 											</div>
 										</div>
@@ -175,7 +175,7 @@
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="relevantDocuments" caption="Sitios web, enlaces web y archivos pertinentes (Utilice este campo para indicar sitios web, enlaces web o documentos pertinentes donde pueda encontrarse informaci&oacute;n adicional relacionada con esta meta nacional)." data-container=".nationalTargetForm" data-content="Incluya, si corresponde, cualquier documento o enlace (en cualquier idioma) a informaci&oacute;n adicional que sea pertinente para la meta nacional.">
+											<div class="km-control-group" name="relevantDocuments" caption="Sitios web, enlaces web y archivos pertinentes (Utilice este campo para indicar sitios web, enlaces web o documentos pertinentes donde pueda encontrarse información adicional relacionada con esta meta nacional)." data-container=".nationalTargetForm" data-content="Incluya, si corresponde, cualquier documento o enlace (en cualquier idioma) a información adicional que sea pertinente para la meta nacional.">
 												<div km-link name="relevantDocuments" ng-model="document.relevantDocuments" identifier="document.header.identifier"></div>
 											</div>
 										</div>
@@ -189,7 +189,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">The field “Notes” is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>
@@ -218,7 +218,7 @@
 							<ul class="pagination">
 								<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
 								<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">General</a></li>
-								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">Revisi&oacute;n</a></li>
+								<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">Revisión</a></li>
 								<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
 							</ul>
 						</div>

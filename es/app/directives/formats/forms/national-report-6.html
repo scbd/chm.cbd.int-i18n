@@ -35,13 +35,13 @@
 													<ul  class="pagination"  >
 														<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="switchTab('prev')">&laquo;</a></li>
 														<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">Metas nacionales</a></li>
-														<li ng-class="{ active  : tab=='implementation' }"><a translation-url href="" ng-click="tab='implementation'">Aplicaci&oacute;n</a></li>
-														<li ng-class="{ active  : tab=='progress' }"><a translation-url href="" ng-click="tab='progress'">Evaluaci&oacute;n del progreso</a></li>
-														<li ng-class="{ active  : tab=='nationalContribution' }"><a translation-url href="" ng-click="tab='nationalContribution'">Contribuci&oacute;n nacional</a></li>
-														<li ng-class="{ active  : tab=='gspcContribution' }"><a translation-url href="" ng-click="tab='gspcContribution'">Contribuci&oacute;n EMCEV</a></li>
+														<li ng-class="{ active  : tab=='implementation' }"><a translation-url href="" ng-click="tab='implementation'">Aplicación</a></li>
+														<li ng-class="{ active  : tab=='progress' }"><a translation-url href="" ng-click="tab='progress'">Evaluación del progreso</a></li>
+														<li ng-class="{ active  : tab=='nationalContribution' }"><a translation-url href="" ng-click="tab='nationalContribution'">Contribución nacional</a></li>
+														<li ng-class="{ active  : tab=='gspcContribution' }"><a translation-url href="" ng-click="tab='gspcContribution'">Contribución EMCEV</a></li>
 														<li ng-class="{ active  : tab=='iplcContribution' }"><a translation-url href="" ng-click="tab='iplcContribution'">Contribution PICL</a></li>
-														<li ng-class="{ active  : tab=='countryProfile' }"><a translation-url href="" ng-click="tab='countryProfile'">Perfil del pa&iacute;s</a></li>
-														<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">Revisi&oacute;n</a></li>
+														<li ng-class="{ active  : tab=='countryProfile' }"><a translation-url href="" ng-click="tab='countryProfile'">Perfil del país</a></li>
+														<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">Revisión</a></li>
 														<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="switchTab('next')">&raquo;</a></li>
 													</ul>
 													<button class="btn btn-sm btn-danger pull-right" style="margin-top:20px;margin-left:50px" ng-click="validateSubRecords()">Validate sub records</button>
@@ -72,38 +72,38 @@
 
 								<div class="panel panel-default panelMain" style="min-height:500px">
 									<div class="panel-header">
-										<h3>Secci&oacute;n I. Informaci&oacute;n sobre las metas que se procura alcanzar a nivel nacional</h3>
+										<h3>Sección I. Información sobre las metas que se procura alcanzar a nivel nacional</h3>
 									</div>
 									<div class="panel-body" ng-if="tab=='general'">
 										<div class="row  mainHeading">
-											<div class="col-md-12"><span class="help-block">Llene esta plantilla para cada una de las metas nacionales de su pa&iacute;s. Las metas sobre las que se informa en esta secci&oacute;n se utilizar&aacute;n en otras secciones del sexto informe nacional. Si su pa&iacute;s todav&iacute;a no ha establecido ni adoptado metas nacionales relacionadas con el Plan Estrat&eacute;gico para la Diversidad Biol&oacute;gica 2011 2020, ind&iacute;quelo en la siguiente casilla y pase a la secci&oacute;n II. <a translation-url info-bar data-content="En la primera secci&oacute;n de las directrices para el sexto informe nacional se solicita informaci&oacute;n sobre las metas nacionales que han adoptado los pa&iacute;ses en consonancia con el Plan Estrat&eacute;gico para la Diversidad Biol&oacute;gica 2011-2020 (p&aacute;rr. 3 b) de la decisi&oacute;n X/2). Si su pa&iacute;s ha establecido o adoptado metas nacionales o compromisos equivalentes relacionados con el Plan Estrat&eacute;gico para la Diversidad Biol&oacute;gica 2011-2020, utilice la siguiente plantilla para describir esas metas o compromisos."
+											<div class="col-md-12"><span class="help-block">Llene esta plantilla para cada una de las metas nacionales de su país. Las metas sobre las que se informa en esta sección se utilizarán en otras secciones del sexto informe nacional. Si su país todavía no ha establecido ni adoptado metas nacionales relacionadas con el Plan Estratégico para la Diversidad Biológica 2011 2020, indíquelo en la siguiente casilla y pase a la sección II. <a translation-url info-bar data-content="En la primera sección de las directrices para el sexto informe nacional se solicita información sobre las metas nacionales que han adoptado los países en consonancia con el Plan Estratégico para la Diversidad Biológica 2011-2020 (párr. 3 b) de la decisión X/2). Si su país ha establecido o adoptado metas nacionales o compromisos equivalentes relacionados con el Plan Estratégico para la Diversidad Biológica 2011-2020, utilice la siguiente plantilla para describir esas metas o compromisos."
 													    data-title="Ayuda de CHM: Sexto Informe Nacional"></a></span></div>
 										</div>
 										<div class="section">
 											<div class="section-header">
-												<h3>Informaci&oacute;n general</h3>
+												<h3>Información general</h3>
 											</div>
 											<div class="section-body">
 												<div class="row" >
 
 													<div class="col-md-12">
-														<div class="km-control-group" name="government" required caption="Pa&iacute;s">															
-															<div   km-select ng-if="!user.government" required name="government" single ng-model="document.government" placeholder="Seleccione un pa&iacute;s"
+														<div class="km-control-group" name="government" required caption="País">															
+															<div   km-select ng-if="!user.government" required name="government" single ng-model="document.government" placeholder="Seleccione un país"
 																items="options.countries"></div><span class="btn btn-info" ng-if="user.government" ng-bind="document.government|term:locale"></span></div>
 													</div>
 												</div>
 												<div class="row" ng-if="document.government">
 													<div class="col-md-12">
 														<div class="km-control-group" name="targetPursued">
-															<input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="true" />Mi pa&iacute;s ha adoptado metas nacionales de diversidad biol&oacute;gica o compromisos equivalentes en consonancia con el Plan Estrat&eacute;gico para la Diversidad Biol&oacute;gica 2011-2020 y las Metas de Aichi <a translation-url info-bar data-content="Marque esta casilla si su pa&iacute;s ha adoptado metas nacionales de diversidad biol&oacute;gica o compromisos equivalentes asociados con el logro de las Metas de Aichi para la Diversidad Biol&oacute;gica u otras partes del Plan Estrat&eacute;gico para la Diversidad Biol&oacute;gica 2011-2020."
-															    data-title="Ayuda de CHM: Sexto Informe Nacional"></a> <br/> <br/><input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="false" />Mi pa&iacute;s no ha adoptado metas nacionales para la diversidad biol&oacute;gica e informa sobre los progresos utilizando las Metas de Aichi para la Diversidad Biol&oacute;gica como referencia. (Pase a la secci&oacute;n II. En la secci&oacute;n III, las Metas de Aichi para la Diversidad Biol&oacute;gica se utilizar&aacute;n a los efectos del presente informe como las metas nacionales y se deber&aacute;n evaluar los progresos logrados para alcanzarlas en el contexto nacional). <a translation-url info-bar data-content="Marque esta casilla si su pa&iacute;s no ha establecido (a&uacute;n) metas nacionales de diversidad biol&oacute;gica. En la secci&oacute;n II se pedir&aacute; a su pa&iacute;s que vincule sus medidas de aplicaci&oacute;n a las Metas de Aichi para la Diversidad Biol&oacute;gica. En la secci&oacute;n III se pedir&aacute; a su pa&iacute;s que eval&uacute;e los progresos nacionales en el logro de las Metas de Aichi para la Diversidad Biol&oacute;gica."
+															<input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="true" />Mi país ha adoptado metas nacionales de diversidad biológica o compromisos equivalentes en consonancia con el Plan Estratégico para la Diversidad Biológica 2011-2020 y las Metas de Aichi <a translation-url info-bar data-content="Marque esta casilla si su país ha adoptado metas nacionales de diversidad biológica o compromisos equivalentes asociados con el logro de las Metas de Aichi para la Diversidad Biológica u otras partes del Plan Estratégico para la Diversidad Biológica 2011-2020."
+															    data-title="Ayuda de CHM: Sexto Informe Nacional"></a> <br/> <br/><input type="radio" name="targetPursued" ng-model="document.targetPursued" group="targetPursued" ng-value="false" />Mi país no ha adoptado metas nacionales para la diversidad biológica e informa sobre los progresos utilizando las Metas de Aichi para la Diversidad Biológica como referencia. (Pase a la sección II. En la sección III, las Metas de Aichi para la Diversidad Biológica se utilizarán a los efectos del presente informe como las metas nacionales y se deberán evaluar los progresos logrados para alcanzarlas en el contexto nacional). <a translation-url info-bar data-content="Marque esta casilla si su país no ha establecido (aún) metas nacionales de diversidad biológica. En la sección II se pedirá a su país que vincule sus medidas de aplicación a las Metas de Aichi para la Diversidad Biológica. En la sección III se pedirá a su país que evalúe los progresos nacionales en el logro de las Metas de Aichi para la Diversidad Biológica."
 															    data-title="Ayuda de CHM: Sexto Informe Nacional"><i class="fa fa-info-circle fa-2x"></i></a> <br/> <br/><input type="radio" name="targetPursued" 
 															ng-model="document.notReportingOnNationalTargets" group="targetPursued" 
-															ng-value="true" ng-change="updateNotReportingOnNationalTargets(document.notReportingOnNationalTargets)" />Mi pa&iacute;s ha adoptado objetivos nacionales de diversidad biol&oacute;gica, pero elige informar el progreso utilizando las Metas de Aichi para la Diversidad Biol&oacute;gica como referencia. <a translation-url info-bar data-content="Si su pa&iacute;s ha adoptado objetivos nacionales de biodiversidad pero desea informar utilizando las Metas de Aichi para la Diversidad Biol&oacute;gica, seleccione esta opci&oacute;n. Al seleccionar esta opci&oacute;n, se habilitar&aacute; un cuadro de texto en el que puede proporcionar una explicaci&oacute;n de su elecci&oacute;n."
+															ng-value="true" ng-change="updateNotReportingOnNationalTargets(document.notReportingOnNationalTargets)" />Mi país ha adoptado objetivos nacionales de diversidad biológica, pero elige informar el progreso utilizando las Metas de Aichi para la Diversidad Biológica como referencia. <a translation-url info-bar data-content="Si su país ha adoptado objetivos nacionales de biodiversidad pero desea informar utilizando las Metas de Aichi para la Diversidad Biológica, seleccione esta opción. Al seleccionar esta opción, se habilitará un cuadro de texto en el que puede proporcionar una explicación de su elección."
 															    data-title="Ayuda de CHM: Sexto Informe Nacional"><i class="fa fa-info-circle fa-2x"></i></a><div class="row" ng-if="document.notReportingOnNationalTargets">
 																<div class="col-md-12">
 																	<div class="km-control-group" name="notReportingOnNationalTargetsReason" 
-																	caption="Proporcione informaci&oacute;n sobre por qu&eacute; su pa&iacute;s est&aacute; eligiendo reportar utilizando las Metas de Aichi de Biodiversidad y no las metas nacionales.">
+																	caption="Proporcione información sobre por qué su país está eligiendo reportar utilizando las Metas de Aichi de Biodiversidad y no las metas nacionales.">
 																	
 																		<div km-rich-textbox on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" rows="3"
 																			name="notReportingOnNationalTargetsReason" ng-model="document.notReportingOnNationalTargetsReason" locales="document.header.languages"></div>
@@ -129,7 +129,7 @@
 															<ul class="list-group ng-scope" style="margin-top: 10px;">
 																<li class="list-group-item ng-scope" style="min-height: 50px;">
 																	<div class="pull-right btn-group">
-																		<button ng-disabled="loadingNationalTargets||isDialogOpen" class="btn btn-primary" ng-click="openDialog({},'directives/formats/forms/national-target-dialog','edit-national-target-dialog')">A&ntilde;adir meta</button><a translation-url ng-disabled="loadingNationalTargets" class="btn btn-primary" ng-hre="#" ng-click="refreshNationaTargets()"> <i class="fa fa-spin fa-spinner" ng-if="loadingNationalTargets" />Actualizar</a></div>
+																		<button ng-disabled="loadingNationalTargets||isDialogOpen" class="btn btn-primary" ng-click="openDialog({},'directives/formats/forms/national-target-dialog','edit-national-target-dialog')">Añadir meta</button><a translation-url ng-disabled="loadingNationalTargets" class="btn btn-primary" ng-hre="#" ng-click="refreshNationaTargets()"> <i class="fa fa-spin fa-spinner" ng-if="loadingNationalTargets" />Actualizar</a></div>
 																</li>
 															</ul>
 														</div>
@@ -141,14 +141,14 @@
 
 																		<div class="panel panel-default" id="pnl_{{item.identifier}}">
 																			<div class="panel-header clearfix"><!-- <div class="row"> --> <!-- <div class="col-xs-11">							 --><h3>{{nationalTargets[item.identifier].title|lstring:locale}}<div class="pull-right implementation-measure-action-buttons btn-group" style="padding-right:10px"><a ng-href="#" class="btn" ng-click="movePosition(document.nationalTargets, $index, 'up', 'nationalTarget')"
-																								data-toggle="tooltip" data-placement="top" title="Mover una potici&oacute;n hacia arriba" ng-if="!$first"> <i class="fa fa-level-up" style="font-size:20px"/> </a> <a ng-href="#" class="btn " ng-click="movePosition(document.nationalTargets, $index, 'down', 'nationalTarget')"
-																							data-toggle="tooltip" data-placement="top" title="Mueve una potici&oacute;n hacia abajo" ng-if="!$last"> <i class="fa fa-level-down" style="font-size:20px"/> </a></div>
+																								data-toggle="tooltip" data-placement="top" title="Mover una potición hacia arriba" ng-if="!$first"> <i class="fa fa-level-up" style="font-size:20px"/> </a> <a ng-href="#" class="btn " ng-click="movePosition(document.nationalTargets, $index, 'down', 'nationalTarget')"
+																							data-toggle="tooltip" data-placement="top" title="Mueve una potición hacia abajo" ng-if="!$last"> <i class="fa fa-level-down" style="font-size:20px"/> </a></div>
 																					</h3>
 																					
 																			</div>
 																			<div class="panel-body"><br/><div class="btn-group-xs btn-status" 
 																					ng-if="waitForWorkflow.nationalTarget.identifier != item.identifier || !waitForWorkflow.nationalTarget"><span class="label label-primary pull-right  bg-published"  style="margin-left:5px;"
-																						ng-if="nationalTargets[item.identifier]._state_s=='public' || nationalTargets[item.identifier].publicRecord">p&uacute;blico</span> <span class="label label-warning pull-right  bg-draft" ng-if="nationalTargets[item.identifier]._state_s=='draft'">Draft</span> <span class="label label-warning pull-right  bg-request" ng-if="nationalTargets[item.identifier]._state_s=='workflow'">Esperando aprobaci&oacute;n</span></div>
+																						ng-if="nationalTargets[item.identifier]._state_s=='public' || nationalTargets[item.identifier].publicRecord">público</span> <span class="label label-warning pull-right  bg-draft" ng-if="nationalTargets[item.identifier]._state_s=='draft'">Draft</span> <span class="label label-warning pull-right  bg-request" ng-if="nationalTargets[item.identifier]._state_s=='workflow'">Esperando aprobación</span></div>
 																				<div class="btn-status" ng-if="waitForWorkflow.nationalTarget && waitForWorkflow.nationalTarget.identifier == item.identifier"><span class="label label-warning pull-right bg-request"><i class="fa fa-spin fa-spinner"></i > Procesando...</span></div>
 																				<ul ng-if="!nationalTargets[item.identifier].showRecord">
 																					<li ng-repeat="target in nationalTargets[item.identifier].aichiTargets track by $index" ng-if="!nationalTargets[item.identifier].isAichiTarget && nationalTargets[item.identifier].aichiTargets">{{target}}</li>
@@ -171,7 +171,7 @@
 																						ng-click="showRecord(nationalTargets[item.identifier], 'national-target')"
 																						ng-if="nationalTargets[item.identifier].showRecord"><i class="fa fa-eye-slash"></i> Hide full details</button><a translation-url ng-if="nationalTargets[item.identifier]._state_s=='workflow' " title="Cerrado para editar" target="_blank" class="btn btn-primary" ng-href="/management/requests/{{getWorkflowId(nationalTargets[item.identifier])}}/publishRecord"><i class="fa fa-lock"></i> view status</a><button ng-click="openDialog(nationalTargets[item.identifier],'directives/formats/forms/national-target-dialog','edit-national-target-dialog')" ng-if="nationalTargets[item.identifier]._state_s!='workflow'"
 																						title="Editar" type="button" class="btn btn-primary"><i class="fa fa-edit"></i> editar</button>
-																					<button ng-disabled="nationalTargets[item.identifier]._state_s != 'draft' && nationalTargets[item.identifier].assessments.length > 0" ng-hide="nationalTargets[item.identifier]._state_s=='workflow'" title="Borrar"
+																					<button ng-disabled="nationalTargets[item.identifier]._state_s != 'draft' && nationalTargets[item.identifier].assessments.length > 0" ng-hide="nationalTargets[item.identifier]._state_s=='workflow'" title="Eliminar"
 																						type="button" class="btn btn-primary" ng-click="delete(nationalTargets[item.identifier],'nationalTarget', $event)"><i class="fa fa-trash-o"></i> Borrar</button>
 																				</div>
 																			</div>
@@ -237,7 +237,7 @@
 							<hr>
 							<div class=" alert alert-danger">
 								<div class="glyphicon glyphicon-exclamation-sign"></div>
-								<div>S&oacute;lo se permite un registro del sexto informe nacional para cada gobierno, el sexto informe nacional ya existe para su gobierno, usted ser&aacute; redirigido al reocrd en {{alertSeconds}} segundos...</div>
+								<div>Sólo se permite un registro del sexto informe nacional para cada gobierno, el sexto informe nacional ya existe para su gobierno, usted será redirigido al reocrd en {{alertSeconds}} segundos...</div>
 							</div>
 							<div class="ngdialog-buttons">
 								<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="openExisting()">Redireccionar ahora</button>
@@ -253,7 +253,7 @@
 								<div ng-if="draftRecordToDelete" class="well" style="font-size:14px;">
 									<div style="font-size:11px;font-weight:bold;text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;margin-bottom:10px;">REGISTRO BORRADOR</div>
 									<div class="row">     
-										<div class="col-xs-2" class="color-litegrey">Denominaci&oacute;n:</div> 
+										<div class="col-xs-2" class="color-litegrey">Título:</div> 
 										<div class="col-xs-10" style="font-weight:bold">{{draftRecordToDelete.title|lstring:locale}}</div>
 									</div>
 									<div class="row"> 
@@ -270,7 +270,7 @@
 									<div style="font-size:11px;font-weight:bold;text-transform:uppercase;border-bottom:1px solid #ddd;margin-bottom:10px;" class="color-green">REGISTRO PUBLICADO</div>
 									
 									<div class="row">     
-										<div class="col-xs-2" class="color-litegrey">Denominaci&oacute;n:</div> 
+										<div class="col-xs-2" class="color-litegrey">Título:</div> 
 										<div class="col-xs-10" style="font-weight:bold">{{publicRecordToDelete.title|lstring:locale}}</div>
 									</div>
 									<div class="row"> 
@@ -279,9 +279,9 @@
 									</div>
 		
 									<div class="row" style="margin-top:10px;"> 
-										<div class="col-xs-12"><span class="label label-danger" ng-if="hasAssessment">Elimine la evaluaci&oacute;n del progreso de este objetivo nacional antes de eliminar el objetivo nacional.</span><button ng-if="!hasAssessment" ng-show="security" type="button" class="btn btn-danger" ng-disabled="deletingRecord"
+										<div class="col-xs-12"><span class="label label-danger" ng-if="hasAssessment">Elimine la evaluación del progreso de este objetivo nacional antes de eliminar el objetivo nacional.</span><button ng-if="!hasAssessment" ng-show="security" type="button" class="btn btn-danger" ng-disabled="deletingRecord"
 											ng-click="deletePublic(publicRecordToDelete)" 
-											data-toggle="tooltip" data-placement="top" title="Nota: tambi&eacute;n se borrar&aacute; cualquier borrador pendiente"><span ng-if="!security.canDelete">Solicitar borrar este registro</span> <span ng-if="security.canDelete">Borrar el registro</span></button> 
+											data-toggle="tooltip" data-placement="top" title="Nota: también se eliminará cualquier borrador pendiente."><span ng-if="!security.canDelete">Solicitar borrar este registro</span> <span ng-if="security.canDelete">Borrar el registro</span></button> 
 										</div>
 									</div>
 								</div>
@@ -325,7 +325,7 @@
 						<script type="text/ng-template" id="subRecordsValidationErrors.html" trados-translation="true">
 							<table class="table table-bordered">
 								<tr ng-repeat-start="record in recordsToValidate | orderBy:'status'">
-									<td><span ng-if="record.type=='nationalTarget'">Section I : National Target</span> <span ng-if="record.type=='nationalAssessment'">Section III : Evaluaci&oacute;n del progreso</span></td>										
+									<td><span ng-if="record.type=='nationalTarget'">Section I : National Target</span> <span ng-if="record.type=='nationalAssessment'">Section III : Evaluación del progreso</span></td>										
 									<td ng-bind="(record.workingDocumentTitle||record.title)|lstring:locale"></td>
 									<td>
 										<div ng-switch="record.status"><span ng-switch-when="2" class="label label-success">Valid</span><div ng-switch-when="1" ><span class="label label-warning">Invalid</span><button class="btn btn-xs btn-danger" ng-click="record.showErrors=!record.showErrors">Show Errors <span class="badge" ng-bind="record.errors.length"></span></button>
@@ -338,13 +338,13 @@
 											<tr ng-repeat="error in record.errors">
 												<td style="max-width:75px"><span>El campo es obligatorio</span></td>
 												<td ng-switch="error.property">	
-													<div ng-switch-when="relevantNationalTarget" >Por favor conteste al menos una pregunta relevante a las Metas de Aichi para la Diversidad Biol&oacute;gica.</div>
+													<div ng-switch-when="relevantNationalTarget" >Por favor conteste al menos una pregunta relevante a las Metas de Aichi para la Diversidad Biológica.</div>
 													<div ng-switch-when="title" >Metas nacionales</div>
 													<div ng-switch-when="jurisdiction" >Level of application Please specify the level to which the target applies</div>
-													<div ng-switch-when="jurisdictionInfo" >Indique el &aacute;rea relacionada para el nivel de implementaci&oacute;n seleccionado</div>									
-													<div ng-switch-when="relevantNationalTarget" >Metas de Aichi para la diversidad biol&oacute;gica</div>
-													<div ng-switch-when="progress" >&Iacute;ndice de progreso hacia la implementaci&oacute;n de la meta seleccionada.</div>
-													<div ng-switch-when="confidence" >Nivel de confianza de la evaluaci&oacute;n indicada anteriormente</div>
+													<div ng-switch-when="jurisdictionInfo" >Indique el área relacionada para el nivel de implementación seleccionado</div>									
+													<div ng-switch-when="relevantNationalTarget" >Metas de Aichi para la diversidad biológica</div>
+													<div ng-switch-when="progress" >Índice de progreso hacia la implementación de la meta seleccionada.</div>
+													<div ng-switch-when="confidence" >Nivel de confianza de la evaluación indicada anteriormente</div>
 													<div ng-switch-when="nationalTarget" >Meta:</div>
 													<div ng-switch-default ng-bind="error.code + ':' + error.property "></div>
 												</td>

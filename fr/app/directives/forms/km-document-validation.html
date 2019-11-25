@@ -4,16 +4,18 @@
 
 	<div ng-show="report">
 		<div ng-show="isValid()" class="alert alert-success">
-			<h2>Votre document est valide et peut maintenant &ecirc;tre publi&eacute;.</h2>
-			<h4 class="color-darkgrey"> Veuillez consulter votre document avant de le publier. Tous les documents publi&eacute;s sont rendus publics.</h4>
+			<h2>Votre document est valide et peut maintenant être publié.</h2>
+			<h4 class="color-darkgrey">Veuillez consulter votre document avant de le publier. Tous les documents publiés sont rendus publics.</h4>
 		</div>
 
 
 		<div ng-show="hasErrors()" class="alert alert-warning">
 			<h2 class="color-red">Votre document contient des erreurs.</h2>
-			<h4 class="color-darkgrey"> Toutes les erreurs doivent &ecirc;tre corrig&eacute;es avant que ce document puisse &ecirc;tre publi&eacute;</h4>
+			<h4 class="color-darkgrey">Toutes les erreurs doivent être corrigées avant que ce document puisse être publié</h4>
 			<ul>
-				<li ng-repeat="error in report.errors" title="{{error.parameters}}">{{getTranslation(error.code, error.property, error.parameters)}} / <a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a></li>
+				<li ng-repeat="error in report.errors" title="{{error.parameters}}">{{getTranslation(error.code, error.property, error.parameters)}} /<ul ng-if="error.properties">
+						<li ng-repeat="property in error.properties" title="{{error.parameters}}"><a translation-url href="#" ng-click="jumpTo(property)">{{getLabel(property)}}</a></li>
+					</ul><span ng-if="!error.properties"><a translation-url href="#" ng-click="jumpTo(error.property)">{{getLabel(error.property)}}</a></span></li>
 			</ul>
 		</div>
 

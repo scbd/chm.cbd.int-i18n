@@ -1,9 +1,10 @@
-﻿{
-"unknown"           : "Error desconocido",
-"mandatory"         : "El campo es obligatorio" ,
-"invalidValue"      : "La contraseña no es válida." ,
-"invalidProperty"   : "Este valor no se puede especificar" ,
-"unspecifiedLocale" : "Se utiliza un idioma pero no se especifica en el documento" ,
-"unexpectedTerm"    : "No se puede utilizar un término especificado" ,
-"invalidType"       : "La contraseña no es válida."    
+{
+  "unknown": "Error desconocido",
+  "mandatory": "El campo es obligatorio",
+  "MandatoryAnyOf": "",
+  "invalidValue": "La contraseña no es válida.",
+  "invalidProperty": "Este valor no se puede especificar",
+  "unspecifiedLocale": "Se utiliza un idioma pero no se especifica en el documento",
+  "unexpectedTerm": "No se puede utilizar un término especificado",
+  "invalidType": "La contraseña no es válida."
 }

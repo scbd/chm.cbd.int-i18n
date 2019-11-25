@@ -1,6 +1,7 @@
-﻿{
+{
   "unknown": "خطأ غير معروف",
   "mandatory": "حقل إلزامى",
+  "MandatoryAnyOf": "",
   "invalidValue": "كلمة المرور غير صالحة",
   "invalidProperty": "لا يمكن تحديد هذه القيمة",
   "unspecifiedLocale": "يتم استخدام لغة ولكن لم يتم تحديدها في المستند",

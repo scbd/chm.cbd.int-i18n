@@ -7,8 +7,9 @@
 			<li class="list-group-item" ng-repeat="link in links">
 				<table style="width:100%">
 					<tr>
-						<td><a translation-url target="_blank" ng-href="{{link.url}}">{{link.name||link.url}}</a> <span ng-show="link.tag">({{link.tag}})</span></td>
+						<td><span ng-show="link.language">{{locales[link.language]}} |</span> <a translation-url target="_blank" ng-href="{{link.url}}">{{link.name||link.url}}</a> <span ng-show="link.tag">({{link.tag}})</span></td>
 						<td style="white-space:nowrap;text-align:right;vertical-align:top">
+							<button type="button" class="btn btn-default" ng-click="edit(link)"><i class="fa fa-edit"></i></button>
 							<button type="button" class="btn btn-default" ng-click="remove(link)"><i class="fa fa-trash-o"></i></button>
 						</td>
 					</tr>
@@ -26,7 +27,7 @@
 					<div class="alert alert-info">Укажите URL-адрес веб-сайта (например<a translation-url target="_blank" href="http://www.cbd.int">http://www.cbd.int</a>) и название веб-сайта (например, «Конвенция о биологическом разнообразии»).</div>
 					<form name="linkForm">
 						<fieldset>
-							<div class="alert alert-warning" ng-show="linkForm.$error.url"><strong>Внимание!</strong> Указанное значение не является допустимым URL<ul><li> Убедитесь, что URL начинается с http: // или https: //</li></ul>
+							<div class="alert alert-warning" ng-show="linkForm.$error.url"><strong>Внимание!</strong> Указанное значение не является допустимым URL<ul><li>Убедитесь, что URL начинается с http: // или https: //</li></ul>
 							</div>
 							<div class="control-group" ng-class="{error: linkForm.editor.url.$invalid}">
 								<label class="control-label" ng-required="editor.visible" for="url">URL-адрес</label>
@@ -37,11 +38,18 @@
 								<label>Название</label>
 								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="пример: Веб-сайт Секретариата Конвенции о биологическом разнообразии">
 							</div>
+
+							<div class="control-group">
+								<label>UN Language</label>
+								<select ng-model="editor.language" name="fileLanguage" class="form-control">
+									<option ng-repeat="(key, locale) in locales" value="{{key}}" ng-bind="locale"></option>
+								</select>
+							</div>
 						</fieldset>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" ng-click="editor.close()">Отмена</button>
+					<button type="button" class="btn btn-default" ng-click="editor.close()">Cancel</button>
 					<button type="button" class="btn btn-primary" ng-click="linkForm.$invalid || editor.save()" ng-disabled="linkForm.$invalid" >Сохранить</button>
 				</div>
 			</div>
@@ -65,6 +73,12 @@
 					<div class="control-group" >
 						<label>Имя файла</label>
 						<input class="form-control" type="text" style="width:98%" ng-model="editor.name" ng-disabled="true">
+					</div>
+					<div class="control-group">
+						<label>UN Language</label>
+						<select ng-model="editor.language" name="fileLanguage" class="form-control">
+							<option ng-repeat="(key, locale) in locales" value="{{key}}" ng-bind="locale"></option>
+						</select>
 					</div><br/><div class="control-group" >
 						<label>Теги</label>
 						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="пример: биологическое разнообразие, целевая задача по сохранению и устойчивому использованию биоразнообразия, принятая в Айти">

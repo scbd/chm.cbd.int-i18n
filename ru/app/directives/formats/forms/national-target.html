@@ -1,5 +1,5 @@
 ﻿<div >
-	<style>.panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; }</style>
+	<style> .panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; } </style>
 	<div class="panel panel-default bg-litegrey">
 		<div class="panel-header bg-darkgrey">
 			<h2 style="margin-top:0px;color:#fff">Отчетность онлайн Национальные целевые задачи<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
@@ -148,7 +148,7 @@
 										<div class="col-md-12" ng-hide="document.aichiTargets && document.aichiTargets.length>0 || document.otherAichiTargets && document.otherAichiTargets.length>0">
 											<div class="checkbox">
 												<label>
-													<input type="checkbox"  ng-model="document.noOtherAichiTargets"/>Национальная целевая задача не соответствует никакой целевой задаче по сохранению и устойчивому использованию биоразнообразия, принятой в Айти, или соответствует другим частям Стратегического плана в области сохранения и устойчивого использования биоразнообразия. <span info-bar data-container=".nationalTargetForm" data-content="Просьба отметить &ldquo;галочкой&rdquo; это окно, если национальная целевая задача не связана с одной из целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, и представить информацию с указанием, как целевая задача связана со Стратегическим планом в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы или с другими вопросами, решаемыми в рамках Конвенции о биологическом разнообразии. Например, национальная целевая задача может быть связана с концепцией или миссией Стратегического плана в области сохранения и устойчивого использования биоразнообразия или с одной из его стратегических целей. Или же национальная целевая задача может быть связана с одной из целей Конвенции или с одной из программ работы в ее рамках."></span></label>
+													<input type="checkbox"  ng-model="document.noOtherAichiTargets"/>Национальная целевая задача не соответствует никакой целевой задаче по сохранению и устойчивому использованию биоразнообразия, принятой в Айти, или соответствует другим частям Стратегического плана в области сохранения и устойчивого использования биоразнообразия. <span info-bar data-container=".nationalTargetForm" data-content="Просьба отметить “галочкой” это окно, если национальная целевая задача не связана с одной из целевых задач по сохранению и устойчивому использованию биоразнообразия, принятых в Айти, и представить информацию с указанием, как целевая задача связана со Стратегическим планом в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы или с другими вопросами, решаемыми в рамках Конвенции о биологическом разнообразии. Например, национальная целевая задача может быть связана с концепцией или миссией Стратегического плана в области сохранения и устойчивого использования биоразнообразия или с одной из его стратегических целей. Или же национальная целевая задача может быть связана с одной из целей Конвенции или с одной из программ работы в ее рамках."></span></label>
 											</div>
 											<div ng-if="document.noOtherAichiTargets" class="km-control-group" name="noOtherAichiTargetsDescription" caption="просьба пояснить">
 											
@@ -189,7 +189,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">The field “Notes” is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>

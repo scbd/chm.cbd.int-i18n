@@ -1,12 +1,12 @@
 ﻿<div class="edit-implementation-measure">
-    <style>.webui-popover { z-index:19999; }</style>   
+    <style> .webui-popover { z-index: 19999; } </style>   
     <div class="panel panel-default">
         <div class="panel-header">
             <h3>第二部分为实现国家目标所采取的执行措施、措施成效评估、相关障碍以及科学和技术需求</h3>
         </div>
         <div class="panel-body">
             <div class="row  bottom-spacing">
-                <div class="col-md-12"><span class="help-block">请用下面摸板报告贵国为执行本国国家生物多样性战略和行动计划所采取的主要措施的信息。还请对这些措施的成效作出评估。本模板应予复制，以供逐一填写所报告的各项措施。 <a translation-url info-bar data-content="报告的第二部分旨在收集关于各国为执行本国国家生物多样性战略和行动计划以及实现本国目标所采取的主要措施的信息报告指南这一部分要求各国提供以下信息 &lt;ul&gt;&lt;li&gt;(a) 采取措施的有效性；&lt;/li&gt;&lt;li&gt; (b) 任何需要解决的障碍和科技方面的需求以及 &lt;/li&gt;&lt;li&gt;(c) 履约需要的支持。&lt;/li&gt;&lt;/ul&gt; 没有必要列举所有采取过的措施。各国应该仅报告那些具有全国重要性的措施。另外，各缔约方不妨将类型或类别相似的措施合并成国家报告中的单个条目或者使用不同类型的措施，以精简报告工作。"
+                <div class="col-md-12"><span class="help-block">请用下面摸板报告贵国为执行本国国家生物多样性战略和行动计划所采取的主要措施的信息。还请对这些措施的成效作出评估。本模板应予复制，以供逐一填写所报告的各项措施。 <a translation-url info-bar data-content="报告的第二部分旨在收集关于各国为执行本国国家生物多样性战略和行动计划以及实现本国目标所采取的主要措施的信息报告指南这一部分要求各国提供以下信息 <ul><li>(a) 采取措施的有效性；</li><li> (b) 任何需要解决的障碍和科技方面的需求以及 </li><li>(c) 履约需要的支持。</li></ul> 没有必要列举所有采取过的措施。各国应该仅报告那些具有全国重要性的措施。另外，各缔约方不妨将类型或类别相似的措施合并成国家报告中的单个条目或者使用不同类型的措施，以精简报告工作。"
                             data-title="CHM幫助：第六次国家报告"><i class="fa fa-info-circle fa-2x"></i></a></span></div>
                 <div class="col-md-12"><a translation-url href="#" class="btn openall pull-right" style="display:none" ng-click="openall('.implementationMeasure')">打开所有文档 <i class="fa  fa-arrow-circle-o-up" /></a> <a translation-url href="#" class="btn closeall pull-right" ng-click="closeall('.implementationMeasure')">关闭所有文档 <i class="fa  fa-arrow-circle-o-down" /> </a><button type="button" class="btn btn-primary pull-right" ng-click="addImplementationMeasure()">添加措施</button>
                 </div>
@@ -125,7 +125,7 @@
             </div>
             <div class="col-md-12">
                 <div class="km-control-group" name="implementationMeasureAssessmentDescription" caption="请对所作选择作出解释，并尽可能指明上述成效评估所使用的工具或方法"
-                    data-content="请提供佐证信息说明为何就措施成效选择如上评估。其中可以包括与生物多样性的现状及发展趋势发生改变或者生物多样性所承受的压力或生物多样性丧失的驱动因素发生改变有关的信息。还可以包括生物多样性意识等社会经济条件发生改变、资源可用性有所变动、政府政策变更或国家各主要部门的行为有变。 &lt;/br&gt;在就这个问题提出报告时，缔约方应铭记第XIII/1号决定第29段，其中鼓励各缔约方评价为执行2011-2020年生物多样性战略计划所采取措施的成效，记录取得的经验，包括采用的方法，指明吸取的教训，并向执行秘书提供这些信息，包括通过其第六次国家报告和信息交换所机制提供。">
+                    data-content="请提供佐证信息说明为何就措施成效选择如上评估。其中可以包括与生物多样性的现状及发展趋势发生改变或者生物多样性所承受的压力或生物多样性丧失的驱动因素发生改变有关的信息。还可以包括生物多样性意识等社会经济条件发生改变、资源可用性有所变动、政府政策变更或国家各主要部门的行为有变。 </br>在就这个问题提出报告时，缔约方应铭记第XIII/1号决定第29段，其中鼓励各缔约方评价为执行2011-2020年生物多样性战略计划所采取措施的成效，记录取得的经验，包括采用的方法，指明吸取的教训，并向执行秘书提供这些信息，包括通过其第六次国家报告和信息交换所机制提供。">
                     <div km-rich-textbox  on-file-upload="onEditorFileUpload(data)" on-paste="onEditorPaste(html)" identifier="document.header.identifier" name="implementationMeasureAssessmentDescription" ng-model="implementationMeasure.assessmentDescription"
                         locales="document.header.languages" rows="3"></div>
                 </div>

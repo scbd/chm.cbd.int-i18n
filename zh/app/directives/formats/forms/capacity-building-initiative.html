@@ -1,0 +1,450 @@
+﻿<div>
+	<h1>Capacity-building Initiative <small>(Activity/Project/Programme)</small> <i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h1>
+
+	<div class="alert alert-danger" ng-show="hasError()"><strong>出现了一个错误</strong><div>{{error}}</div>
+	</div>
+
+	<div class="row" ng-show="!isLoading()&&status!='hidden'">
+
+		<div class="col-md-12" style="position: relative">
+
+			<div class="row">
+				<div class="col-xs-12 visible-xs">
+					<div class=""><span km-form-languages ng-model="document.header.languages"></span> <span km-form-std-buttons document="document" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)" on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"></span></div>
+				</div>
+
+				<div class="col-sm-8 col-xs-12">
+					<ul class="pagination">
+						<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="prevTab()"											>&laquo;</a></li>
+						<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'"										>一般信息</a></li>
+						<li ng-class="{ active  : tab=='chm'     }"><a translation-url href="" ng-click="tab='chm'"   									    >生物多样性公约</a></li>
+						<li ng-class="{ active  : tab=='absch'   }"><a translation-url href="" ng-click="tab='absch'"    								    >获取和惠益分享（ABS）</a></li>
+						<li ng-class="{ active  : tab=='bch'     }"><a translation-url href="" ng-click="tab='bch'"   									    >生物安全</a></li>
+						<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'"										>Review</a></li>
+						<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="nextTab()"											>&raquo;</a></li>
+					</ul>
+				</div>
+
+				<div class="col-sm-4 hidden-xs" style="text-align:right">
+					<div class="pagination"><span km-form-languages ng-model="document.header.languages"></span> <span km-form-std-buttons document="document" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)" on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"></span></div>
+				</div>
+			</div>
+			<div>
+
+				<form name="editForm" style="margin-top:10px">
+
+					<div km-tab="general">
+
+						<legend>一般信息</legend>
+
+						<div class="row">
+
+							<div class="col-md-10">
+								<div class="km-control-group" required name="title" caption="Title">
+									<div km-textbox-ml required ng-model="document.title" locales="document.header.languages"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" name="projectNumber" caption="项目编号或标识符">
+									<div km-textbox-ml name="projectNumber" ng-model="document.projectNumber" locales="document.header.languages"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="km-control-group" required name="geographicScope" caption="地理范围">
+									<div km-select name="geographicScope" required ng-model="document.geographicScope.scope"
+									 placeholder="请选择一个选项" items="options.geographicScope()" ng-change="clearGeographicSelection()"></div>
+								</div>
+							</div>
+						</div>
+						<div class="row" ng-show="document.geographicScope.scope && (isGlobalOrRegional() || isNational())">
+							
+								<div class="col-md-12">
+								<div class="km-control-group well well-sm" name="regionsOrCountries"
+								required caption="Geographical or political/economic group(s) or Country(ies)" style="padding:10px;">
+									<div class="row">
+										<div class="col-md-5" ng-show="!isNational()"><!-- document.geographicScope.regionsOrCountries --><div class="km-control-group"  name="regions" 
+											caption="Geographical or political/economic group(s)">
+												<div km-select multiple required name="geographicalRegions" 
+												ng-model="document.geographicScope.regions" placeholder="请选择一个选项" 
+												items="options.regions()"></div>
+											</div>
+										</div>
+										<div class="col-md-2" ng-hide="!isGlobalOrRegional()">和/或</div>
+										<div class="col-md-5">
+											<div class="km-control-group"  name="countries" caption="国家">
+												<div km-select multiple required name="geographicalCountries" ng-model="document.geographicScope.countries" placeholder="请选择一个选项" items="options.countries()"></div>
+											</div>
+										</div>
+									</div>
+								</div></div>
+						</div>
+
+						<div class="row" ng-show="isSubnational()">
+							<div class="col-md-10">
+								<div class="km-control-group" required="isSubnational()" name="jurisdiction" caption="辖区">
+									<div km-textbox-ml required="isSubnational()" name="jurisdiction" ng-model="document.geographicScope.jurisdiction" placeholder="" locales="document.header.languages" ng-change="clearCommunity()"></div>
+								</div>
+							</div>
+						</div>
+						<div class="row" ng-show="isCommunity()">
+							<div class="col-md-10">
+								<div class="km-control-group" required="isCommunity()" name="community" caption="社区">
+									<div km-textbox-ml required="isCommunity()" name="community" ng-model="document.geographicScope.community" placeholder="" locales="document.header.languages" ng-change="clearJurisdiction()"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="km-control-group" required name="capacityBuildingType" caption="能力建设倡议类型">
+									<label for="capacityBuildingTypeYes" style="width:0px;height:0px;display:inline"><span style="display:none">至少一个问题的回答为是</span></label>
+									<div style="padding-left:20px" class="well">
+										<div class="km-control-group"  bold="true" required name="isProjectProgramme" caption="a. Is this a dedicated capacity-building project/programme?">
+											<div class="km-yes-no" required name="isProjectProgramme" ng-model="document.capacityBuildingType.isProjectProgramme"></div>
+										</div>
+										<div class="km-control-group"  bold="true" required name="isBroaderProjectPart" caption="b. Is this an activity or component which is part of a broader capacity-building project or programme?">
+											<div class="km-yes-no" required name="isBroaderProjectPart" ng-model="document.capacityBuildingType.isBroaderProjectPart"></div>
+										</div>
+										<div class="km-control-group" name="broaderProjects" caption="Please identify the broader project" ng-show="document.capacityBuildingType.isBroaderProjectPart">
+											<div km-reference multiple name="capacityBuildingInitiative" ng-model="document.capacityBuildingType.broaderProjects"
+											 add-caption="Add Broader Projects..." loader="loadRecords(identifier, 'capacityBuildingInitiative')">
+												<div>
+													<div><strong>{{reference.title | lstring}}</strong></div>
+													<div>{{reference.summary | lstring}}</div>
+												</div>
+											</div>
+										</div>
+										<div class="km-control-group"  bold="true" required name="isStandaloneProject" caption="c. Is this a stand-alone activity that is not part of a broader capacity-building project or programme?">
+											<div class="km-yes-no" required name="isStandaloneProject" ng-model="document.capacityBuildingType.isStandaloneProject"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-12">
+								<div class="km-control-group" required name="status" caption="5.文件状况">
+									<div km-select name="status" required ng-model="document.status" id="documentStatus"
+									placeholder="请选择一个选项" items="options.status()"  show-description="true"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="km-control-group" name="timeframe" required caption="6.时间表">
+									<div class=" well well-sm">
+										<div class="row">
+											<div class="col-md-3">
+												<div class="km-control-group" name="startDate" caption="开始日期">
+													<div km-date name="startDate" ng-model="document.startDate" ng-change="clearDuration()"></div>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="km-control-group" name="endDate" caption="结束日期">
+													<div km-date name="endDate" ng-model="document.endDate" ng-change="clearDuration()"></div>
+												</div>
+											</div>
+											<div class="col-md-1 text-center" ng-show="!document.status || isProposedOrApproved()">
+												<div class="km-control-group bold" name="enddate" style="margin-top:30px;" >或者</div>
+											</div>
+											<div class="col-md-5">
+												<div class="km-control-group" name="duration" caption="持续时间" ng-show="!document.status || isProposedOrApproved()">
+													<label for="durationPeriod" style="width:0px;height:0px;display:inline"><span style="display:none">6.请以数字输入持续时间，例如 24</span></label>
+													<label for="durationText" style="width:0px;height:0px;display:inline"><span style="display:none">6.请指出持续时间的单位是年、月还是日</span></label>
+													<input type="number" name="durationPeriod" ng-model="document.durationPeriod"
+													minlength="1" placeholder="eg. 24" ng-change="clearDates()" class="form-control"
+													style="display:inline-block;width:100px"/>
+													<select name="durationText" ng-model="document.durationText"  class="form-control"
+													style="display:inline-block;width:100px" placeholder="eg. Months">
+														<option value=""></option>	
+														<option value="days">日</option>
+														<option value="months">月</option>
+														<option value="years">年</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" required name="organizations" caption="实施和/或执行该倡议的机构或组织"></div>
+
+								<div class="checkbox"><label><input type="checkbox" ng-model="document.isImplementedByAgencies">实施机构或组织</label></div>
+								<div class="km-control-group" ng-show="document.isImplementedByAgencies" required="document.isImplementedByAgencies" name="implementingAgencies" caption="请选择实施机构或组织">
+									<div km-reference multiple name="implementingAgencies" ng-model="document.implementingAgencies" add-caption="Add an organization..." loader="loadOrgs(identifier)">
+										<div>
+											<div><strong>{{reference.title | lstring}}</strong></div>
+											<div>{{reference.summary | lstring}}</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="checkbox"><label><input type="checkbox" ng-model="document.isExecutededByAgencies">执行机构或组织</label></div>
+								<div class="km-control-group" ng-show="document.isExecutededByAgencies" required="document.isExecutededByAgencies" name="executingAgencies" caption="请选择执行机构或组织">
+									<div km-reference multiple name="executingAgencies" ng-model="document.executingAgencies" add-caption="Add an organization..." loader="loadOrgs(identifier)">
+										<div>
+											<div><strong>{{reference.title | lstring}}</strong></div>
+											<div>{{reference.summary | lstring}}</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="checkbox"><label><input type="checkbox" ng-model="document.isCollaboratededByPartners">合作伙伴</label></div>
+								<div class="km-control-group" ng-show="document.isCollaboratededByPartners" required="document.isCollaboratededByPartners" name="collaboratingPartners" caption="请选择合作伙伴">
+									<div km-reference ng-show="document.isCollaboratededByPartners" multiple name="collaboratingPartners" ng-model="document.collaboratingPartners" add-caption="Add an organization..." loader="loadOrgs(identifier)">
+										<div>
+											<div><strong>{{reference.title | lstring}}</strong></div>
+											<div>{{reference.summary | lstring}}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" required name="projectDocument" caption="描述倡议的项目文件或文件">
+									<div class="help-block">请始终附加相关文档。该文档将存储在数据库中，以供用户下载。对于可在互联网上找到的文档，还请提供这些资源的链接。</div>
+									<div km-link name="projectDocument" required ng-model="document.projectDocument" allow-link="true" allow-file="true" identifier="document.header.identifier"></div>
+								</div>
+							</div>
+						</div>
+
+
+
+						<legend>详细信息</legend>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" required name="description" caption="倡议的简短描述，包括其目标和子目标">
+									<div km-textbox-ml required ng-model="document.description" rows="3" locales="document.header.languages"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" name="audience" caption="目标群体/受益人">
+									<div km-term-check name="audience" required ng-model="document.targetGroups" terms="options.targetGroups()" binding-type="term[]"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" required name="categories" caption="能力建设活动类别">
+									<div km-term-check name="categories" required ng-model="document.categories" terms="options.categories()" binding-type="term[]"></div>
+								</div>
+							</div>
+						</div>
+
+						<legend>资金信息</legend>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" required name="fundingSourceTypes" caption="资金来源类型">
+									<div km-term-check name="fundingSourceTypes" required ng-model="document.fundingSourceTypes" terms="options.fundingSources()" binding-type="term[]"></div>
+								</div>
+							</div>
+						</div>
+						<div class="row" ng-show="isSelfFunding()">
+							<div class="col-md-10">
+								<div class="km-control-group" required="isSelfFunding()" name="selfFunding" caption="请提供有关资金的进一步信息">
+									<div km-textbox-ml required="isSelfFunding()" rows="2" name="selfFunding" ng-model="document.selfFundingInfo" placeholder="" locales="document.header.languages"></div>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" name="corefundingsources" caption="核心资金来源">
+									<div km-reference multiple name="corefundingsources" ng-model="document.coreFundingSources" add-caption="Add an organization..." loader="loadOrgs(identifier)">
+										<div>
+											<div><strong>{{reference.title | lstring}}</strong></div>
+											<div>{{reference.summary | lstring}}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" name="cofinancingsources" caption="共同出资来源">
+									<div km-reference multiple name="cofinancingsource" ng-model="document.coFinancingSources" add-caption="Add an organization..." loader="loadOrgs(identifier)">
+										<div>
+											<div><strong>{{reference.title | lstring}}</strong></div>
+											<div>{{reference.summary | lstring}}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-3">
+								<div class="km-control-group" name="totalBudget" caption="总预算（金额，美元）"><!-- <div km-textbox-ml name="totalBudget" ng-model="document.totalBudget" rows="1" locales="document.header.languages"></div> --><div class="input-group"><span class="input-group-addon">美元</span><input type="text" class="form-control" style="width:200px" required name="totalBudget" ng-model="document.totalBudget" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<legend>能力建设成果</legend>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" name="resultsAchievements" caption="结果"><span class="help-block">Please provide a short summary of the main achievements of the initiative, including those related to advancing gender equality in achieving the objectives of the Convention and its Protocols, if applicable</span><div km-textbox-ml name="resultsAchievements" ng-model="document.resultsAchievements" rows="4" locales="document.header.languages"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" name="resultsOutputs" caption="主要产出"><span class="help-block">请附上/上传由倡议和/或报告形成的相关产品（例如工具和材料）的副本或提供它们的网页链接</span><div km-link name="resultsOutputs" ng-model="document.resultsOutputs" allow-link="true" allow-file="true" identifier="document.header.identifier" ></div>
+								</div>
+							</div>
+						</div><!-- <div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" required name="resultsReference" caption="Clearing-house record containing relevant information">
+									<div km-reference multiple name="resultsReference" ng-model="document.resultsReference" loader="loadOrgs(identifier)">
+										<div>
+											<div><strong>{{reference.title | lstring}}</strong></div>
+											<div>{{reference.summary | lstring}}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> --><div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" name="bestPractices" caption="最佳做法和经验教训"><span class="help-block">Please provide a short summary of the best practices and lessons learned</span><div km-textbox-ml name="bestPractices" ng-model="document.bestPractices" rows="4" locales="document.header.languages"></div>
+								</div>
+							</div>
+						</div><a translation-url name="#AdditionalInformation"></a><legend>Additional information</legend>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" name="address" caption="其它相关信息">
+									<div class="help-block">请在此处提供记录中其它位置未能提到的任何其它相关信息。</div>
+									<div km-textbox-ml ng-model="document.relevantInformation" rows="4" placeholder="" locales="document.header.languages"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" name="relevantDocuments" caption="任何其他相关文件">
+									<div km-link name="relevantDocuments" ng-model="document.relevantDocuments" allow-link="true" allow-file="true" identifier="document.header.identifier" ></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="km-control-group" name="notes">
+									<legend>备注</legend><span class="help-block">The field “Notes” is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div km-tab="chm">
+
+						<legend>主题/话题/问题</legend>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group well well-sm" name="cbdSubjects" caption="Related CBD Subject area(s)">
+									<div km-term-check name="cbdSubjects" ng-model="document.cbdSubjects" terms="options.cbdSubjects()" binding-type="term[]"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row  bottom-spacing">
+							<div class="col-md-10">
+								<div class="km-control-group well well-sm" name="aichiTargets" caption="Relevant Aichi Biodiversity Targets">
+									<div km-term-check name="aichiTargets" ng-model="document.aichiTargets" placeholder="Please select related target..." terms="options.aichiTargets()" binding-type="term[]"></div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div km-tab="absch">
+
+						<legend>主题</legend>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" name="absKeyAreas" caption="能力建设和发展的关键领域和战略措施">
+									<div km-term-check name="absKeyAreas" ng-model="document.absKeyAreas" terms="options.absKeyAreas()" binding-type="term[]"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div km-tab="bch">
+
+						<legend>主题</legend>
+
+						<div class="row">
+							<div class="col-md-10">
+								<div class="km-control-group" name="cpbThematicAreas" caption="专题领域">
+									<div km-term-check name="cpbThematicAreas" ng-model="document.cpbThematicAreas" terms="options.bchSubjects()" binding-type="term[]"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+
+				<div km-tab="review">
+					<div km-document-validation ng-model="validationReport"></div>
+
+					<div class="btn-group" ng-show="document.header.languages.length>1">
+						<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
+					</div>
+					<view-capacity-building-initiative ng-model="document" locale="review.locale" link-target="_blank"></view-capacity-building-initiative>
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-9 col-xs-12">
+						<ul class="pagination">
+							<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="prevTab()"											>&laquo;</a></li>
+							<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'"										>一般信息</a></li>
+							<li ng-class="{ active  : tab=='chm'     }"><a translation-url href="" ng-click="tab='chm'"   									    >生物多样性公约</a></li>
+							<li ng-class="{ active  : tab=='absch'   }"><a translation-url href="" ng-click="tab='absch'"    								    >获取和惠益分享（ABS）</a></li>
+							<li ng-class="{ active  : tab=='bch'     }"><a translation-url href="" ng-click="tab='bch'"   									    >生物安全</a></li>
+							<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'"										>Review</a></li>
+							<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="nextTab()"											>&raquo;</a></li>
+						</ul>
+					</div>
+
+					<div class="col-sm-3 hidden-xs" style="text-align:right">
+						<div class="pagination"><span km-form-std-buttons document="document" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)" on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"></span></div>
+					</div>
+
+					<div class="col-xs-12 visible-xs">
+						<div class=""><span km-form-std-buttons document="document" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)" on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"></span></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

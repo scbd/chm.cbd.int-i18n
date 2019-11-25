@@ -7,8 +7,9 @@
 			<li class="list-group-item" ng-repeat="link in links">
 				<table style="width:100%">
 					<tr>
-						<td><a translation-url target="_blank" ng-href="{{link.url}}">{{link.name||link.url}}</a> <span ng-show="link.tag">({{link.tag}})</span></td>
+						<td><span ng-show="link.language">{{locales[link.language]}} |</span> <a translation-url target="_blank" ng-href="{{link.url}}">{{link.name||link.url}}</a> <span ng-show="link.tag">({{link.tag}})</span></td>
 						<td style="white-space:nowrap;text-align:right;vertical-align:top">
+							<button type="button" class="btn btn-default" ng-click="edit(link)"><i class="fa fa-edit"></i></button>
 							<button type="button" class="btn btn-default" ng-click="remove(link)"><i class="fa fa-trash-o"></i></button>
 						</td>
 					</tr>
@@ -23,10 +24,10 @@
 					<h3>正在编辑链接</h3>
 				</div>
 				<div class="modal-body"  style="max-height:400px;overflow-y:auto">
-					<div class="alert alert-info">请提供网站网址（如：<a translation-url target="_blank" href="http://www.cbd.int">http://bch.cbd.int</a>）和网站名称（如&ldquo;生物安全信息交换所&rdquo;）。</div>
+					<div class="alert alert-info">请提供网站网址（如：<a translation-url target="_blank" href="http://www.cbd.int">http://bch.cbd.int</a>）和网站名称（如“生物安全信息交换所”）。</div>
 					<form name="linkForm">
 						<fieldset>
-							<div class="alert alert-warning" ng-show="linkForm.$error.url"><strong>警告！</strong>指定的值并非有效的网址<ul><li> 确保网址要以 http:// 或者https:// 开始</li></ul>
+							<div class="alert alert-warning" ng-show="linkForm.$error.url"><strong>警告！</strong>指定的值并非有效的网址<ul><li>确保网址要以 http:// 或者https:// 开始</li></ul>
 							</div>
 							<div class="control-group" ng-class="{error: linkForm.editor.url.$invalid}">
 								<label class="control-label" ng-required="editor.visible" for="url">网址</label>
@@ -36,6 +37,13 @@
 							<div class="control-group" ng-class="{error: linkForm.name.$invalid}">
 								<label>名称</label>
 								<input class="form-control" type="text" style="width:98%" ng-model="editor.name"  placeholder="例如：公约秘书处网址">
+							</div>
+
+							<div class="control-group">
+								<label>UN Language</label>
+								<select ng-model="editor.language" name="fileLanguage" class="form-control">
+									<option ng-repeat="(key, locale) in locales" value="{{key}}" ng-bind="locale"></option>
+								</select>
 							</div>
 						</fieldset>
 					</form>
@@ -65,6 +73,12 @@
 					<div class="control-group" >
 						<label>文件名</label>
 						<input class="form-control" type="text" style="width:98%" ng-model="editor.name" ng-disabled="true">
+					</div>
+					<div class="control-group">
+						<label>UN Language</label>
+						<select ng-model="editor.language" name="fileLanguage" class="form-control">
+							<option ng-repeat="(key, locale) in locales" value="{{key}}" ng-bind="locale"></option>
+						</select>
 					</div><br/><div class="control-group" >
 						<label>标记</label>
 						<input class="form-control" type="text" style="width:98%" ng-model="editor.tag"  placeholder="例如：生物多样性，爱知目标">

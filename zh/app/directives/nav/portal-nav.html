@@ -1,0 +1,20 @@
+﻿<div><!-- PORTAL LINKS--><nav class="navbar navbar-links navbar-default navbar-static-top" ng-class="{'bg-blue': !test_env, 'bg-orange': test_env}">
+        <div class="container container-links color-grey">
+
+                <div class="pull-right" style="display:inline"><a translation-url href="/management/national-users" ng-cloak ng-if="canManageNationalUser"><i class="fa fa-users"></i> National users</a></div>
+                <div style="display:inline"><a translation-url href="/">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span translation-url  class="dropdown"> <a data-toggle="dropdown" >Search <span class="caret" style="top:-2px;position: relative;"></span></a><ul class="dropdown-menu" >
+                            <li><a href="/search"><h5>CHM Searches</h5></a></li>
+                            <li><a translation-url  href="/database" ">Search the CHM</a></li>
+                            <li><a translation-url  href="/search/reporting-map?filter=all" >Online Reporting Search</a></li>
+                            <li><a translation-url  href="/search/financial-analyzer" >Financial Reporting Analyzer</a></li>
+                            <hr>
+                            <li><a translation-url target="_new"  href="http://absch.cbd.int/search" >获取和惠益分享信息交换所</a></li>
+                            <li><a translation-url target="_new"  href="http://bch.cbd.int/search" >生物安全信息交换所</a></li>
+                            <li><a translation-url target="_new"  href="https://www.cbd.int/ebsa/" >EBSA Website</a></li>
+                            <li><a translation-url target="_new" href="https://www.cbd.int/kb/" >Search the CBD website</a></li>
+                        </ul></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a translation-url href="/submit" >Submit <span class="hide-sm hide-xs">Information</span></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </nav><!-- PORTAL BREAD CRUMBS--><nav class="navbar navbar-breadcrumbs navbar-default navbar-static-top"  >
+        <div class="container container-breadcrumbs"><a translation-url href="http://www.cbd.int" class="margin-right-xs">CBD</a> <span ng-repeat="breadcrumb in breadcrumbs.get() track by breadcrumb.path" ng-cloak ng-class="{ active: $last }"><span ng-show="!breadcrumb.param">&nbsp;&nbsp;<i class="fa fa-chevron-right color-litegrey"></i>&nbsp;&nbsp; <a translation-url ng-if="!$last" ng-href="{{ breadcrumb.path }}" ng-bind="breadcrumb.label" class="margin-right-xs"></a> <span ng-if="$last" ng-bind="breadcrumb.label"></span></span> <span ng-cloak ng-show="breadcrumb.param && breadcrumbParam">&nbsp;&nbsp;<i class="fa fa-chevron-right color-litegrey"></i>&nbsp;&nbsp; {{breadcrumbParam}}</span></span></div>
+    </nav>
+</div>

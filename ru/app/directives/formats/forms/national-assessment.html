@@ -1,5 +1,5 @@
 ﻿<div>
-	<style>.panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; } .assessmentform .webui-popover { z-index: 9999; }</style>
+	<style> .panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; } .assessmentform .webui-popover { z-index: 9999; } </style>
 	<div class="panel panel-default bg-litegrey">
 		<div class="panel-header bg-darkgrey">
 			<h2 style="margin-top:0px;color:#fff">Отчетность онлайн оценка результативности<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
@@ -111,7 +111,7 @@
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="nationalIndicatorsUsed" caption="Используются ли в вашей стране показатели для оценивания прогресса в достижении этой национальной целевой задачи?" data-container=".assessmentform" data-content="Просьба сообщить обо всех индикаторах, использовавшихся для оценки результатов выполнения данной целевой задачи. Такие индикаторы могут включать те, что приведены в национальных стратегиях и планах действий по сохранению биоразнообразия вашей страны, или те, что были разработаны для других процессов. В решении XIII/28 Конференция Сторон Конвенции о биологическом разнообразии приветствовала список общих и конкретных индикаторов для Стратегического плана в области сохранения и устойчивого использования биоразнообразия на 2011-2020 годы. Изучая результаты достижения национальных целевых задач вашей страны, вы, возможно, пожелаете использовать этот список индикаторов, если это уместно. Более подробную информацию об индикаторах, включая инструменты для разработки национальных индикаторов, можно получить в  
-										&lt;a translation-url href=&apos;http://www.bipindicators.net/&apos; target=&apos;_new &apos;&gt;Партнерстве по индикаторам биоразнообразия &lt;/a&gt; и в &lt;a translation-url href=&apos;http://geobon.org/ &apos; target=&apos;_new &apos;&gt;Группе по наблюдению Земли Сети наблюдения за биоразнообразием &lt;/a&gt;.">
+										<a translation-url href='http://www.bipindicators.net/' target='_new '>Партнерстве по индикаторам биоразнообразия </a> и в <a translation-url href='http://geobon.org/ ' target='_new '>Группе по наблюдению Земли Сети наблюдения за биоразнообразием </a>.">
 
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed, 'btn-default': document.nationalIndicatorsUsed==false}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=true">Да</button>
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed==false, 'btn-default': document.nationalIndicatorsUsed}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=false">Нет</button>
@@ -198,7 +198,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">The field “Notes” is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>

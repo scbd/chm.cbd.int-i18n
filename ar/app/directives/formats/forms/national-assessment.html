@@ -1,5 +1,5 @@
 ﻿<div dir="rtl">
-	<style>.panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; } .assessmentform .webui-popover { z-index: 9999; }</style>
+	<style> .panel-header, .section .section-header { border-bottom: 1px solid #ddd; padding-left: 10px; } .help-block { text-align: justify; } .panelMain .panel-body { padding: 0px } .mainHeading, .section .section-body, .panel-body { padding: 15px!important; } .assessmentform .webui-popover { z-index: 9999; } </style>
 	<div class="panel panel-default bg-litegrey">
 		<div class="panel-header bg-darkgrey">
 			<h2 style="margin-top:0px;color:#fff">الإبلاغ إلكترونيا تقييم العوائق<i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h2>
@@ -43,7 +43,7 @@
 
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
-											<div class="km-control-group" required name="government" caption="الدولة">
+											<div class="km-control-group" required name="government" caption="البلد">
 												<div km-select ng-disabled="!!defaultGovernment()" required name="government" ng-model="document.government" placeholder="يرجى اختيار البلد..." watch-items items="options.countries"></div>
 											</div>
 										</div>
@@ -111,7 +111,7 @@
 									<div class="row bottom-spacing">
 										<div class="col-md-12">
 											<div class="km-control-group" name="nationalIndicatorsUsed" caption="هل استخدم بلدك أي مؤشرات لتقييم التقدم المحرز نحو تحقيق هذا الهدف الوطني?" data-container=".assessmentform" data-content="يرجى الإشارة إلى أي من المؤشرات المستخدمة لتقييم التقدم المحرز نحو تحقيق هذا الهدف. . ويمكن أن تشمل هذه المؤشرات الواردة في الاستراتيجيات وخطط العمل الوطنية للتنوع البيولوجي الخاصة ببلدك أو المؤشرات التي وضعت لعمليات أخرى. وفي المقرر 13/28 رحب مؤتمر الأطراف في اتفاقية التنوع البيولوجي بقائمة المؤشرات العامة والمحددة للخطة الاستراتيجية للتنوع البيولوجي 2011-2020. وفي تقييم التقدم المحرز نحو تحقيق الأهداف الوطنية لبلدك، قد ترغب في الاستفادة من هذه القائمة من المؤشرات، إذا كان ذلك مناسبا. ولمزيد من المعلومات عن المؤشرات، بما في ذلك أدوات لوضع المؤشرات الوطنية، يرجى الاطلاع على موقع   
-										&lt;a translation-url href=&apos;http://www.bipindicators.net/&apos; target=&apos;_new &apos;&gt; شراكة مؤشرات التنوع البيولوجي &lt;/a&gt; و &lt;a translation-url href=&apos;http://geobon.org/ &apos; target=&apos;_new &apos;&gt;شبكة رصد التنوع البيولوجي التابعة للفريق المعني برصد الأرض &lt;/a&gt;.">
+										<a translation-url href='http://www.bipindicators.net/' target='_new '> شراكة مؤشرات التنوع البيولوجي </a> و <a translation-url href='http://geobon.org/ ' target='_new '>شبكة رصد التنوع البيولوجي التابعة للفريق المعني برصد الأرض </a>.">
 
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed, 'btn-default': document.nationalIndicatorsUsed==false}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=true">نعم</button>
 												<button data-toggle="buttons-checkbox" type="button" ng-class="{'btn-primary':document.nationalIndicatorsUsed==false, 'btn-default': document.nationalIndicatorsUsed}" class="btn btn-default" ng-click="document.nationalIndicatorsUsed=false">لا</button>
@@ -198,7 +198,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="km-control-group" name="notes"><span class="help-block">The field &ldquo;Notes&rdquo; is for personal reference and can be seen only when the record is being edited.</span><div km-notes name="notes" ng-model="document.notes"></div>
+											<div class="km-control-group" name="notes"><span class="help-block">الحقل "ملاحظات" للاستخدام الشخصي ويظهر فقط أثناء تحرير السجل.</span><div km-notes name="notes" ng-model="document.notes"></div>
 											</div>
 										</div>
 									</div>

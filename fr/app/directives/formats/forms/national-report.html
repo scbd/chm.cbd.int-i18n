@@ -1,0 +1,206 @@
+﻿<div style="padding-bottom:20px;">
+	  <div smooth-scroll duration="100" offset="250" ></div>
+
+    <h3><span ng-switch="qs.type"><span ng-switch-when="nr">National Reports</span> <span ng-switch-when="nbsap">National Biodiversity Strategies and Action Plans (NBSAP)</span> <span ng-switch-when="other">Other reports</span> <span ng-switch-default="other">National Reports, NBSAPs or Other reports</span></span> <i ng-show="status=='loading'" class="fa fa-spinner fa-spin"></i></h3>
+
+	<div class="alert alert-danger" ng-show="hasError()"><strong>Une erreur est survenue...</strong><div>{{error}}</div>
+	</div>
+
+	<div class="row" ng-show="status=='loading'">chargement en cours...</div>
+
+	<div ng-hide="status=='hidden'||status=='loading'">
+
+        <div class="row" style="margin-top:30px;padding:5px;">
+			<div class="col-xs-6"><span km-form-languages ng-model="document.header.languages"></span></div>
+            <div class="col-xs-6 text-right"><span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)" on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"></span></div>
+        </div>
+
+        <div class="row">
+			<div class="col-xs-12">
+				<ul class="pagination">
+					<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
+					<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">Général</a></li>
+					<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">Examen</a></li>
+					<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
+				</ul>
+			</div>
+		</div>
+
+
+        <form name="editForm" style="margin-top:10px">
+			<div km-tab="general">
+
+				<legend>Informations générales</legend>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="km-control-group" name="government" required caption="Pays">
+							<div km-select ng-disabled="!!defaultGovernment()" required name="government" single ng-model="document.government" placeholder="Veuillez choisir un pays" watch-items items="options.countries"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="km-control-group" name="title" required caption="Title of the document">
+							<div class="help-block">Please use the official title, if available.</div>
+							<div km-textbox-ml required name="title" ng-model="document.title" locales="document.header.languages"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" >
+					<div class="col-md-12">
+						<div class="km-control-group" name="reportType" required caption="Type of Document">
+							<div km-select required ng-disabled="disableReportType" name="reportType" single ng-model="document.reportType" placeholder="Please select report type" watch-items items="options.reportTypes"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="km-control-group" name="summary" caption="Résumé">
+							<div km-textbox-ml name="summary" ng-model="document.summary" rows="5" locales="document.header.languages" placeholder=""></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<div class="km-control-group" name="jurisdiction" caption="Niveau d’application">
+							<div km-select name="jurisdiction" ng-model="document.jurisdiction" placeholder="Veuillez choisir une option" watch-items items="options.jurisdictions"></div>
+						</div>
+					</div>
+					<div class="col-md-7 col-md-offset-1">
+						<div class="km-control-group" name="jurisdictionInfo" caption="Information supplémentaire">
+							<div km-textbox-ml name="jurisdictionInfo" ng-model="document.jurisdictionInfo" locales="document.header.languages" placeholder="" rows="3"></div>
+						</div>
+					</div>
+				</div>
+
+				<legend>Implementation Period</legend>
+				<div class="row bottom-spacing">
+					<div class="col-md-4">
+						<div class="km-control-group" required name="startDate" caption="De">
+							<div km-date name="startDate" required ng-model="document.startDate"></div>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-md-offset-1">
+						<div class="km-control-group" name="endDate" caption="À">
+							<div km-date name="endDate" ng-model="document.endDate"></div>
+						</div>
+					</div>
+				</div>
+
+				<legend>Statut</legend>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="km-control-group" name="status" caption="Statut du document">
+							<div km-select name="status" ng-model="document.status" placeholder="Veuillez choisir une option" watch-items items="options.reportStatus"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4" ng-show="hasAdoptionDate(document)">
+						<div class="km-control-group" name="adoptionDate" caption="Date of completion and adoption"><span class="help-block">Please indicate the year of completion in case year of adoption is unknown</span><input class="form-control" type="text" name="adoptionDate" ng-model="document.adoptionDate"></input>
+						</div>
+					</div>
+				</div>
+
+				<div class="row bottom-spacing" ng-show="hasApprovedStatus(document)">
+					<div class="col-md-12">
+						<div class="km-control-group" name="approvedStatus" caption="Status of approved document">
+							<div km-select  name="approvedStatus" ng-model="document.approvedStatus" placeholder="Please select approved status" watch-items items="options.approvedStatus"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row bottom-spacing" ng-show="hasApprovedStatus(document)">
+					<div class="col-md-12">
+						<div class="km-control-group" name="approvingBody" caption="Approving body">
+							<div km-select  name="approvingBody"  ng-model="document.approvingBody" placeholder="Please select approving body" watch-items items="options.approvingBody"></div>
+						</div>
+					</div>
+				</div>
+				<div class="row bottom-spacing" ng-show="hasApprovedStatusInfo(document)">
+					<div class="col-md-12">
+						<div class="km-control-group" name="approvingBodyInfo" caption="Approving body information">
+							<div km-textbox-ml name="approvingBodyInfo" rows="6" ng-model="document.approvingBodyInfo" locales="document.header.languages"></div>
+						</div>
+					</div>
+				</div>
+
+				<legend>Main relevant document(s)</legend>
+
+				<div class="row  bottom-spacing">
+					<div class="col-md-12">
+						<div class="km-control-group" name="documentText" caption="Informations pertinentes">
+							<div km-textbox-ml name="documentText" ng-model="document.documentText" rows="5" locales="document.header.languages" placeholder=""></div>
+						</div>
+					</div>
+				</div>
+				<div class="row  bottom-spacing">
+					<div class="col-md-12">
+						<div class="km-control-group" name="documentLinks" caption="Sites Internet, liens Internet et fichiers pertinents">
+							<div km-link name="documents" ng-model="document.documentLinks" identifier="document.header.identifier"></div>
+						</div>
+					</div>
+				</div>
+
+				<legend>Tout autres renseignements pertinents</legend>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="km-control-group" name="relevantInformation" caption="Additional Information">
+							<div class="help-block">Veuillez utiliser ce champ pour tout autre renseignement pertinent n'ayant pas été abordé ailleurs dans le fichier.</div>
+							<div km-textbox-ml name="relevantInformation" rows="6" ng-model="document.relevantInformation" locales="document.header.languages"></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="km-control-group" name="relevantDocuments" caption="Autres sites Internet ou fichiers en pièces jointes">
+							<div km-link name="relevantDocuments" ng-model="document.relevantDocuments" identifier="document.header.identifier"></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="km-control-group" name="notes">
+							<legend>Notes</legend><span class="help-block">Le champ « Notes » est réservé à votre usage personnel. Il ne peut être vu que pendant la modification de l'enregistrement.</span><div km-notes name="notes" ng-model="document.notes"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </form>
+
+		<div km-tab="review">
+
+			<div km-document-validation ng-model="validationReport"></div>
+
+			<div class="btn-group" ng-show="document.header.languages.length>1">
+				<input type="button" class="btn" ng-class="{'active' : review.locale==locale, 'btn-info' : review.locale==locale}" ng-repeat="locale in document.header.languages" ng-click="$parent.review.locale = locale" value="{{locale | uppercase}}" />
+			</div>
+
+			<view-national-report ng-model="reviewDocument" locale="review.locale" link-target="_blank"></view-national-report>
+		</div>
+
+		<div class="row" style="padding-bottom:30px;">
+			<div class="col-sm-9 col-xs-12">
+				<ul class="pagination">
+					<li ng-class="{ disabled: tab=='general' }"><a translation-url href="" ng-click="tab='general'">&laquo;</a></li>
+					<li ng-class="{ active  : tab=='general' }"><a translation-url href="" ng-click="tab='general'">Général</a></li>
+					<li ng-class="{ active  : tab=='review'  }"><a translation-url href="" ng-click="tab='review'">Examen</a></li>
+					<li ng-class="{ disabled: tab=='review'  }"><a translation-url href="" ng-click="tab='review'">&raquo;</a></li>
+				</ul>
+			</div>
+
+
+			<div class="col-xs-12 text-right">
+				<div class=""><span km-form-material-buttons status="status" document="getCleanDocument()" on-post-close="onPostClose()" on-error="onError(error, errorCode)" on-post-workflow="onPostWorkflow(data)" on-post-publish="onPostPublish(data)" on-post-save-draft="onPostSaveDraft(data)" on-pre-save-draft="onPreSaveDraft()" on-pre-publish="onPrePublish()"></span></div>
+			</div>
+		</div>
+    </div>
+</div>

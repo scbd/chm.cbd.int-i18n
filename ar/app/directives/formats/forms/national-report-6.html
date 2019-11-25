@@ -87,7 +87,7 @@
 												<div class="row" >
 
 													<div class="col-md-12">
-														<div class="km-control-group" name="government" required caption="الدولة">															
+														<div class="km-control-group" name="government" required caption="البلد">															
 															<div   km-select ng-if="!user.government" required name="government" single ng-model="document.government" placeholder="يرجى اختيار البلد..."
 																items="options.countries"></div><span class="btn btn-info" ng-if="user.government" ng-bind="document.government|term:locale"></span></div>
 													</div>
@@ -254,7 +254,7 @@
 								<div ng-if="draftRecordToDelete" class="well" style="font-size:14px;">
 									<div style="font-size:11px;font-weight:bold;text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;margin-bottom:10px;">مسودة سجل</div>
 									<div class="row">     
-										<div class="col-xs-2" class="color-litegrey">اللقب:</div> 
+										<div class="col-xs-2" class="color-litegrey">Title:</div> 
 										<div class="col-xs-10" style="font-weight:bold">{{draftRecordToDelete.title|lstring:locale}}</div>
 									</div>
 									<div class="row"> 
@@ -263,7 +263,7 @@
 									</div>
 									<div class="row" style="margin-top:10px;"> 
 										<div class="col-xs-12"> 
-											<button ng-disabled="deletingRecord" type="button" class="btn btn-danger"  ng-click="deleteDraft(draftRecordToDelete)">سجل منشور</button></div>
+											<button ng-disabled="deletingRecord" type="button" class="btn btn-danger"  ng-click="deleteDraft(draftRecordToDelete)">حذف مسودة</button></div>
 									</div>
 								</div>
 		
@@ -282,7 +282,7 @@
 									<div class="row" style="margin-top:10px;"> 
 										<div class="col-xs-12"><span class="label label-danger" ng-if="hasAssessment">يرجى حذف تقييم التقدم المحرز لهذا الهدف الوطني قبل حذف الهدف الوطني.</span><button ng-if="!hasAssessment" ng-show="security" type="button" class="btn btn-danger" ng-disabled="deletingRecord"
 											ng-click="deletePublic(publicRecordToDelete)" 
-											data-toggle="tooltip" data-placement="top" title="ملاحظة: أي مسودة معلقة ستحذف أيضًا"><span ng-if="!security.canDelete">طلب حذف هذا السجل</span> <span ng-if="security.canDelete">حذف السجل</span></button> 
+											data-toggle="tooltip" data-placement="top" title="ملاحظة: أي مسودة معلقة ستُحذف أيضًا"><span ng-if="!security.canDelete">طلب حذف هذا السجل</span> <span ng-if="security.canDelete">حذف السجل</span></button> 
 										</div>
 									</div>
 								</div>
